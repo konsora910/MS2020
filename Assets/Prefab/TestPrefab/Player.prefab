@@ -108,7 +108,7 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 116
+  m_Constraints: 112
   m_CollisionDetection: 0
 --- !u!114 &6756987530859499963
 MonoBehaviour:
@@ -123,7 +123,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 0
+  btake: 0
   velocity: {x: 0, y: 0, z: 0}
+  food: {fileID: 0}
+  FoodScript: {fileID: 0}
+  PushPower: 0
 --- !u!135 &7288241303667590863
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -135,5 +139,5 @@ SphereCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 0.016846312
-  m_Center: {x: 0, y: -0.027639614, z: 0.01944115}
+  m_Radius: 0.011662532
+  m_Center: {x: 0, y: -0.020902479, z: 0.020994555}

@@ -6,18 +6,24 @@ public class PlayerController : MonoBehaviour
 {
     public float speed;
     private Rigidbody rb;
-    [SerializeField] private Vector3    velocity;              // 移動方向
+    public bool btake = false; // 持ってるか持ってないか
+    [SerializeField] private Vector3 velocity;              // 移動方向
+    public GameObject food;
+    public FoodController FoodScript;
+    public float PushPower;
+    Collider collider;
     // Start is called before the first frame update
     void Start()
     {
         rb = GetComponent<Rigidbody>();
-    
+       collider = gameObject.GetComponent<Collider>();
     }
 
     // Update is called once per frame
     void Update()
     {
         KeyBord();
+
         /*
         float moveHorizontal = Input.GetAxis("Horizontal");
         float moveVertical = Input.GetAxis("Vertical");
@@ -37,7 +43,7 @@ public class PlayerController : MonoBehaviour
         }
         if (Input.GetKey(KeyCode.A))
         {
-            transform.position -= new Vector3(speed, 0f, 0f);  
+            transform.position -= new Vector3(speed, 0f, 0f);
         }
         if (Input.GetKey(KeyCode.S))
         {
@@ -47,21 +53,30 @@ public class PlayerController : MonoBehaviour
         {
             transform.position += new Vector3(speed, 0f, 0f);
         }
-        // ものを持つ動作
-        if (Input.GetKey(KeyCode.Space))
+        if(FoodScript.takeout==true)
         {
-            
+            if (Input.GetKey(KeyCode.Space))
+            {// 親を解除
+                FoodScript.transform.parent = null;
+                // 前方向に飛ばす
+                food.transform.position += new Vector3(0f, 0f, PushPower);
+                btake = false;
+
+            }
         }
         
+
     }
     // コントローラー操作
     void control()
     {
 
     }
-    // ものを持つ離す（飛ばす？）関数
-    void takefood()
-    {
 
+    void OnTriggerStay(Collider Collider)
+    {// 接触中
+        btake = true;
+        Debug.Log(gameObject.name + "接触中");
     }
+
 }
