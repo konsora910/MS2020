@@ -55,14 +55,15 @@ public class PlayerController : MonoBehaviour
         }
         if(FoodScript.takeout==true)
         {
+            // 親を解除
+            FoodScript.transform.parent = null;
             if (Input.GetKey(KeyCode.Space))
-            {// 親を解除
-                FoodScript.transform.parent = null;
-                // 前方向に飛ばす
+            {// 前方向に飛ばす
                 food.transform.position += new Vector3(0f, 0f, PushPower);
-                btake = false;
-
+                // FoodScript.takeout = false; // このコメントを外すと置くみたいに少しだけ離れる
             }
+            btake = false;
+
         }
         
 
@@ -75,8 +76,11 @@ public class PlayerController : MonoBehaviour
 
     void OnTriggerStay(Collider Collider)
     {// 接触中
-        btake = true;
-        Debug.Log(gameObject.name + "接触中");
+        if (Collider.gameObject.tag == "Food")
+        {// フードタグが付いているゲームオブジェクトに当たった時
+            btake = true;
+        }
+            Debug.Log(gameObject.name + "接触中");
     }
 
 }
