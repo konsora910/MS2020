@@ -343,7 +343,7 @@ Transform:
   - {fileID: 4564482921096644026}
   - {fileID: 6798290139399794747}
   - {fileID: 5441103779104210599}
-  - {fileID: 5006512736251083879}
+  - {fileID: 6632788887778293204}
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -515,6 +515,22 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 3627424043977075441}
   m_PrefabAsset: {fileID: 0}
+--- !u!54 &2094727676
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2094727671}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!114 &2094727677
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -531,6 +547,8 @@ MonoBehaviour:
   Player: {fileID: 444959544}
   PLscript: {fileID: 444959546}
   takeout: 0
+  FoodResetPosition: {x: 0, y: 0, z: 0}
+  bShot: 0
 --- !u!4 &1350503459386747671 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5510699894964335131, guid: 7276d2c607431fd47802a4480886a15b,
@@ -634,6 +652,26 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 6756987530859499963, guid: ce393cfca6ea43a46a30f82a0209fad4,
+        type: 3}
+      propertyPath: speed
+      value: 0.05
+      objectReference: {fileID: 0}
+    - target: {fileID: 6756987530859499963, guid: ce393cfca6ea43a46a30f82a0209fad4,
+        type: 3}
+      propertyPath: FoodScript
+      value: 
+      objectReference: {fileID: 2094727677}
+    - target: {fileID: 6756987530859499963, guid: ce393cfca6ea43a46a30f82a0209fad4,
+        type: 3}
+      propertyPath: food
+      value: 
+      objectReference: {fileID: 2094727671}
+    - target: {fileID: 6756987530859499963, guid: ce393cfca6ea43a46a30f82a0209fad4,
+        type: 3}
+      propertyPath: PushPower
+      value: 0.45
+      objectReference: {fileID: 0}
     - target: {fileID: 2547975719763009696, guid: ce393cfca6ea43a46a30f82a0209fad4,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -698,26 +736,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalScale.z
       value: 20.506178
-      objectReference: {fileID: 0}
-    - target: {fileID: 6756987530859499963, guid: ce393cfca6ea43a46a30f82a0209fad4,
-        type: 3}
-      propertyPath: speed
-      value: 0.05
-      objectReference: {fileID: 0}
-    - target: {fileID: 6756987530859499963, guid: ce393cfca6ea43a46a30f82a0209fad4,
-        type: 3}
-      propertyPath: FoodScript
-      value: 
-      objectReference: {fileID: 2094727677}
-    - target: {fileID: 6756987530859499963, guid: ce393cfca6ea43a46a30f82a0209fad4,
-        type: 3}
-      propertyPath: food
-      value: 
-      objectReference: {fileID: 2094727671}
-    - target: {fileID: 6756987530859499963, guid: ce393cfca6ea43a46a30f82a0209fad4,
-        type: 3}
-      propertyPath: PushPower
-      value: 0.45
       objectReference: {fileID: 0}
     - target: {fileID: 7288241303667590863, guid: ce393cfca6ea43a46a30f82a0209fad4,
         type: 3}
@@ -939,12 +957,6 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 2764447255091004035}
   m_PrefabAsset: {fileID: 0}
---- !u!4 &5006512736251083879 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 1834885444745562548, guid: 9be4558a4b77f824d81b6076737a9dcc,
-    type: 3}
-  m_PrefabInstance: {fileID: 6632788887778293203}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &5441103779104210599 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2090984303059109807, guid: bc948c01dcce77946952b1fe7b97e491,
@@ -1111,16 +1123,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 948775478}
     m_Modifications:
-    - target: {fileID: 3399526468610358183, guid: 9be4558a4b77f824d81b6076737a9dcc,
-        type: 3}
-      propertyPath: m_Name
-      value: conro
-      objectReference: {fileID: 0}
-    - target: {fileID: 3399526468610358183, guid: 9be4558a4b77f824d81b6076737a9dcc,
-        type: 3}
-      propertyPath: m_TagString
-      value: Cook
-      objectReference: {fileID: 0}
     - target: {fileID: 1834885444745562548, guid: 9be4558a4b77f824d81b6076737a9dcc,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1176,8 +1178,24 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3399526468610358183, guid: 9be4558a4b77f824d81b6076737a9dcc,
+        type: 3}
+      propertyPath: m_Name
+      value: conro
+      objectReference: {fileID: 0}
+    - target: {fileID: 3399526468610358183, guid: 9be4558a4b77f824d81b6076737a9dcc,
+        type: 3}
+      propertyPath: m_TagString
+      value: Cook
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9be4558a4b77f824d81b6076737a9dcc, type: 3}
+--- !u!4 &6632788887778293204 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 9165389551245254553, guid: 9be4558a4b77f824d81b6076737a9dcc,
+    type: 3}
+  m_PrefabInstance: {fileID: 6632788887778293203}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &6798290139399794747 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2757318021847486629, guid: 3b788309693dd264e8d8a76a67fa47ae,

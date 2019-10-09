@@ -9,10 +9,12 @@ public class FoodController : MonoBehaviour
     public PlayerController PLscript; // 外部参照　プレイヤースクリプト
     public bool takeout = false; // 持っていない状態を表す
     public Vector3 FoodResetPosition; //食べ物の初期位置
+    private Rigidbody rb;
     // Start is called before the first frame update
     void Start()
     {
-        
+        rb = this.GetComponent<Rigidbody>();
+        this.gameObject.transform.position = rb.position;
     }
 
     // Update is called once per frame
@@ -24,6 +26,8 @@ public class FoodController : MonoBehaviour
         }
         if(Input.GetKey(KeyCode.R))
         {// Rキーを押すと元の（指定した）場所に戻る
+            this.gameObject.transform.parent = null;
+            //transform.parent = null;
             this.gameObject.transform.position = new Vector3(FoodResetPosition.x, FoodResetPosition.y, FoodResetPosition.z);
         }
     }
@@ -36,5 +40,5 @@ public class FoodController : MonoBehaviour
         takeout = true; // true = 何かしら持っている
       
     }
-
+    
 }

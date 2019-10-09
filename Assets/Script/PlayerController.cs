@@ -16,7 +16,7 @@ public class PlayerController : MonoBehaviour
     void Start()
     {
         rb = GetComponent<Rigidbody>();
-       collider = gameObject.GetComponent<Collider>();
+        collider = gameObject.GetComponent<Collider>();
     }
 
     // Update is called once per frame
@@ -24,14 +24,26 @@ public class PlayerController : MonoBehaviour
     {
         KeyBord();
 
-        /*
+
         float moveHorizontal = Input.GetAxis("Horizontal");
         float moveVertical = Input.GetAxis("Vertical");
 
         Vector3 movement = new Vector3(moveHorizontal, 0.0f, moveVertical);
 
-        rb.AddForce(movement * speed);
-        */
+        //rb.AddForce(movement * speed);
+
+        if (FoodScript.takeout == true)
+        {
+            // 持った食材を置くメソッド
+            if (Input.GetKeyDown(KeyCode.Space) && btake == true)
+            {// 前方向に飛ばす
+                FoodScript.transform.parent = null;
+                FoodScript.takeout = false; // このコメントを外すと置くみたいに少しだけ離れる
+                btake = false;
+            }
+            //btake = false;
+        }
+
     }
     // キーボード操作
     void KeyBord()
@@ -53,18 +65,6 @@ public class PlayerController : MonoBehaviour
         {
             transform.position += new Vector3(speed, 0f, 0f);
         }
-        if(FoodScript.takeout==true)
-        {
-            // 親を解除
-            FoodScript.transform.parent = null;
-            if (Input.GetKey(KeyCode.Space))
-            {// 前方向に飛ばす
-                food.transform.position += new Vector3(0f, 0f, PushPower);
-                // FoodScript.takeout = false; // このコメントを外すと置くみたいに少しだけ離れる
-            }
-            btake = false;
-
-        }
         
 
     }
@@ -78,9 +78,13 @@ public class PlayerController : MonoBehaviour
     {// 接触中
         if (Collider.gameObject.tag == "Food")
         {// フードタグが付いているゲームオブジェクトに当たった時
-            btake = true;
+            //btake = true;
+            if(FoodScript.transform.parent)
+            {
+                btake = true;
+                Debug.Log(gameObject.name + "接触中");
+            }
         }
-            Debug.Log(gameObject.name + "接触中");
     }
 
 }
