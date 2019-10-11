@@ -6,6 +6,9 @@ TagManager:
   tags:
   - Food
   - Cook
+  - egg
+  - tmt
+  - rice
   layers:
   - Default
   - TransparentFX
