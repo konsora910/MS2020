@@ -548,7 +548,6 @@ MonoBehaviour:
   PLscript: {fileID: 444959546}
   takeout: 0
   FoodResetPosition: {x: 0, y: 0, z: 0}
-  bShot: 0
 --- !u!4 &1350503459386747671 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5510699894964335131, guid: 7276d2c607431fd47802a4480886a15b,
@@ -742,6 +741,21 @@ PrefabInstance:
       propertyPath: m_IsTrigger
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 7288241303667590863, guid: ce393cfca6ea43a46a30f82a0209fad4,
+        type: 3}
+      propertyPath: m_Center.z
+      value: 0.02
+      objectReference: {fileID: 0}
+    - target: {fileID: 7288241303667590863, guid: ce393cfca6ea43a46a30f82a0209fad4,
+        type: 3}
+      propertyPath: m_Center.y
+      value: -0.005
+      objectReference: {fileID: 0}
+    - target: {fileID: 7288241303667590863, guid: ce393cfca6ea43a46a30f82a0209fad4,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4969055775498787145, guid: ce393cfca6ea43a46a30f82a0209fad4,
         type: 3}
       propertyPath: m_Size.y
@@ -920,6 +934,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_IsTrigger
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4812057157877773766, guid: 09ffd3533b22e7b4c93c9dad1bfb783e,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1470245268986763667, guid: 09ffd3533b22e7b4c93c9dad1bfb783e,
         type: 3}
@@ -1187,6 +1206,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_TagString
       value: Cook
+      objectReference: {fileID: 0}
+    - target: {fileID: 9165389551245254553, guid: 9be4558a4b77f824d81b6076737a9dcc,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 9
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9be4558a4b77f824d81b6076737a9dcc, type: 3}

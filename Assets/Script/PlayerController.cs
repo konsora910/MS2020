@@ -36,12 +36,11 @@ public class PlayerController : MonoBehaviour
         {
             // 持った食材を置くメソッド
             if (Input.GetKeyDown(KeyCode.Space) && btake == true)
-            {// 前方向に飛ばす
+            {
                 FoodScript.transform.parent = null;
                 FoodScript.takeout = false; // このコメントを外すと置くみたいに少しだけ離れる
                 btake = false;
             }
-            //btake = false;
         }
 
     }
@@ -78,10 +77,10 @@ public class PlayerController : MonoBehaviour
     {// 接触中
         if (Collider.gameObject.tag == "Food")
         {// フードタグが付いているゲームオブジェクトに当たった時
-            //btake = true;
+            btake = true;
             if(FoodScript.transform.parent)
             {
-                btake = true;
+                //btake = true;
                 Debug.Log(gameObject.name + "接触中");
             }
         }

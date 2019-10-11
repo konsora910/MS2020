@@ -20,7 +20,7 @@ public class FoodController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(PLscript.btake==true)
+        if(PLscript.btake == true)
         {
             foodparent();
         }
@@ -36,7 +36,7 @@ public class FoodController : MonoBehaviour
     {// 親をプレイヤーにする
         transform.parent = GameObject.Find("Player").transform;
         // プレイヤーの一歩手前　の手の位置にしてる
-        food.transform.position = new Vector3 ((Player.transform.position.x+ 0.0146f), (Player.transform.position.y+ 0.63f), (Player.transform.position.z+ 0.4f));
+        food.transform.position = new Vector3 ((Player.transform.position.x+ 0.0146f), (Player.transform.position.y+ 0.63f), (Player.transform.position.z+ 0.6f));
         takeout = true; // true = 何かしら持っている
       
     }
