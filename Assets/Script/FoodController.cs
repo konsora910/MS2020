@@ -9,12 +9,12 @@ public class FoodController : MonoBehaviour
     public PlayerController PLscript; // 外部参照　プレイヤースクリプト
     public bool takeout = false; // 持っていない状態を表す
     public Vector3 FoodResetPosition; //食べ物の初期位置
-    private Rigidbody rb;
+    //private Rigidbody rb;
     // Start is called before the first frame update
     void Start()
     {
-        rb = this.GetComponent<Rigidbody>();
-        this.gameObject.transform.position = rb.position;
+        //rb = this.GetComponent<Rigidbody>();
+        //this.gameObject.transform.position = rb.position;
     }
 
     // Update is called once per frame
