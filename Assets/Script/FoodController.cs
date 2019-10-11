@@ -20,7 +20,7 @@ public class FoodController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(PLscript.btake == true)
+        if(PLscript.bFood_Take == true)
         {
             foodparent();
         }

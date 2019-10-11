@@ -6,7 +6,7 @@ public class PlayerController : MonoBehaviour
 {
     public float speed;
     private Rigidbody rb;
-    public bool btake = false; // 持ってるか持ってないか
+    public bool bFood_Take = false;                         // 持ってるか持ってないか
     [SerializeField] private Vector3 velocity;              // 移動方向
     public GameObject food;
     public FoodController FoodScript;
@@ -35,11 +35,11 @@ public class PlayerController : MonoBehaviour
         if (FoodScript.takeout == true)
         {
             // 持った食材を置くメソッド
-            if (Input.GetKeyDown(KeyCode.Space) && btake == true)
+            if (Input.GetKeyDown(KeyCode.Space) && bFood_Take == true)
             {
                 FoodScript.transform.parent = null;
                 FoodScript.takeout = false; // このコメントを外すと置くみたいに少しだけ離れる
-                btake = false;
+                bFood_Take = false;
             }
         }
 
@@ -64,9 +64,8 @@ public class PlayerController : MonoBehaviour
         {
             transform.position += new Vector3(speed, 0f, 0f);
         }
-        
-
     }
+
     // コントローラー操作
     void control()
     {
@@ -77,12 +76,11 @@ public class PlayerController : MonoBehaviour
     {// 接触中
         if (Collider.gameObject.tag == "Food")
         {// フードタグが付いているゲームオブジェクトに当たった時
-            btake = true;
-            if(FoodScript.transform.parent)
+            if (Input.GetKeyDown(KeyCode.Space))
             {
-                //btake = true;
-                Debug.Log(gameObject.name + "接触中");
+                bFood_Take = true;
             }
+
         }
     }
 
