@@ -7,16 +7,17 @@ public class PlayerController : MonoBehaviour
     public float speed;
     private Rigidbody rb;
     public bool bFood_Take = false;                         // 持ってるか持ってないか
+    public bool bEgg, bRice, bTmt;
     [SerializeField] private Vector3 velocity;              // 移動方向
-//    public GameObject food;
+                                                            //    public GameObject food;
     public FoodController[] FoodScript = new FoodController[3];
     public float PushPower;
-//    Collider collider;
+    //    Collider collider;
     // Start is called before the first frame update
     void Start()
     {
         rb = GetComponent<Rigidbody>();
- //       collider = gameObject.GetComponent<Collider>();
+        //       collider = gameObject.GetComponent<Collider>();
     }
 
     // Update is called once per frame
@@ -78,32 +79,24 @@ public class PlayerController : MonoBehaviour
 
     void OnTriggerStay(Collider Collider)
     {// 接触中
-
-        if (Collider.gameObject.tag == "egg")
-        {// フードタグが付いているゲームオブジェクトに当たった時
-            if (Input.GetKeyDown(KeyCode.Space))
-            {
-                bFood_Take = true;
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            if (Collider.gameObject.tag == "egg")
+            {// フードタグが付いているゲームオブジェクトに当たった時
+                bEgg = true;
+                bRice = bTmt = false;
             }
-
-        }
-
-        if (Collider.gameObject.tag == "rice")
-        {// フードタグが付いているゲームオブジェクトに当たった時
-            if (Input.GetKeyDown(KeyCode.Space))
-            {
-                bFood_Take = true;
+            if (Collider.gameObject.tag == "rice")
+            {// フードタグが付いているゲームオブジェクトに当たった時
+                bRice = true;
+                bTmt = bEgg = false;
             }
-
-        }
-        if (Collider.gameObject.tag == "tmt")
-        {// フードタグが付いているゲームオブジェクトに当たった時
-            if (Input.GetKeyDown(KeyCode.Space))
-            {
-                bFood_Take = true;
+            if (Collider.gameObject.tag == "tmt")
+            {// フードタグが付いているゲームオブジェクトに当たった時
+                bTmt = true;
+                bRice = bEgg = false;
             }
-
+        //    bFood_Take = true;
         }
     }
-
 }

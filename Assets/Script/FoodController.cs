@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class FoodController : MonoBehaviour
 {
-    public GameObject food; // 複数の食べ物配列
+    public GameObject[] food; // 複数の食べ物配列
     public GameObject Player;
     public PlayerController PLscript; // 外部参照　プレイヤースクリプト
     public bool takeout = false; // 持っていない状態を表す
@@ -20,10 +20,7 @@ public class FoodController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(PLscript.bFood_Take == true)
-        {
             foodparent();
-        }
         if(Input.GetKey(KeyCode.R))
         {// Rキーを押すと元の（指定した）場所に戻る
             this.gameObject.transform.parent = null;
@@ -34,9 +31,23 @@ public class FoodController : MonoBehaviour
     // 親を変更する関数
    void foodparent()
     {// 親をプレイヤーにする
-        transform.parent = GameObject.Find("Player").transform;
         // プレイヤーの一歩手前　の手の位置にしてる
-        food.transform.position = new Vector3 ((Player.transform.position.x+ 0.0146f), (Player.transform.position.y+ 0.63f), (Player.transform.position.z+ 0.6f));
+        if(PLscript.bEgg)
+        {
+            transform.parent = GameObject.Find("Player").transform;
+            food[0].transform.position = new Vector3 ((Player.transform.position.x+ 0.0146f), (Player.transform.position.y+ 0.63f), (Player.transform.position.z+ 0.6f));
+        }
+        else if(PLscript.bRice)
+        {
+            transform.parent = GameObject.Find("Player").transform;
+            food[1].transform.position = new Vector3((Player.transform.position.x + 0.0146f), (Player.transform.position.y + 0.63f), (Player.transform.position.z + 0.6f));
+        }
+        else if (PLscript.bTmt)
+        {
+            transform.parent = GameObject.Find("Player").transform;
+            food[2].transform.position = new Vector3((Player.transform.position.x + 0.0146f), (Player.transform.position.y + 0.63f), (Player.transform.position.z + 0.6f));
+        }
+
         takeout = true; // true = 何かしら持っている
       
     }
