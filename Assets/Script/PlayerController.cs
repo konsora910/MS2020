@@ -40,7 +40,7 @@ public class PlayerController : MonoBehaviour
                 // 持った食材を置くメソッド
                 if (Input.GetKeyDown(KeyCode.Space) && bFood_Take == true)
                 {
-                    FoodScript[i].transform.parent = null;
+                    FoodScript[i].transform.parent = null;// <= ここを変えてくれ！！
                     FoodScript[i].takeout = false; // このコメントを外すと置くみたいに少しだけ離れる
                     bFood_Take = false;
                     break;
