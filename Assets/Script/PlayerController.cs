@@ -8,15 +8,15 @@ public class PlayerController : MonoBehaviour
     private Rigidbody rb;
     public bool bFood_Take = false;                         // 持ってるか持ってないか
     [SerializeField] private Vector3 velocity;              // 移動方向
-    public GameObject food;
-    public FoodController FoodScript;
+//    public GameObject food;
+    public FoodController[] FoodScript = new FoodController[3];
     public float PushPower;
-    Collider collider;
+//    Collider collider;
     // Start is called before the first frame update
     void Start()
     {
         rb = GetComponent<Rigidbody>();
-        collider = gameObject.GetComponent<Collider>();
+ //       collider = gameObject.GetComponent<Collider>();
     }
 
     // Update is called once per frame
@@ -32,14 +32,18 @@ public class PlayerController : MonoBehaviour
 
         //rb.AddForce(movement * speed);
 
-        if (FoodScript.takeout == true)
+        for (int i = 0; i < 3; i++)
         {
-            // 持った食材を置くメソッド
-            if (Input.GetKeyDown(KeyCode.Space) && bFood_Take == true)
+            if (FoodScript[i].takeout == true)
             {
-                FoodScript.transform.parent = null;
-                FoodScript.takeout = false; // このコメントを外すと置くみたいに少しだけ離れる
-                bFood_Take = false;
+                // 持った食材を置くメソッド
+                if (Input.GetKeyDown(KeyCode.Space) && bFood_Take == true)
+                {
+                    FoodScript[i].transform.parent = null;
+                    FoodScript[i].takeout = false; // このコメントを外すと置くみたいに少しだけ離れる
+                    bFood_Take = false;
+                    break;
+                }
             }
         }
 
@@ -74,7 +78,25 @@ public class PlayerController : MonoBehaviour
 
     void OnTriggerStay(Collider Collider)
     {// 接触中
-        if (Collider.gameObject.tag == "Food")
+
+        if (Collider.gameObject.tag == "egg")
+        {// フードタグが付いているゲームオブジェクトに当たった時
+            if (Input.GetKeyDown(KeyCode.Space))
+            {
+                bFood_Take = true;
+            }
+
+        }
+
+        if (Collider.gameObject.tag == "rice")
+        {// フードタグが付いているゲームオブジェクトに当たった時
+            if (Input.GetKeyDown(KeyCode.Space))
+            {
+                bFood_Take = true;
+            }
+
+        }
+        if (Collider.gameObject.tag == "tmt")
         {// フードタグが付いているゲームオブジェクトに当たった時
             if (Input.GetKeyDown(KeyCode.Space))
             {
