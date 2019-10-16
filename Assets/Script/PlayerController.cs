@@ -33,21 +33,38 @@ public class PlayerController : MonoBehaviour
 
         //rb.AddForce(movement * speed);
 
-        for (int i = 0; i < 3; i++)
+        /*       if (FoodScript[0].takeout == true)
+               {
+                   // 持った食材を置くメソッド
+                   if (Input.GetKeyDown(KeyCode.Space) && bFood_Take == true)
+                   {
+                       Debug.Log("aaaaa");
+                       for (int i = 0; i < 3; i++)
+                       {
+                           FoodScript[i].transform.parent = null;// <= ここを変えてくれ！！
+                           FoodScript[i].takeout = false; // このコメントを外すと置くみたいに少しだけ離れる
+                           bFood_Take = false;
+                       }
+                   }
+                   }
+          */
+        if (Input.GetKeyDown(KeyCode.B) && bFood_Take == true)
         {
-            if (FoodScript[i].takeout == true)
-            {
-                // 持った食材を置くメソッド
-                if (Input.GetKeyDown(KeyCode.Space) && bFood_Take == true)
-                {
-                    FoodScript[i].transform.parent = null;// <= ここを変えてくれ！！
-                    FoodScript[i].takeout = false; // このコメントを外すと置くみたいに少しだけ離れる
-                    bFood_Take = false;
-                    break;
-                }
+            Debug.Log("aaaaa");
+            if (bEgg == true)
+            {// フードタグが付いているゲームオブジェクトに当たった時
+                bEgg = false;
             }
+            if (bRice == true)
+            {// フードタグが付いているゲームオブジェクトに当たった時
+                bRice = false;
+            }
+            if (bTmt == true)
+            {// フードタグが付いているゲームオブジェクトに当たった時
+                bTmt = false;
+            }
+            bFood_Take = false;
         }
-
     }
     // キーボード操作
     void KeyBord()
@@ -81,22 +98,28 @@ public class PlayerController : MonoBehaviour
     {// 接触中
         if (Input.GetKeyDown(KeyCode.Space))
         {
-            if (Collider.gameObject.tag == "egg")
-            {// フードタグが付いているゲームオブジェクトに当たった時
-                bEgg = true;
-                bRice = bTmt = false;
+            Debug.Log("iiiii");
+            if (bFood_Take == false)
+            {
+                if (Collider.gameObject.tag == "egg")
+                {// フードタグが付いているゲームオブジェクトに当たった時
+                    bEgg = true;
+                    bRice = bTmt = false;
+                }
+                else if (Collider.gameObject.tag == "rice")
+                {// フードタグが付いているゲームオブジェクトに当たった時
+                    bRice = true;
+                    bTmt = bEgg = false;
+                }
+                else if (Collider.gameObject.tag == "tmt")
+                {// フードタグが付いているゲームオブジェクトに当たった時
+                    bTmt = true;
+                    bRice = bEgg = false;
+                }
+                bFood_Take = true;
             }
-            if (Collider.gameObject.tag == "rice")
-            {// フードタグが付いているゲームオブジェクトに当たった時
-                bRice = true;
-                bTmt = bEgg = false;
-            }
-            if (Collider.gameObject.tag == "tmt")
-            {// フードタグが付いているゲームオブジェクトに当たった時
-                bTmt = true;
-                bRice = bEgg = false;
-            }
-        //    bFood_Take = true;
         }
+       
     }
+    
 }

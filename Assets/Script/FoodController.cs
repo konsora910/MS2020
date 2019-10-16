@@ -34,21 +34,24 @@ public class FoodController : MonoBehaviour
         // プレイヤーの一歩手前　の手の位置にしてる
         if(PLscript.bEgg)
         {
+            takeout = true; // true = 何かしら持っている
             transform.parent = GameObject.Find("Player").transform;
             food[0].transform.position = new Vector3 ((Player.transform.position.x+ 0.0146f), (Player.transform.position.y+ 0.63f), (Player.transform.position.z+ 0.6f));
         }
         else if(PLscript.bRice)
         {
+            takeout = true; // true = 何かしら持っている
             transform.parent = GameObject.Find("Player").transform;
             food[1].transform.position = new Vector3((Player.transform.position.x + 0.0146f), (Player.transform.position.y + 0.63f), (Player.transform.position.z + 0.6f));
         }
         else if (PLscript.bTmt)
         {
+            takeout = true; // true = 何かしら持っている
             transform.parent = GameObject.Find("Player").transform;
             food[2].transform.position = new Vector3((Player.transform.position.x + 0.0146f), (Player.transform.position.y + 0.63f), (Player.transform.position.z + 0.6f));
         }
 
-        takeout = true; // true = 何かしら持っている
+        
       
     }
     
