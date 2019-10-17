@@ -9,6 +9,7 @@ TagManager:
   - egg
   - tmt
   - rice
+  - Robo
   layers:
   - Default
   - TransparentFX
