@@ -13,7 +13,6 @@ GameObject:
   - component: {fileID: 953555575962052207}
   - component: {fileID: 4969055775498787145}
   - component: {fileID: 5428862729871350182}
-  - component: {fileID: 6756987530859499963}
   - component: {fileID: 7288241303667590863}
   m_Layer: 0
   m_Name: Robo
@@ -110,23 +109,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 112
   m_CollisionDetection: 0
---- !u!114 &6756987530859499963
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1515289416717669043}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 424a6c64a04d8974e8bd010e3b18a321, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  food: {fileID: 0}
-  speed: 0
-  bFood_Take: 0
-  velocity: {x: 0, y: 0, z: 0}
-  PushPower: 0
 --- !u!135 &7288241303667590863
 SphereCollider:
   m_ObjectHideFlags: 0
