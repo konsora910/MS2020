@@ -4,55 +4,40 @@ using UnityEngine;
 
 public class FoodController : MonoBehaviour
 {
-    public GameObject[] food; // 複数の食べ物配列
-    public GameObject Player;
-    public PlayerController PLscript; // 外部参照　プレイヤースクリプト
-    public bool takeout = false; // 持っていない状態を表す
-    public Vector3 FoodResetPosition; //食べ物の初期位置
-    //private Rigidbody rb;
+    public GameObject Player;          　//プレイヤ―情報
+    public bool takeout = false;     　  // 持っていない状態を表す
+    public Vector3 FoodResetPosition;  　//食べ物の初期位置
     // Start is called before the first frame update
     void Start()
     {
-        //rb = this.GetComponent<Rigidbody>();
-        //this.gameObject.transform.position = rb.position;
+        Player = GameObject.FindGameObjectWithTag("Player");
     }
 
     // Update is called once per frame
     void Update()
     {
-            foodparent();
         if(Input.GetKey(KeyCode.R))
         {// Rキーを押すと元の（指定した）場所に戻る
             this.gameObject.transform.parent = null;
-            //transform.parent = null;
+     
             this.gameObject.transform.position = new Vector3(FoodResetPosition.x, FoodResetPosition.y, FoodResetPosition.z);
+        }
+        if(takeout == true)
+        {
+            this.gameObject.transform.position = new Vector3((Player.transform.position.x + 0.0146f), (Player.transform.position.y + 0.63f), (Player.transform.position.z + 0.6f));
+        }
+    }
+    void OnTriggerStay(Collider Collider)
+    {
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            //プレイヤーと接触していたら
+            if(Collider.gameObject.tag == "Player")
+            {
+                takeout = true; // true = 何かしら持っている
+            }
         }
     }
     // 親を変更する関数
-   void foodparent()
-    {// 親をプレイヤーにする
-        // プレイヤーの一歩手前　の手の位置にしてる
-        if(PLscript.bEgg)
-        {
-            takeout = true; // true = 何かしら持っている
-            transform.parent = GameObject.Find("Player").transform;
-            food[0].transform.position = new Vector3 ((Player.transform.position.x+ 0.0146f), (Player.transform.position.y+ 0.63f), (Player.transform.position.z+ 0.6f));
-        }
-        else if(PLscript.bRice)
-        {
-            takeout = true; // true = 何かしら持っている
-            transform.parent = GameObject.Find("Player").transform;
-            food[1].transform.position = new Vector3((Player.transform.position.x + 0.0146f), (Player.transform.position.y + 0.63f), (Player.transform.position.z + 0.6f));
-        }
-        else if (PLscript.bTmt)
-        {
-            takeout = true; // true = 何かしら持っている
-            transform.parent = GameObject.Find("Player").transform;
-            food[2].transform.position = new Vector3((Player.transform.position.x + 0.0146f), (Player.transform.position.y + 0.63f), (Player.transform.position.z + 0.6f));
-        }
-
-        
-      
-    }
     
 }
