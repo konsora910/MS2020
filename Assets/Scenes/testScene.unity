@@ -199,24 +199,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 220c75ba4d3195d45a917ece3d3aa94e, type: 3}
---- !u!1 &276454836 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1515289416717669043, guid: ce393cfca6ea43a46a30f82a0209fad4,
-    type: 3}
-  m_PrefabInstance: {fileID: 2014711738}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &276454837 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 6756987530859499963, guid: ce393cfca6ea43a46a30f82a0209fad4,
-    type: 3}
-  m_PrefabInstance: {fileID: 2014711738}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 276454836}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 424a6c64a04d8974e8bd010e3b18a321, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!4 &276454843 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2547975719763009696, guid: ce393cfca6ea43a46a30f82a0209fad4,
@@ -578,6 +560,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 0}
+    - {fileID: 4812057157877773766, guid: 09ffd3533b22e7b4c93c9dad1bfb783e, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 09ffd3533b22e7b4c93c9dad1bfb783e, type: 3}
 --- !u!1001 &538705224
 PrefabInstance:
@@ -586,6 +569,16 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1291692103}
     m_Modifications:
+    - target: {fileID: 3125483838237013436, guid: bc948c01dcce77946952b1fe7b97e491,
+        type: 3}
+      propertyPath: m_Name
+      value: knife
+      objectReference: {fileID: 0}
+    - target: {fileID: 3125483838237013436, guid: bc948c01dcce77946952b1fe7b97e491,
+        type: 3}
+      propertyPath: m_TagString
+      value: Cook
+      objectReference: {fileID: 0}
     - target: {fileID: 2090984303059109807, guid: bc948c01dcce77946952b1fe7b97e491,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -640,16 +633,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3125483838237013436, guid: bc948c01dcce77946952b1fe7b97e491,
-        type: 3}
-      propertyPath: m_Name
-      value: knife
-      objectReference: {fileID: 0}
-    - target: {fileID: 3125483838237013436, guid: bc948c01dcce77946952b1fe7b97e491,
-        type: 3}
-      propertyPath: m_TagString
-      value: Cook
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bc948c01dcce77946952b1fe7b97e491, type: 3}
@@ -835,7 +818,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1291692103}
-  - component: {fileID: 1291692104}
   m_Layer: 0
   m_Name: TestObject
   m_TagString: Untagged
@@ -869,26 +851,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1291692104
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1291692102}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d788195e1b76b1c4998d453e9ef5e58a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  food:
-  - {fileID: 8296172668107392834}
-  - {fileID: 2131663295648493882}
-  - {fileID: 1715565286}
-  Player: {fileID: 276454836}
-  PLscript: {fileID: 276454837}
-  takeout: 0
-  FoodResetPosition: {x: 0, y: 0, z: 0}
 --- !u!1001 &1502919970
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -896,6 +858,16 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1291692103}
     m_Modifications:
+    - target: {fileID: 4079136633207419863, guid: b206cced7261d324c97c9061c3136621,
+        type: 3}
+      propertyPath: m_Name
+      value: "\u307E\u306A\u677F"
+      objectReference: {fileID: 0}
+    - target: {fileID: 4079136633207419863, guid: b206cced7261d324c97c9061c3136621,
+        type: 3}
+      propertyPath: m_TagString
+      value: Cook
+      objectReference: {fileID: 0}
     - target: {fileID: 1064917689992643012, guid: b206cced7261d324c97c9061c3136621,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -957,16 +929,6 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 3774287833015211961, guid: 28da6de4c7e6ba440a6b5f8a28fd01cf,
         type: 3}
-    - target: {fileID: 4079136633207419863, guid: b206cced7261d324c97c9061c3136621,
-        type: 3}
-      propertyPath: m_Name
-      value: "\u307E\u306A\u677F"
-      objectReference: {fileID: 0}
-    - target: {fileID: 4079136633207419863, guid: b206cced7261d324c97c9061c3136621,
-        type: 3}
-      propertyPath: m_TagString
-      value: Cook
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b206cced7261d324c97c9061c3136621, type: 3}
 --- !u!1001 &1571616121
@@ -1060,6 +1022,21 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 523733460}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1715565288
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1715565286}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d788195e1b76b1c4998d453e9ef5e58a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Player: {fileID: 0}
+  takeout: 0
+  FoodResetPosition: {x: 0, y: 0, z: 0}
 --- !u!1001 &1841604395
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1067,6 +1044,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1291692103}
     m_Modifications:
+    - target: {fileID: 8800783003698020360, guid: 7276d2c607431fd47802a4480886a15b,
+        type: 3}
+      propertyPath: m_Name
+      value: table
+      objectReference: {fileID: 0}
     - target: {fileID: 5510699894964335131, guid: 7276d2c607431fd47802a4480886a15b,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1121,11 +1103,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8800783003698020360, guid: 7276d2c607431fd47802a4480886a15b,
-        type: 3}
-      propertyPath: m_Name
-      value: table
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7276d2c607431fd47802a4480886a15b, type: 3}
@@ -1232,6 +1209,51 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 1515289416717669043, guid: ce393cfca6ea43a46a30f82a0209fad4,
+        type: 3}
+      propertyPath: m_TagString
+      value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 6756987530859499963, guid: ce393cfca6ea43a46a30f82a0209fad4,
+        type: 3}
+      propertyPath: FoodScript.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6756987530859499963, guid: ce393cfca6ea43a46a30f82a0209fad4,
+        type: 3}
+      propertyPath: speed
+      value: 0.05
+      objectReference: {fileID: 0}
+    - target: {fileID: 6756987530859499963, guid: ce393cfca6ea43a46a30f82a0209fad4,
+        type: 3}
+      propertyPath: FoodScript
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 6756987530859499963, guid: ce393cfca6ea43a46a30f82a0209fad4,
+        type: 3}
+      propertyPath: food
+      value: 
+      objectReference: {fileID: 1715565286}
+    - target: {fileID: 6756987530859499963, guid: ce393cfca6ea43a46a30f82a0209fad4,
+        type: 3}
+      propertyPath: PushPower
+      value: 0.45
+      objectReference: {fileID: 0}
+    - target: {fileID: 6756987530859499963, guid: ce393cfca6ea43a46a30f82a0209fad4,
+        type: 3}
+      propertyPath: FoodScript.Array.data[0]
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 6756987530859499963, guid: ce393cfca6ea43a46a30f82a0209fad4,
+        type: 3}
+      propertyPath: FoodScript.Array.data[1]
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 6756987530859499963, guid: ce393cfca6ea43a46a30f82a0209fad4,
+        type: 3}
+      propertyPath: FoodScript.Array.data[2]
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 2547975719763009696, guid: ce393cfca6ea43a46a30f82a0209fad4,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1316,46 +1338,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Center.z
       value: 0.020520302
-      objectReference: {fileID: 0}
-    - target: {fileID: 6756987530859499963, guid: ce393cfca6ea43a46a30f82a0209fad4,
-        type: 3}
-      propertyPath: FoodScript.Array.size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6756987530859499963, guid: ce393cfca6ea43a46a30f82a0209fad4,
-        type: 3}
-      propertyPath: speed
-      value: 0.05
-      objectReference: {fileID: 0}
-    - target: {fileID: 6756987530859499963, guid: ce393cfca6ea43a46a30f82a0209fad4,
-        type: 3}
-      propertyPath: FoodScript
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 6756987530859499963, guid: ce393cfca6ea43a46a30f82a0209fad4,
-        type: 3}
-      propertyPath: food
-      value: 
-      objectReference: {fileID: 1715565286}
-    - target: {fileID: 6756987530859499963, guid: ce393cfca6ea43a46a30f82a0209fad4,
-        type: 3}
-      propertyPath: PushPower
-      value: 0.45
-      objectReference: {fileID: 0}
-    - target: {fileID: 6756987530859499963, guid: ce393cfca6ea43a46a30f82a0209fad4,
-        type: 3}
-      propertyPath: FoodScript.Array.data[0]
-      value: 
-      objectReference: {fileID: 1291692104}
-    - target: {fileID: 6756987530859499963, guid: ce393cfca6ea43a46a30f82a0209fad4,
-        type: 3}
-      propertyPath: FoodScript.Array.data[1]
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 6756987530859499963, guid: ce393cfca6ea43a46a30f82a0209fad4,
-        type: 3}
-      propertyPath: FoodScript.Array.data[2]
-      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 7288241303667590863, guid: ce393cfca6ea43a46a30f82a0209fad4,
         type: 3}
@@ -1454,6 +1436,21 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 1767151694398130736}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &2131663295648493883
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2131663295648493882}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d788195e1b76b1c4998d453e9ef5e58a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Player: {fileID: 0}
+  takeout: 0
+  FoodResetPosition: {x: 0, y: 0, z: 0}
 --- !u!4 &3156576532303643433 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3695281266227120409, guid: 18fa5fabd0af9414da1415124a35c556,
@@ -1541,3 +1538,18 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 5185939226009112211}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &8296172668107392835
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8296172668107392834}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d788195e1b76b1c4998d453e9ef5e58a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Player: {fileID: 0}
+  takeout: 0
+  FoodResetPosition: {x: 0, y: 0, z: 0}
