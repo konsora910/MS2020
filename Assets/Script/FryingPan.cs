@@ -4,9 +4,12 @@ using UnityEngine;
 
 public class FryingPan : MonoBehaviour
 {
+    //　運ぶ食材を管理する変数
     public GameObject mainFood;
+    //　PlayerContorollerを外部参照
     public GameObject P;
     public PlayerController PControll;
+    //　食材データ管理
     public string inFood;
 
     // Start is called before the first frame update
@@ -20,17 +23,17 @@ public class FryingPan : MonoBehaviour
     void Update()
     {
         if (inFood == "ab" || inFood == "ba")
-        {
-            Debug.Log("omrice");
+        {//　米＋卵：オムライスができる
+            Debug.Log("オムライス");
             inFood = inFood.Remove(0, 2);
         }
         else if (inFood == "bc" || inFood == "cb")
-        {
+        {//　卵＋トマト：トマ玉中華炒めができる
             Debug.Log("トマ玉中華炒め");
             inFood = inFood.Remove(0, 2);
         }
         else if (inFood.Length == 2)
-        {
+        {//　例外：無い組み合わせなら中身を消す
             Debug.Log("ごみ屑");
             inFood = inFood.Remove(0, 2);
         }
@@ -42,7 +45,6 @@ public class FryingPan : MonoBehaviour
     {
         if (PControll.bFood_Take == false)
         {
-            Debug.Log("getFood");
             if (other.gameObject.tag == "rice")
             {
                 Debug.Log("米！！");
@@ -58,7 +60,7 @@ public class FryingPan : MonoBehaviour
                 mainFood.GetComponent<FoodController>().takeout = false;
                 inFood += "b";
                 Destroy(other.gameObject);
-            }else
+            }
             if (other.gameObject.tag == "tmt")
             {
                 Debug.Log("トメェイトォウ");
