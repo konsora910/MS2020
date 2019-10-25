@@ -8,6 +8,7 @@ public class FoodController : MonoBehaviour
     public bool takeout = false;     　  // 持っていない状態を表す
     public Vector3 FoodResetPosition;  　//食べ物の初期位置
     public Vector3 TakePosition;         // 食べ物を持つ位置
+    public bool btmt, brice, begg;       // どれか氏らを持った場合true
     // Start is called before the first frame update
     void Start()
     {
