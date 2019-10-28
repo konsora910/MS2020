@@ -211,9 +211,10 @@ GameObject:
   m_Component:
   - component: {fileID: 7270666434062862107}
   - component: {fileID: 4455897028469501896}
+  - component: {fileID: -2321319654812400214}
   m_Layer: 0
   m_Name: tomato
-  m_TagString: Untagged
+  m_TagString: tmt
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -227,7 +228,7 @@ Transform:
   m_GameObject: {fileID: 5962133967921132808}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 5, y: 5, z: 5}
+  m_LocalScale: {x: 15, y: 15, z: 15}
   m_Children:
   - {fileID: 581538427380222773}
   - {fileID: 3246281878471899717}
@@ -247,6 +248,25 @@ SphereCollider:
   serializedVersion: 2
   m_Radius: 0.0126360385
   m_Center: {x: -0.039500646, y: 0, z: -0.0010946393}
+--- !u!114 &-2321319654812400214
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5962133967921132808}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d788195e1b76b1c4998d453e9ef5e58a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Player: {fileID: 1698701876089122309, guid: 5451ec37c887443468db8d74b7c9f8a7, type: 3}
+  takeout: 0
+  FoodResetPosition: {x: 0, y: 0, z: 0}
+  TakePosition: {x: 0, y: 0, z: 0.405}
+  btmt: 0
+  brice: 0
+  begg: 0
 --- !u!1 &7129909110271749015
 GameObject:
   m_ObjectHideFlags: 0

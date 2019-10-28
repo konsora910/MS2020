@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 6208208627551942998}
   m_Layer: 0
   m_Name: egg
-  m_TagString: Untagged
+  m_TagString: egg
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -29,7 +29,7 @@ Transform:
   m_GameObject: {fileID: 8492062871203262068}
   m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 5, y: 5, z: 5}
+  m_LocalScale: {x: 15, y: 15, z: 15}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -104,10 +104,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d788195e1b76b1c4998d453e9ef5e58a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Player: {fileID: 0}
+  Player: {fileID: 1698701876089122309, guid: 5451ec37c887443468db8d74b7c9f8a7, type: 3}
   takeout: 0
   FoodResetPosition: {x: 0, y: 0, z: 0}
-  TakePosition: {x: 0, y: 0, z: 0}
+  TakePosition: {x: 0, y: 0, z: 0.405}
   btmt: 0
   brice: 0
   begg: 0
