@@ -10,6 +10,7 @@ TagManager:
   - tmt
   - rice
   - Robo
+  - Effect
   layers:
   - Default
   - TransparentFX
