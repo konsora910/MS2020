@@ -11,6 +11,7 @@ public class FryingPan : MonoBehaviour
     public PlayerController PControll;
     //　食材データ管理
     public string inFood;
+    public GameObject Omrice;
 
     // Start is called before the first frame update
     void Start()
@@ -31,6 +32,7 @@ public class FryingPan : MonoBehaviour
         {//　卵＋トマト：トマ玉中華炒めができる
             Debug.Log("トマ玉中華炒め");
             inFood = inFood.Remove(0, 2);
+            Instantiate(Omrice);
         }
         else if (inFood.Length == 2)
         {//　例外：無い組み合わせなら中身を消す
