@@ -36,3 +36,43 @@ sysinfo.txt
 *.unitypackage
 Assets/Sound/BGM/新しいフォルダー.meta
 Assets/Sound/SE/新しいフォルダー.meta
+Assets/Sound.meta
+Assets/Prefab/tomato.prefab.meta
+Assets/Prefab/soup.prefab.meta
+Assets/Prefab/rice.prefab.meta
+Assets/Prefab/grb.prefab.meta
+Assets/Prefab/egg.prefab.meta
+Assets/Prefab/TestPrefab/AI.prefab.meta
+Assets/Prefab/TestPrefab/AI.prefab
+Assets/Prefab/Omurice.prefab.meta
+Assets/Model/food/unitychantoonshader.png.meta
+Assets/Model/food/food_shadow2.png.meta
+Assets/Model/food/food_shadow1.png.meta
+Assets/Model/food/food_high.png.meta
+Assets/Model/food/food_base.png.meta
+Assets/Model/food.meta
+Assets/Model/TestModel/testrobo2.fbx.meta
+Assets/Model/TestModel/testrobo2.fbx
+Assets/Model/TestModel/test_robo 1/untitled.fbx.meta
+Assets/Model/TestModel/test_robo 1/untitled.fbx
+Assets/Model/TestModel/test_robo 1/robo.fbx.meta
+Assets/Model/TestModel/test_robo 1/robo.fbx
+Assets/Model/TestModel/test_robo 1/mat.mat.meta
+Assets/Model/TestModel/test_robo 1/mat.mat
+Assets/Model/TestModel/test_robo 1/-x-z.fbx.meta
+Assets/Model/TestModel/test_robo 1/-x-z.fbx
+Assets/Model/TestModel/test_robo 1/-x+z.fbx.meta
+Assets/Model/TestModel/test_robo 1/-x+z.fbx
+Assets/Model/TestModel/test_robo 1.meta
+Assets/Effect/煙/fire_effect.prefab.meta
+Assets/Effect/煙/fire_effect 2.prefab.meta
+Assets/Effect/煙/fire_effect 1.prefab.meta
+Assets/Effect/煙/effect_fireball.png.meta
+Assets/Effect/煙/eff_fire.mat.meta
+Assets/Effect/煙.meta
+Assets/Effect/kirakira/mat.mat.meta
+Assets/Effect/kirakira/kagayaki.prefab.meta
+Assets/Effect/kirakira/kagayaki 1.prefab.meta
+Assets/Effect/kirakira/Diamond.png.meta
+Assets/Effect/kirakira.meta
+Assets/Effect.meta

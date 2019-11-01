@@ -9,11 +9,14 @@ public class FoodController : MonoBehaviour
     public Vector3 FoodResetPosition;  　//食べ物の初期位置
     public Vector3 TakePosition;         // 食べ物を持つ位置
     public bool btmt, brice, begg;       // どれか氏らを持った場合true
+
+    public GameObject AI;
+    public bool AiTaleOut = false;
     // Start is called before the first frame update
     void Start()
     {
         Player = GameObject.FindGameObjectWithTag("Player");
-        
+        AI = GameObject.FindGameObjectWithTag("AI");
     }
 
     // Update is called once per frame
@@ -29,6 +32,10 @@ public class FoodController : MonoBehaviour
         {
             this.gameObject.transform.position = new Vector3((Player.transform.position.x/*+TakePosition.x*/), (Player.transform.position.y/*+TakePosition.y*/), (Player.transform.position.z+TakePosition.z));
         }
+        if(AiTaleOut == true)
+        {
+            this.gameObject.transform.position = new Vector3((AI.transform.position.x), (AI.transform.position.y), (AI.transform.position.z));
+        }
     }
     void OnTriggerStay(Collider Collider)
     {
@@ -39,6 +46,11 @@ public class FoodController : MonoBehaviour
             {
                 takeout = true; // true = 何かしら持っている
             }
+        }
+
+        if(Collider.gameObject.tag == "AI")
+        {
+            AiTaleOut = true;
         }
     }
     // 親を変更する関数
