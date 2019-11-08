@@ -32,7 +32,7 @@ public class FryingPan : MonoBehaviour
         {//　卵＋トマト：トマ玉中華炒めができる
             Debug.Log("トマ玉中華炒め");
             inFood = inFood.Remove(0, 2);
-            Instantiate(Omrice, new Vector3(5.0f, 1.0f, 0.0f), Quaternion.identity);
+            Instantiate(Omrice);
         }
         else if (inFood.Length == 2)
         {//　例外：無い組み合わせなら中身を消す
@@ -43,39 +43,34 @@ public class FryingPan : MonoBehaviour
 
     }
 
-    private void InFood(Collider getFood)
-    {
-        if (getFood.gameObject.tag == "rice")
-        {
-            Debug.Log("米！！");
-            mainFood = GameObject.FindGameObjectWithTag("rice");
-            mainFood.GetComponent<FoodController>().takeout = false;
-            inFood += "a";
-            Destroy(getFood.gameObject);
-        }
-        if (getFood.gameObject.tag == "egg")
-        {
-            Debug.Log("タメェイゴォ");
-            mainFood = GameObject.FindGameObjectWithTag("egg");
-            mainFood.GetComponent<FoodController>().takeout = false;
-            inFood += "b";
-            Destroy(getFood.gameObject);
-        }
-        if (getFood.gameObject.tag == "tmt")
-        {
-            Debug.Log("トメェイトォウ");
-            mainFood = GameObject.FindGameObjectWithTag("tmt");
-            mainFood.GetComponent<FoodController>().takeout = false;
-            inFood += "c";
-            Destroy(getFood.gameObject);
-        }
-    }
-
     void OnTriggerStay(Collider other)
     {
         if (PControll.bFood_Take == false)
         {
-            InFood(other);
+            if (other.gameObject.tag == "rice")
+            {
+                Debug.Log("米！！");
+                mainFood = GameObject.FindGameObjectWithTag("rice");
+                mainFood.GetComponent<FoodController>().takeout = false;
+                inFood += "a";
+                Destroy(other.gameObject);
+            }
+            if (other.gameObject.tag == "egg")
+            {
+                Debug.Log("タメェイゴォ");
+                mainFood = GameObject.FindGameObjectWithTag("egg");
+                mainFood.GetComponent<FoodController>().takeout = false;
+                inFood += "b";
+                Destroy(other.gameObject);
+            }
+            if (other.gameObject.tag == "tmt")
+            {
+                Debug.Log("トメェイトォウ");
+                mainFood = GameObject.FindGameObjectWithTag("tmt");
+                mainFood.GetComponent<FoodController>().takeout = false;
+                inFood += "c";
+                Destroy(other.gameObject);
+            }
         }
     }
 }

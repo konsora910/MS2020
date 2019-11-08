@@ -30,7 +30,7 @@ public class FoodController : MonoBehaviour
         }
         if(takeout == true)
         {
-            this.gameObject.transform.position = new Vector3((Player.transform.position.x/*+TakePosition.x*/), (Player.transform.position.y/*+TakePosition.y*/), (Player.transform.position.z + TakePosition.z));
+            this.gameObject.transform.position = new Vector3((Player.transform.position.x/*+TakePosition.x*/), (Player.transform.position.y/*+TakePosition.y*/), (Player.transform.position.z+TakePosition.z));
         }
         if(AiTaleOut == true)
         {
