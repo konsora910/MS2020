@@ -4,9 +4,15 @@ using UnityEngine;
 
 public class Foodselect1 : MonoBehaviour
 {
-    public GameObject[] gameObjectArray = new GameObject[50];
-    public Vector3[] FoodPosition = new Vector3[50];
-    public Quaternion[] FoodRotation = new Quaternion[50];
+    [SerializeField]
+    private GameObject[] gameObjectArray = null;
+    //private GameObject[] gameObjectArray = new GameObject[50];
+    [SerializeField]
+    public Vector3[] FoodPosition = null;
+    //public Vector3[] FoodPosition = new Vector3[50];
+    [SerializeField]
+    public Quaternion[] FoodRotation = null;
+    //public Quaternion[] FoodRotation = new Quaternion[50];
     public int allFood;
     public int allFood2;
     public GameObject clickedGameObject;

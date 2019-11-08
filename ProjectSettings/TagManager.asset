@@ -11,6 +11,7 @@ TagManager:
   - rice
   - Robo
   - AI
+  - pot
   layers:
   - Default
   - TransparentFX
