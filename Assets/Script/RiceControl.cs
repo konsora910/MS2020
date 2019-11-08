@@ -2,20 +2,26 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class TomatoContorol : MonoBehaviour
+public class RiceControl : MonoBehaviour
 {
     public GameObject Player;          　//プレイヤ―情報
     public bool takeout = false;     　  // 持っていない状態を表す
     public Vector3 FoodResetPosition;  　//食べ物の初期位置
     public Vector3 TakePosition;         // 食べ物を持つ位置
+    public GameObject copyFood;
+    public GameObject Food;
+    bool copy = false;
 
     public GameObject AI;
     public bool AiTaleOut = false;
     // Start is called before the first frame update
     void Start()
     {
+        copy = false;
+        copyFood = (GameObject)Resources.Load("rice");
         Player = GameObject.FindGameObjectWithTag("Player");
         AI = GameObject.FindGameObjectWithTag("AI");
+        FoodResetPosition = this.transform.position;
     }
 
     // Update is called once per frame
@@ -29,10 +35,31 @@ public class TomatoContorol : MonoBehaviour
         }
         if (takeout == true)
         {
+            //
+            if (copy == false)
+            {
+                GameObject obj = GameObject.FindGameObjectWithTag("Food");
+                GameObject instance = (GameObject)Instantiate(copyFood, new Vector3(FoodResetPosition.x, FoodResetPosition.y, FoodResetPosition.z), Quaternion.identity);
+                instance.transform.parent = obj.transform;
+                obj.GetComponent<Foodselect1>().AddFood(instance.transform);
+            }
+            copy = true;
+            //
             this.gameObject.transform.position = new Vector3((Player.transform.position.x/*+TakePosition.x*/), (Player.transform.position.y/*+TakePosition.y*/), (Player.transform.position.z + TakePosition.z));
         }
         if (AiTaleOut == true)
         {
+            //
+            if (copy == false)
+            {
+                GameObject obj = GameObject.FindGameObjectWithTag("Food");
+                GameObject instance = (GameObject)Instantiate(copyFood, new Vector3(FoodResetPosition.x, FoodResetPosition.y, FoodResetPosition.z), Quaternion.identity);
+                obj.transform.parent = instance.transform;
+                obj.GetComponent<Foodselect1>().AddFood(instance.transform);
+            }
+
+            //
+            copy = true;
             this.gameObject.transform.position = new Vector3((AI.transform.position.x), (AI.transform.position.y), (AI.transform.position.z));
         }
     }
