@@ -7,8 +7,8 @@ public class Foodselect1 : MonoBehaviour
     public GameObject[] gameObjectArray = new GameObject[50];
     public Vector3[] FoodPosition = new Vector3[50];
     public Quaternion[] FoodRotation = new Quaternion[50];
+    public int[] WhichFood = new int[50];
     public int allFood;
-    public int allFood2;
     public GameObject clickedGameObject;
     public bool bSave = false;
     public GameObject player;
@@ -31,10 +31,16 @@ public class Foodselect1 : MonoBehaviour
             //gameObjectArray2 = gameObjectArray;
             for (int i = 0; i < allFood; i++)
             {
-                FoodPosition[i] = gameObjectArray[i].transform.position;
-                FoodRotation[i] = gameObjectArray[i].transform.rotation;
+             //   FoodPosition[i] = gameObjectArray[i].transform.position;
+             //   FoodRotation[i] = gameObjectArray[i].transform.rotation;
+
+                if (gameObjectArray[i].tag == "tmt")
+                    WhichFood[i] = 0;
+                else if (gameObjectArray[i].tag == "egg")
+                    WhichFood[i] = 1;
+                if (gameObjectArray[i].tag == "rice")
+                    WhichFood[i] = 2;
             }
-            allFood2 = allFood;
             bSave = true;
 
         }
@@ -47,10 +53,42 @@ public class Foodselect1 : MonoBehaviour
     {
         for (int i = 0; i < allFood; i++)
         {
-            if (gameObjectArray[i].GetComponent<FoodController>().takeout == true)
+            if (WhichFood[i] == 0)
             {
-                player.GetComponent<PlayerController>().food = gameObjectArray[i];
+                if (gameObjectArray[i].GetComponent<TomatoControl>().takeout == true)
+                {
+                    player.GetComponent<PlayerController>().food = gameObjectArray[i];
+                    player.GetComponent<PlayerController>().FoodType = 0;
+                }
+            }
+            if (WhichFood[i] == 1)
+            {
+                if (gameObjectArray[i].GetComponent<EggControl>().takeout == true)
+                {
+                    player.GetComponent<PlayerController>().food = gameObjectArray[i];
+                    player.GetComponent<PlayerController>().FoodType = 1;
+                }
+            }
+            if (WhichFood[i] == 2)
+            {
+                if (gameObjectArray[i].GetComponent<RiceControl>().takeout == true)
+                {
+                    player.GetComponent<PlayerController>().food = gameObjectArray[i];
+                    player.GetComponent<PlayerController>().FoodType = 2;
+                }
             }
         }
+    }
+
+    public void AddFood(Transform addfood)
+    {
+        gameObjectArray[allFood] = addfood.gameObject;
+        if (gameObjectArray[allFood].tag == "tmt")
+            WhichFood[allFood] = 0;
+        else if (gameObjectArray[allFood].tag == "egg")
+            WhichFood[allFood] = 1;
+        if (gameObjectArray[allFood].tag == "rice")
+            WhichFood[allFood] = 2;
+        allFood++;
     }
 }
