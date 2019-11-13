@@ -45,7 +45,7 @@ public class EggControl : MonoBehaviour
 
             //
             copy = true;
-            this.gameObject.transform.position = new Vector3((Player.transform.position.x/*+TakePosition.x*/), (Player.transform.position.y/*+TakePosition.y*/), (Player.transform.position.z + TakePosition.z));
+            this.gameObject.transform.position = new Vector3((Player.transform.position.x + Player.GetComponent<PlayerController>().PlayerForward.x/2), (Player.transform.position.y), (Player.transform.position.z + Player.GetComponent<PlayerController>().PlayerForward.z/2));
         }
         if (AiTaleOut == true)
         {

@@ -7,7 +7,7 @@ public class PlayerController : MonoBehaviour
     public GameObject food;
     public int FoodType;
     public float speed;
-    private Vector3 PlayerForward, OldPosition;
+    public Vector3 PlayerForward, OldPosition;
     private Rigidbody rb;
     public bool bFood_Take = false;                         // 持ってるか持ってないか
     [SerializeField] private Vector3 velocity;              // 移動方向
@@ -50,7 +50,7 @@ public class PlayerController : MonoBehaviour
             PlayerForward = PlayerForward.normalized;
             Debug.Log(PlayerForward);
             this.gameObject.transform.forward = PlayerForward;
-          //  this.gameObject.transform.Rotate(new Vector3(0.0f, (PlayerForward.x + PlayerForward.z) * 180, 0.0f));
+         
         }
     }
     // キーボード操作
