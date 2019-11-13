@@ -24,10 +24,11 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 90565614041125858}
   m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.00096119154, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1.3802382, y: 0.929447, z: 1.3802382}
   m_Children:
   - {fileID: 2777578441369926994}
+  - {fileID: 3246281878471899717}
   m_Father: {fileID: 581538427380222773}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -56,11 +57,11 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 441046072209723150}
-  m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.03968162, y: 0.00246602, z: 0.00080706074}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 0.72451264, y: 1.0759087, z: 0.72451264}
   m_Children: []
-  m_Father: {fileID: 7270666434062862107}
+  m_Father: {fileID: 1706568566821994119}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &6984822320820326287
@@ -132,7 +133,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1777804147980411468}
   m_LocalRotation: {x: 0.101533994, y: 0.3801133, z: 0.053618528, w: 0.9177852}
-  m_LocalPosition: {x: -0.0015690521, y: 0.009348171, z: -0.0006164781}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0.09327098, y: 0.3569629, z: 0.09327098}
   m_Children:
   - {fileID: 5005804696544594406}
@@ -231,7 +232,6 @@ Transform:
   m_LocalScale: {x: 15, y: 15, z: 15}
   m_Children:
   - {fileID: 581538427380222773}
-  - {fileID: 3246281878471899717}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -247,7 +247,7 @@ SphereCollider:
   m_Enabled: 1
   serializedVersion: 2
   m_Radius: 0.0126360385
-  m_Center: {x: -0.039500646, y: 0, z: -0.0010946393}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &-2321319654812400214
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -267,6 +267,8 @@ MonoBehaviour:
   btmt: 0
   brice: 0
   begg: 0
+  AI: {fileID: 0}
+  AiTaleOut: 0
 --- !u!1 &7129909110271749015
 GameObject:
   m_ObjectHideFlags: 0
