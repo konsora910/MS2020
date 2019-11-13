@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
+    public GameObject Pot;
+    public Pot PotScript;
     public GameObject food;
     public int FoodType;
     public float speed;
@@ -19,6 +21,8 @@ public class PlayerController : MonoBehaviour
     {
         OldPosition = this.gameObject.transform.position;
         PlayerForward = new Vector3(0.0f, 0.0f, 0.0f);
+        Pot = GameObject.FindGameObjectWithTag("pot");
+        PotScript = Pot.GetComponent<Pot>();
     }
 
     // Update is called once per frame
@@ -90,7 +94,16 @@ public class PlayerController : MonoBehaviour
                   bFood_Take = true;
             }
         }
-       
+        if (Collider.gameObject.tag == ("pot"))
+        {
+            if (Input.GetKeyDown(KeyCode.B) && bFood_Take == true)
+            {
+                food.GetComponent<FoodController>().takeout = false;
+                bFood_Take = false;
+                PotScript.SetFood(food);
+            }
+        }
+
     }
     
 }
