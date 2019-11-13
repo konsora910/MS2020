@@ -52,7 +52,6 @@ public class PlayerController : MonoBehaviour
         {
             PlayerForward = this.gameObject.transform.position - OldPosition;
             PlayerForward = PlayerForward.normalized;
-            Debug.Log(PlayerForward);
             this.gameObject.transform.forward = PlayerForward;
          
         }
