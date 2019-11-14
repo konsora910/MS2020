@@ -8,7 +8,6 @@ public class CuttingBoard : MonoBehaviour
     public float time;
     Collider col;
     public string name;
-    FoodController fctr; // FoodController script の値を参照
 
     // Start is called before the first frame update
     void Start()
@@ -49,19 +48,21 @@ public class CuttingBoard : MonoBehaviour
         if (food = GameObject.FindGameObjectWithTag("egg"))
         {// フードタグが付いているゲームオブジェクトに当たった時
             Debug.Log("失敗!");
-            fctr.begg = true;
-
+            //fctr.begg = true;
+            food.GetComponent<EggControl>().takeout = false;
 
         }
         else if (food = GameObject.FindGameObjectWithTag("rice"))
         {// フードタグが付いているゲームオブジェクトに当たった時
             Debug.Log("失敗!");
-            fctr.brice = true;
+            //fctr.brice = true;
+            food.GetComponent<RiceControl>().takeout = false;
         }
         else if (food = GameObject.FindGameObjectWithTag("tmt"))
         {// フードタグが付いているゲームオブジェクトに当たった時
             Debug.Log("サラダ");
-            fctr.btmt = true;
+            //fctr.btmt = true;
+            food.GetComponent<TomatoControl>().takeout = false;
         }
         //===============================================================================
         if (collision.gameObject.tag == "cook")
