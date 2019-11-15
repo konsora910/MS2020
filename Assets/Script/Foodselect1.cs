@@ -92,4 +92,19 @@ public class Foodselect1 : MonoBehaviour
             WhichFood[allFood] = 2;
         allFood++;
     }
+
+    //食材を消去する時に呼び出す関数
+    public void DelateFood(Transform DelateFood)
+    {
+        for(int i = 0; i < allFood; i++)
+        {
+            if(DelateFood == gameObjectArray[i])
+            {
+                gameObjectArray[i] = gameObjectArray[allFood - 1];
+                WhichFood[i] = WhichFood[allFood - 1];
+                gameObjectArray[allFood - 1] = null;
+                allFood--;
+            }
+        }
+    }
 }
