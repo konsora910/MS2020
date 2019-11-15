@@ -40,7 +40,7 @@ public class RiceControl : MonoBehaviour
             {
                 GameObject obj = GameObject.FindGameObjectWithTag("Food");
                 GameObject instance = (GameObject)Instantiate(copyFood, new Vector3(FoodResetPosition.x, FoodResetPosition.y, FoodResetPosition.z), Quaternion.identity);
-                instance.transform.parent = obj.transform;
+                instance.transform.parent = obj.transform;      //コピー食材をfoodの子に
                 obj.GetComponent<Foodselect1>().AddFood(instance.transform);
             }
             copy = true;
@@ -54,7 +54,7 @@ public class RiceControl : MonoBehaviour
             {
                 GameObject obj = GameObject.FindGameObjectWithTag("Food");
                 GameObject instance = (GameObject)Instantiate(copyFood, new Vector3(FoodResetPosition.x, FoodResetPosition.y, FoodResetPosition.z), Quaternion.identity);
-                obj.transform.parent = instance.transform;
+                instance.transform.parent = obj.transform;          //コピー食材をfoodの子に
                 obj.GetComponent<Foodselect1>().AddFood(instance.transform);
             }
 
@@ -67,6 +67,14 @@ public class RiceControl : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Space))
         {
+            //ゴミ箱と接触していたら
+            if (Collider.gameObject.tag == "DustBox")
+            {
+                //      GameObject obj = GameObject.FindGameObjectWithTag("Food");
+                //      obj.GetComponent<Foodselect1>().DelateFood(this.transform);
+                this.gameObject.SetActive(false);
+            }
+
             //プレイヤーと接触していたら
             if (Collider.gameObject.tag == "Player")
             {
