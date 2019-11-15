@@ -98,12 +98,24 @@ public class Foodselect1 : MonoBehaviour
     {
         for(int i = 0; i < allFood; i++)
         {
-            if(DelateFood == gameObjectArray[i])
+            //配列の最後の食材を消そうとしたら
+            if(DelateFood == gameObjectArray[allFood-1].gameObject.transform)
+            {
+                Destroy(gameObjectArray[allFood - 1]);
+                WhichFood[allFood - 1] = 4;
+                allFood--;
+                break;
+            }
+
+            //配列の最後以外の食材を消そうとしたら
+            if (DelateFood == gameObjectArray[i].gameObject.transform)
             {
                 gameObjectArray[i] = gameObjectArray[allFood - 1];
                 WhichFood[i] = WhichFood[allFood - 1];
-                gameObjectArray[allFood - 1] = null;
+                Destroy(gameObjectArray[allFood - 1]);
+                WhichFood[allFood - 1] = 4;
                 allFood--;
+                break;
             }
         }
     }

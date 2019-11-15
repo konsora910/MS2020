@@ -68,18 +68,15 @@ public class EggControl : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Space))
         {
-            //ゴミ箱と接触していたら
-            if (Collider.gameObject.tag == "DustBox")
-            {
-                //      GameObject obj = GameObject.FindGameObjectWithTag("Food");
-                //      obj.GetComponent<Foodselect1>().DelateFood(this.transform);
-                this.gameObject.SetActive(false);
-            }
-
             //プレイヤーと接触していたら
             if (Collider.gameObject.tag == "Player")
             {
                 takeout = true; // true = 何かしら持っている
+            }
+            //ゴミ箱と接触していたら
+            if (Collider.gameObject.tag == "DustBox")
+            {
+          //      Invoke("DelateThis", 1.0f);
             }
         }
 
@@ -88,6 +85,12 @@ public class EggControl : MonoBehaviour
             AiTaleOut = true;
         }
     }
-    // 親を変更する関数
+    
+    void DelateThis()
+    {
+        GameObject obj = GameObject.FindGameObjectWithTag("Food");
+        obj.GetComponent<Foodselect1>().DelateFood(this.transform);
+        Destroy(this.gameObject);
+    }
 
 }

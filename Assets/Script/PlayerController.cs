@@ -39,7 +39,7 @@ public class PlayerController : MonoBehaviour
         Vector3 movement = new Vector3(moveHorizontal, 0.0f, moveVertical);
 
         //持っている食材を置く
-        if (Input.GetKeyDown(KeyCode.Space) && ImputTimer > 5)
+        if (Input.GetKeyDown(KeyCode.Space) && ImputTimer > 5 && bFood_Take == true)
         {   
             if(FoodType == 0)
                 food.GetComponent<TomatoControl>().takeout = false;
