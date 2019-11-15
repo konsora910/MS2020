@@ -67,6 +67,14 @@ public class TomatoControl : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Space))
         {
+            //ゴミ箱と接触していたら
+            if(Collider.gameObject.tag == "DustBox")
+            {
+          //      GameObject obj = GameObject.FindGameObjectWithTag("Food");
+          //      obj.GetComponent<Foodselect1>().DelateFood(this.transform);
+                this.gameObject.SetActive(false);
+            }
+
             //プレイヤーと接触していたら
             if (Collider.gameObject.tag == "Player")
             {
