@@ -38,6 +38,7 @@ public class PlayerController : MonoBehaviour
 
         Vector3 movement = new Vector3(moveHorizontal, 0.0f, moveVertical);
 
+        //持っている食材を置く
         if (Input.GetKeyDown(KeyCode.Space) && ImputTimer > 5)
         {   
             if(FoodType == 0)
@@ -48,9 +49,9 @@ public class PlayerController : MonoBehaviour
                 food.GetComponent<RiceControl>().takeout = false;
             bFood_Take = false;
             food = null;
-            ImputTimer = 0;
         }
 
+        //プレイヤーが移動していたら向ている方向計算
         if (OldPosition != this.gameObject.transform.position)
         {
             PlayerForward = this.gameObject.transform.position - OldPosition;

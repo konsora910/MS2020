@@ -35,6 +35,7 @@ public class EggControl : MonoBehaviour
         }
         if (takeout == true)
         {
+            //食材を持たれたら元の位置にコピーする
             if (copy == false)
             {
                 GameObject obj = GameObject.FindGameObjectWithTag("Food");
@@ -49,6 +50,7 @@ public class EggControl : MonoBehaviour
         }
         if (AiTaleOut == true)
         {
+            //食材を持たれたら元の位置にコピーする
             if (copy == false)
             {
                 GameObject obj = GameObject.FindGameObjectWithTag("Food");
