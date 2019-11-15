@@ -19,8 +19,8 @@ public class AIControl : MonoBehaviour
     private Transform m_Pot = null;
     [SerializeField]
     private Transform m_CuttingBoard = null;
-
-    private NavMeshAgent m_navAgent = null;
+    [SerializeField]
+    public NavMeshAgent m_navAgent = null;
 
     private bool FoodHave = false;
 

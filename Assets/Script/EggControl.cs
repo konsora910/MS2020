@@ -61,7 +61,7 @@ public class EggControl : MonoBehaviour
 
             //
             copy = true;
-            this.gameObject.transform.position = new Vector3((AI.transform.position.x), (AI.transform.position.y), (AI.transform.position.z));
+            this.gameObject.transform.position = new Vector3((AI.transform.position.x + AI.GetComponent<AIControl>().m_navAgent.destination.x/10), ((float)0.5), (AI.transform.position.z + AI.GetComponent<AIControl>().m_navAgent.destination.z/10));
         }
     }
     void OnTriggerStay(Collider Collider)
