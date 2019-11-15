@@ -11,35 +11,27 @@ public class FryingPan : MonoBehaviour
     public PlayerController PControll;
     //　食材データ管理
     public string inFood;
-    public GameObject Omrice;
+    public GameObject Omrice;// インスペクタにオムライスオブジェクトを入れておくこと
+
+    private Vector3 thisPos;
 
     // Start is called before the first frame update
     void Start()
     {
         P = GameObject.Find("Player");
         PControll = P.GetComponent<PlayerController>();
+        thisPos = this.gameObject.transform.position;
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (inFood == "ab" || inFood == "ba")
-        {//　米＋卵：オムライスができる
-            Debug.Log("オムライス");
-            inFood = inFood.Remove(0, 2);
-        } 
-        else if (inFood == "bc" || inFood == "cb")
-        {//　卵＋トマト：トマ玉中華炒めができる
-            Debug.Log("トマ玉中華炒め");
-            inFood = inFood.Remove(0, 2);
-            Instantiate(Omrice);
+        // 食材が３つ入ったら通る
+        if (inFood.Length == 3)
+        {
+            Debug.Log("調理開始");
+            LetsCooking();
         }
-        else if (inFood.Length == 2)
-        {//　例外：無い組み合わせなら中身を消す
-            Debug.Log("ごみ屑");
-            inFood = inFood.Remove(0, 2);
-        }
-
 
     }
 
@@ -52,9 +44,7 @@ public class FryingPan : MonoBehaviour
         if (getFoodcol.gameObject.tag == "rice")
         {
             Debug.Log("米！！");
-            mainFood = GameObject.FindGameObjectWithTag("rice");
-            mainFood.GetComponent<RiceControl>().takeout = false;
-            inFood += "a";
+            FoodNameRice();
             Destroy(getFoodcol.gameObject);
         }
         if (getFoodcol.gameObject.tag == "egg")
@@ -71,12 +61,36 @@ public class FryingPan : MonoBehaviour
         }
     }
 
+    /*===================================================
+     * 特定の食材が組み合わさることで料理ができる
+     ===================================================*/
+    private void LetsCooking()
+    {
+        string str1 = "a";
+        string str2 = "b";
+        string str3 = "c";
+        if (inFood.Contains(str1) && inFood.Contains(str2) && inFood.Contains(str3))
+        {// オムライス
+            StartCoroutine("CookRiceOmelet");
+        }
+        else
+        {
+            inFood = inFood.Remove(0, 3);
+            Debug.Log("クソ料理");
+        }
+    }
     /*==================================================
      * 各食材の呼ばれる関数群（処理は基本的には同じ）
-     * 
+     * FoodNameRice()
      * FoodNameEgg()
      * FoodNameTomato()
      ==================================================*/
+    private void FoodNameRice()
+    {
+        mainFood = GameObject.FindGameObjectWithTag("rice");
+        mainFood.GetComponent<RiceControl>().takeout = false;
+        inFood += "a";
+    }
     private void FoodNameEgg()
     {
         mainFood = GameObject.FindGameObjectWithTag("egg");
@@ -88,6 +102,18 @@ public class FryingPan : MonoBehaviour
         mainFood = GameObject.FindGameObjectWithTag("tmt");
         mainFood.GetComponent<TomatoControl>().takeout = false;
         inFood += "c";
+    }
+
+    /*==================================================
+     * オムライス調理メソッド関数
+     *                          withコルーチン
+     ==================================================*/
+    IEnumerator CookRiceOmelet()
+    {
+        inFood = inFood.Remove(0, 3);
+        yield return new WaitForSeconds(5);
+        // 料理の生成場所を設定できる(生成対象オブジェクト、生成座標、生成初期角度)
+        Instantiate(Omrice, new Vector3(this.transform.position.x, this.transform.position.y, this.transform.position.z), Quaternion.identity);
     }
 
     void OnTriggerStay(Collider other)
