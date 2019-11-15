@@ -136,7 +136,7 @@ GameObject:
   - component: {fileID: 121853691}
   m_Layer: 0
   m_Name: FPtest
-  m_TagString: DustBox
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -171,7 +171,7 @@ MonoBehaviour:
   P: {fileID: 0}
   PControll: {fileID: 0}
   inFood: 
-  Omrice: {fileID: 0}
+  Omrice: {fileID: 1288531599}
 --- !u!65 &121853688
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -547,6 +547,11 @@ PrefabInstance:
       propertyPath: m_TagString
       value: pot
       objectReference: {fileID: 0}
+    - target: {fileID: 9165389551245254553, guid: 9be4558a4b77f824d81b6076737a9dcc,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 9
+      objectReference: {fileID: 0}
     - target: {fileID: 1834885444745562548, guid: 9be4558a4b77f824d81b6076737a9dcc,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -611,11 +616,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_TagString
       value: Cook
-      objectReference: {fileID: 0}
-    - target: {fileID: 9165389551245254553, guid: 9be4558a4b77f824d81b6076737a9dcc,
-        type: 3}
-      propertyPath: m_RootOrder
-      value: 9
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9be4558a4b77f824d81b6076737a9dcc, type: 3}
@@ -1358,6 +1358,12 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 38.659, y: 0, z: 0}
+--- !u!1 &1288531599 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7057007483822581362, guid: 76795908d3b8130459314c786eba9139,
+    type: 3}
+  m_PrefabInstance: {fileID: 2148297840904844204}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1291692102
 GameObject:
   m_ObjectHideFlags: 0
