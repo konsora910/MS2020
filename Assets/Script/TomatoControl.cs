@@ -35,12 +35,12 @@ public class TomatoControl : MonoBehaviour
         }
         if (takeout == true)
         {
-            //
+            //食材を持たれたら元の位置にコピーする
             if (copy == false)
             {
                 GameObject obj = GameObject.FindGameObjectWithTag("Food");
                 GameObject instance = (GameObject)Instantiate(copyFood, new Vector3(FoodResetPosition.x, FoodResetPosition.y, FoodResetPosition.z), Quaternion.identity);
-                instance.transform.parent = obj.transform;
+                instance.transform.parent = obj.transform;          //コピー食材をfoodの子に
                 obj.GetComponent<Foodselect1>().AddFood(instance.transform);
             }
             copy = true;
@@ -49,24 +49,32 @@ public class TomatoControl : MonoBehaviour
         }
         if (AiTaleOut == true)
         {
-            //
+            //食材を持たれたら元の位置にコピーする
             if (copy == false)
             {
                 GameObject obj = GameObject.FindGameObjectWithTag("Food");
                 GameObject instance = (GameObject)Instantiate(copyFood, new Vector3(FoodResetPosition.x, FoodResetPosition.y, FoodResetPosition.z), Quaternion.identity);
-                obj.transform.parent = instance.transform;
+                instance.transform.parent = obj.transform;          //コピー食材をfoodの子に
                 obj.GetComponent<Foodselect1>().AddFood(instance.transform);
             }
 
             //
             copy = true;
-            this.gameObject.transform.position = new Vector3((AI.transform.position.x), (AI.transform.position.y), (AI.transform.position.z));
+            this.gameObject.transform.position = new Vector3((AI.transform.position.x + AI.GetComponent<AIControl>().m_navAgent.destination.x / 10), ((float)0.5), (AI.transform.position.z + AI.GetComponent<AIControl>().m_navAgent.destination.z / 10));
         }
     }
     void OnTriggerStay(Collider Collider)
     {
         if (Input.GetKeyDown(KeyCode.Space))
         {
+            //ゴミ箱と接触していたら
+            if(Collider.gameObject.tag == "DustBox")
+            {
+                GameObject obj = GameObject.FindGameObjectWithTag("Food");
+                obj.GetComponent<Foodselect1>().DelateFood(this.transform);
+                this.gameObject.SetActive(false);
+            }
+
             //プレイヤーと接触していたら
             if (Collider.gameObject.tag == "Player")
             {

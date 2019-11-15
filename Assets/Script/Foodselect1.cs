@@ -18,6 +18,7 @@ public class Foodselect1 : MonoBehaviour
     {
 
         int count = 0;
+        //食材の登録
         foreach (Transform child in transform)
         {
             gameObjectArray[count] = child.gameObject;
@@ -25,15 +26,11 @@ public class Foodselect1 : MonoBehaviour
         }
         allFood = count;
 
+        //タグの登録
         if (!bSave)
         {
-
-            //gameObjectArray2 = gameObjectArray;
             for (int i = 0; i < allFood; i++)
             {
-             //   FoodPosition[i] = gameObjectArray[i].transform.position;
-             //   FoodRotation[i] = gameObjectArray[i].transform.rotation;
-
                 if (gameObjectArray[i].tag == "tmt")
                     WhichFood[i] = 0;
                 else if (gameObjectArray[i].tag == "egg")
@@ -55,6 +52,7 @@ public class Foodselect1 : MonoBehaviour
         {
             if (WhichFood[i] == 0)
             {
+                //プレイヤーがトマトを持っていたら
                 if (gameObjectArray[i].GetComponent<TomatoControl>().takeout == true)
                 {
                     player.GetComponent<PlayerController>().food = gameObjectArray[i];
@@ -63,6 +61,7 @@ public class Foodselect1 : MonoBehaviour
             }
             if (WhichFood[i] == 1)
             {
+                //プレイヤーが卵を持っていたら
                 if (gameObjectArray[i].GetComponent<EggControl>().takeout == true)
                 {
                     player.GetComponent<PlayerController>().food = gameObjectArray[i];
@@ -71,6 +70,7 @@ public class Foodselect1 : MonoBehaviour
             }
             if (WhichFood[i] == 2)
             {
+                //プレイヤーがコメを持っていたら
                 if (gameObjectArray[i].GetComponent<RiceControl>().takeout == true)
                 {
                     player.GetComponent<PlayerController>().food = gameObjectArray[i];
@@ -80,6 +80,7 @@ public class Foodselect1 : MonoBehaviour
         }
     }
 
+    //食材を追加したときに呼び出す関数
     public void AddFood(Transform addfood)
     {
         gameObjectArray[allFood] = addfood.gameObject;
@@ -90,5 +91,32 @@ public class Foodselect1 : MonoBehaviour
         if (gameObjectArray[allFood].tag == "rice")
             WhichFood[allFood] = 2;
         allFood++;
+    }
+
+    //食材を消去する時に呼び出す関数
+    public void DelateFood(Transform DelateFood)
+    {
+        for(int i = 0; i < allFood; i++)
+        {
+            //配列の最後の食材を消そうとしたら
+            if(DelateFood == gameObjectArray[allFood-1].gameObject.transform)
+            {
+                Destroy(gameObjectArray[allFood - 1]);
+                WhichFood[allFood - 1] = 4;
+                allFood--;
+                break;
+            }
+
+            //配列の最後以外の食材を消そうとしたら
+            if (DelateFood == gameObjectArray[i].gameObject.transform)
+            {
+                gameObjectArray[i] = gameObjectArray[allFood - 1];
+                WhichFood[i] = WhichFood[allFood - 1];
+                Destroy(gameObjectArray[allFood - 1]);
+                WhichFood[allFood - 1] = 4;
+                allFood--;
+                break;
+            }
+        }
     }
 }

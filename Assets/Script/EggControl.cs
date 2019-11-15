@@ -35,11 +35,12 @@ public class EggControl : MonoBehaviour
         }
         if (takeout == true)
         {
+            //食材を持たれたら元の位置にコピーする
             if (copy == false)
             {
                 GameObject obj = GameObject.FindGameObjectWithTag("Food");
                 GameObject instance = (GameObject)Instantiate(copyFood, new Vector3(FoodResetPosition.x, FoodResetPosition.y, FoodResetPosition.z), Quaternion.identity);
-                obj.transform.parent = instance.transform;
+                instance.transform.parent = obj.transform;          //コピー食材をfoodの子に
                 obj.GetComponent<Foodselect1>().AddFood(instance.transform);
             }
 
@@ -49,17 +50,18 @@ public class EggControl : MonoBehaviour
         }
         if (AiTaleOut == true)
         {
+            //食材を持たれたら元の位置にコピーする
             if (copy == false)
             {
                 GameObject obj = GameObject.FindGameObjectWithTag("Food");
                 GameObject instance = (GameObject)Instantiate(copyFood, new Vector3(FoodResetPosition.x, FoodResetPosition.y, FoodResetPosition.z), Quaternion.identity);
-                obj.transform.parent = instance.transform;
+                instance.transform.parent = obj.transform;          //コピー食材をfoodの子に
                 obj.GetComponent<Foodselect1>().AddFood(instance.transform);
             }
 
             //
             copy = true;
-            this.gameObject.transform.position = new Vector3((AI.transform.position.x), (AI.transform.position.y), (AI.transform.position.z));
+            this.gameObject.transform.position = new Vector3((AI.transform.position.x + AI.GetComponent<AIControl>().m_navAgent.destination.x/10), ((float)0.5), (AI.transform.position.z + AI.GetComponent<AIControl>().m_navAgent.destination.z/10));
         }
     }
     void OnTriggerStay(Collider Collider)
@@ -71,6 +73,11 @@ public class EggControl : MonoBehaviour
             {
                 takeout = true; // true = 何かしら持っている
             }
+            //ゴミ箱と接触していたら
+            if (Collider.gameObject.tag == "DustBox")
+            {
+          //      Invoke("DelateThis", 1.0f);
+            }
         }
 
         if (Collider.gameObject.tag == "AI")
@@ -78,6 +85,12 @@ public class EggControl : MonoBehaviour
             AiTaleOut = true;
         }
     }
-    // 親を変更する関数
+    
+    void DelateThis()
+    {
+        GameObject obj = GameObject.FindGameObjectWithTag("Food");
+        obj.GetComponent<Foodselect1>().DelateFood(this.transform);
+        Destroy(this.gameObject);
+    }
 
 }

@@ -11,6 +11,7 @@ public class PlayerController : MonoBehaviour
     public float speed;
     public Vector3 PlayerForward, OldPosition;
     private Rigidbody rb;
+    private int ImputTimer = 5;
     public bool bFood_Take = false;                         // 持ってるか持ってないか
     [SerializeField] private Vector3 velocity;              // 移動方向
                                                             //    public GameObject food;
@@ -28,6 +29,7 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        ImputTimer++;
         OldPosition = this.gameObject.transform.position;
         KeyBord();
         
@@ -36,7 +38,8 @@ public class PlayerController : MonoBehaviour
 
         Vector3 movement = new Vector3(moveHorizontal, 0.0f, moveVertical);
 
-        if (Input.GetKeyDown(KeyCode.B) && bFood_Take == true)
+        //持っている食材を置く
+        if (Input.GetKeyDown(KeyCode.Space) && ImputTimer > 5 && bFood_Take == true)
         {   
             if(FoodType == 0)
                 food.GetComponent<TomatoControl>().takeout = false;
@@ -48,6 +51,7 @@ public class PlayerController : MonoBehaviour
             food = null;
         }
 
+        //プレイヤーが移動していたら向ている方向計算
         if (OldPosition != this.gameObject.transform.position)
         {
             PlayerForward = this.gameObject.transform.position - OldPosition;
@@ -86,8 +90,9 @@ public class PlayerController : MonoBehaviour
 
     void OnTriggerStay(Collider Collider)
     {// 接触中
-        if (Input.GetKeyDown(KeyCode.Space))
+        if (Input.GetKeyDown(KeyCode.Space) && bFood_Take == false)
         {
+            ImputTimer = 0;
             if (bFood_Take == false)
             {
                   bFood_Take = true;
