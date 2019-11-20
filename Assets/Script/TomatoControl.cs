@@ -4,24 +4,18 @@ using UnityEngine;
 
 public class TomatoControl : MonoBehaviour
 {
-    public GameObject Player;          　//プレイヤ―情報
     public bool takeout = false;     　  // 持っていない状態を表す
     public Vector3 FoodResetPosition;  　//食べ物の初期位置
-    public Vector3 TakePosition;         // 食べ物を持つ位置
     public GameObject copyFood;
     public GameObject Food;
     bool copy = false;
     bool bDestroy = false;
 
-    public GameObject AI;
-    public bool AiTaleOut = false;
     // Start is called before the first frame update
     void Start()
     {
         copy = false;
         copyFood = (GameObject)Resources.Load("tomato");
-        Player = GameObject.FindGameObjectWithTag("Player");
-        AI = GameObject.FindGameObjectWithTag("AI");
         FoodResetPosition = this.transform.position;
     }
 
@@ -39,24 +33,8 @@ public class TomatoControl : MonoBehaviour
                 obj.GetComponent<Foodselect1>().AddFood(instance.transform);
             }
             copy = true;
-            //
-            this.gameObject.transform.position = new Vector3((Player.transform.position.x + Player.GetComponent<PlayerController>().PlayerForward.x/2), (Player.transform.position.y), (Player.transform.position.z + Player.GetComponent<PlayerController>().PlayerForward.z/2));
-        }
-        if (AiTaleOut == true)
-        {
-            //食材を持たれたら元の位置にコピーする
-            if (copy == false)
-            {
-                GameObject obj = GameObject.FindGameObjectWithTag("Food");
-                GameObject instance = (GameObject)Instantiate(copyFood, new Vector3(FoodResetPosition.x, FoodResetPosition.y, FoodResetPosition.z), Quaternion.identity);
-                instance.transform.parent = obj.transform;          //コピー食材をfoodの子に
-                obj.GetComponent<Foodselect1>().AddFood(instance.transform);
-            }
-
-            //
-            copy = true;
-            this.gameObject.transform.position = new Vector3((AI.transform.position.x + AI.GetComponent<AIControl>().m_navAgent.destination.x / 10), ((float)0.5), (AI.transform.position.z + AI.GetComponent<AIControl>().m_navAgent.destination.z / 10));
-        }
+       }
+         
         DestroyFood(bDestroy);
     }
     void OnTriggerStay(Collider Collider)
@@ -71,18 +49,12 @@ public class TomatoControl : MonoBehaviour
                 bDestroy = true;
             }
 
-            //プレイヤーと接触していたら
-            if (Collider.gameObject.tag == "Player")
+            //プレイヤーかAIが食べ物を持ったら
+            if (Collider.gameObject.tag == "Player" || Collider.gameObject.tag == "AI")
             {
                 takeout = true; // true = 何かしら持っている
             }
         }
-
-        if (Collider.gameObject.tag == "AI")
-        {
-            AiTaleOut = true;
-        }
-
     }
 
     public void DestroyFood(bool delate)
