@@ -13,6 +13,9 @@ TagManager:
   - AI
   - pot
   - DustBox
+  - Omerice
+  - Soup
+  - RiceBoll
   layers:
   - Default
   - TransparentFX
