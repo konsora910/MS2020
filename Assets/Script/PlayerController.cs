@@ -7,7 +7,7 @@ public class PlayerController : MonoBehaviour
     public GameObject Pot;
     public Pot PotScript;
     public GameObject food;
-    public int FoodType;
+    public int FoodType = 4;
     public float speed;
     public Vector3 PlayerForward, OldPosition;
     private Rigidbody rb;
@@ -90,12 +90,15 @@ public class PlayerController : MonoBehaviour
 
     void OnTriggerStay(Collider Collider)
     {// 接触中
-        if (Input.GetKeyDown(KeyCode.Space) && bFood_Take == false)
+        if (Collider.gameObject.tag == "tmt" || Collider.gameObject.tag == "egg" || Collider.gameObject.tag == "rice")
         {
-            ImputTimer = 0;
-            if (bFood_Take == false)
+            if (Input.GetKeyDown(KeyCode.Space) && bFood_Take == false)
             {
-                  bFood_Take = true;
+                ImputTimer = 0;
+                if (bFood_Take == false)
+                {
+                    bFood_Take = true;
+                }
             }
         }
         if (Collider.gameObject.tag == ("pot"))

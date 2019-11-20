@@ -45,22 +45,19 @@ public class FryingPan : MonoBehaviour
         {
             Debug.Log("米！！");
             FoodNameRice();
-            //Destroy(getFoodcol.gameObject);
-            getFoodcol.gameObject.SetActive(false);
+            getFoodcol.gameObject.GetComponent<RiceControl>().DestroyFood(true);
         }
         if (getFoodcol.gameObject.tag == "egg")
         {
             Debug.Log("タメェイゴォ");
             FoodNameEgg();
-            //Destroy(getFoodcol.gameObject);
-            getFoodcol.gameObject.SetActive(false);
+            getFoodcol.gameObject.GetComponent<EggControl>().DestroyFood(true);
         }
         if (getFoodcol.gameObject.tag == "tmt")
         {
             Debug.Log("トメェイトォウ");
             FoodNameTomato();
-            //Destroy(getFoodcol.gameObject);
-            getFoodcol.gameObject.SetActive(false);
+            getFoodcol.gameObject.GetComponent<TomatoControl>().DestroyFood(true);
         }
     }
 

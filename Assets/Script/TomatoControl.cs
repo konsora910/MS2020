@@ -11,6 +11,7 @@ public class TomatoControl : MonoBehaviour
     public GameObject copyFood;
     public GameObject Food;
     bool copy = false;
+    bool bDestroy = false;
 
     public GameObject AI;
     public bool AiTaleOut = false;
@@ -27,12 +28,6 @@ public class TomatoControl : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKey(KeyCode.R))
-        {// Rキーを押すと元の（指定した）場所に戻る
-            this.gameObject.transform.parent = null;
-
-            this.gameObject.transform.position = new Vector3(FoodResetPosition.x, FoodResetPosition.y, FoodResetPosition.z);
-        }
         if (takeout == true)
         {
             //食材を持たれたら元の位置にコピーする
@@ -62,17 +57,18 @@ public class TomatoControl : MonoBehaviour
             copy = true;
             this.gameObject.transform.position = new Vector3((AI.transform.position.x + AI.GetComponent<AIControl>().m_navAgent.destination.x / 10), ((float)0.5), (AI.transform.position.z + AI.GetComponent<AIControl>().m_navAgent.destination.z / 10));
         }
+        DestroyFood(bDestroy);
     }
     void OnTriggerStay(Collider Collider)
     {
+
         if (Input.GetKeyDown(KeyCode.Space))
         {
+
             //ゴミ箱と接触していたら
-            if(Collider.gameObject.tag == "DustBox")
+            if (Collider.gameObject.tag == "DustBox")
             {
-                GameObject obj = GameObject.FindGameObjectWithTag("Food");
-                obj.GetComponent<Foodselect1>().DelateFood(this.transform);
-                this.gameObject.SetActive(false);
+                bDestroy = true;
             }
 
             //プレイヤーと接触していたら
@@ -86,7 +82,16 @@ public class TomatoControl : MonoBehaviour
         {
             AiTaleOut = true;
         }
-    }
-    // 親を変更する関数
 
+    }
+
+    public void DestroyFood(bool delate)
+    {
+        if(takeout == false && delate == true)
+        {
+            GameObject obj = GameObject.FindGameObjectWithTag("Food");
+            obj.GetComponent<Foodselect1>().DelateFood(this.transform);
+            Destroy(this.gameObject);
+        }
+    }
 }

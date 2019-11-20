@@ -11,6 +11,7 @@ public class EggControl : MonoBehaviour
     public GameObject copyFood;
     public GameObject Food;
     bool copy = false;
+    bool bDestroy = false;
 
     public GameObject AI;
     public bool AiTaleOut = false;
@@ -63,20 +64,21 @@ public class EggControl : MonoBehaviour
             copy = true;
             this.gameObject.transform.position = new Vector3((AI.transform.position.x + AI.GetComponent<AIControl>().m_navAgent.destination.x/10), ((float)0.5), (AI.transform.position.z + AI.GetComponent<AIControl>().m_navAgent.destination.z/10));
         }
+        DestroyFood(bDestroy);
     }
     void OnTriggerStay(Collider Collider)
     {
         if (Input.GetKeyDown(KeyCode.Space))
         {
+            //ゴミ箱と接触していたら
+            if (Collider.gameObject.tag == "DustBox")
+            {
+                bDestroy = true;
+            }
             //プレイヤーと接触していたら
             if (Collider.gameObject.tag == "Player")
             {
                 takeout = true; // true = 何かしら持っている
-            }
-            //ゴミ箱と接触していたら
-            if (Collider.gameObject.tag == "DustBox")
-            {
-          //      Invoke("DelateThis", 1.0f);
             }
         }
 
@@ -85,12 +87,15 @@ public class EggControl : MonoBehaviour
             AiTaleOut = true;
         }
     }
-    
-    void DelateThis()
-    {
-        GameObject obj = GameObject.FindGameObjectWithTag("Food");
-        obj.GetComponent<Foodselect1>().DelateFood(this.transform);
-        Destroy(this.gameObject);
-    }
 
+    public void DestroyFood(bool delate)
+    {
+        if (takeout == false && delate == true)
+        {
+            GameObject obj = GameObject.FindGameObjectWithTag("Food");
+            obj.GetComponent<Foodselect1>().DelateFood(this.transform);
+            Destroy(this.gameObject);
+        }
+
+    }
 }
