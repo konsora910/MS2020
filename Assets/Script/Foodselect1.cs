@@ -42,42 +42,13 @@ public class Foodselect1 : MonoBehaviour
 
         }
         player = GameObject.FindGameObjectWithTag("Player");
-        
+
     }
 
     // Update is called once per frame
     void Update()
     {
-        for (int i = 0; i < allFood; i++)
-        {
-            if (WhichFood[i] == 0)
-            {
-                //プレイヤーがトマトを持っていたら
-                if (gameObjectArray[i].GetComponent<TomatoControl>().takeout == true)
-                {
-                    player.GetComponent<PlayerController>().food = gameObjectArray[i];
-                    player.GetComponent<PlayerController>().FoodType = 0;
-                }
-            }
-            if (WhichFood[i] == 1)
-            {
-                //プレイヤーが卵を持っていたら
-                if (gameObjectArray[i].GetComponent<EggControl>().takeout == true)
-                {
-                    player.GetComponent<PlayerController>().food = gameObjectArray[i];
-                    player.GetComponent<PlayerController>().FoodType = 1;
-                }
-            }
-            if (WhichFood[i] == 2)
-            {
-                //プレイヤーがコメを持っていたら
-                if (gameObjectArray[i].GetComponent<RiceControl>().takeout == true)
-                {
-                    player.GetComponent<PlayerController>().food = gameObjectArray[i];
-                    player.GetComponent<PlayerController>().FoodType = 2;
-                }
-            }
-        }
+     
     }
 
     //食材を追加したときに呼び出す関数

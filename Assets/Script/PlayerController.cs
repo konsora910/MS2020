@@ -38,10 +38,22 @@ public class PlayerController : MonoBehaviour
 
         Vector3 movement = new Vector3(moveHorizontal, 0.0f, moveVertical);
 
+
+        //食材の移動
+        if(bFood_Take == true)
+        {
+            if (FoodType == 0)
+                food.GetComponent<TomatoControl>().transform.position = new Vector3((transform.position.x + PlayerForward.x / 2), (transform.position.y), (transform.position.z + PlayerForward.z / 2));
+            else if (FoodType == 1)
+                food.GetComponent<EggControl>().transform.position = new Vector3((transform.position.x + PlayerForward.x / 2), (transform.position.y), (transform.position.z + PlayerForward.z / 2));
+            else if (FoodType == 2)
+                food.GetComponent<RiceControl>().transform.position = new Vector3((transform.position.x + PlayerForward.x / 2), (transform.position.y), (transform.position.z + PlayerForward.z / 2));
+
+        }
         //持っている食材を置く
         if (Input.GetKeyDown(KeyCode.Space) && ImputTimer > 5 && bFood_Take == true)
-        {   
-            if(FoodType == 0)
+        {
+            if (FoodType == 0)
                 food.GetComponent<TomatoControl>().takeout = false;
             else if (FoodType == 1)
                 food.GetComponent<EggControl>().takeout = false;
@@ -50,7 +62,6 @@ public class PlayerController : MonoBehaviour
             bFood_Take = false;
             food = null;
         }
-
         //プレイヤーが移動していたら向ている方向計算
         if (OldPosition != this.gameObject.transform.position)
         {
@@ -92,14 +103,20 @@ public class PlayerController : MonoBehaviour
     {// 接触中
         if (Collider.gameObject.tag == "tmt" || Collider.gameObject.tag == "egg" || Collider.gameObject.tag == "rice")
         {
+            //持つ
             if (Input.GetKeyDown(KeyCode.Space) && bFood_Take == false)
             {
                 ImputTimer = 0;
-                if (bFood_Take == false)
-                {
-                    bFood_Take = true;
-                }
+                bFood_Take = true;
+                food = Collider.gameObject;
+                if (Collider.gameObject.tag == "tmt")
+                    FoodType = 0;
+                if (Collider.gameObject.tag == "egg")
+                    FoodType = 1;
+                if (Collider.gameObject.tag == "rice")
+                    FoodType = 2;
             }
+        
         }
         if (Collider.gameObject.tag == ("pot"))
         {
