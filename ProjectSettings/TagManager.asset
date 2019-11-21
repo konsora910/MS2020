@@ -12,6 +12,8 @@ TagManager:
   - Robo
   - AI
   - pot
+  - Effect
+  - CookingTask
   layers:
   - Default
   - TransparentFX

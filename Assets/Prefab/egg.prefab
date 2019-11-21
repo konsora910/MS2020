@@ -111,3 +111,5 @@ MonoBehaviour:
   btmt: 0
   brice: 0
   begg: 0
+  AI: {fileID: 0}
+  AiTaleOut: 0
