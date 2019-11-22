@@ -12,6 +12,9 @@ TagManager:
   - Robo
   - AI
   - pot
+  - Canvas
+  - Effect
+  - CanvasGaugeUI
   layers:
   - Default
   - TransparentFX
