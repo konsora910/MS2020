@@ -14,6 +14,9 @@ public class FryingPan : MonoBehaviour
     public GameObject Omrice;// インスペクタにオムライスオブジェクトを入れておくこと
 
     private Vector3 thisPos;
+    SetCookGaugeUI CallUI;
+    public GameObject getUI;
+
 
     // Start is called before the first frame update
     void Start()
@@ -21,6 +24,8 @@ public class FryingPan : MonoBehaviour
         P = GameObject.Find("Player");
         PControll = P.GetComponent<PlayerController>();
         thisPos = this.gameObject.transform.position;
+        getUI = GameObject.Find("TestObject");
+        CallUI = getUI.GetComponent<SetCookGaugeUI>();
     }
 
     // Update is called once per frame
@@ -71,6 +76,7 @@ public class FryingPan : MonoBehaviour
         string str3 = "c";
         if (inFood.Contains(str1) && inFood.Contains(str2) && inFood.Contains(str3))
         {// オムライス
+            CallUI.SetGaugeUIFlyingPan();
             StartCoroutine("CookRiceOmelet");
         }
         else
