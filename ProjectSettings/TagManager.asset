@@ -12,10 +12,9 @@ TagManager:
   - Robo
   - AI
   - pot
-  - DustBox
-  - Omerice
-  - Soup
-  - RiceBoll
+  - Canvas
+  - Effect
+  - CanvasGaugeUI
   layers:
   - Default
   - TransparentFX

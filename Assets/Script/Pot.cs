@@ -36,6 +36,7 @@ public class Pot : MonoBehaviour
 
 
 
+
     void Start()
     {
         for (int i=0;i<3 ;i++)
@@ -88,6 +89,7 @@ public class Pot : MonoBehaviour
                     if (PotArray[i] == null)
                     {
                         PotArray[i] = food;
+                        
                     }
                 }
             }
@@ -109,7 +111,7 @@ public class Pot : MonoBehaviour
                     if (PotArray[i] == null)
                     {
                         PotArray[i] = food;
-                        
+                        break;
                     }
                 }
             }
