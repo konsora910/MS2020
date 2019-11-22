@@ -2297,6 +2297,16 @@ PrefabInstance:
       propertyPath: m_Egg
       value: 
       objectReference: {fileID: 4993159893294319287}
+    - target: {fileID: 6207705228502716999, guid: ae98fb7259c0a894b8baa3e03abf82a9,
+        type: 3}
+      propertyPath: m_Size.z
+      value: 1.025516
+      objectReference: {fileID: 0}
+    - target: {fileID: 6207705228502716999, guid: ae98fb7259c0a894b8baa3e03abf82a9,
+        type: 3}
+      propertyPath: m_Center.z
+      value: 0.2416501
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ae98fb7259c0a894b8baa3e03abf82a9, type: 3}
 --- !u!1 &1288531599 stripped
