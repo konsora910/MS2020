@@ -10,8 +10,7 @@ public class TomatoControl : MonoBehaviour
     public GameObject Food;
     bool copy = false;
     bool bDestroy = false;
-    [SerializeField] public AIControl AiSrt;
-    private bool AItake = false;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -23,12 +22,6 @@ public class TomatoControl : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        AItake = AiSrt.TmtHave();
-        if (AItake == true)
-        {
-            takeout = true;
-        }
-        
         if (takeout == true)
         {
             //食材を持たれたら元の位置にコピーする
@@ -61,8 +54,6 @@ public class TomatoControl : MonoBehaviour
             {
                 takeout = true; // true = 何かしら持っている
             }
-
-            
         }
     }
 

@@ -126,8 +126,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ea9be819ab99bee41b52f6dcc22abf60, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Player: {fileID: 0}
   takeout: 0
   FoodResetPosition: {x: 0, y: 0, z: 0}
+  TakePosition: {x: 0, y: 0, z: 0}
   copyFood: {fileID: 0}
   Food: {fileID: 0}
-  AiSrt: {fileID: 1156448916354068157, guid: 86042e0fb8c9d2540864f6f9a8bdacb2, type: 3}
+  AI: {fileID: 0}
+  AiTaleOut: 0
