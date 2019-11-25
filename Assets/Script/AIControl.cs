@@ -28,6 +28,7 @@ public class AIControl : MonoBehaviour
     private int FoodKind = 0;
     public GameObject food;
     public int FoodType = 4;
+    private bool carryEnd = false;
     private void Awake()
     {
         m_navAgent = GetComponent<NavMeshAgent>();
@@ -43,17 +44,22 @@ public class AIControl : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if(food == null)
+        {
+          
 
+        }else
         if (FoodHave == true)
         {
             if (FoodType == 0)
-                food.GetComponent<TomatoControl>().transform.position = new Vector3((transform.position.x ), (1), (transform.position.z));
+                food.GetComponent<TomatoControl>().transform.position = new Vector3((transform.position.x + m_navAgent.destination.x / 15 ), (1), (transform.position.z + m_navAgent.destination.z / 15));
             else if (FoodType == 1)
-                food.GetComponent<EggControl>().transform.position = new Vector3((transform.position.x), (1), (transform.position.z));
+                food.GetComponent<EggControl>().transform.position = new Vector3((transform.position.x + m_navAgent.destination.x / 15), (1), (transform.position.z + m_navAgent.destination.z / 15));
             else if (FoodType == 2)
-                food.GetComponent<RiceControl>().transform.position = new Vector3((transform.position.x), (1), (transform.position.z));
+                food.GetComponent<RiceControl>().transform.position = new Vector3((transform.position.x + m_navAgent.destination.x / 15), (1), (transform.position.z + m_navAgent.destination.z / 15));
 
         }
+        
 
     }
 
@@ -154,10 +160,10 @@ public class AIControl : MonoBehaviour
     IEnumerator MoveTMT()
     {
         
-        FoodKind = 1;
+       
         while (true)
         {
-
+            FoodKind = 1;
 
             if (FoodHave== false)
             {
@@ -174,14 +180,17 @@ public class AIControl : MonoBehaviour
                 {
                     case 1:
                         StartCoroutine("MoveCuttingBoard");
+                        FoodKind = 1;
                         yield break;
                     
                     case 2:
                         StartCoroutine("MovePot");
+                        FoodKind = 1;
                         yield break;
                       
                     case 3:
                         StartCoroutine("MoveFryingPan");
+                        FoodKind = 1;
                         yield break;
                       
 
@@ -199,10 +208,10 @@ public class AIControl : MonoBehaviour
 
     IEnumerator MoveEGG()
     {
-        FoodKind = 2;
+       
         while (true)
         {
-
+            FoodKind = 2;
             //ここに処理を書く
             if (FoodHave == false)
             {
@@ -217,14 +226,14 @@ public class AIControl : MonoBehaviour
                 {
                     case 1:
                         StartCoroutine("MoveCuttingBoard");
-                        break;
+                        yield break; ;
                     case 2:
                         StartCoroutine("MovePot");
-                        break;
+                        yield break;
                     case 3:
                         StartCoroutine("MoveFryingPan");
 
-                        break;
+                        yield break;
 
                 }
                 //1フレーム停止
@@ -237,9 +246,10 @@ public class AIControl : MonoBehaviour
     }
     IEnumerator MoveRICE()
     {
-        FoodKind = 3;
+       
         while (true)
         {
+            FoodKind = 3;
             //ここに処理を書く
             if (FoodHave == false)
         {
@@ -254,14 +264,14 @@ public class AIControl : MonoBehaviour
                 {
                     case 1:
                         StartCoroutine("MoveCuttingBoard");
-                        break;
+                        yield break;
                     case 2:
                         StartCoroutine("MovePot");
-                        break;
+                        yield break;
                     case 3:
                         StartCoroutine("MoveFryingPan");
 
-                        break;
+                        yield break;
 
                 }
 
@@ -280,6 +290,12 @@ public class AIControl : MonoBehaviour
             if (m_FryingPan != null)
             {
                 m_navAgent.destination = m_FryingPan.position;
+            }
+            if(carryEnd == true)
+            {
+                Debug.Log(carryEnd);
+                //StartCoroutine("Neutral");
+                yield break;
             }
             //1フレーム停止
             yield return null;
@@ -310,7 +326,30 @@ public class AIControl : MonoBehaviour
         yield return null;
     }
         //ここに再開後の処理を書く
-    
+    IEnumerator Carry()
+    {
+        yield return new WaitForSeconds(1);
+      //  switch (FoodKind)
+      //  {
+      //      case 1:
+      //          food.GetComponent<TomatoControl>().takeout = false;
+      //          break;
+      //      case 2:
+      //          food.GetComponent<EggControl>().takeout = false;
+      //          break;
+      //      case 3:
+      //          food.GetComponent<RiceControl>().takeout = false;
+      //          break;
+      //  }
+      
+        FoodHave = false;
+        food = null;
+        FoodKind = 0;
+        CookKind = 0;
+        StartCoroutine("Neutral");
+        yield break;
+
+    }
 
     void OnTriggerEnter(Collider Collider)
     {// 接触中
@@ -363,23 +402,11 @@ public class AIControl : MonoBehaviour
 
             if (Collider.gameObject.tag == ("FP") && CookKind ==3)
             {
-            Debug.Log("a");
-                switch (FoodKind)
-                {
-                    case 1:
-                        food.GetComponent<TomatoControl>().takeout = false;
-                        break;
-                    case 2:
-                        food.GetComponent<EggControl>().takeout = false;
-                        break;
-                    case 3:
-                        food.GetComponent<RiceControl>().takeout = false;
-                        break;
-                }
-            FoodHave = false;
-            food = null;
+             StartCoroutine("Carry");
+
             }
-        
+
+      
         //if (Collider.gameObject.tag == ("pot"))
         //{
         //    if (Input.GetKeyDown(KeyCode.B) && bFood_Take == true)
@@ -395,7 +422,7 @@ public class AIControl : MonoBehaviour
     public bool TmtHave()
     {
         bool Check = false;
-        if(CookKind == 1)
+        if(FoodKind == 1)
         {
             Check = true;
         }
@@ -404,7 +431,7 @@ public class AIControl : MonoBehaviour
     public bool RiceHave()
     {
         bool Check = false;
-        if (CookKind == 3)
+        if (FoodKind == 3)
         {
             Check = true;
         }
@@ -413,7 +440,7 @@ public class AIControl : MonoBehaviour
     public bool EggHave()
     {
         bool Check = false;
-        if (CookKind == 2)
+        if (FoodKind == 2)
         {
             Check = true;
         }

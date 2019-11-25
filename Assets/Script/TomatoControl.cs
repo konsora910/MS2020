@@ -26,7 +26,7 @@ public class TomatoControl : MonoBehaviour
         AItake = AiSrt.TmtHave();
         if (AItake == true)
         {
-            takeout = true;
+            takeout = AItake;
         }
         
         if (takeout == true)

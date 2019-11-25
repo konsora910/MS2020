@@ -26,7 +26,7 @@ public class EggControl : MonoBehaviour
         AItake = AiSrt.EggHave();
         if (AItake == true)
         {
-            takeout = true;
+            takeout = AItake;
         }
         if (takeout == true)
         {

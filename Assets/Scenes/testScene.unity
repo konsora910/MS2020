@@ -506,6 +506,16 @@ PrefabInstance:
       propertyPath: m_TagString
       value: pot
       objectReference: {fileID: 0}
+    - target: {fileID: 9165389551245254553, guid: 9be4558a4b77f824d81b6076737a9dcc,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 9165389551245254553, guid: 9be4558a4b77f824d81b6076737a9dcc,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -3.2
+      objectReference: {fileID: 0}
     - target: {fileID: 1834885444745562548, guid: 9be4558a4b77f824d81b6076737a9dcc,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -570,16 +580,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_TagString
       value: Cook
-      objectReference: {fileID: 0}
-    - target: {fileID: 9165389551245254553, guid: 9be4558a4b77f824d81b6076737a9dcc,
-        type: 3}
-      propertyPath: m_RootOrder
-      value: 8
-      objectReference: {fileID: 0}
-    - target: {fileID: 9165389551245254553, guid: 9be4558a4b77f824d81b6076737a9dcc,
-        type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -3.2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9be4558a4b77f824d81b6076737a9dcc, type: 3}
@@ -1569,6 +1569,31 @@ PrefabInstance:
       propertyPath: m_Name
       value: conro (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 9165389551245254553, guid: 9be4558a4b77f824d81b6076737a9dcc,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 9165389551245254553, guid: 9be4558a4b77f824d81b6076737a9dcc,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 3.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 9165389551245254553, guid: 9be4558a4b77f824d81b6076737a9dcc,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 34.94987
+      objectReference: {fileID: 0}
+    - target: {fileID: 9165389551245254553, guid: 9be4558a4b77f824d81b6076737a9dcc,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 34.949833
+      objectReference: {fileID: 0}
+    - target: {fileID: 9165389551245254553, guid: 9be4558a4b77f824d81b6076737a9dcc,
+        type: 3}
+      propertyPath: m_LocalScale.z
+      value: 39.758255
+      objectReference: {fileID: 0}
     - target: {fileID: 1834885444745562548, guid: 9be4558a4b77f824d81b6076737a9dcc,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1633,31 +1658,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_TagString
       value: Cook
-      objectReference: {fileID: 0}
-    - target: {fileID: 9165389551245254553, guid: 9be4558a4b77f824d81b6076737a9dcc,
-        type: 3}
-      propertyPath: m_RootOrder
-      value: 9
-      objectReference: {fileID: 0}
-    - target: {fileID: 9165389551245254553, guid: 9be4558a4b77f824d81b6076737a9dcc,
-        type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 3.2
-      objectReference: {fileID: 0}
-    - target: {fileID: 9165389551245254553, guid: 9be4558a4b77f824d81b6076737a9dcc,
-        type: 3}
-      propertyPath: m_LocalScale.x
-      value: 34.94987
-      objectReference: {fileID: 0}
-    - target: {fileID: 9165389551245254553, guid: 9be4558a4b77f824d81b6076737a9dcc,
-        type: 3}
-      propertyPath: m_LocalScale.y
-      value: 34.949833
-      objectReference: {fileID: 0}
-    - target: {fileID: 9165389551245254553, guid: 9be4558a4b77f824d81b6076737a9dcc,
-        type: 3}
-      propertyPath: m_LocalScale.z
-      value: 39.758255
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9be4558a4b77f824d81b6076737a9dcc, type: 3}
@@ -2197,17 +2197,17 @@ PrefabInstance:
         type: 3}
       propertyPath: m_FryingPan
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 1340217663}
     - target: {fileID: 7958607267196890019, guid: ae98fb7259c0a894b8baa3e03abf82a9,
         type: 3}
       propertyPath: m_Rice
       value: 
-      objectReference: {fileID: 6844166642842085094}
+      objectReference: {fileID: 1696532623}
     - target: {fileID: 7958607267196890019, guid: ae98fb7259c0a894b8baa3e03abf82a9,
         type: 3}
       propertyPath: m_Egg
       value: 
-      objectReference: {fileID: 4993159893294319287}
+      objectReference: {fileID: 190485511}
     - target: {fileID: 6207705228502716999, guid: ae98fb7259c0a894b8baa3e03abf82a9,
         type: 3}
       propertyPath: m_Size.z
@@ -2311,6 +2311,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: frying_pan
       objectReference: {fileID: 0}
+    - target: {fileID: -927199367670048503, guid: 764768c2448e827419adbaba9c242eeb,
+        type: 3}
+      propertyPath: m_TagString
+      value: FP
+      objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: 764768c2448e827419adbaba9c242eeb,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -2400,8 +2405,8 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.002, y: 0.0018729633, z: 0.0013}
-  m_Center: {x: 0, y: -0.00009254859, z: -0.0009}
+  m_Size: {x: 0.0030247802, y: 0.0018729633, z: 0.0026233445}
+  m_Center: {x: 0.0005123899, y: -0.00009254839, z: -0.00023832748}
 --- !u!114 &1340217662
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2420,6 +2425,12 @@ MonoBehaviour:
   inFood: 
   Omrice: {fileID: 1288531599}
   getUI: {fileID: 0}
+--- !u!4 &1340217663 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: -4216859302048453862, guid: 764768c2448e827419adbaba9c242eeb,
+    type: 3}
+  m_PrefabInstance: {fileID: 1340217659}
+  m_PrefabAsset: {fileID: 0}
 --- !u!54 &1340217666
 Rigidbody:
   m_ObjectHideFlags: 0
