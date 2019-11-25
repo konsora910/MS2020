@@ -24,19 +24,20 @@ public class RiceControl : MonoBehaviour
     void Update()
     {
         AItake = AiSrt.RiceHave();
+        Debug.Log(AItake);
         if (AItake == true)
         {
-            takeout = true;
+
+            takeout = AItake;
         }
         if (takeout == true)
         {
             //食材を持たれたら元の位置にコピーする
             if (copy == false)
             {
-                GameObject obj = GameObject.FindGameObjectWithTag("Food");
-                GameObject instance = (GameObject)Instantiate(copyFood, new Vector3(FoodResetPosition.x, FoodResetPosition.y, FoodResetPosition.z), Quaternion.identity);
-                instance.transform.parent = obj.transform;          //コピー食材をfoodの子に
-                obj.GetComponent<Foodselect1>().AddFood(instance.transform);
+                StartCoroutine("Res");
+
+
             }
             copy = true;
         }
@@ -71,5 +72,15 @@ public class RiceControl : MonoBehaviour
             obj.GetComponent<Foodselect1>().DelateFood(this.transform);
             Destroy(this.gameObject);
         }
+    }
+
+    IEnumerator Res()
+    {
+        yield return new WaitForSeconds(1);
+        GameObject obj = GameObject.FindGameObjectWithTag("Food");
+        GameObject instance = (GameObject)Instantiate(copyFood, new Vector3(FoodResetPosition.x, FoodResetPosition.y, FoodResetPosition.z), Quaternion.identity);
+        instance.transform.parent = obj.transform;          //コピー食材をfoodの子に
+        obj.GetComponent<Foodselect1>().AddFood(instance.transform);
+        yield break;
     }
 }
