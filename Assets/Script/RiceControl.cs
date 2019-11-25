@@ -24,7 +24,6 @@ public class RiceControl : MonoBehaviour
     void Update()
     {
         AItake = AiSrt.RiceHave();
-        Debug.Log(AItake);
         if (AItake == true)
         {
 

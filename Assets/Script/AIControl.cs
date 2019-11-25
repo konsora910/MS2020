@@ -24,11 +24,15 @@ public class AIControl : MonoBehaviour
 
     private bool FoodHave = false;
 
-    private int CookKind = 0;
-    private int FoodKind = 0;
+    private int CookKind;
+    [SerializeField]
+    public int FoodKind = 0;
     public GameObject food;
     public int FoodType = 4;
     private bool carryEnd = false;
+    private bool Check = false;
+    private bool Check1 = false;
+    private bool Check2 = false;
     private void Awake()
     {
         m_navAgent = GetComponent<NavMeshAgent>();
@@ -36,7 +40,6 @@ public class AIControl : MonoBehaviour
 
     private void Start()
     {
-
         StartCoroutine("Neutral");
     }
 
@@ -44,7 +47,8 @@ public class AIControl : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(food == null)
+        //Debug.Log(FoodKind);
+        if (food == null)
         {
           
 
@@ -59,14 +63,13 @@ public class AIControl : MonoBehaviour
                 food.GetComponent<RiceControl>().transform.position = new Vector3((transform.position.x + m_navAgent.destination.x / 15), (1), (transform.position.z + m_navAgent.destination.z / 15));
 
         }
-        
 
     }
 
     IEnumerator Neutral()
     {
+        
         CookKind = 0;
-        FoodKind = 0;
         //待機状態ループ
         while (true)
         {
@@ -195,7 +198,7 @@ public class AIControl : MonoBehaviour
                       
 
                 }
-                yield return null;
+
             }
                 //フレーム停止
                 yield return null;
@@ -252,12 +255,12 @@ public class AIControl : MonoBehaviour
             FoodKind = 3;
             //ここに処理を書く
             if (FoodHave == false)
-        {
-            if (m_Rice != null)
             {
-                m_navAgent.destination = m_Rice.position;
+                 if (m_Rice != null)
+                 {
+                     m_navAgent.destination = m_Rice.position;
+                 }
             }
-        }
             if (FoodHave == true)
             {
                 switch (CookKind)
@@ -270,13 +273,12 @@ public class AIControl : MonoBehaviour
                         yield break;
                     case 3:
                         StartCoroutine("MoveFryingPan");
-
                         yield break;
 
                 }
 
                 //1フレーム停止
-                yield return null;
+               
             }
             //ここに再開後の処理を書く
             yield return null;
@@ -291,10 +293,9 @@ public class AIControl : MonoBehaviour
             {
                 m_navAgent.destination = m_FryingPan.position;
             }
-            if(carryEnd == true)
+
+            if (carryEnd == true)
             {
-                Debug.Log(carryEnd);
-                //StartCoroutine("Neutral");
                 yield break;
             }
             //1フレーム停止
@@ -344,9 +345,9 @@ public class AIControl : MonoBehaviour
       
         FoodHave = false;
         food = null;
-        FoodKind = 0;
-        CookKind = 0;
+        carryEnd = true;
         StartCoroutine("Neutral");
+        yield return null;
         yield break;
 
     }
@@ -421,30 +422,41 @@ public class AIControl : MonoBehaviour
 
     public bool TmtHave()
     {
-        bool Check = false;
         if(FoodKind == 1)
         {
             Check = true;
+        }
+        else
+        {
+            Check = false;
         }
         return Check;
     }
     public bool RiceHave()
     {
-        bool Check = false;
+        Debug.Log(FoodKind);
         if (FoodKind == 3)
         {
-            Check = true;
+            Check1 = true;
+           
         }
-        return Check;
+        else
+        {
+            Check1 = false;
+        }
+        return Check1;
     }
     public bool EggHave()
     {
-        bool Check = false;
         if (FoodKind == 2)
         {
-            Check = true;
+            Check2 = true;
         }
-        return Check;
+        else
+        {
+            Check2 = false;
+        }
+        return Check2;
     }
 
 }
