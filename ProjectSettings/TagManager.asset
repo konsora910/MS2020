@@ -21,6 +21,9 @@ TagManager:
   - DustBox
   - FP
   - score
+  - Fish
+  - CutTmt
+  - CutFish
   layers:
   - Default
   - TransparentFX
