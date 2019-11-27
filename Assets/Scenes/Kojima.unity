@@ -348,6 +348,7 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   FoodsNum: 0
+  Soup: {fileID: 1975647342623387560, guid: d4de6f6baaca28a4b955edc8c080f7c8, type: 3}
 --- !u!4 &268409398 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7054959156023430264, guid: 06adbe869b345cd4689a05a8dc63e34d,
@@ -1450,14 +1451,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5f983ebce1e43f44b9e3e4c89a937665, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Player: {fileID: 0}
   takeout: 0
   FoodResetPosition: {x: 0, y: 0, z: 0}
-  TakePosition: {x: 0, y: 0, z: 0}
   copyFood: {fileID: 0}
   Food: {fileID: 0}
-  AI: {fileID: 0}
-  AiTaleOut: 0
 --- !u!1001 &1502919970
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1635,14 +1632,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ea9be819ab99bee41b52f6dcc22abf60, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Player: {fileID: 0}
   takeout: 0
   FoodResetPosition: {x: 0, y: 0, z: 0}
-  TakePosition: {x: 0, y: 0, z: 0}
   copyFood: {fileID: 0}
   Food: {fileID: 0}
-  AI: {fileID: 0}
-  AiTaleOut: 0
 --- !u!1001 &1841604395
 PrefabInstance:
   m_ObjectHideFlags: 0
