@@ -10,8 +10,6 @@ public class RiceControl : MonoBehaviour
     public GameObject Food;
     bool copy = false;
     bool bDestroy = false;
-    [SerializeField] public AIControl AiSrt;
-    private bool AItake = false;
     // Start is called before the first frame update
     void Start()
     {
@@ -23,19 +21,16 @@ public class RiceControl : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        AItake = AiSrt.RiceHave();
-        if (AItake == true)
-        {
 
-            takeout = AItake;
-        }
         if (takeout == true)
         {
             //食材を持たれたら元の位置にコピーする
             if (copy == false)
             {
-                StartCoroutine("Res");
-
+                GameObject obj = GameObject.FindGameObjectWithTag("Food");
+                GameObject instance = (GameObject)Instantiate(copyFood, new Vector3(FoodResetPosition.x, FoodResetPosition.y, FoodResetPosition.z), Quaternion.identity);
+                instance.transform.parent = obj.transform;          //コピー食材をfoodの子に
+                obj.GetComponent<Foodselect1>().AddFood(instance.transform);
 
             }
             copy = true;
@@ -73,13 +68,4 @@ public class RiceControl : MonoBehaviour
         }
     }
 
-    IEnumerator Res()
-    {
-        yield return new WaitForSeconds(1);
-        GameObject obj = GameObject.FindGameObjectWithTag("Food");
-        GameObject instance = (GameObject)Instantiate(copyFood, new Vector3(FoodResetPosition.x, FoodResetPosition.y, FoodResetPosition.z), Quaternion.identity);
-        instance.transform.parent = obj.transform;          //コピー食材をfoodの子に
-        obj.GetComponent<Foodselect1>().AddFood(instance.transform);
-        yield break;
-    }
 }
