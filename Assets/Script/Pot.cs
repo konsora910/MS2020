@@ -33,7 +33,7 @@ public class Pot : MonoBehaviour
     [SerializeField] public int FoodsNum=0;
 
 
-
+    public GameObject Soup;
 
 
 
@@ -57,14 +57,21 @@ public class Pot : MonoBehaviour
 
             switch (FoodsNum)
             {
-                case 0: ChangeMode(Mode.Stay); Cook = false; break;
+                case 0:
+                {
+                    ChangeMode(Mode.Stay); Cook = false;
+                    StopCoroutine("CookingDouble");
+                    StopCoroutine("CookingTriple");
+                    break;
+                }
                 case 1: ChangeMode(Mode.Single); Cook = false; break;
                 case 2: ChangeMode(Mode.Double); Cook = true; StartCoroutine("CookingDouble"); break;
                 case 3:
                 {
                     ChangeMode(Mode.Triple);
                     Cook = true;
-                    StartCoroutine("CookingTriple"); break;
+                    StartCoroutine("CookingTriple");
+                    break;
                 }
 
             }
@@ -123,15 +130,14 @@ public class Pot : MonoBehaviour
     /// </summary>
     IEnumerator CookingDouble()
     {
-        yield return new WaitForSeconds(7);
-
-        if(CurrentMode!=Mode.Double)
-        {
-            yield break;
-        }
         
 
-        
+        yield return new WaitForSeconds(ConstGaugeUI.ConstUI.POT_COOKING_TIME);
+        GameObject prefab = (GameObject)Instantiate(Soup);
+        Debug.Log("料理1");
+        Reset();
+        ChangeMode(Mode.Stay);
+
     }
     /// <summary>
     /// 3つの食べ物の調理の関数
@@ -139,14 +145,14 @@ public class Pot : MonoBehaviour
     /// </summary>
     IEnumerator CookingTriple()
     {
-        yield return new WaitForSeconds(5);
 
+
+        yield return new WaitForSeconds(ConstGaugeUI.ConstUI.POT_COOKING_TIME);
+        Debug.Log("料理2");
+        Reset();
         ChangeMode(Mode.Stay);
-        if (CurrentMode != Mode.Triple)
-        {
-            yield break;
-        }
 
+        //yield break;
     }
 
     private void FoodCounter()
@@ -169,11 +175,13 @@ public class Pot : MonoBehaviour
         /// </summary>
     public void Reset()
     {
-        foreach (GameObject i in PotArray)
+        
+        for (int i = 0; i <= 2; i++)
         {
-            PotArray = null;
+            PotArray[i] = null;
+            
         }
-
+        FoodsNum = 0;
         Cook = false;
         Full = false;
     }
