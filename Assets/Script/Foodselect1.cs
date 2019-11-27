@@ -72,7 +72,7 @@ public class Foodselect1 : MonoBehaviour
             WhichFood[allFood] = OMERICE;
         else if (gameObjectArray[allFood].tag == "Soup")
             WhichFood[allFood] = SOUP;
-        else if (gameObjectArray[allFood].tag == "RiceBoll")
+        else if (gameObjectArray[allFood].tag == "RiceBall")
             WhichFood[allFood] = RICEBALL;
         allFood++;
     }

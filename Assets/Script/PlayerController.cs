@@ -112,7 +112,7 @@ public class PlayerController : MonoBehaviour
 
     void OnTriggerStay(Collider Collider)
     {// 接触中
-        if (Collider.gameObject.tag == "tmt" || Collider.gameObject.tag == "egg" || Collider.gameObject.tag == "rice" || Collider.gameObject.tag == "Soup" || Collider.gameObject.tag == "Omerice" || Collider.gameObject.tag == "RiceBoll")
+        if (Collider.gameObject.tag == "tmt" || Collider.gameObject.tag == "egg" || Collider.gameObject.tag == "rice" || Collider.gameObject.tag == "Soup" || Collider.gameObject.tag == "Omerice" || Collider.gameObject.tag == "RiceBall")
         {
             //持つ
             if (Input.GetKeyDown(KeyCode.Space) && bFood_Take == false)
@@ -130,7 +130,7 @@ public class PlayerController : MonoBehaviour
                     FoodType = Foodselect1.OMERICE;
                 if (Collider.gameObject.tag == "Soup")
                     FoodType = Foodselect1.SOUP;
-                if (Collider.gameObject.tag == "RiceBoll")
+                if (Collider.gameObject.tag == "RiceBall")
                     FoodType = Foodselect1.RICEBALL;
             }
         

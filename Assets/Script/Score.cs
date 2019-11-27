@@ -33,13 +33,13 @@ public class Score : MonoBehaviour
 
     void OnTriggerStay(Collider Collider)
     {
-        if (Collider.gameObject.tag == "Omerice" || Collider.gameObject.tag == "RiceBoll" || Collider.gameObject.tag == "Soup")
+        if (Collider.gameObject.tag == "Omerice" || Collider.gameObject.tag == "RiceBall" || Collider.gameObject.tag == "Soup")
         {
             if (Input.GetKeyDown(KeyCode.Space))
             {
                 if (Collider.gameObject.tag == "Omerice")
                     FoodType = Foodselect1.OMERICE;
-                else if (Collider.gameObject.tag == "RiceBoll")
+                else if (Collider.gameObject.tag == "RiceBall")
                     FoodType = Foodselect1.RICEBALL;
                 else if (Collider.gameObject.tag == "Soup")
                     FoodType = Foodselect1.SOUP;
