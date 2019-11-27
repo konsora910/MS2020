@@ -19,6 +19,7 @@ public class Foodselect1 : MonoBehaviour
     public static readonly int OMERICE = 3;
     public static readonly int SOUP = 4;
     public static readonly int RICEBALL = 5;
+    public static readonly int FOODNULL = 10;
 
     // Start is called before the first frame update
     void Start()
@@ -85,7 +86,7 @@ public class Foodselect1 : MonoBehaviour
             if(DelateFood == gameObjectArray[allFood-1].gameObject.transform)
             {
                 gameObjectArray[allFood-1] = null;
-                WhichFood[allFood - 1] = 4;
+                WhichFood[allFood - 1] = FOODNULL;
                 allFood--;
                 break;
             }
@@ -97,7 +98,7 @@ public class Foodselect1 : MonoBehaviour
                 gameObjectArray[i] = gameObjectArray[allFood - 1];
                 WhichFood[i] = WhichFood[allFood - 1];
                 gameObjectArray[allFood - 1] = null;
-                WhichFood[allFood - 1] = 4;
+                WhichFood[allFood - 1] = FOODNULL;
                 allFood--;
                 break;
             }

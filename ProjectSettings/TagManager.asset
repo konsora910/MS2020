@@ -15,6 +15,12 @@ TagManager:
   - Canvas
   - Effect
   - CanvasGaugeUI
+  - RiceBoll
+  - Soup
+  - Omerice
+  - DustBox
+  - FP
+  - score
   layers:
   - Default
   - TransparentFX

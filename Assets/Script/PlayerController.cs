@@ -7,7 +7,7 @@ public class PlayerController : MonoBehaviour
     public GameObject Pot;
     public Pot PotScript;
     public GameObject food;
-    public int FoodType = 4;
+    public int FoodType = Foodselect1.FOODNULL;
     public float speed;
     public Vector3 PlayerForward, OldPosition;
     private Rigidbody rb;
@@ -58,12 +58,18 @@ public class PlayerController : MonoBehaviour
         //持っている食材を置く
         if (Input.GetKeyDown(KeyCode.Space) && ImputTimer > 5 && bFood_Take == true)
         {
-            if (FoodType == 0)
+            if (FoodType == Foodselect1.TOMATO)
                 food.GetComponent<TomatoControl>().takeout = false;
-            else if (FoodType == 1)
+            else if (FoodType == Foodselect1.EGG)
                 food.GetComponent<EggControl>().takeout = false;
-            else if (FoodType == 2)
+            else if (FoodType == Foodselect1.RICE)
                 food.GetComponent<RiceControl>().takeout = false;
+            else if (FoodType == Foodselect1.OMERICE)
+                food.GetComponent<OmericeControle>().takeout = false;
+            else if (FoodType == Foodselect1.RICEBALL)
+                food.GetComponent<RiceBallControl>().takeout = false;
+            else if (FoodType == Foodselect1.SOUP)
+                food.GetComponent<SoupControl>().takeout = false;
             bFood_Take = false;
             food = null;
         }
