@@ -24,6 +24,7 @@ TagManager:
   - Fish
   - CutTmt
   - CutFish
+  - RiceBall
   layers:
   - Default
   - TransparentFX
