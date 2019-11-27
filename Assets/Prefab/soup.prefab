@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 6013979112440492748}
   m_Layer: 0
   m_Name: soup
-  m_TagString: Untagged
+  m_TagString: Soup
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

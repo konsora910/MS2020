@@ -13,10 +13,16 @@ public class Foodselect1 : MonoBehaviour
     public bool bSave = false;
     public GameObject player;
 
+    public static readonly int TOMATO = 0;
+    public static readonly int EGG = 1;
+    public static readonly int RICE = 2;
+    public static readonly int OMERICE = 3;
+    public static readonly int SOUP = 4;
+    public static readonly int RICEBALL = 5;
+
     // Start is called before the first frame update
     void Start()
     {
-
         int count = 0;
         //食材の登録
         foreach (Transform child in transform)
@@ -32,11 +38,11 @@ public class Foodselect1 : MonoBehaviour
             for (int i = 0; i < allFood; i++)
             {
                 if (gameObjectArray[i].tag == "tmt")
-                    WhichFood[i] = 0;
+                    WhichFood[i] = TOMATO;
                 else if (gameObjectArray[i].tag == "egg")
-                    WhichFood[i] = 1;
+                    WhichFood[i] = EGG;
                 if (gameObjectArray[i].tag == "rice")
-                    WhichFood[i] = 2;
+                    WhichFood[i] = RICE;
             }
             bSave = true;
 
@@ -56,11 +62,17 @@ public class Foodselect1 : MonoBehaviour
     {
         gameObjectArray[allFood] = addfood.gameObject;
         if (gameObjectArray[allFood].tag == "tmt")
-            WhichFood[allFood] = 0;
+            WhichFood[allFood] = TOMATO;
         else if (gameObjectArray[allFood].tag == "egg")
-            WhichFood[allFood] = 1;
-        if (gameObjectArray[allFood].tag == "rice")
-            WhichFood[allFood] = 2;
+            WhichFood[allFood] = EGG;
+        else if (gameObjectArray[allFood].tag == "rice")
+            WhichFood[allFood] = RICE;
+        else if (gameObjectArray[allFood].tag == "Omerice")
+            WhichFood[allFood] = OMERICE;
+        else if (gameObjectArray[allFood].tag == "Soup")
+            WhichFood[allFood] = SOUP;
+        else if (gameObjectArray[allFood].tag == "RiceBoll")
+            WhichFood[allFood] = RICEBALL;
         allFood++;
     }
 
