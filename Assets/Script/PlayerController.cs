@@ -7,7 +7,7 @@ public class PlayerController : MonoBehaviour
     public GameObject Pot;
     public Pot PotScript;
     public GameObject food;
-    public int FoodType = 4;
+    public int FoodType = Foodselect1.FOODNULL;
     public float speed;
     public Vector3 PlayerForward, OldPosition;
     private Rigidbody rb;
@@ -42,23 +42,34 @@ public class PlayerController : MonoBehaviour
         //食材の移動
         if(bFood_Take == true)
         {
-            if (FoodType == 0)
+            if (FoodType == Foodselect1.TOMATO)
                 food.GetComponent<TomatoControl>().transform.position = new Vector3((transform.position.x + PlayerForward.x / 2), (transform.position.y), (transform.position.z + PlayerForward.z / 2));
-            else if (FoodType == 1)
+            else if (FoodType == Foodselect1.EGG)
                 food.GetComponent<EggControl>().transform.position = new Vector3((transform.position.x + PlayerForward.x / 2), (transform.position.y), (transform.position.z + PlayerForward.z / 2));
-            else if (FoodType == 2)
+            else if (FoodType == Foodselect1.RICE)
                 food.GetComponent<RiceControl>().transform.position = new Vector3((transform.position.x + PlayerForward.x / 2), (transform.position.y), (transform.position.z + PlayerForward.z / 2));
-
+            else if (FoodType == Foodselect1.OMERICE)
+                food.GetComponent<OmericeControle>().transform.position = new Vector3((transform.position.x + PlayerForward.x / 2), (transform.position.y), (transform.position.z + PlayerForward.z / 2));
+            else if (FoodType == Foodselect1.SOUP)
+                food.GetComponent<SoupControl>().transform.position = new Vector3((transform.position.x + PlayerForward.x / 2), (transform.position.y), (transform.position.z + PlayerForward.z / 2));
+            else if (FoodType == Foodselect1.RICEBALL)
+                food.GetComponent<RiceBallControl>().transform.position = new Vector3((transform.position.x + PlayerForward.x / 2), (transform.position.y), (transform.position.z + PlayerForward.z / 2));
         }
         //持っている食材を置く
         if (Input.GetKeyDown(KeyCode.Space) && ImputTimer > 5 && bFood_Take == true)
         {
-            if (FoodType == 0)
+            if (FoodType == Foodselect1.TOMATO)
                 food.GetComponent<TomatoControl>().takeout = false;
-            else if (FoodType == 1)
+            else if (FoodType == Foodselect1.EGG)
                 food.GetComponent<EggControl>().takeout = false;
-            else if (FoodType == 2)
+            else if (FoodType == Foodselect1.RICE)
                 food.GetComponent<RiceControl>().takeout = false;
+            else if (FoodType == Foodselect1.OMERICE)
+                food.GetComponent<OmericeControle>().takeout = false;
+            else if (FoodType == Foodselect1.RICEBALL)
+                food.GetComponent<RiceBallControl>().takeout = false;
+            else if (FoodType == Foodselect1.SOUP)
+                food.GetComponent<SoupControl>().takeout = false;
             bFood_Take = false;
             food = null;
         }
@@ -101,7 +112,7 @@ public class PlayerController : MonoBehaviour
 
     void OnTriggerStay(Collider Collider)
     {// 接触中
-        if (Collider.gameObject.tag == "tmt" || Collider.gameObject.tag == "egg" || Collider.gameObject.tag == "rice")
+        if (Collider.gameObject.tag == "tmt" || Collider.gameObject.tag == "egg" || Collider.gameObject.tag == "rice" || Collider.gameObject.tag == "Soup" || Collider.gameObject.tag == "Omerice" || Collider.gameObject.tag == "RiceBall")
         {
             //持つ
             if (Input.GetKeyDown(KeyCode.Space) && bFood_Take == false)
@@ -110,11 +121,17 @@ public class PlayerController : MonoBehaviour
                 bFood_Take = true;
                 food = Collider.gameObject;
                 if (Collider.gameObject.tag == "tmt")
-                    FoodType = 0;
+                    FoodType = Foodselect1.TOMATO;
                 if (Collider.gameObject.tag == "egg")
-                    FoodType = 1;
+                    FoodType = Foodselect1.EGG;
                 if (Collider.gameObject.tag == "rice")
-                    FoodType = 2;
+                    FoodType = Foodselect1.RICE;
+                if (Collider.gameObject.tag == "Omerice")
+                    FoodType = Foodselect1.OMERICE;
+                if (Collider.gameObject.tag == "Soup")
+                    FoodType = Foodselect1.SOUP;
+                if (Collider.gameObject.tag == "RiceBall")
+                    FoodType = Foodselect1.RICEBALL;
             }
         
         }
@@ -122,7 +139,12 @@ public class PlayerController : MonoBehaviour
         {
             if (Input.GetKeyDown(KeyCode.B) && bFood_Take == true)
             {
-                food.GetComponent<FoodController>().takeout = false;
+                if (FoodType == Foodselect1.TOMATO)
+                    food.GetComponent<TomatoControl>().takeout = false;
+                else if (FoodType == Foodselect1.EGG)
+                    food.GetComponent<EggControl>().takeout = false;
+                else if (FoodType == Foodselect1.RICE)
+                    food.GetComponent<RiceControl>().takeout = false;
                 bFood_Take = false;
                 PotScript.SetFood(food);
             }

@@ -15,6 +15,15 @@ TagManager:
   - Canvas
   - Effect
   - CanvasGaugeUI
+  - Soup
+  - Omerice
+  - DustBox
+  - FP
+  - score
+  - Fish
+  - CutTmt
+  - CutFish
+  - RiceBall
   layers:
   - Default
   - TransparentFX

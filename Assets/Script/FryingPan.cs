@@ -119,7 +119,11 @@ public class FryingPan : MonoBehaviour
         inFood = inFood.Remove(0, 3);
         yield return new WaitForSeconds(5);
         // 料理の生成場所を設定できる(生成対象オブジェクト、生成座標、生成初期角度)
-        Instantiate(Omrice, new Vector3(this.transform.position.x, this.transform.position.y, this.transform.position.z), Quaternion.identity);
+        GameObject obj = GameObject.FindGameObjectWithTag("Food");
+        GameObject instance = (GameObject)Instantiate(Omrice, new Vector3(this.transform.position.x, this.transform.position.y, this.transform.position.z), Quaternion.identity);
+        instance.transform.parent = obj.transform;          //コピー食材をfoodの子に
+        obj.GetComponent<Foodselect1>().AddFood(instance.transform);
+        
     }
 
     void OnTriggerStay(Collider other)
