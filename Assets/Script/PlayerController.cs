@@ -13,6 +13,7 @@ public class PlayerController : MonoBehaviour
     private Rigidbody rb;
     private int ImputTimer = 5;
     public bool bFood_Take = false;                         // 持ってるか持ってないか
+    public bool b_TouchPot = false;
     [SerializeField] private Vector3 velocity;              // 移動方向
                                                             //    public GameObject food;
     public float PushPower;
@@ -58,6 +59,9 @@ public class PlayerController : MonoBehaviour
         //持っている食材を置く
         if (Input.GetKeyDown(KeyCode.Space) && ImputTimer > 5 && bFood_Take == true)
         {
+            if(b_TouchPot == true)
+                PotScript.SetFood(food);
+
             if (FoodType == Foodselect1.TOMATO)
                 food.GetComponent<TomatoControl>().takeout = false;
             else if (FoodType == Foodselect1.EGG)
@@ -73,6 +77,7 @@ public class PlayerController : MonoBehaviour
             bFood_Take = false;
             food = null;
         }
+        Debug.Log(b_TouchPot);
         //プレイヤーが移動していたら向ている方向計算
         if (OldPosition != this.gameObject.transform.position)
         {
@@ -81,6 +86,7 @@ public class PlayerController : MonoBehaviour
             this.gameObject.transform.forward = PlayerForward;
          
         }
+        b_TouchPot = false;
     }
     // キーボード操作
     void KeyBord()
@@ -112,6 +118,8 @@ public class PlayerController : MonoBehaviour
 
     void OnTriggerStay(Collider Collider)
     {// 接触中
+        if (Collider.gameObject.tag == ("pot"))
+            b_TouchPot = true;
         if (Collider.gameObject.tag == "tmt" || Collider.gameObject.tag == "egg" || Collider.gameObject.tag == "rice" || Collider.gameObject.tag == "Soup" || Collider.gameObject.tag == "Omerice" || Collider.gameObject.tag == "RiceBall")
         {
             //持つ
@@ -134,20 +142,6 @@ public class PlayerController : MonoBehaviour
                     FoodType = Foodselect1.RICEBALL;
             }
         
-        }
-        if (Collider.gameObject.tag == ("pot"))
-        {
-            if (Input.GetKeyDown(KeyCode.B) && bFood_Take == true)
-            {
-                if (FoodType == Foodselect1.TOMATO)
-                    food.GetComponent<TomatoControl>().takeout = false;
-                else if (FoodType == Foodselect1.EGG)
-                    food.GetComponent<EggControl>().takeout = false;
-                else if (FoodType == Foodselect1.RICE)
-                    food.GetComponent<RiceControl>().takeout = false;
-                bFood_Take = false;
-                PotScript.SetFood(food);
-            }
         }
 
     }
