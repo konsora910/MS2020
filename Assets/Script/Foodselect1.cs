@@ -13,6 +13,9 @@ public class Foodselect1 : MonoBehaviour
     public bool bSave = false;
     public GameObject player;
 
+    //食材のdefine(定数)として利用できるやつ
+    // if(Foodselect1.EGG)
+    // else if(Foodselect1.TOMATO)　みたいな感じでつかって
     public static readonly int TOMATO = 0;
     public static readonly int EGG = 1;
     public static readonly int RICE = 2;
@@ -77,7 +80,7 @@ public class Foodselect1 : MonoBehaviour
         allFood++;
     }
 
-    //食材を消去する時に呼び出す関数
+    //食材を消去する時に呼び出す関数(基本直接呼ばない)(食べ物ごとのスクリプトのDestroyFood(true)で消す)
     public void DelateFood(Transform DelateFood)
     {
         for(int i = 0; i < allFood; i++)

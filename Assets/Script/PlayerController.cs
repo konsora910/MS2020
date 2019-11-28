@@ -6,15 +6,14 @@ public class PlayerController : MonoBehaviour
 {
     public GameObject Pot;
     public Pot PotScript;
-    public GameObject food;
-    public int FoodType = Foodselect1.FOODNULL;
-    public float speed;
-    public Vector3 PlayerForward, OldPosition;
-    private Rigidbody rb;
-    private int ImputTimer = 5;
-    public bool bFood_Take = false;                         // 持ってるか持ってないか
-    public bool b_TouchPot = false;
-    [SerializeField] private Vector3 velocity;              // 移動方向
+    public GameObject food;                                 //　持っている食材のgameobject
+    public int FoodType = Foodselect1.FOODNULL;             //　どの食材をもっているか
+    public float speed = 0.05f;                             //　プレイヤーの移動速度
+    public Vector3 PlayerForward, OldPosition;              //　プレイヤーの向いている方向, 1フレーム前の位置
+    private int ImputTimer = 5;                             //　食材を持ってから置くまでの入力遅延
+    public bool bFood_Take = false;                         //　持ってるか持ってないか
+    public bool b_TouchPot = false;                         //　ポットにふれているかどうか
+    [SerializeField] private Vector3 velocity;              //　移動方向
                                                             //    public GameObject food;
     public float PushPower;
     //    Collider collider;
@@ -30,6 +29,7 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        Debug.Log(speed);
         ImputTimer++;
         OldPosition = this.gameObject.transform.position;
         KeyBord();
@@ -43,6 +43,8 @@ public class PlayerController : MonoBehaviour
         //食材の移動
         if(bFood_Take == true)
         {
+
+            //種類ごとに呼ぶスクリプト違う
             if (FoodType == Foodselect1.TOMATO)
                 food.GetComponent<TomatoControl>().transform.position = new Vector3((transform.position.x + PlayerForward.x / 2), (transform.position.y), (transform.position.z + PlayerForward.z / 2));
             else if (FoodType == Foodselect1.EGG)
@@ -59,9 +61,11 @@ public class PlayerController : MonoBehaviour
         //持っている食材を置く
         if (Input.GetKeyDown(KeyCode.Space) && ImputTimer > 5 && bFood_Take == true)
         {
+            //ポットに触れていたら
             if(b_TouchPot == true)
                 PotScript.SetFood(food);
 
+            //種類ごとに呼ぶスクリプト違う
             if (FoodType == Foodselect1.TOMATO)
                 food.GetComponent<TomatoControl>().takeout = false;
             else if (FoodType == Foodselect1.EGG)
@@ -118,8 +122,11 @@ public class PlayerController : MonoBehaviour
 
     void OnTriggerStay(Collider Collider)
     {// 接触中
+        //ポットに触れていたら
         if (Collider.gameObject.tag == ("pot"))
             b_TouchPot = true;
+
+        //食べ物に触れていたら
         if (Collider.gameObject.tag == "tmt" || Collider.gameObject.tag == "egg" || Collider.gameObject.tag == "rice" || Collider.gameObject.tag == "Soup" || Collider.gameObject.tag == "Omerice" || Collider.gameObject.tag == "RiceBall")
         {
             //持つ
