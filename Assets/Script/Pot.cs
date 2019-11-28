@@ -96,9 +96,9 @@ public class Pot : MonoBehaviour
                     if (PotArray[i] == null)
                     {
                         PotArray[i] = food;
-                        
                     }
                 }
+                food.gameObject.GetComponent<EggControl>().DestroyFood(true);
             }
             if (food.gameObject.tag == "tmt")
             {
@@ -109,6 +109,7 @@ public class Pot : MonoBehaviour
                         PotArray[i] = food;
                     }
                 }
+                food.gameObject.GetComponent<TomatoControl>().DestroyFood(true);
             }
             if (food.gameObject.tag == "rice")
             {
@@ -121,6 +122,7 @@ public class Pot : MonoBehaviour
                         break;
                     }
                 }
+                food.gameObject.GetComponent<RiceControl>().DestroyFood(true);
             }
         }
     }
