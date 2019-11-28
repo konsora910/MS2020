@@ -6,12 +6,23 @@ public class Score : MonoBehaviour
 {
     public int score = 0;
     public bool b_Score = false;
-    public int FoodType = 4;
+    public int FoodType = Foodselect1.FOODNULL;
+    public int n_Order = 0;
+    public bool b_OrderCrear = false;
+
+
+    //仮置き
+    GameObject player;
 
     // Start is called before the first frame update
     void Start()
     {
         score = 0;
+
+        n_Order = Foodselect1.RICEBALL;
+        //仮置き
+        player = GameObject.FindGameObjectWithTag("Player");
+
     }
 
     // Update is called once per frame
@@ -20,14 +31,43 @@ public class Score : MonoBehaviour
         if(b_Score)
         {
             if (FoodType == Foodselect1.OMERICE)
-                score += 100;
+            {
+                if (n_Order == Foodselect1.OMERICE)
+                {
+                    b_OrderCrear = true;
+                    score += 10000;
+                    n_Order = player.GetComponent<Order>().SelectOrder();
+                }
+                else
+                    score += 100;
+            }
             else if (FoodType == Foodselect1.RICEBALL)
-                score += 150;
+            {
+                if (n_Order == Foodselect1.RICEBALL)
+                {
+                    b_OrderCrear = true;
+                    score += 20000;
+                    n_Order = player.GetComponent<Order>().SelectOrder();
+                }
+                else
+                    score += 150;
+            }
             else if (FoodType == Foodselect1.SOUP)
-                score += 200;
+            {
+                if (n_Order == Foodselect1.SOUP)
+                {
+                    b_OrderCrear = true;
+                    score += 30000;
+                    n_Order = player.GetComponent<Order>().SelectOrder();
+                }
+                else
+                    score += 200;
+            }
             b_Score = false;
         }
-
+        Debug.Log("お題");
+        Debug.Log(n_Order);
+        Debug.Log("スコア");
         Debug.Log(score);
     }
 

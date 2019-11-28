@@ -29,7 +29,6 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Debug.Log(speed);
         ImputTimer++;
         OldPosition = this.gameObject.transform.position;
         KeyBord();
@@ -81,7 +80,7 @@ public class PlayerController : MonoBehaviour
             bFood_Take = false;
             food = null;
         }
-        Debug.Log(b_TouchPot);
+
         //プレイヤーが移動していたら向ている方向計算
         if (OldPosition != this.gameObject.transform.position)
         {
