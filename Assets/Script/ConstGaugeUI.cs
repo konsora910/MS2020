@@ -28,7 +28,7 @@ namespace ConstGaugeUI
         /// 鍋のゲージ表示位置
         /// </summary>
         public static readonly float[] POT_POSITION = {
-            1.73f, 2.0f, 3.0f
+            0.0f, 1.0f, 0.0f
         };
         
 

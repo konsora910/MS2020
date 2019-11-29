@@ -23,14 +23,17 @@ public class Pot : MonoBehaviour
     //現在鍋に入っているものを入れる配列
     [SerializeField]public GameObject[] PotArray = new GameObject[3];
 
-    //調理可能か（鍋に2つ以上ものが入っているか）
-    [SerializeField] public bool Cook { get; private set; } = false;
-
-    //鍋が満タンかどうか
-    [SerializeField] public bool Full { get; private set; } = false;
-
     //鍋の中の個数
     [SerializeField] private int _FoodsNum=0;
+
+    //ゲージUIオブジェクト
+    private GameObject GaugeUI;
+
+    //ゲージUIスクリプト
+    private SetCookGaugeUI GaugeUIScript;
+
+    //ゲージフラグ
+    [SerializeField] public bool IsGauge;
 
 
     public GameObject Soup;
@@ -45,6 +48,9 @@ public class Pot : MonoBehaviour
         }
         ChangeMode(Mode.Stay);
         Soup = (GameObject)Resources.Load("Soup");
+
+        GaugeUI= GameObject.FindGameObjectWithTag("CookGaugeUI");
+        GaugeUIScript = GaugeUI.GetComponent<SetCookGaugeUI>();
     }
 
     
@@ -60,17 +66,21 @@ public class Pot : MonoBehaviour
             {
                 case 0:
                 {
-                    ChangeMode(Mode.Stay); Cook = false;
+                    ChangeMode(Mode.Stay); 
                     StopCoroutine("CookingDouble");
                     StopCoroutine("CookingTriple");
+                    IsGauge = false;
                     break;
                 }
-                case 1: ChangeMode(Mode.Single); Cook = false; break;
-                case 2: ChangeMode(Mode.Double); Cook = true; StartCoroutine("CookingDouble"); break;
+                case 1: ChangeMode(Mode.Single); break;
+                case 2:
+                {
+                    ChangeMode(Mode.Double);  StartCoroutine("CookingDouble");
+                    break;
+                }
                 case 3:
                 {
                     ChangeMode(Mode.Triple);
-                    Cook = true;
                     StartCoroutine("CookingTriple");
                     break;
                 }
@@ -135,6 +145,11 @@ public class Pot : MonoBehaviour
     /// </summary>
     IEnumerator CookingDouble()
     {
+        if (!IsGauge)
+        {
+            GaugeUIScript.SetGaugeUIPot(this.transform.position);
+            IsGauge = true;
+        }
         yield return new WaitForSeconds(ConstGaugeUI.ConstUI.POT_COOKING_TIME);
         GameObject obj = GameObject.FindGameObjectWithTag("Food");
         GameObject instance = (GameObject)Instantiate(Soup, new Vector3(this.transform.position.x, this.transform.position.y+1, this.transform.position.z), Quaternion.identity);
@@ -152,7 +167,11 @@ public class Pot : MonoBehaviour
     IEnumerator CookingTriple()
     {
 
-
+        if (!IsGauge)
+        {
+            GaugeUIScript.SetGaugeUIPot(this.transform.position);
+            IsGauge = true;
+        }
         yield return new WaitForSeconds(ConstGaugeUI.ConstUI.POT_COOKING_TIME);
         Debug.Log("料理2");
         Reset();
@@ -206,8 +225,7 @@ public class Pot : MonoBehaviour
             
         }
         _FoodsNum = 0;
-        Cook = false;
-        Full = false;
+
     }
     /// <summary>
     /// モードを変更

@@ -48,6 +48,7 @@ public class SetCookGaugeUI : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        /*
         if (Input.GetKeyDown(KeyCode.U))
         {
             //SetGaugeUI(new Vector3(100, 0, 0));
@@ -56,6 +57,7 @@ public class SetCookGaugeUI : MonoBehaviour
             SetGaugeUIPot();
             
         }
+        */
     }
 
     /// <summary>
@@ -79,9 +81,10 @@ public class SetCookGaugeUI : MonoBehaviour
     /// <summary>
     /// PotのUI表示
     /// </summary>
-    public void SetGaugeUIPot()
+    /// <param name="position">表示場所</param>
+    public void SetGaugeUIPot(Vector3 position)
     {
-        GameObject prefab = (GameObject)Instantiate(CanvasGaugePot, new Vector3(ConstGaugeUI.ConstUI.POT_POSITION[0], ConstGaugeUI.ConstUI.POT_POSITION[1], ConstGaugeUI.ConstUI.POT_POSITION[2]), Quaternion.identity);
+        GameObject prefab = (GameObject)Instantiate(CanvasGaugePot, position+new Vector3(ConstGaugeUI.ConstUI.POT_POSITION[0], ConstGaugeUI.ConstUI.POT_POSITION[1], ConstGaugeUI.ConstUI.POT_POSITION[2]), Quaternion.identity);
         Destroy(prefab, ConstGaugeUI.ConstUI.POT_COOKING_TIME);
     }
 
