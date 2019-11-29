@@ -10,17 +10,6 @@ using UnityEngine;
 public class SetCookGaugeUI : MonoBehaviour
 {
 
-    //GameObject canvas;
-
-    /// <summary>
-    /// ゲージUIのプレハブ (枠のみ)
-    /// </summary>
-    public GameObject GaugeUI01;
-
-    /// <summary>
-    /// ゲージUIのプレハブ (塗りつぶし)
-    /// </summary>
-    public GameObject GaugeUI02;
 
     /// <summary>
     /// フライパンの調理ゲージ調理ゲージのCanvasプレハブ
@@ -33,31 +22,17 @@ public class SetCookGaugeUI : MonoBehaviour
     public GameObject CanvasGaugePot;
     
 
-    public GameObject Pot;
-    public Pot PotScript;
 
 
     // Start is called before the first frame update
     void Start()
     {
-        //canvas = GameObject.FindGameObjectWithTag("CanvasGaugeUI");
-        Pot = GameObject.FindGameObjectWithTag("pot");
-        PotScript = Pot.GetComponent<Pot>();
+        
     }
 
     // Update is called once per frame
     void Update()
     {
-        /*
-        if (Input.GetKeyDown(KeyCode.U))
-        {
-            //SetGaugeUI(new Vector3(100, 0, 0));
-            //SetGaugeUIPot();
-            SetGaugeUIFlyingPan();
-            SetGaugeUIPot();
-            
-        }
-        */
     }
 
     /// <summary>
