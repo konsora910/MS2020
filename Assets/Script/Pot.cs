@@ -44,6 +44,7 @@ public class Pot : MonoBehaviour
             PotArray[i] = null;
         }
         ChangeMode(Mode.Stay);
+        Soup = (GameObject)Resources.Load("Soup");
     }
 
     
@@ -96,22 +97,24 @@ public class Pot : MonoBehaviour
                     if (PotArray[i] == null)
                     {
                         PotArray[i] = food;
+                        break;
                     }
                 }
-                food.gameObject.GetComponent<EggControl>().DestroyFood(true);
+                food.gameObject.SetActive(false);
             }
-            if (food.gameObject.tag == "tmt")
+            else if (food.gameObject.tag == "tmt")
             {
                 for (int i = 0; i < 3; i++)
                 {
                     if (PotArray[i] == null)
                     {
                         PotArray[i] = food;
+                        break;
                     }
                 }
-                food.gameObject.GetComponent<TomatoControl>().DestroyFood(true);
+                food.gameObject.SetActive(false);
             }
-            if (food.gameObject.tag == "rice")
+            else if (food.gameObject.tag == "rice")
             {
       
                 for (int i = 0; i < 3; i++)
@@ -122,7 +125,7 @@ public class Pot : MonoBehaviour
                         break;
                     }
                 }
-                food.gameObject.GetComponent<RiceControl>().DestroyFood(true);
+                food.gameObject.SetActive(false);
             }
         }
     }
@@ -132,10 +135,11 @@ public class Pot : MonoBehaviour
     /// </summary>
     IEnumerator CookingDouble()
     {
-        
-
         yield return new WaitForSeconds(ConstGaugeUI.ConstUI.POT_COOKING_TIME);
-        GameObject prefab = (GameObject)Instantiate(Soup);
+        GameObject obj = GameObject.FindGameObjectWithTag("Food");
+        GameObject instance = (GameObject)Instantiate(Soup, new Vector3(this.transform.position.x, this.transform.position.y+1, this.transform.position.z), Quaternion.identity);
+        instance.transform.parent = obj.transform;          //食材をfoodの子に
+        obj.GetComponent<Foodselect1>().AddFood(instance.transform);
         Debug.Log("料理1");
         Reset();
         ChangeMode(Mode.Stay);
@@ -180,6 +184,24 @@ public class Pot : MonoBehaviour
         
         for (int i = 0; i <= 2; i++)
         {
+            if (PotArray[i] != null)
+            {
+                if (PotArray[i].gameObject.tag == "tmt")
+                {
+                    PotArray[i].gameObject.GetComponent<TomatoControl>().takeout = false;
+                    PotArray[i].gameObject.GetComponent<TomatoControl>().DestroyFood(true);
+                }
+                else if (PotArray[i].gameObject.tag == "rice")
+                {
+                    PotArray[i].gameObject.GetComponent<RiceControl>().takeout = false;
+                    PotArray[i].gameObject.GetComponent<RiceControl>().DestroyFood(true);
+                }
+                else if (PotArray[i].gameObject.tag == "egg")
+                {
+                    PotArray[i].gameObject.GetComponent<EggControl>().takeout = false;
+                    PotArray[i].gameObject.GetComponent<EggControl>().DestroyFood(true);
+                }
+            }
             PotArray[i] = null;
             
         }

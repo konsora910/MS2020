@@ -5,10 +5,10 @@ using UnityEngine;
 public class Score : MonoBehaviour
 {
     public int score = 0;
+    public int n_ListNum = 0;
     public bool b_Score = false;
     public int FoodType = Foodselect1.FOODNULL;
     public int n_Order = 0;
-    public bool b_OrderCrear = false;
 
 
     //仮置き
@@ -18,6 +18,8 @@ public class Score : MonoBehaviour
     void Start()
     {
         score = 0;
+        n_ListNum = 0;
+        b_Score = false;
 
         n_Order = Foodselect1.RICEBALL;
         //仮置き
@@ -34,7 +36,6 @@ public class Score : MonoBehaviour
             {
                 if (n_Order == Foodselect1.OMERICE)
                 {
-                    b_OrderCrear = true;
                     score += 10000;
                     n_Order = player.GetComponent<Order>().GetOrder(1);
                 }
@@ -45,7 +46,6 @@ public class Score : MonoBehaviour
             {
                 if (n_Order == Foodselect1.RICEBALL)
                 {
-                    b_OrderCrear = true;
                     score += 20000;
                     n_Order = player.GetComponent<Order>().GetOrder(1);
                 }
@@ -55,8 +55,7 @@ public class Score : MonoBehaviour
             else if (FoodType == Foodselect1.SOUP)
             {
                 if (n_Order == Foodselect1.SOUP)
-                {
-                    b_OrderCrear = true;
+                { 
                     score += 30000;
                     n_Order = player.GetComponent<Order>().GetOrder(1);
                 }
@@ -64,6 +63,7 @@ public class Score : MonoBehaviour
                     score += 200;
             }
             b_Score = false;
+            FoodType = Foodselect1.FOODNULL;
         }
     }
 
