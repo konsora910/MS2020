@@ -36,7 +36,7 @@ public class Score : MonoBehaviour
                 {
                     b_OrderCrear = true;
                     score += 10000;
-                    n_Order = player.GetComponent<Order>().GetOrder(true);
+                    n_Order = player.GetComponent<Order>().GetOrder(1);
                 }
                 else
                     score += 100;
@@ -47,7 +47,7 @@ public class Score : MonoBehaviour
                 {
                     b_OrderCrear = true;
                     score += 20000;
-                    n_Order = player.GetComponent<Order>().GetOrder(true);
+                    n_Order = player.GetComponent<Order>().GetOrder(1);
                 }
                 else
                     score += 150;
@@ -58,26 +58,12 @@ public class Score : MonoBehaviour
                 {
                     b_OrderCrear = true;
                     score += 30000;
-                    n_Order = player.GetComponent<Order>().GetOrder(true);
+                    n_Order = player.GetComponent<Order>().GetOrder(1);
                 }
                 else
                     score += 200;
             }
             b_Score = false;
-        }
-        Debug.Log("お題");
-        Debug.Log(n_Order);
-        Debug.Log("スコア");
-        Debug.Log(score);
-
-        if (Input.GetKeyDown(KeyCode.Q))
-        {
-            n_Order = player.GetComponent<Order>().GetOrder(false);
-        }
-
-        if (Input.GetKeyDown(KeyCode.E))
-        {
-            n_Order = player.GetComponent<Order>().GetOrder(true);
         }
     }
 

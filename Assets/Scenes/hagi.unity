@@ -784,7 +784,6 @@ GameObject:
   - component: {fileID: 651238612}
   - component: {fileID: 651238611}
   - component: {fileID: 651238610}
-  - component: {fileID: 651238614}
   m_Layer: 0
   m_Name: Dustbox
   m_TagString: DustBox
@@ -880,18 +879,6 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 651238608}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
---- !u!114 &651238614
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 651238608}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0f852dd17b037684097376eebcf021d9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1001 &711097105
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1913,6 +1900,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0f852dd17b037684097376eebcf021d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  n_FoodList: 0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
 --- !u!4 &1638415218 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8042550701419667282, guid: 1905395b442b611459a32042ea1030e8,
