@@ -28,7 +28,7 @@ public class Score : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(b_Score)
+        if (b_Score)
         {
             if (FoodType == Foodselect1.OMERICE)
             {
@@ -36,7 +36,7 @@ public class Score : MonoBehaviour
                 {
                     b_OrderCrear = true;
                     score += 10000;
-                    n_Order = player.GetComponent<Order>().SelectOrder();
+                    n_Order = player.GetComponent<Order>().GetOrder(true);
                 }
                 else
                     score += 100;
@@ -47,7 +47,7 @@ public class Score : MonoBehaviour
                 {
                     b_OrderCrear = true;
                     score += 20000;
-                    n_Order = player.GetComponent<Order>().SelectOrder();
+                    n_Order = player.GetComponent<Order>().GetOrder(true);
                 }
                 else
                     score += 150;
@@ -58,7 +58,7 @@ public class Score : MonoBehaviour
                 {
                     b_OrderCrear = true;
                     score += 30000;
-                    n_Order = player.GetComponent<Order>().SelectOrder();
+                    n_Order = player.GetComponent<Order>().GetOrder(true);
                 }
                 else
                     score += 200;
@@ -69,6 +69,16 @@ public class Score : MonoBehaviour
         Debug.Log(n_Order);
         Debug.Log("スコア");
         Debug.Log(score);
+
+        if (Input.GetKeyDown(KeyCode.Q))
+        {
+            n_Order = player.GetComponent<Order>().GetOrder(false);
+        }
+
+        if (Input.GetKeyDown(KeyCode.E))
+        {
+            n_Order = player.GetComponent<Order>().GetOrder(true);
+        }
     }
 
     void OnTriggerStay(Collider Collider)
