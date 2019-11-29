@@ -16,7 +16,7 @@ public class FryingPan : MonoBehaviour
     private Vector3 thisPos;
     SetCookGaugeUI CallUI;
     public GameObject getUI;
-
+    public OperatorController OpScript;
 
     // Start is called before the first frame update
     void Start()
@@ -48,18 +48,24 @@ public class FryingPan : MonoBehaviour
     {
         if (getFoodcol.gameObject.tag == "rice")
         {
+            OpScript.FoodKind(Foodselect1.RICE);
+            OpScript.CookKind(OperatorController.FryingPan);
             Debug.Log("米！！");
             FoodNameRice();
             getFoodcol.gameObject.GetComponent<RiceControl>().DestroyFood(true);
         }
         if (getFoodcol.gameObject.tag == "egg")
         {
+            OpScript.FoodKind(Foodselect1.EGG);
+            OpScript.CookKind(OperatorController.FryingPan);
             Debug.Log("タメェイゴォ");
             FoodNameEgg();
             getFoodcol.gameObject.GetComponent<EggControl>().DestroyFood(true);
         }
         if (getFoodcol.gameObject.tag == "tmt")
         {
+            OpScript.FoodKind(Foodselect1.TOMATO);
+            OpScript.CookKind(OperatorController.FryingPan);
             Debug.Log("トメェイトォウ");
             FoodNameTomato();
             getFoodcol.gameObject.GetComponent<TomatoControl>().DestroyFood(true);
@@ -133,4 +139,6 @@ public class FryingPan : MonoBehaviour
             LeadFood(other);
         }
     }
+
+
 }
