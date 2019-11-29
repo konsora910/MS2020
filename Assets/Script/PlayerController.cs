@@ -123,7 +123,18 @@ public class PlayerController : MonoBehaviour
     {// 接触中
         //ポットに触れていたら
         if (Collider.gameObject.tag == ("pot"))
+        {
             b_TouchPot = true;
+            if (Input.GetKeyDown(KeyCode.K) && bFood_Take == false)
+            {
+                PotScript.IsCooking = true;
+            }
+            else if (Input.GetKeyDown(KeyCode.L) && bFood_Take == false)
+            {
+                PotScript.Reset();
+            }
+
+        }
 
         //食べ物に触れていたら
         if (Collider.gameObject.tag == "tmt" || Collider.gameObject.tag == "egg" || Collider.gameObject.tag == "rice" || Collider.gameObject.tag == "Soup" || Collider.gameObject.tag == "Omerice" || Collider.gameObject.tag == "RiceBall")
