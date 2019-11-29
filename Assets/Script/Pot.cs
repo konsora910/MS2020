@@ -21,7 +21,7 @@ public class Pot : MonoBehaviour
     public Mode CurrentMode { get; private set; }
 
     //現在鍋に入っているものを入れる配列
-    [SerializeField] GameObject[] PotArray = new GameObject[3];
+    [SerializeField]public GameObject[] PotArray = new GameObject[3];
 
     //調理可能か（鍋に2つ以上ものが入っているか）
     [SerializeField] public bool Cook { get; private set; } = false;
@@ -30,7 +30,7 @@ public class Pot : MonoBehaviour
     [SerializeField] public bool Full { get; private set; } = false;
 
     //鍋の中の個数
-    [SerializeField] public int FoodsNum=0;
+    [SerializeField] private int _FoodsNum=0;
 
 
     public GameObject Soup;
@@ -56,7 +56,7 @@ public class Pot : MonoBehaviour
 
         FoodCounter();
 
-            switch (FoodsNum)
+            switch (_FoodsNum)
             {
                 case 0:
                 {
@@ -172,7 +172,7 @@ public class Pot : MonoBehaviour
                 FoodCnt++;
             }
         }
-        FoodsNum = FoodCnt;
+        _FoodsNum = FoodCnt;
     }
 
 
@@ -205,7 +205,7 @@ public class Pot : MonoBehaviour
             PotArray[i] = null;
             
         }
-        FoodsNum = 0;
+        _FoodsNum = 0;
         Cook = false;
         Full = false;
     }
