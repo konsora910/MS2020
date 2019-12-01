@@ -4,29 +4,25 @@ using UnityEngine;
 
 public class FryingPan : MonoBehaviour
 {
-    //　運ぶ食材を管理する変数
-    public GameObject mainFood;
-    //　PlayerContorollerを外部参照
-    public GameObject P;
-    public PlayerController PControll;
     //　食材データ管理
-    //public string inFood;
     [SerializeField]
     public GameObject[] FPanArray = new GameObject[3];
     [SerializeField]
     private int InFood = 0;
+    private int cntTomato = 0;
+    private int cntRice = 0;
+    private int cntEgg = 0;
     public GameObject Omrice;// インスペクタにオムライスオブジェクトを入れておくこと
 
     private Vector3 thisPos;
     SetCookGaugeUI CallUI;
     public GameObject getUI;
+    public bool IsCookFPan = false;
     public OperatorController OpScript;
 
     // Start is called before the first frame update
     void Start()
     {
-        //P = GameObject.Find("Player");
-        //PControll = P.GetComponent<PlayerController>();
         for (int i = 0; i < 3; i++)
         {
             FPanArray[i] = null;
@@ -39,31 +35,28 @@ public class FryingPan : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        // 食材が３つ入ったら通る
-        //if (inFood.Length == 3)
-        //{
-        //    Debug.Log("調理開始");
-        //    LetsCooking();
-        //}
-        if (Input.GetKey(KeyCode.I))
+        if (IsCookFPan)
         {
             switch (InFood)
             {
                 case 0:
+                    IsCookFPan = false;
                     break;
                 case 1:
+                    IsCookFPan = false;
                     break;
                 case 2:
                     LetsCooking();
+                    IsCookFPan = false;
                     break;
                 case 3:
                     LetsCooking();
+                    IsCookFPan = false;
                     break;
                 default:
                     break;
             }
         }
-
     }
 
     /*=====================================================
@@ -78,7 +71,6 @@ public class FryingPan : MonoBehaviour
             //OpScript.CookKind(OperatorController.FryingPan);
             Debug.Log("米！！");
             FoodNameRice(getFood);
-            //getFood.gameObject.GetComponent<RiceControl>().DestroyFood(true);
         }
         if (getFood.gameObject.tag == "egg")
         {
@@ -86,7 +78,6 @@ public class FryingPan : MonoBehaviour
             //OpScript.CookKind(OperatorController.FryingPan);
             Debug.Log("タメェイゴォ");
             FoodNameEgg(getFood);
-            //getFood.gameObject.GetComponent<EggControl>().DestroyFood(true);
         }
         if (getFood.gameObject.tag == "tmt")
         {
@@ -94,8 +85,8 @@ public class FryingPan : MonoBehaviour
             //OpScript.CookKind(OperatorController.FryingPan);
             Debug.Log("トメェイトォウ");
             FoodNameTomato(getFood);
-            //getFood.gameObject.GetComponent<TomatoControl>().DestroyFood(true);
         }
+        getFood.gameObject.SetActive(false);
     }
 
     /*===================================================
@@ -103,19 +94,16 @@ public class FryingPan : MonoBehaviour
      ===================================================*/
     private void LetsCooking()
     {
-        //string str1 = "a";
-        //string str2 = "b";
-        //string str3 = "c";
-        //if (inFood.Contains(str1) && inFood.Contains(str2) && inFood.Contains(str3))
-        //{// オムライス
-        //    CallUI.SetGaugeUIFlyingPan();
-        //    StartCoroutine("CookRiceOmelet");
-        //}
-        //else
-        //{
-        //    inFood = inFood.Remove(0, 3);
-        //    Debug.Log("クソ料理");
-        //}
+        if (cntTomato == 1 && cntRice == 1 && cntEgg == 1)
+        {
+            CallUI.SetGaugeUIFlyingPan();
+            StartCoroutine("CookRiceOmelet");
+        }
+        else
+        {
+            Reset();
+            Debug.Log("クソ料理");
+        }
     }
     /*==================================================
      * 各食材の呼ばれる関数群（処理は基本的には同じ）
@@ -125,47 +113,41 @@ public class FryingPan : MonoBehaviour
      ==================================================*/
     private void FoodNameRice(GameObject inRice)
     {
-        //mainFood = GameObject.FindGameObjectWithTag("rice");
-        //mainFood.GetComponent<RiceControl>().takeout = false;
-        //inFood += "a";
         for (int i = 0; i < 3; i++)
         {
             if (FPanArray[i] == null)
             {
                 FPanArray[i] = inRice;
+                InFood++;
+                cntRice++;
                 break;
             }
-            inRice.gameObject.SetActive(false);
         }
     }
     private void FoodNameEgg(GameObject inEgg)
     {
-        //mainFood = GameObject.FindGameObjectWithTag("egg");
-        //mainFood.GetComponent<EggControl>().takeout = false;
-        //inFood += "b";
         for (int i = 0; i < 3; i++)
         {
             if (FPanArray[i] == null)
             {
                 FPanArray[i] = inEgg;
+                InFood++;
+                cntEgg++;
                 break;
             }
-            inEgg.gameObject.SetActive(false);
         }
     }
     private void FoodNameTomato(GameObject inTomato)
     {
-        //mainFood = GameObject.FindGameObjectWithTag("tmt");
-        //mainFood.GetComponent<TomatoControl>().takeout = false;
-        //inFood += "c";
         for (int i = 0; i < 3; i++)
         {
             if (FPanArray[i] == null)
             {
                 FPanArray[i] = inTomato;
+                InFood++;
+                cntTomato++;
                 break;
             }
-            inTomato.gameObject.SetActive(false);
         }
     }
 
@@ -175,23 +157,14 @@ public class FryingPan : MonoBehaviour
      ==================================================*/
     IEnumerator CookRiceOmelet()
     {
-        //inFood = inFood.Remove(0, 3);
         yield return new WaitForSeconds(5);
-        // 料理の生成場所を設定できる(生成対象オブジェクト、生成座標、生成初期角度)
         GameObject obj = GameObject.FindGameObjectWithTag("Food");
+        // 料理の生成場所を設定できる(生成対象オブジェクト、生成座標、生成初期角度)
         GameObject instance = (GameObject)Instantiate(Omrice, new Vector3(this.transform.position.x, this.transform.position.y, this.transform.position.z), Quaternion.identity);
         instance.transform.parent = obj.transform;          //コピー食材をfoodの子に
         obj.GetComponent<Foodselect1>().AddFood(instance.transform);
-        
+        Reset();
     }
-
-    //void OnTriggerStay(Collider other)
-    //{
-    //    if (PControll.bFood_Take == false)
-    //    {
-    //        LeadFood(other.gameObject);
-    //    }
-    //}
 
     public void Reset()
     {
@@ -218,6 +191,9 @@ public class FryingPan : MonoBehaviour
             FPanArray[i] = null;
         }
         InFood = 0;
+        cntTomato = 0;
+        cntEgg = 0;
+        cntRice = 0;
     }
 
 }
