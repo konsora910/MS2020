@@ -8,7 +8,7 @@ public class FryingPan : MonoBehaviour
     [SerializeField]
     public GameObject[] FPanArray = new GameObject[3];
     [SerializeField]
-    private int InFood = 0;
+    public int InFood = 0;
     private int cntTomato = 0;
     private int cntRice = 0;
     private int cntEgg = 0;
@@ -67,22 +67,22 @@ public class FryingPan : MonoBehaviour
     {
         if (getFood.gameObject.tag == "rice")
         {
-            //OpScript.FoodKind(Foodselect1.RICE);
-            //OpScript.CookKind(OperatorController.FryingPan);
+            OpScript.FoodKind(Foodselect1.RICE);
+            OpScript.CookKind(OperatorController.FryingPan);
             Debug.Log("米！！");
             FoodNameRice(getFood);
         }
         if (getFood.gameObject.tag == "egg")
         {
-            //OpScript.FoodKind(Foodselect1.EGG);
-            //OpScript.CookKind(OperatorController.FryingPan);
+            OpScript.FoodKind(Foodselect1.EGG);
+            OpScript.CookKind(OperatorController.FryingPan);
             Debug.Log("タメェイゴォ");
             FoodNameEgg(getFood);
         }
         if (getFood.gameObject.tag == "tmt")
         {
-            //OpScript.FoodKind(Foodselect1.TOMATO);
-            //OpScript.CookKind(OperatorController.FryingPan);
+            OpScript.FoodKind(Foodselect1.TOMATO);
+            OpScript.CookKind(OperatorController.FryingPan);
             Debug.Log("トメェイトォウ");
             FoodNameTomato(getFood);
         }
@@ -190,6 +190,7 @@ public class FryingPan : MonoBehaviour
             }
             FPanArray[i] = null;
         }
+        OpScript.FPReset();
         InFood = 0;
         cntTomato = 0;
         cntEgg = 0;
