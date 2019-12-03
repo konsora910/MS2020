@@ -27,6 +27,18 @@ public class OperatorController : MonoBehaviour
     void Update()
     {
         order = OrderScript.GetOrder(0);
+        if(order == Foodselect1.RICEBALL)
+        {
+            Debug.Log("焼きおにぎりを作ろう");
+        }
+        if(order == Foodselect1.SOUP)
+        {
+            Debug.Log("スープを作ろう");
+        }
+        if (order == Foodselect1.OMERICE)
+        {
+            Debug.Log("オムライスを作ろう");
+        }
         Cook();
     }
 
@@ -57,31 +69,34 @@ public class OperatorController : MonoBehaviour
         
         if(Foodselect1.RICEBALL == order)
         {
-            //RiceFP();
+            RiceFP();
 
         }
-        Debug.Log(order);
         if(Foodselect1.SOUP == order)
         {
             if(cook1 == false && cook2 == false)
             {
-               int i = Random.Range(0,2);
-                if(i == 0)
-                {
-                    TomatoPot();
-                }
-                else
-                {
-                    EggPot();
-                }
+                TomatoPot(); 
 
+            }else if(cook1 == true && cook2 == false)
+            {
+                EggPot();
             }
 
         }
 
         if(Foodselect1.OMERICE == order)
         {
-
+            if(cook1 == false && cook2 == false && cook3 ==false)
+            {
+                RiceFP();
+            }else if(cook1 == true && cook2 == false && cook3 == false)
+            {
+                TomatoFP();
+            }else if(cook1 == true && cook2 == true && cook3 == false)
+            {
+                EggFP();
+            }
 
         }
 
@@ -94,8 +109,20 @@ public class OperatorController : MonoBehaviour
             Debug.Log("米をフライパンへ");
             if (foodKind == Foodselect1.RICE)
             {
-                if (cookKind == OperatorController.FryingPan)
-                {
+                    if (cookKind == OperatorController.FryingPan)
+                    {
+                    if (cook1 == false && cook2 == false && cook3 == false)
+                    {
+                        cook1 = true;
+                    }
+                    else if (cook1 == true && cook2 == false && cook3 == false)
+                    {
+                        cook2 = true;
+                    }
+                    else if (cook1 == true && cook2 == true && cook3 == false)
+                    {
+                        cook3 = true;
+                    }
                     Debug.Log("正解");
                     foodKind = Foodselect1.FOODNULL;
                     cookKind = OperatorController.CookNull;
@@ -124,8 +151,20 @@ public class OperatorController : MonoBehaviour
             Debug.Log("トマトをフライパンへ");
             if (foodKind == Foodselect1.TOMATO)
             {
-                if (cookKind == OperatorController.FryingPan)
-                {
+                    if (cookKind == OperatorController.FryingPan)
+                    {
+                    if (cook1 == false && cook2 == false && cook3 == false)
+                    {
+                        cook1 = true;
+                    }
+                    else if (cook1 == true && cook2 == false && cook3 == false)
+                    {
+                        cook2 = true;
+                    }
+                    else if (cook1 == true && cook2 == true && cook3 == false)
+                    {
+                        cook3 = true;
+                    }
                     Debug.Log("正解");
                     foodKind = Foodselect1.FOODNULL;
                     cookKind = OperatorController.CookNull;
@@ -156,7 +195,19 @@ public class OperatorController : MonoBehaviour
             if (foodKind == Foodselect1.EGG)
             {
                 if (cookKind == OperatorController.FryingPan)
-                {
+                    {
+                    if (cook1 == false && cook2 == false && cook3 == false)
+                    {
+                        cook1 = true;
+                    }
+                    else if (cook1 == true && cook2 == false && cook3 == false)
+                    {
+                        cook2 = true;
+                    }
+                    else if (cook1 == true && cook2 == true && cook3 == false)
+                    {
+                        cook3 = true;
+                    }
                     Debug.Log("正解");
                     foodKind = Foodselect1.FOODNULL;
                     cookKind = OperatorController.CookNull;
@@ -183,30 +234,41 @@ public class OperatorController : MonoBehaviour
     {
 
 
-            Debug.Log("米をまな板へ");
-            if (foodKind == Foodselect1.RICE)
+        Debug.Log("米をまな板へ");
+        if (foodKind == Foodselect1.RICE)
+        {
+            if (cookKind == OperatorController.CuttingBoard)
             {
-                if (cookKind == OperatorController.CuttingBoard)
+                if (cook1 == false && cook2 == false && cook3 == false)
                 {
-                    Debug.Log("正解");
-                    foodKind = Foodselect1.FOODNULL;
-                    cookKind = OperatorController.CookNull;
+                    cook1 = true;
                 }
-                else if (cookKind != OperatorController.CookNull)
+                else if (cook1 == true && cook2 == false && cook3 == false)
                 {
-                    Debug.Log("不正解");
-                    foodKind = Foodselect1.FOODNULL;
-                    cookKind = OperatorController.CookNull;
+                    cook2 = true;
                 }
-
+                else if (cook1 == true && cook2 == true && cook3 == false)
+                {
+                    cook3 = true;
+                }
+                Debug.Log("正解");
+                foodKind = Foodselect1.FOODNULL;
+                cookKind = OperatorController.CookNull;
             }
-            else if (foodKind != Foodselect1.FOODNULL)
+            else if (cookKind != OperatorController.CookNull)
             {
                 Debug.Log("不正解");
                 foodKind = Foodselect1.FOODNULL;
                 cookKind = OperatorController.CookNull;
             }
 
+        }
+        else if (foodKind != Foodselect1.FOODNULL)
+        {
+            Debug.Log("不正解");
+            foodKind = Foodselect1.FOODNULL;
+            cookKind = OperatorController.CookNull;
+        }
 
     }
 
@@ -218,8 +280,20 @@ public class OperatorController : MonoBehaviour
             if (foodKind == Foodselect1.TOMATO
 )
             {
-                if (cookKind == OperatorController.CuttingBoard)
-                {
+                    if (cookKind == OperatorController.CuttingBoard)
+                    {
+                    if (cook1 == false && cook2 == false && cook3 == false)
+                    {
+                        cook1 = true;
+                    }
+                    else if (cook1 == true && cook2 == false && cook3 == false)
+                    {
+                        cook2 = true;
+                    }
+                    else if (cook1 == true && cook2 == true && cook3 == false)
+                    {
+                        cook3 = true;
+                    }
                     Debug.Log("正解");
                     foodKind = Foodselect1.FOODNULL;
                     cookKind = OperatorController.CookNull;
@@ -251,6 +325,18 @@ public class OperatorController : MonoBehaviour
             {
                 if (cookKind == OperatorController.CuttingBoard)
                 {
+                    if (cook1 == false && cook2 == false && cook3 == false)
+                    {
+                        cook1 = true;
+                    }
+                    else if (cook1 == true && cook2 == false && cook3 == false)
+                    {
+                        cook2 = true;
+                    }
+                    else if (cook1 == true && cook2 == true && cook3 == false)
+                    {
+                        cook3 = true;
+                    }
                     Debug.Log("正解");
                     foodKind = Foodselect1.FOODNULL;
                     cookKind = OperatorController.CookNull;
@@ -281,6 +367,18 @@ public class OperatorController : MonoBehaviour
             {
                 if (cookKind == OperatorController.Pot)
                 {
+                    if (cook1 == false && cook2 == false && cook3 == false)
+                    {
+                        cook1 = true;
+                    }
+                    else if (cook1 == true && cook2 == false && cook3 == false)
+                    {
+                        cook2 = true;
+                    }
+                    else if (cook1 == true && cook2 == true && cook3 == false)
+                    {
+                        cook3 = true;
+                    }
                     Debug.Log("正解");
                     foodKind = Foodselect1.FOODNULL;
                     cookKind = OperatorController.CookNull;
@@ -311,6 +409,19 @@ public class OperatorController : MonoBehaviour
             {
                 if (cookKind == OperatorController.Pot)
                 {
+                    if(cook1 ==false && cook2 == false && cook3 ==false)
+                    {
+                        cook1 = true;
+                    }else if(cook1 ==true && cook2 == false && cook3 == false)
+                     {
+                        cook2 = true;
+                     }else if(cook1 == true && cook2 == true && cook3 == false)
+                     {
+                        cook3 = true;
+                     }
+
+
+                        
                     Debug.Log("正解");
                     foodKind = Foodselect1.FOODNULL;
                     cookKind = OperatorController.CookNull;
@@ -340,6 +451,19 @@ public class OperatorController : MonoBehaviour
             {
                 if (cookKind == OperatorController.Pot)
                 {
+                    if (cook1 == false && cook2 == false && cook3 == false)
+                    {
+                        cook1 = true;
+                    }
+                    else if (cook1 == true && cook2 == false && cook3 == false)
+                    {
+                        cook2 = true;
+                    }
+                    else if (cook1 == true && cook2 == true && cook3 == false)
+                    {
+                        cook3 = true;
+                    }
+
                     Debug.Log("正解");
                     foodKind = Foodselect1.FOODNULL;
                     cookKind = OperatorController.CookNull;

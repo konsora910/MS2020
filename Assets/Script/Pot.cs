@@ -41,7 +41,7 @@ public class Pot : MonoBehaviour
 
     public GameObject Soup;
 
-
+    public OperatorController OpScript;
 
     void Start()
     {
@@ -134,6 +134,8 @@ public class Pot : MonoBehaviour
                 {
                     if (PotArray[i] == null)
                     {
+                        OpScript.FoodKind(Foodselect1.EGG);
+                        OpScript.CookKind(OperatorController.Pot);
                         PotArray[i] = food;
                         break;
                     }
@@ -146,6 +148,8 @@ public class Pot : MonoBehaviour
                 {
                     if (PotArray[i] == null)
                     {
+                        OpScript.FoodKind(Foodselect1.TOMATO);
+                        OpScript.CookKind(OperatorController.Pot);
                         PotArray[i] = food;
                         break;
                     }
@@ -159,6 +163,8 @@ public class Pot : MonoBehaviour
                 {
                     if (PotArray[i] == null)
                     {
+                        OpScript.FoodKind(Foodselect1.RICE);
+                        OpScript.CookKind(OperatorController.Pot);
                         PotArray[i] = food;
                         break;
                     }
@@ -167,6 +173,7 @@ public class Pot : MonoBehaviour
             }
         }
     }
+
     /// <summary>
     /// 2つの食べ物の調理の関数
     /// 時間経過で料理に変える
