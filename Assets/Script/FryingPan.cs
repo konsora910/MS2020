@@ -8,7 +8,7 @@ public class FryingPan : MonoBehaviour
     [SerializeField]
     public GameObject[] FPanArray = new GameObject[3];
     [SerializeField]
-    private int InFood = 0;
+    public int InFood = 0;
     private int cntTomato = 0;
     private int cntRice = 0;
     private int cntEgg = 0;
