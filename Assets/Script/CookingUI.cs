@@ -28,8 +28,10 @@ public class CookingUI : MonoBehaviour
     /// <summary>
     /// CookingUIプレハブ
     /// </summary>
-    public GameObject CookingUIPrefab;
-    private GameObject _PotParentPrefabA;
+    //public GameObject CookingUIPrefab;
+    public GameObject _FryingPanParentPrefabA;
+    public GameObject _PotParentPrefabA;
+    
 
 
     /// <summary>
@@ -44,6 +46,7 @@ public class CookingUI : MonoBehaviour
     private FryingPan _FryingPanScriptA;          //フライパン
     private Pot _PotScriptA;                      //鍋
     private CookingUIPotParent _PotParentScriptA; //canvas
+    private CookingUIFryPanParent _FryingPanParentScriptA; //canvas
 
     /// <summary>
     /// 最初にUI配置する
@@ -53,15 +56,17 @@ public class CookingUI : MonoBehaviour
     
     void Start()
     {
-       // _FryingPanObjectA = GameObject.FindGameObjectWithTag("FP");
-        //_FryingPanScriptA = _FryingPanObjectA.GetComponent<FryingPan>();
+        _FryingPanObjectA = GameObject.FindGameObjectWithTag("FP");
+        _FryingPanScriptA = _FryingPanObjectA.GetComponent<FryingPan>();
         _PotObjectA = GameObject.FindGameObjectWithTag("pot");
         _PotScriptA = _PotObjectA.GetComponent<Pot>();
 
         //FryingPanPosition= FryingPanScript
 
         //UI表示位置
+        _FryingPanPositionA = _FryingPanScriptA.gameObject.transform.position;
         _PotPositionA = _PotScriptA.gameObject.transform.position;
+        
 
         
     }
@@ -70,13 +75,16 @@ public class CookingUI : MonoBehaviour
     {
         if (!StartUI)
         {
-            _PotParentPrefabA = (GameObject)Instantiate(CookingUIPrefab, _PotPositionA + PositionShift, Quaternion.identity);
+            _PotParentPrefabA = (GameObject)Instantiate(_PotParentPrefabA, _PotPositionA + PositionShift, Quaternion.identity);
             _PotParentScriptA = _PotParentPrefabA.GetComponent<CookingUIPotParent>();
+            _FryingPanParentPrefabA = (GameObject)Instantiate(_FryingPanParentPrefabA, _FryingPanPositionA + PositionShift, Quaternion.identity);
+            _FryingPanParentScriptA = _FryingPanParentPrefabA.GetComponent<CookingUIFryPanParent>();
             StartUI = true;
         }
         else if(StartUI)
             {
-            if (_PotScriptA.CurrentMode == Pot.Mode.Stay)
+
+            if (_PotScriptA.CurrentMode == Pot.Mode.Stay) 
             {
                 
                 _PotParentScriptA.SetUIA(0);
@@ -114,7 +122,8 @@ public class CookingUI : MonoBehaviour
                 {
                     _PotParentScriptA.SetUIB(3);
                 }
-            } else if (_PotScriptA.CurrentMode == Pot.Mode.Triple)
+            }
+            else if (_PotScriptA.CurrentMode == Pot.Mode.Triple)
             {
                 if (_PotScriptA.PotArray[2].gameObject.tag == "egg")
                 {
@@ -129,6 +138,45 @@ public class CookingUI : MonoBehaviour
                     _PotParentScriptA.SetUIC(3);
                 }
             }
+            //フライパン
+           if (_FryingPanScriptA.InFood==0)
+            {
+                _FryingPanParentScriptA.SetUIA(0);
+                _FryingPanParentScriptA.SetUIB(0);
+                _FryingPanParentScriptA.SetUIB(0);
+            }
+            else if(_FryingPanScriptA.InFood==1)
+            {
+                if (_FryingPanScriptA.FPanArray[0].gameObject.tag == "egg")
+                {
+                    _FryingPanParentScriptA.SetUIA(1);
+                }
+                else if (_FryingPanScriptA.FPanArray[0].gameObject.tag == "rice")
+                {
+                    _FryingPanParentScriptA.SetUIA(2);
+                }
+                else if (_FryingPanScriptA.FPanArray[0].gameObject.tag == "tmt")
+                {
+                    _FryingPanParentScriptA.SetUIA(3);
+                }
+            }
+            else if (_FryingPanScriptA.InFood == 2)
+            {
+                if (_FryingPanScriptA.FPanArray[0].gameObject.tag == "egg")
+                {
+                    _FryingPanParentScriptA.SetUIB(1);
+                }
+                else if (_FryingPanScriptA.FPanArray[0].gameObject.tag == "rice")
+                {
+                    _FryingPanParentScriptA.SetUIB(2);
+                }
+                else if (_FryingPanScriptA.FPanArray[0].gameObject.tag == "tmt")
+                {
+                    _FryingPanParentScriptA.SetUIB(3);
+                }
+            }
+           
+
         }
     }
 
@@ -136,7 +184,7 @@ public class CookingUI : MonoBehaviour
     private void CookingUINone()
     {
         
-        GameObject prefabA = (GameObject)Instantiate(CookingUIPrefab, _PotPositionA + PositionShift, transform.rotation * Quaternion.Euler(60.0f, 0.0f, 0.0f));
+       // GameObject prefabA = (GameObject)Instantiate(CookingUIPrefab, _PotPositionA + PositionShift, transform.rotation * Quaternion.Euler(60.0f, 0.0f, 0.0f));
         
 
 
