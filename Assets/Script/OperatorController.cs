@@ -516,9 +516,12 @@ public class OperatorController : MonoBehaviour
 
 
 
-
-
-
+    public void CookReset()
+    {
+        cook1 = false;
+        cook2 = false;
+        cook3 = false;
+    }
 
 
     
