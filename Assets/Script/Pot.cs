@@ -267,7 +267,7 @@ public class Pot : MonoBehaviour
             PotArray[i] = null;
             
         }
-        OpScript.CookReset();
+        OpScript.PotReset();
         _FoodsNum = 0;
         ChangeMode(Mode.Stay);
     }
