@@ -24,6 +24,7 @@ TagManager:
   - CutTmt
   - CutFish
   - RiceBall
+  - CookGaugeUI
   layers:
   - Default
   - TransparentFX

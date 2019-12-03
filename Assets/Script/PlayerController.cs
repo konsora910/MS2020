@@ -6,6 +6,8 @@ public class PlayerController : MonoBehaviour
 {
     public GameObject Pot;
     public Pot PotScript;
+    public GameObject FPan;
+    public FryingPan FPScript;
     public GameObject food;                                 //　持っている食材のgameobject
     public int FoodType = Foodselect1.FOODNULL;             //　どの食材をもっているか
     public float speed = 0.05f;                             //　プレイヤーの移動速度
@@ -13,6 +15,7 @@ public class PlayerController : MonoBehaviour
     private int ImputTimer = 5;                             //　食材を持ってから置くまでの入力遅延
     public bool bFood_Take = false;                         //　持ってるか持ってないか
     public bool b_TouchPot = false;                         //　ポットにふれているかどうか
+    public bool b_TouchFPan = false;                        //　フライパンに触れているかどうか
     [SerializeField] private Vector3 velocity;              //　移動方向
                                                             //    public GameObject food;
     public float PushPower;
@@ -24,6 +27,8 @@ public class PlayerController : MonoBehaviour
         PlayerForward = new Vector3(0.0f, 0.0f, 0.0f);
         Pot = GameObject.FindGameObjectWithTag("pot");
         PotScript = Pot.GetComponent<Pot>();
+        FPan = GameObject.FindGameObjectWithTag("FP");
+        FPScript = FPan.GetComponent<FryingPan>();
     }
 
     // Update is called once per frame
@@ -63,6 +68,10 @@ public class PlayerController : MonoBehaviour
             //ポットに触れていたら
             if(b_TouchPot == true)
                 PotScript.SetFood(food);
+            //　フライパンに触れたら
+            if (b_TouchFPan == true)
+                FPScript.LeadFood(food);
+
 
             //種類ごとに呼ぶスクリプト違う
             if (FoodType == Foodselect1.TOMATO)
@@ -123,7 +132,30 @@ public class PlayerController : MonoBehaviour
     {// 接触中
         //ポットに触れていたら
         if (Collider.gameObject.tag == ("pot"))
+        {
             b_TouchPot = true;
+            if (Input.GetKeyDown(KeyCode.K) && bFood_Take == false)
+            {
+                PotScript.IsCooking = true;
+            }
+            else if (Input.GetKeyDown(KeyCode.L) && bFood_Take == false)
+            {
+                PotScript.Reset();
+            }
+
+        }
+        else if (Collider.gameObject.tag == ("FP"))
+        {
+            b_TouchFPan = true;
+            if (Input.GetKeyDown(KeyCode.K) && bFood_Take == false)
+            {
+                FPScript.IsCookFPan = true;
+            }
+            else if (Input.GetKeyDown(KeyCode.L) && bFood_Take == false)
+            {
+                FPScript.Reset();
+            }
+        }
 
         //食べ物に触れていたら
         if (Collider.gameObject.tag == "tmt" || Collider.gameObject.tag == "egg" || Collider.gameObject.tag == "rice" || Collider.gameObject.tag == "Soup" || Collider.gameObject.tag == "Omerice" || Collider.gameObject.tag == "RiceBall")
