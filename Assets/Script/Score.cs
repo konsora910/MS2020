@@ -17,14 +17,14 @@ public class Score : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        score = 0;
+        score = 9000;
         n_ListNum = 1;
         b_Score = false;
 
         //仮置き
         player = GameObject.FindGameObjectWithTag("Player");
 
-        n_Order = player.GetComponent<Order>().GetOrder(0);
+        n_Order = 5;
     }
 
     // Update is called once per frame
@@ -85,5 +85,10 @@ public class Score : MonoBehaviour
                 b_Score = true;
             }
         }
+    }
+
+    public int GetScore()
+    {
+        return score;
     }
 }
