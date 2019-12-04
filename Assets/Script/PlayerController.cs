@@ -10,14 +10,14 @@ public class PlayerController : MonoBehaviour
     public FryingPan FPScript;
     public GameObject CBoard;
     public CuttingBoard CBScript;
-    public GameObject food;                                 //　持っている食材のgameobject
+    [SerializeField] public GameObject food;                                 //　持っている食材のgameobjectprivate GameObject _previousFood;
     public int FoodType = Foodselect1.FOODNULL;             //　どの食材をもっているか
     public float speed = 0.05f;                             //　プレイヤーの移動速度
     public Vector3 PlayerForward, OldPosition;              //　プレイヤーの向いている方向, 1フレーム前の位置
     private int ImputTimer = 5;                             //　食材を持ってから置くまでの入力遅延
     public bool bFood_Take = false;                         //　持ってるか持ってないか
-    public bool b_TouchPot = false;                         //　ポットにふれているかどうか
-    public bool b_TouchFPan = false;                        //　フライパンに触れているかどうか
+    [SerializeField] public bool b_TouchPot = false;                         //　ポットにふれているかどうか
+    [SerializeField] public bool b_TouchFPan = false;                        //　フライパンに触れているかどうか
     public bool b_TouchCB = false;                          //　まな板に触れているかどうか
     [SerializeField] private Vector3 velocity;              //　移動方向
                                                             //    public GameObject food;
@@ -71,8 +71,12 @@ public class PlayerController : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Space) && ImputTimer > 5 && bFood_Take == true)
         {
             //ポットに触れていたら
-            if(b_TouchPot == true)
+            if (b_TouchPot == true)
+            {
                 PotScript.SetFood(food);
+                if(food.gameObject.tag == "tmt" || food.gameObject.tag == "egg" || food.gameObject.tag == "rice")
+                { food.gameObject.SetActive(false); }
+            }
             //　フライパンに触れたら
             if (b_TouchFPan == true)
                 FPScript.LeadFood(food);
@@ -104,7 +108,9 @@ public class PlayerController : MonoBehaviour
             this.gameObject.transform.forward = PlayerForward;
          
         }
+        b_TouchFPan = false;
         b_TouchPot = false;
+        b_TouchCB = false;
     }
     // キーボード操作
     void KeyBord()
