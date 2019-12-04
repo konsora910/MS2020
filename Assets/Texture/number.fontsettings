@@ -6,7 +6,7 @@ Font:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: New Font
+  m_Name: number
   serializedVersion: 5
   m_LineSpacing: 0.1
   m_DefaultMaterial: {fileID: 2100000, guid: 5890cd70d4dfd0c4e966d7b176a5d138, type: 2}
@@ -94,7 +94,7 @@ Font:
       serializedVersion: 2
       x: 0
       y: 0
-      width: -100
+      width: 100
       height: -100
     advance: 100
     flipped: 0
