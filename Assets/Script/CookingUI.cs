@@ -20,17 +20,19 @@ public class CookingUI : MonoBehaviour
     /// UIの表示位置
     /// </summary>
     private Vector3 _FryingPanPositionA;
+    private Vector3 _FryingPanPositionB;
     private Vector3 _PotPositionA;
     private Vector3 _PotPositionB;
-    private Vector3 _PotPositionC;
-    private Vector3 _PotPositionD;
+
 
     /// <summary>
     /// CookingUIプレハブ
     /// </summary>
     //public GameObject CookingUIPrefab;
     public GameObject _FryingPanParentPrefabA;
+    public GameObject _FryingPanParentPrefabB;
     public GameObject _PotParentPrefabA;
+    public GameObject _PotParentPrefabB;
     
 
 

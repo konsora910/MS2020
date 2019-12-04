@@ -140,7 +140,7 @@ public class Pot : MonoBehaviour
                         break;
                     }
                 }
-                food.gameObject.SetActive(false);
+                
             }
             else if (food.gameObject.tag == "tmt")
             {
@@ -154,7 +154,7 @@ public class Pot : MonoBehaviour
                         break;
                     }
                 }
-                food.gameObject.SetActive(false);
+               
             }
             else if (food.gameObject.tag == "rice")
             {
@@ -169,9 +169,10 @@ public class Pot : MonoBehaviour
                         break;
                     }
                 }
-                food.gameObject.SetActive(false);
+                
             }
         }
+        
     }
 
     /// <summary>
