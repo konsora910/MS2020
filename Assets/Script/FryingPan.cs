@@ -96,7 +96,7 @@ public class FryingPan : MonoBehaviour
     {
         if (cntTomato == 1 && cntRice == 1 && cntEgg == 1)
         {
-            CallUI.SetGaugeUIFlyingPan();
+            CallUI.SetGaugeUIFlyingPan(this.transform.position);
             StartCoroutine("CookRiceOmelet");
         }
         else
