@@ -21,7 +21,7 @@ namespace ConstGaugeUI
         /// フライパンのゲージ位置
         /// </summary>
         public static readonly float[] FLYINGPAN_POSITION = {
-            -2.0f, 2.0f, 2.6f
+            0.0f, 1.0f, 0.0f
         };
 
         /// <summary>

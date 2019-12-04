@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2732148250875839543}
   - component: {fileID: 5960653885330991879}
+  - component: {fileID: 6209972909570078168}
   m_Layer: 0
   m_Name: CookGaugeUI
   m_TagString: CookGaugeUI
@@ -46,4 +47,20 @@ MonoBehaviour:
   CanvasGaugeFlyingPan: {fileID: 8486954430654328560, guid: a651130ca3a1b17498e655aa6c156bd6,
     type: 3}
   CanvasGaugePot: {fileID: 7010089920763977858, guid: e75d9ac8462b2a4439e1df2ed6d05ff9,
+    type: 3}
+--- !u!114 &6209972909570078168
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2825805759942555848}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cede2c59983092345a5854c6355167e8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _FryingPanParentPrefabA: {fileID: 6065478668159108360, guid: 1973394e55d9e1048882fda5f801a3af,
+    type: 3}
+  _PotParentPrefabA: {fileID: 6469317338677474583, guid: a2f41c95e03c8734a9d09f7fba007c61,
     type: 3}
