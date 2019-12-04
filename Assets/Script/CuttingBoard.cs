@@ -9,7 +9,7 @@ public class CuttingBoard : MonoBehaviour
     public GameObject Sashimi;
 
     public bool IsCBoard = false;
-
+    public OperatorController OpScript;
     // Start is called before the first frame update
     void Start()
     {
@@ -50,16 +50,22 @@ public class CuttingBoard : MonoBehaviour
     {
         if (food.gameObject.tag == "rice")
         {
+            OpScript.FoodKind(Foodselect1.RICE);
+            OpScript.CookKind(OperatorController.CuttingBoard);
             Debug.Log("切れないッシュ！！");
             Reset();
         }
         else if (food.gameObject.tag == "tmt")
         {
+            OpScript.FoodKind(Foodselect1.TOMATO);
+            OpScript.CookKind(OperatorController.CuttingBoard);
             Debug.Log("サラダぁ...");
             StartCoroutine("CookSarada");
         }
         else if (food.gameObject.tag == "egg")
         {
+            OpScript.FoodKind(Foodselect1.EGG);
+            OpScript.CookKind(OperatorController.CuttingBoard);
             Debug.Log("切れると思ってんの？");
             Reset();
         }
@@ -122,6 +128,7 @@ public class CuttingBoard : MonoBehaviour
                 food.gameObject.GetComponent<EggControl>().DestroyFood(true);
             }
         }
+        OpScript.CutReset();
         food = null;
     }
     //private IEnumerator OnTriggerStay(Collider Collider)

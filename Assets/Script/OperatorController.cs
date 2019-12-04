@@ -23,90 +23,133 @@ public class OperatorController : MonoBehaviour
     public static readonly int Pot = 2;
     public static readonly int CuttingBoard = 3;
     public static readonly int CookNull = 10;
+    int ClearCook = 0;
+    int AiThink = Foodselect1.FOODNULL;
     // Start is called before the first frame update
     void Start()
     {
-        //StartCoroutine("Neutral");
+        StartCoroutine("Neutral");
        
     }
 
     // Update is called once per frame
     void Update()
     {
-        order = OrderScript.GetOrder(0);
-        if(order == Foodselect1.RICEBALL)
-        {
-            Debug.Log("焼きおにぎりを作ろう");
-        }
-        if(order == Foodselect1.SOUP)
-        {
-            Debug.Log("スープを作ろう");
-        }
-        if (order == Foodselect1.OMERICE)
-        {
-            Debug.Log("オムライスを作ろう");
-        }
-        Cook();
+
+       
+
     }
 
     IEnumerator Neutral()
     {
         while (true)
         {
-
-
-            yield return null;
+            order = OrderScript.GetOrder(ClearCook);
+            if (order == Foodselect1.RICEBALL)
+            {
+                Debug.Log("焼きおにぎりを作ろう");
+                StartCoroutine("Thinking");
+                yield break;
+            }
+            if (order == Foodselect1.SOUP)
+            {
+                Debug.Log("スープを作ろう");
+                StartCoroutine("Thinking");
+                yield break;
+            }
+            if (order == Foodselect1.OMERICE)
+            {
+                Debug.Log("オムライスを作ろう");
+                StartCoroutine("Thinking");
+                yield break;
+            }
+           yield return null;
             
         }
     }
 
 
-    IEnumerator Order()
+    IEnumerator Operation()
     {
         while (true)
         {
+            if (Foodselect1.RICEBALL == order)
+            {
+                if (FP1 == false)
+                {
+                    RiceFP();
+                }else if(FP1  == true)
+                {
+                    ClearCook++;
+                    FPReset();
+                    StartCoroutine("Neutral");
+                    yield break;
+                }
 
+            }
+            if (Foodselect1.SOUP == order)
+            {
+                if (Pot1 == false && Pot2 == false)
+                {
+                    TomatoPot();
+
+                }
+                else if (Pot1 == true && Pot2 == false)
+                {
+                    EggPot();
+                }else if(Pot1 == true && Pot2 == true)
+                {
+                    ClearCook++;
+                    PotReset();
+                    StartCoroutine("Neutral");
+                    yield break;
+                }
+
+            }
+
+            if (Foodselect1.OMERICE == order)
+            {
+                if (FP1 == false && FP2 == false && FP3 == false)
+                {
+                    RiceFP();
+                }
+                else if (FP1 == true && FP2 == false && FP3 == false)
+                {
+                    TomatoFP();
+                }
+                else if (FP1 == true && FP2 == true && FP3 == false)
+                {
+                    EggFP();
+                }else if(FP1 == true && FP2 == true && FP3 == true)
+                {
+                    ClearCook++;
+                    FPReset();
+                    StartCoroutine("Neutral");
+                    yield break;
+                }
+
+            }
 
             yield return null;
 
         }
     }
-    void Cook() //正しい処理とは
+    IEnumerator Thinking()
     {
-        
-        if(Foodselect1.RICEBALL == order)
+        while (true)
         {
-            RiceFP();
-
-        }
-        if(Foodselect1.SOUP == order)
-        {
-            if(Pot1 == false && Pot2 == false)
+            //正しい答え
+            if (Probability(100))
             {
-                TomatoPot(); 
-
-            }else if(Pot1 == true && Pot2 == false)
-            {
-                EggPot();
+                AiThink = order;
+                StartCoroutine("Operation");
+                yield break;
             }
+            
 
+
+            yield return null;
         }
-
-        if(Foodselect1.OMERICE == order)
-        {
-            if(FP1 == false && FP2 == false && FP3 == false)
-            {
-                RiceFP();
-            }else if(FP1 == true && FP2 == false && FP3 == false)
-            {
-                TomatoFP();
-            }else if(FP1 == true && FP2 == true && FP3 == false)
-            {
-                EggFP();
-            }
-
-        }
-
     }
 
     void RiceFP()
