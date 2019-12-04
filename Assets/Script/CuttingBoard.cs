@@ -22,6 +22,7 @@ public class CuttingBoard : MonoBehaviour
         if (IsCBoard)
         {
             CutFood();
+            IsCBoard = false;
         }
     }
 
@@ -47,17 +48,20 @@ public class CuttingBoard : MonoBehaviour
     }
     void CutFood()
     {
-        if (food.tag == "rice")
+        if (food.gameObject.tag == "rice")
         {
             Debug.Log("切れないッシュ！！");
+            Reset();
         }
-        else if (food.tag == "tmt")
+        else if (food.gameObject.tag == "tmt")
         {
             Debug.Log("サラダぁ...");
+            StartCoroutine("CookSarada");
         }
-        else if (food.tag == "egg")
+        else if (food.gameObject.tag == "egg")
         {
             Debug.Log("切れると思ってんの？");
+            Reset();
         }
     }
 
@@ -91,6 +95,34 @@ public class CuttingBoard : MonoBehaviour
             food = null;
         }
         food = inEgg;
+    }
+
+    IEnumerator CookSarada()
+    {
+        yield return new WaitForSeconds(2);
+        Reset();
+    }
+    public void Reset()
+    {
+        if (food != null)
+        {
+            if (food.gameObject.tag == "tmt")
+            {
+                food.gameObject.GetComponent<TomatoControl>().takeout = false;
+                food.gameObject.GetComponent<TomatoControl>().DestroyFood(true);
+            }
+            if (food.gameObject.tag == "rice")
+            {
+                food.gameObject.GetComponent<RiceControl>().takeout = false;
+                food.gameObject.GetComponent<RiceControl>().DestroyFood(true);
+            }
+            if (food.gameObject.tag == "egg")
+            {
+                food.gameObject.GetComponent<EggControl>().takeout = false;
+                food.gameObject.GetComponent<EggControl>().DestroyFood(true);
+            }
+        }
+        food = null;
     }
     //private IEnumerator OnTriggerStay(Collider Collider)
     //{// 接触している時間が一定時間たったら

@@ -8,6 +8,8 @@ public class PlayerController : MonoBehaviour
     public Pot PotScript;
     public GameObject FPan;
     public FryingPan FPScript;
+    public GameObject CBoard;
+    public CuttingBoard CBScript;
     public GameObject food;                                 //　持っている食材のgameobject
     public int FoodType = Foodselect1.FOODNULL;             //　どの食材をもっているか
     public float speed = 0.05f;                             //　プレイヤーの移動速度
@@ -16,6 +18,7 @@ public class PlayerController : MonoBehaviour
     public bool bFood_Take = false;                         //　持ってるか持ってないか
     public bool b_TouchPot = false;                         //　ポットにふれているかどうか
     public bool b_TouchFPan = false;                        //　フライパンに触れているかどうか
+    public bool b_TouchCB = false;                          //　まな板に触れているかどうか
     [SerializeField] private Vector3 velocity;              //　移動方向
                                                             //    public GameObject food;
     public float PushPower;
@@ -29,6 +32,8 @@ public class PlayerController : MonoBehaviour
         PotScript = Pot.GetComponent<Pot>();
         FPan = GameObject.FindGameObjectWithTag("FP");
         FPScript = FPan.GetComponent<FryingPan>();
+        CBoard = GameObject.FindGameObjectWithTag("Cook");
+        CBScript = CBoard.GetComponent<CuttingBoard>();
     }
 
     // Update is called once per frame
@@ -71,7 +76,8 @@ public class PlayerController : MonoBehaviour
             //　フライパンに触れたら
             if (b_TouchFPan == true)
                 FPScript.LeadFood(food);
-
+            if (b_TouchCB == true)
+                CBScript.LeadFood(food);
 
             //種類ごとに呼ぶスクリプト違う
             if (FoodType == Foodselect1.TOMATO)
@@ -154,6 +160,18 @@ public class PlayerController : MonoBehaviour
             else if (Input.GetKeyDown(KeyCode.L) && bFood_Take == false)
             {
                 FPScript.Reset();
+            }
+        }
+        else if (Collider.gameObject.tag == ("Cook"))
+        {
+            b_TouchCB = true;
+            if (Input.GetKeyDown(KeyCode.K) && bFood_Take == false)
+            {
+                CBScript.IsCBoard = true;
+            }
+            else if (Input.GetKeyDown(KeyCode.L) && bFood_Take == false)
+            {
+
             }
         }
 
