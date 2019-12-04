@@ -47,9 +47,9 @@ public class SetCookGaugeUI : MonoBehaviour
     /// <summary>
     /// フライパンのゲージのUI表示
     /// </summary>
-    public void SetGaugeUIFlyingPan()
+    public void SetGaugeUIFlyingPan(Vector3 position)
     {
-        GameObject prefab = (GameObject)Instantiate(CanvasGaugeFlyingPan, new Vector3(ConstGaugeUI.ConstUI.FLYINGPAN_POSITION[0], ConstGaugeUI.ConstUI.FLYINGPAN_POSITION[1], ConstGaugeUI.ConstUI.FLYINGPAN_POSITION[2]), Quaternion.identity);
+        GameObject prefab = (GameObject)Instantiate(CanvasGaugeFlyingPan, position + new Vector3(ConstGaugeUI.ConstUI.FLYINGPAN_POSITION[0], ConstGaugeUI.ConstUI.FLYINGPAN_POSITION[1], ConstGaugeUI.ConstUI.FLYINGPAN_POSITION[2]), Quaternion.identity);
         Destroy(prefab, ConstGaugeUI.ConstUI.FLYINGPAN_COOKING_TIME);
     }
 

@@ -61,14 +61,14 @@ public class CookingUI : MonoBehaviour
         _PotObjectA = GameObject.FindGameObjectWithTag("pot");
         _PotScriptA = _PotObjectA.GetComponent<Pot>();
 
-        //FryingPanPosition= FryingPanScript
+       // FryingPanPosition= FryingPanScript
+
 
         //UI表示位置
         _FryingPanPositionA = _FryingPanScriptA.gameObject.transform.position;
         _PotPositionA = _PotScriptA.gameObject.transform.position;
-        
 
-        
+
     }
 
     void Update()
@@ -79,6 +79,8 @@ public class CookingUI : MonoBehaviour
             _PotParentScriptA = _PotParentPrefabA.GetComponent<CookingUIPotParent>();
             _FryingPanParentPrefabA = (GameObject)Instantiate(_FryingPanParentPrefabA, _FryingPanPositionA + PositionShift, Quaternion.identity);
             _FryingPanParentScriptA = _FryingPanParentPrefabA.GetComponent<CookingUIFryPanParent>();
+
+
             StartUI = true;
         }
         else if(StartUI)
