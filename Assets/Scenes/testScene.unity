@@ -2653,6 +2653,27 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 140258288}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1182564534 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4830211506697250966, guid: 01882571455d9d24ba025576edc2379c,
+    type: 3}
+  m_PrefabInstance: {fileID: 1968481868}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1182564535
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1182564534}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 176f1f6e01dcf284c9fbd1ba08869a07, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  food: {fileID: 0}
+  Sashimi: {fileID: 0}
+  IsCBoard: 0
 --- !u!1001 &1217968079
 PrefabInstance:
   m_ObjectHideFlags: 0
