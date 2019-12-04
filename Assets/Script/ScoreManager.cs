@@ -27,9 +27,9 @@ public class ScoreManager : MonoBehaviour
         score_text[1] = score_object2.GetComponent<Text>();
         // テキストの表示を入れ替える
         score_num = player.GetComponent<Score>().GetScore();
-        score_text[0].text = "Score:" + score_num;
+        score_text[0].text = "" + score_num;
 
         score_num = player2.GetComponent<Score2>().GetScore();
-        score_text[1].text = "Score:" + score_num; 
+        score_text[1].text = "" + score_num; 
     }
 }
