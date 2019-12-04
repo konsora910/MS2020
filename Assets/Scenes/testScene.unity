@@ -594,7 +594,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1291692103}
-  m_RootOrder: 12
+  m_RootOrder: 13
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &360065676
 MonoBehaviour:
@@ -2185,7 +2185,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1291692103}
-  m_RootOrder: 13
+  m_RootOrder: 14
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &952034741
 MonoBehaviour:
@@ -2865,6 +2865,7 @@ Transform:
   - {fileID: 2324357435695016281}
   - {fileID: 1952871495}
   - {fileID: 1034500865}
+  - {fileID: 892135395}
   - {fileID: 211535169}
   - {fileID: 360065675}
   - {fileID: 952034740}
@@ -3360,7 +3361,7 @@ PrefabInstance:
     - target: {fileID: 8454103257556933253, guid: 01882571455d9d24ba025576edc2379c,
         type: 3}
       propertyPath: m_RootOrder
-      value: 11
+      value: 12
       objectReference: {fileID: 0}
     - target: {fileID: 8454103257556933253, guid: 01882571455d9d24ba025576edc2379c,
         type: 3}
@@ -4412,7 +4413,7 @@ PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
-    m_TransformParent: {fileID: 2033097619}
+    m_TransformParent: {fileID: 1291692103}
     m_Modifications:
     - target: {fileID: 4830211506697250966, guid: 01882571455d9d24ba025576edc2379c,
         type: 3}
@@ -4437,7 +4438,7 @@ PrefabInstance:
     - target: {fileID: 8454103257556933253, guid: 01882571455d9d24ba025576edc2379c,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 6.5
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 8454103257556933253, guid: 01882571455d9d24ba025576edc2379c,
         type: 3}
@@ -4462,7 +4463,7 @@ PrefabInstance:
     - target: {fileID: 8454103257556933253, guid: 01882571455d9d24ba025576edc2379c,
         type: 3}
       propertyPath: m_RootOrder
-      value: 6
+      value: 11
       objectReference: {fileID: 0}
     - target: {fileID: 8454103257556933253, guid: 01882571455d9d24ba025576edc2379c,
         type: 3}
@@ -4593,7 +4594,6 @@ Transform:
   - {fileID: 1917938672}
   - {fileID: 714545608}
   - {fileID: 773145682}
-  - {fileID: 892135395}
   m_Father: {fileID: 1291692103}
   m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
