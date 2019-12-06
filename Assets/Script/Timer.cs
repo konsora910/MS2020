@@ -8,22 +8,24 @@ public class Timer : MonoBehaviour
 
     [SerializeField] public float Seconds;
     public GameObject timer_object = null;
+    public bool b_TimeUp = false;
 
     // Start is called before the first frame update
     void Start()
     {
-        Seconds = 210;
+        Seconds = 201;
+        b_TimeUp = false;
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (Seconds <= 0)
+        if (Seconds <= 0 && b_TimeUp == false)
         {
-            GameObject scenes = GameObject.FindGameObjectWithTag("scene");
-            scenes.GetComponent<SceneControl>().ChangeScene("ResultScene");
+            SceneControl.FadeOut("ResultScene");
+            b_TimeUp = true;
         }
-        else
+        else if(Seconds > 0)
         {
             Text timer_text;
             timer_text = timer_object.GetComponent<Text>();
