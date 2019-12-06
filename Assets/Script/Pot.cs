@@ -43,6 +43,10 @@ public class Pot : MonoBehaviour
 
     public OperatorController OpScript;
 
+    // SE専用変数...coffee
+    public AudioClip cooking;
+    AudioSource audioCookPot;
+
     void Start()
     {
         for (int i=0;i<3 ;i++)
@@ -54,6 +58,9 @@ public class Pot : MonoBehaviour
 
         GaugeUI= GameObject.FindGameObjectWithTag("CookGaugeUI");
         GaugeUIScript = GaugeUI.GetComponent<SetCookGaugeUI>();
+
+        audioCookPot = GetComponent<AudioSource>();
+        audioCookPot.clip = cooking;
     }
 
 
@@ -187,6 +194,7 @@ public class Pot : MonoBehaviour
             {
                 GaugeUIScript.SetGaugeUIPot(this.transform.position);
                 IsGauge = true;
+                audioCookPot.Play();
             }
 
             yield return new WaitForSeconds(ConstGaugeUI.ConstUI.POT_COOKING_TIME);
@@ -196,6 +204,7 @@ public class Pot : MonoBehaviour
             obj.GetComponent<Foodselect1>().AddFood(instance.transform);
             Debug.Log("料理1");
             Reset();
+            audioCookPot.Stop();
             ChangeMode(Mode.Stay);
         }
 
