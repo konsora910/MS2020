@@ -18,7 +18,11 @@ public class FryingPan : MonoBehaviour
     SetCookGaugeUI CallUI;
     public GameObject getUI;
     public bool IsCookFPan = false;
+    public bool IsGauge = false;
     public OperatorController OpScript;
+
+    public AudioClip cooking;
+    AudioSource audioCookFP;
 
     // Start is called before the first frame update
     void Start()
@@ -30,6 +34,8 @@ public class FryingPan : MonoBehaviour
         thisPos = this.gameObject.transform.position;
         getUI = GameObject.Find("TestObject");
         CallUI = getUI.GetComponent<SetCookGaugeUI>();
+        audioCookFP = GetComponent<AudioSource>();
+        audioCookFP.clip = cooking;
     }
 
     // Update is called once per frame
@@ -96,7 +102,6 @@ public class FryingPan : MonoBehaviour
     {
         if (cntTomato == 1 && cntRice == 1 && cntEgg == 1)
         {
-            CallUI.SetGaugeUIFlyingPan(this.transform.position);
             StartCoroutine("CookRiceOmelet");
         }
         else
@@ -157,6 +162,12 @@ public class FryingPan : MonoBehaviour
      ==================================================*/
     IEnumerator CookRiceOmelet()
     {
+        if (!IsGauge)
+        {
+            CallUI.SetGaugeUIFlyingPan(this.transform.position);
+            IsGauge = true;
+            audioCookFP.Play();
+        }
         yield return new WaitForSeconds(5);
         GameObject obj = GameObject.FindGameObjectWithTag("Food");
         // 料理の生成場所を設定できる(生成対象オブジェクト、生成座標、生成初期角度)
@@ -164,6 +175,7 @@ public class FryingPan : MonoBehaviour
         instance.transform.parent = obj.transform;          //コピー食材をfoodの子に
         obj.GetComponent<Foodselect1>().AddFood(instance.transform);
         Reset();
+        audioCookFP.Stop();
     }
 
     public void Reset()
