@@ -1302,6 +1302,11 @@ PrefabInstance:
       propertyPath: HavingFood
       value: 
       objectReference: {fileID: 8300000, guid: 9e5ef55bbcf2ad64c8c647b34bab3aff, type: 3}
+    - target: {fileID: 7256122865619513275, guid: 5451ec37c887443468db8d74b7c9f8a7,
+        type: 3}
+      propertyPath: FoodPut
+      value: 
+      objectReference: {fileID: 8300000, guid: 9e5ef55bbcf2ad64c8c647b34bab3aff, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5451ec37c887443468db8d74b7c9f8a7, type: 3}
 --- !u!1 &360065674

@@ -24,8 +24,7 @@ public class PlayerController : MonoBehaviour
     public float PushPower;
     //    Collider collider;
 
-    public AudioClip HavingFood;
-    //public AudioClip[] soundArray = {  };
+    public AudioClip FoodPut;
     
     AudioSource audioSound;
     
@@ -91,7 +90,7 @@ public class PlayerController : MonoBehaviour
             else if (b_TouchCB == true)
                 CBScript.LeadFood(food);
             else
-                audioSound.PlayOneShot(HavingFood);
+                audioSound.PlayOneShot(FoodPut);
 
             //種類ごとに呼ぶスクリプト違う
             if (FoodType == Foodselect1.TOMATO)
