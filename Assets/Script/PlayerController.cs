@@ -23,6 +23,11 @@ public class PlayerController : MonoBehaviour
                                                             //    public GameObject food;
     public float PushPower;
     //    Collider collider;
+
+    public AudioClip FoodPut;
+    
+    AudioSource audioSound;
+    
     // Start is called before the first frame update
     void Start()
     {
@@ -34,6 +39,7 @@ public class PlayerController : MonoBehaviour
         FPScript = FPan.GetComponent<FryingPan>();
         CBoard = GameObject.FindGameObjectWithTag("Cook");
         CBScript = CBoard.GetComponent<CuttingBoard>();
+        audioSound = GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -70,6 +76,7 @@ public class PlayerController : MonoBehaviour
         //持っている食材を置く
         if (Input.GetKeyDown(KeyCode.Space) && ImputTimer > 5 && bFood_Take == true)
         {
+            //audioSound.PlayOneShot(HavingFood);
             //ポットに触れていたら
             if (b_TouchPot == true)
             {
@@ -78,10 +85,12 @@ public class PlayerController : MonoBehaviour
                 { food.gameObject.SetActive(false); }
             }
             //　フライパンに触れたら
-            if (b_TouchFPan == true)
+            else if (b_TouchFPan == true)
                 FPScript.LeadFood(food);
-            if (b_TouchCB == true)
+            else if (b_TouchCB == true)
                 CBScript.LeadFood(food);
+            else
+                audioSound.PlayOneShot(FoodPut);
 
             //種類ごとに呼ぶスクリプト違う
             if (FoodType == Foodselect1.TOMATO)

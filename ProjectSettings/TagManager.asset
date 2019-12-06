@@ -26,6 +26,7 @@ TagManager:
   - RiceBall
   - CookGaugeUI
   - Player2
+  - scene
   layers:
   - Default
   - TransparentFX

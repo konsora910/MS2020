@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System;
 
 
 /// <summary>
@@ -19,57 +20,71 @@ public class CookingUI : MonoBehaviour
     /// <summary>
     /// UIの表示位置
     /// </summary>
-    private Vector3 _FryingPanPositionA;
-    private Vector3 _FryingPanPositionB;
-    private Vector3 _PotPositionA;
-    private Vector3 _PotPositionB;
+    [SerializeField] private Vector3[] _FryingPanPosition;
+
+    [SerializeField] private Vector3[] _PotPosition;
+    
 
 
     /// <summary>
-    /// CookingUIプレハブ
+    /// セット用CookingUIプレハブ
     /// </summary>
-    //public GameObject CookingUIPrefab;
-    public GameObject _FryingPanParentPrefabA;
-    public GameObject _FryingPanParentPrefabB;
-    public GameObject _PotParentPrefabA;
-    public GameObject _PotParentPrefabB;
-    
+    public GameObject FryingPanParentPrefab;
+    public GameObject PotParentPrefab;
 
+    //プレハブ管理
+    [SerializeField] private GameObject[] _FryingPanPrefabArray;
+    [SerializeField] private GameObject[] _PotPrefabArray;
 
     /// <summary>
     /// 各オブジェクト
     /// </summary>
-    private GameObject _FryingPanObjectA;
-    private GameObject _PotObjectA;
+    [SerializeField] private GameObject[] _FryingPanObject;
+    [SerializeField] private GameObject[] _PotObject;
 
     /// <summary>
     /// 各スクリプト
     /// </summary>
-    private FryingPan _FryingPanScriptA;          //フライパン
-    private Pot _PotScriptA;                      //鍋
-    private CookingUIPotParent _PotParentScriptA; //canvas
-    private CookingUIFryPanParent _FryingPanParentScriptA; //canvas
+    private FryingPan[] _FryingPanScript;          //フライパン
+    private Pot[] _PotScript;                      //鍋
+    private CookingUIPotParent[] _PotParentScript; //canvas
+    private CookingUIFryPanParent[] _FryingPanParentScript; //canvas
 
     /// <summary>
     /// 最初にUI配置する
     /// </summary>
-    private bool StartUI=false;
+    [SerializeField] private bool StartUI=false;
 
     
     void Start()
     {
-        _FryingPanObjectA = GameObject.FindGameObjectWithTag("FP");
-        _FryingPanScriptA = _FryingPanObjectA.GetComponent<FryingPan>();
-        _PotObjectA = GameObject.FindGameObjectWithTag("pot");
-        _PotScriptA = _PotObjectA.GetComponent<Pot>();
-
-       // FryingPanPosition= FryingPanScript
+        //フライパンと鍋のタグ付いているもの取得
+        _FryingPanObject = GameObject.FindGameObjectsWithTag("FP");
+        _PotObject = GameObject.FindGameObjectsWithTag("pot");
 
 
-        //UI表示位置
-        _FryingPanPositionA = _FryingPanScriptA.gameObject.transform.position;
-        _PotPositionA = _PotScriptA.gameObject.transform.position;
+        //配列サイズ変更
+        Array.Resize(ref _FryingPanPosition, _FryingPanObject.Length );
+        Array.Resize(ref _PotPosition, _PotObject.Length );
+        Array.Resize(ref _FryingPanScript, _FryingPanObject.Length);
+        Array.Resize(ref _PotScript, _PotObject.Length);
+        Array.Resize(ref _FryingPanParentScript, _FryingPanObject.Length);
+        Array.Resize(ref _PotParentScript, _FryingPanObject.Length);
+        Array.Resize(ref _FryingPanPrefabArray, _FryingPanObject.Length);
+        Array.Resize(ref _PotPrefabArray, _PotObject.Length);
 
+
+        //スクリプト、位置取得
+        for (int i = 0; i < _FryingPanObject.Length; i++)
+        {
+            _FryingPanScript[i] = _FryingPanObject[i].GetComponent<FryingPan>();
+            _FryingPanPosition[i] = _FryingPanScript[i].gameObject.transform.position;
+        }
+        for (int i = 0; i < _PotObject.Length; i++)
+        {
+            _PotScript[i] = _PotObject[i].GetComponent<Pot>();
+            _PotPosition[i] = _PotScript[i].gameObject.transform.position;
+        }
 
     }
 
@@ -77,121 +92,159 @@ public class CookingUI : MonoBehaviour
     {
         if (!StartUI)
         {
-            _PotParentPrefabA = (GameObject)Instantiate(_PotParentPrefabA, _PotPositionA + PositionShift, Quaternion.identity);
-            _PotParentScriptA = _PotParentPrefabA.GetComponent<CookingUIPotParent>();
-            _FryingPanParentPrefabA = (GameObject)Instantiate(_FryingPanParentPrefabA, _FryingPanPositionA + PositionShift, Quaternion.identity);
-            _FryingPanParentScriptA = _FryingPanParentPrefabA.GetComponent<CookingUIFryPanParent>();
-
-
-            StartUI = true;
+            //プレハブ生成,スクリプト取得
+            for (int i=0; i< _FryingPanObject.Length; i++)
+            {
+                _FryingPanPrefabArray[i] = (GameObject)Instantiate(FryingPanParentPrefab, _FryingPanPosition[i] + PositionShift, Quaternion.identity);
+                _FryingPanParentScript[i] = _FryingPanPrefabArray[i].GetComponent<CookingUIFryPanParent>();
+            }
+            for (int i = 0; i < _PotObject.Length; i++)
+            {
+                _PotPrefabArray[i] = (GameObject)Instantiate(PotParentPrefab, _PotPosition[i] + PositionShift, Quaternion.identity);
+                _PotParentScript[i] = _PotPrefabArray[i].GetComponent<CookingUIPotParent>();
+            }
+            
+                StartUI = true;
         }
         else if(StartUI)
             {
+            for (int i = 0; i < _PotObject.Length; i++)
+            {
+                if (_PotScript[i].CurrentMode == Pot.Mode.Stay)
+                {
 
-            if (_PotScriptA.CurrentMode == Pot.Mode.Stay) 
-            {
-                
-                _PotParentScriptA.SetUIA(0);
-                _PotParentScriptA.SetUIB(0);
-                _PotParentScriptA.SetUIC(0);
-                
-            }
-            else if (_PotScriptA.CurrentMode == Pot.Mode.Single)
-            {
-                if (_PotScriptA.PotArray[0].gameObject.tag == "egg")
-                {
-                    _PotParentScriptA.SetUIA(1);
-                }
-                else if (_PotScriptA.PotArray[0].gameObject.tag == "rice")
-                {
-                    _PotParentScriptA.SetUIA(2);
-                }
-                else if (_PotScriptA.PotArray[0].gameObject.tag == "tmt")
-                {
-                    _PotParentScriptA.SetUIA(3);
-                }
+                    _PotParentScript[i].SetUIA(0);
+                    _PotParentScript[i].SetUIB(0);
+                    _PotParentScript[i].SetUIC(0);
 
-            }
-            else if (_PotScriptA.CurrentMode == Pot.Mode.Double)
-            {
-                if (_PotScriptA.PotArray[1].gameObject.tag == "egg")
-                {
-                    _PotParentScriptA.SetUIB(1);
                 }
-                else if (_PotScriptA.PotArray[1].gameObject.tag == "rice")
+                else if (_PotScript[i].CurrentMode == Pot.Mode.Single)
                 {
-                    _PotParentScriptA.SetUIB(2);
+                    if (_PotScript[i].PotArray[0].gameObject.tag == "egg")
+                    {
+                        _PotParentScript[i].SetUIA(1);
+                    }
+                    else if (_PotScript[i].PotArray[0].gameObject.tag == "rice")
+                    {
+                        _PotParentScript[i].SetUIA(2);
+                    }
+                    else if (_PotScript[i].PotArray[0].gameObject.tag == "tmt")
+                    {
+                        _PotParentScript[i].SetUIA(3);
+                    }
+
                 }
-                else if (_PotScriptA.PotArray[1].gameObject.tag == "tmt")
+                else if (_PotScript[i].CurrentMode == Pot.Mode.Double)
                 {
-                    _PotParentScriptA.SetUIB(3);
+                    if (_PotScript[i].PotArray[1].gameObject.tag == "egg")
+                    {
+                        _PotParentScript[i].SetUIB(1);
+                    }
+                    else if (_PotScript[i].PotArray[1].gameObject.tag == "rice")
+                    {
+                        _PotParentScript[i].SetUIB(2);
+                    }
+                    else if (_PotScript[i].PotArray[1].gameObject.tag == "tmt")
+                    {
+                        _PotParentScript[i].SetUIB(3);
+                    }
                 }
-            }
-            else if (_PotScriptA.CurrentMode == Pot.Mode.Triple)
-            {
-                if (_PotScriptA.PotArray[2].gameObject.tag == "egg")
+                else if (_PotScript[i].CurrentMode == Pot.Mode.Triple)
                 {
-                    _PotParentScriptA.SetUIC(1);
-                }
-                else if (_PotScriptA.PotArray[2].gameObject.tag == "rice")
-                {
-                    _PotParentScriptA.SetUIC(2);
-                }
-                else if (_PotScriptA.PotArray[2].gameObject.tag == "tmt")
-                {
-                    _PotParentScriptA.SetUIC(3);
+                    if (_PotScript[i].PotArray[2].gameObject.tag == "egg")
+                    {
+                        _PotParentScript[i].SetUIC(1);
+                    }
+                    else if (_PotScript[i].PotArray[2].gameObject.tag == "rice")
+                    {
+                        _PotParentScript[i].SetUIC(2);
+                    }
+                    else if (_PotScript[i].PotArray[2].gameObject.tag == "tmt")
+                    {
+                        _PotParentScript[i].SetUIC(3);
+                    }
                 }
             }
             //フライパン
-           if (_FryingPanScriptA.InFood==0)
+            for (int i = 0; i < _FryingPanScript.Length; i++)
             {
-                _FryingPanParentScriptA.SetUIA(0);
-                _FryingPanParentScriptA.SetUIB(0);
-                _FryingPanParentScriptA.SetUIB(0);
+                if (_FryingPanScript[i].InFood == 0)
+                {
+                    _FryingPanParentScript[i].SetUIA(0);
+                    _FryingPanParentScript[i].SetUIB(0);
+                    _FryingPanParentScript[i].SetUIB(0);
+                }
+                else if (_FryingPanScript[i].InFood == 1)
+                {
+                    if (_FryingPanScript[i].FPanArray[0].gameObject.tag == "egg")
+                    {
+                        _FryingPanParentScript[i].SetUIA(1);
+                    }
+                    else if (_FryingPanScript[i].FPanArray[0].gameObject.tag == "rice")
+                    {
+                        _FryingPanParentScript[i].SetUIA(2);
+                    }
+                    else if (_FryingPanScript[i].FPanArray[0].gameObject.tag == "tmt")
+                    {
+                        _FryingPanParentScript[i].SetUIA(3);
+                    }
+                }
+                else if (_FryingPanScript[i].InFood == 2)
+                {
+                    if (_FryingPanScript[i].FPanArray[0].gameObject.tag == "egg")
+                    {
+                        _FryingPanParentScript[i].SetUIB(1);
+                    }
+                    else if (_FryingPanScript[i].FPanArray[0].gameObject.tag == "rice")
+                    {
+                        _FryingPanParentScript[i].SetUIB(2);
+                    }
+                    else if (_FryingPanScript[i].FPanArray[0].gameObject.tag == "tmt")
+                    {
+                        _FryingPanParentScript[i].SetUIB(3);
+                    }
+                }
             }
-            else if(_FryingPanScriptA.InFood==1)
-            {
-                if (_FryingPanScriptA.FPanArray[0].gameObject.tag == "egg")
-                {
-                    _FryingPanParentScriptA.SetUIA(1);
-                }
-                else if (_FryingPanScriptA.FPanArray[0].gameObject.tag == "rice")
-                {
-                    _FryingPanParentScriptA.SetUIA(2);
-                }
-                else if (_FryingPanScriptA.FPanArray[0].gameObject.tag == "tmt")
-                {
-                    _FryingPanParentScriptA.SetUIA(3);
-                }
-            }
-            else if (_FryingPanScriptA.InFood == 2)
-            {
-                if (_FryingPanScriptA.FPanArray[0].gameObject.tag == "egg")
-                {
-                    _FryingPanParentScriptA.SetUIB(1);
-                }
-                else if (_FryingPanScriptA.FPanArray[0].gameObject.tag == "rice")
-                {
-                    _FryingPanParentScriptA.SetUIB(2);
-                }
-                else if (_FryingPanScriptA.FPanArray[0].gameObject.tag == "tmt")
-                {
-                    _FryingPanParentScriptA.SetUIB(3);
-                }
-            }
-           
 
+        }
+        /*
+        if(Input.GetKey(KeyCode.N))
+        {
+            CookingUIOff();
+        }
+        if (Input.GetKey(KeyCode.M))
+        {
+            CookingUIOn();
+        }
+        */
+    }
+
+    //UI非表示
+    public void CookingUIOff()
+    {
+
+        for (int i = 0; i < _FryingPanObject.Length; i++)
+        {
+            _FryingPanPrefabArray[i].SetActive(false);
+        }
+        for (int i = 0; i < _PotObject.Length; i++)
+        {
+            _PotPrefabArray[i].SetActive(false);
+        }
+    }
+    //表示
+    public void CookingUIOn()
+    {
+
+        for (int i = 0; i < _FryingPanObject.Length; i++)
+        {
+            _FryingPanPrefabArray[i].SetActive(true);
+        }
+        for (int i = 0; i < _PotObject.Length; i++)
+        {
+            _PotPrefabArray[i].SetActive(true);
         }
     }
 
-    
-    private void CookingUINone()
-    {
-        
-       // GameObject prefabA = (GameObject)Instantiate(CookingUIPrefab, _PotPositionA + PositionShift, transform.rotation * Quaternion.Euler(60.0f, 0.0f, 0.0f));
-        
 
-
-    }
-    
 }
