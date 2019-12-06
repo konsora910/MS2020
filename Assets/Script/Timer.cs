@@ -12,7 +12,7 @@ public class Timer : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        Seconds = 200;
+        Seconds = 210;
     }
 
     // Update is called once per frame
@@ -20,9 +20,8 @@ public class Timer : MonoBehaviour
     {
         if (Seconds <= 0)
         {
-            //ここにゲームオーバー処理
-//            GameController.TimeOver();
-            
+            GameObject scenes = GameObject.FindGameObjectWithTag("scene");
+            scenes.GetComponent<SceneControl>().ChangeScene("ResultScene");
         }
         else
         {
