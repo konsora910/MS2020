@@ -31,7 +31,8 @@ public class SceneControl : MonoBehaviour
     public void FadeIn()
     {
         if (fadeImage == null) Init();
-        b_FadeIn = true; 
+        b_FadeIn = true;
+        f_alpha = 1.0f;
     }
 
     //フェードアウト開始
@@ -39,9 +40,8 @@ public class SceneControl : MonoBehaviour
     {
         if (fadeImage == null) Init();
         b_FadeOut = true;
+        f_alpha = 0.0f;
         NextSceneName = name;
-        GameObject obj = GameObject.FindGameObjectWithTag("Player");
-        obj.gameObject.GetComponent<Stop>().StopObject();
     }
 
     void Update()
