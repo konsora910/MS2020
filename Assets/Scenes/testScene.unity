@@ -5202,6 +5202,18 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &1479280405
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1479280398}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 135247b7fd12b9b4895f82a36665659f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1484171017
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6874,6 +6886,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 35333755bb9688c4fafa8c73c654bec1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  b_FadeIn: 0
+  b_FadeOut: 0
+  b_FadeOutEnd: 0
+  NextSceneName: 
 --- !u!4 &1902839195
 Transform:
   m_ObjectHideFlags: 0
