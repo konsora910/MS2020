@@ -24,7 +24,7 @@ public class SceneControl : MonoBehaviour
         fadeImage.rectTransform.anchoredPosition = Vector3.zero;
 
         fadeImage.color = Color.black;
-        fadeImage.rectTransform.sizeDelta = new Vector2(1000, 1000);
+        fadeImage.rectTransform.sizeDelta = new Vector2(5000, 5000);
     }
 
     //フェードイン開始
