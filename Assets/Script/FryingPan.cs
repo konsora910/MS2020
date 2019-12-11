@@ -91,6 +91,7 @@ public class FryingPan : MonoBehaviour
             OpScript.CookKind(OperatorController.FryingPan);
             Debug.Log("トメェイトォウ");
             FoodNameTomato(getFood);
+            
         }
         getFood.gameObject.SetActive(false);
     }

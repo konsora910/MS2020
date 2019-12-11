@@ -314,7 +314,9 @@ MonoBehaviour:
   Omrice: {fileID: 0}
   getUI: {fileID: 0}
   IsCookFPan: 0
+  IsGauge: 0
   OpScript: {fileID: 360065676}
+  cooking: {fileID: 0}
 --- !u!65 &59912113
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -344,6 +346,22 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!1 &61830210
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 968405686540547298}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2324357435695016281}
+  m_Layer: 0
+  m_Name: Missing Prefab (Dummy)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
 --- !u!1001 &77215271
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1062,6 +1080,7 @@ MonoBehaviour:
   IsCooking: 0
   Soup: {fileID: 0}
   OpScript: {fileID: 360065676}
+  cooking: {fileID: 0}
 --- !u!1 &243955495 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 4320756901324113781, guid: 9be4558a4b77f824d81b6076737a9dcc,
@@ -1089,12 +1108,29 @@ MonoBehaviour:
   IsCooking: 0
   Soup: {fileID: 0}
   OpScript: {fileID: 360065676}
+  cooking: {fileID: 0}
 --- !u!4 &268409398 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7054959156023430264, guid: 06adbe869b345cd4689a05a8dc63e34d,
     type: 3}
   m_PrefabInstance: {fileID: 7054959155766171214}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &336317614
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 6296752699348021573}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6844166642842085094}
+  m_Layer: 0
+  m_Name: Missing Prefab (Dummy)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
 --- !u!1001 &342257547
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1222,6 +1258,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 694b9c169d932d447ac96bc5750d2f6e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  AILevel: 1
+  AIEXP: 0
   OrderScript: {fileID: 952034741}
 --- !u!1 &361283894
 GameObject:
@@ -1582,8 +1620,8 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 4993159893294319287}
-  - {fileID: 6844166642842085094}
+  - {fileID: 1312507433}
+  - {fileID: 1166297351}
   - {fileID: 268409398}
   m_Father: {fileID: 1291692103}
   m_RootOrder: 3
@@ -2521,6 +2559,7 @@ MonoBehaviour:
   IsCooking: 0
   Soup: {fileID: 0}
   OpScript: {fileID: 360065676}
+  cooking: {fileID: 0}
 --- !u!4 &714545608 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7144959638139364491, guid: 220c75ba4d3195d45a917ece3d3aa94e,
@@ -2643,6 +2682,7 @@ MonoBehaviour:
   IsCooking: 0
   Soup: {fileID: 1744728931}
   OpScript: {fileID: 360065676}
+  cooking: {fileID: 0}
 --- !u!65 &735088462
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -3473,7 +3513,9 @@ MonoBehaviour:
   Omrice: {fileID: 0}
   getUI: {fileID: 0}
   IsCookFPan: 0
+  IsGauge: 0
   OpScript: {fileID: 360065676}
+  cooking: {fileID: 0}
 --- !u!65 &1109322375
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -3709,6 +3751,7 @@ MonoBehaviour:
   IsCooking: 0
   Soup: {fileID: 1744728931}
   OpScript: {fileID: 360065676}
+  cooking: {fileID: 0}
 --- !u!65 &1156968531
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -3722,6 +3765,38 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.021319363, y: 0.05, z: 0.05}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!1 &1166297350
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 6296752699348021573}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1166297351}
+  m_Layer: 0
+  m_Name: rice (Missing Prefab)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1166297351
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 6296752699348021573}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1166297350}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 1490417635}
+  - {fileID: 6844166642842085094}
+  m_Father: {fileID: 427246155}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &1172804538 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7144959638139364491, guid: 220c75ba4d3195d45a917ece3d3aa94e,
@@ -3848,6 +3923,7 @@ MonoBehaviour:
   food: {fileID: 0}
   Sashimi: {fileID: 0}
   IsCBoard: 0
+  OpScript: {fileID: 0}
 --- !u!1001 &1217968079
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3858,6 +3934,11 @@ PrefabInstance:
     - target: {fileID: 2825805759942555848, guid: 7194848cc0f9db24d8ce4248d56b59b7,
         type: 3}
       propertyPath: m_Name
+      value: CookGaugeUI
+      objectReference: {fileID: 0}
+    - target: {fileID: 2825805759942555848, guid: 7194848cc0f9db24d8ce4248d56b59b7,
+        type: 3}
+      propertyPath: m_TagString
       value: CookGaugeUI
       objectReference: {fileID: 0}
     - target: {fileID: 2732148250875839543, guid: 7194848cc0f9db24d8ce4248d56b59b7,
@@ -3953,13 +4034,19 @@ PrefabInstance:
         type: 3}
       propertyPath: FryingPanParentPrefab
       value: 
-      objectReference: {fileID: 6065478668159108360, guid: 1973394e55d9e1048882fda5f801a3af,
+      objectReference: {fileID: 6469317338677474583, guid: 0e89b571f4274e6449c0401a1f919405,
         type: 3}
     - target: {fileID: 6209972909570078168, guid: 7194848cc0f9db24d8ce4248d56b59b7,
         type: 3}
       propertyPath: PotParentPrefab
       value: 
       objectReference: {fileID: 6469317338677474583, guid: a2f41c95e03c8734a9d09f7fba007c61,
+        type: 3}
+    - target: {fileID: 5960653885330991879, guid: 7194848cc0f9db24d8ce4248d56b59b7,
+        type: 3}
+      propertyPath: CanvasGaugeFlyingPan
+      value: 
+      objectReference: {fileID: 6065478668159108360, guid: 1973394e55d9e1048882fda5f801a3af,
         type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7194848cc0f9db24d8ce4248d56b59b7, type: 3}
@@ -4082,13 +4169,13 @@ Transform:
   - {fileID: 887545450}
   - {fileID: 1881174516}
   - {fileID: 2033097619}
-  - {fileID: 2324357435695016281}
-  - {fileID: 892135395}
-  - {fileID: 1857786171}
-  - {fileID: 211535169}
-  - {fileID: 1952871495}
-  - {fileID: 696470995}
+  - {fileID: 1531648613}
   - {fileID: 226321518}
+  - {fileID: 892135395}
+  - {fileID: 211535169}
+  - {fileID: 1857786171}
+  - {fileID: 696470995}
+  - {fileID: 1952871495}
   - {fileID: 952034740}
   - {fileID: 360065675}
   m_Father: {fileID: 0}
@@ -4110,6 +4197,38 @@ MonoBehaviour:
     type: 3}
   CanvasGaugePot: {fileID: 7010089920763977858, guid: e75d9ac8462b2a4439e1df2ed6d05ff9,
     type: 3}
+--- !u!1 &1312507432
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 489137124315323088}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1312507433}
+  m_Layer: 0
+  m_Name: egg (Missing Prefab)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1312507433
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 489137124315323088}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1312507432}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 1802874325}
+  - {fileID: 4993159893294319287}
+  m_Father: {fileID: 427246155}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1340217659
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4243,7 +4362,9 @@ MonoBehaviour:
   Omrice: {fileID: 0}
   getUI: {fileID: 0}
   IsCookFPan: 0
+  IsGauge: 0
   OpScript: {fileID: 360065676}
+  cooking: {fileID: 0}
 --- !u!54 &1340217666
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -4381,6 +4502,7 @@ MonoBehaviour:
   IsCooking: 0
   Soup: {fileID: 1744728931}
   OpScript: {fileID: 360065676}
+  cooking: {fileID: 0}
 --- !u!65 &1446386223
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -4721,12 +4843,24 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1490361353}
   m_CullTransparentMesh: 0
---- !u!1 &1490417633 stripped
+--- !u!1 &1490417633
 GameObject:
+  m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 4594388105265817008, guid: e5b4effb35c0a744182eec350f7f61e5,
     type: 3}
   m_PrefabInstance: {fileID: 6296752699348021573}
   m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1490417635}
+  - component: {fileID: 1490417634}
+  m_Layer: 0
+  m_Name: Missing Prefab (Dummy)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
 --- !u!114 &1490417634
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4743,6 +4877,20 @@ MonoBehaviour:
   FoodResetPosition: {x: 0, y: 0, z: 0}
   copyFood: {fileID: 0}
   Food: {fileID: 1291692102}
+--- !u!4 &1490417635
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 6296752699348021573}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1490417633}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1166297351}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1502919970
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4912,6 +5060,54 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1519554073}
   m_CullTransparentMesh: 0
+--- !u!1 &1531648612
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 968405686540547298}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1531648613}
+  m_Layer: 0
+  m_Name: soup (Missing Prefab)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1531648613
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 968405686540547298}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1531648612}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 1744728932}
+  - {fileID: 2324357435695016281}
+  m_Father: {fileID: 1291692103}
+  m_RootOrder: 8
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1550376078
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 489137124315323088}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4993159893294319287}
+  m_Layer: 0
+  m_Name: Missing Prefab (Dummy)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
 --- !u!1001 &1571616121
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5339,12 +5535,37 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 220c75ba4d3195d45a917ece3d3aa94e, type: 3}
---- !u!1 &1744728931 stripped
+--- !u!1 &1744728931
 GameObject:
+  m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 1975647342623387560, guid: d4de6f6baaca28a4b955edc8c080f7c8,
     type: 3}
   m_PrefabInstance: {fileID: 968405686540547298}
   m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1744728932}
+  m_Layer: 0
+  m_Name: Missing Prefab (Dummy)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!4 &1744728932
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 968405686540547298}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1744728931}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1531648613}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1757736321 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: -927199367670048503, guid: 99ecc991beb198445a0ca3e5b08e0e79,
@@ -5372,6 +5593,7 @@ MonoBehaviour:
   IsCooking: 0
   Soup: {fileID: 1744728931}
   OpScript: {fileID: 360065676}
+  cooking: {fileID: 0}
 --- !u!65 &1757736324
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -5385,12 +5607,24 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.021319363, y: 0.05, z: 0.05}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!1 &1802874323 stripped
+--- !u!1 &1802874323
 GameObject:
+  m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 8492062871203262068, guid: a8dbbdf756d359149a23b875dd89e4f8,
     type: 3}
   m_PrefabInstance: {fileID: 489137124315323088}
   m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1802874325}
+  - component: {fileID: 1802874324}
+  m_Layer: 0
+  m_Name: Missing Prefab (Dummy)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
 --- !u!114 &1802874324
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5407,6 +5641,20 @@ MonoBehaviour:
   FoodResetPosition: {x: 0, y: 0, z: 0}
   copyFood: {fileID: 0}
   Food: {fileID: 0}
+--- !u!4 &1802874325
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 489137124315323088}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1802874323}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1312507433}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1822514539
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5601,7 +5849,9 @@ MonoBehaviour:
   Omrice: {fileID: 0}
   getUI: {fileID: 0}
   IsCookFPan: 0
+  IsGauge: 0
   OpScript: {fileID: 360065676}
+  cooking: {fileID: 0}
 --- !u!65 &1830199020
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -5863,6 +6113,7 @@ MonoBehaviour:
   IsCooking: 0
   Soup: {fileID: 0}
   OpScript: {fileID: 360065676}
+  cooking: {fileID: 0}
 --- !u!1 &1881174515
 GameObject:
   m_ObjectHideFlags: 0
@@ -6629,18 +6880,36 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d4de6f6baaca28a4b955edc8c080f7c8, type: 3}
---- !u!4 &2324357435695016281 stripped
+--- !u!4 &2324357435695016281
 Transform:
+  m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 3256578698665795003, guid: d4de6f6baaca28a4b955edc8c080f7c8,
     type: 3}
   m_PrefabInstance: {fileID: 968405686540547298}
   m_PrefabAsset: {fileID: 0}
---- !u!4 &4993159893294319287 stripped
+  m_GameObject: {fileID: 61830210}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1531648613}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &4993159893294319287
 Transform:
+  m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 4864599980965125223, guid: a8dbbdf756d359149a23b875dd89e4f8,
     type: 3}
   m_PrefabInstance: {fileID: 489137124315323088}
   m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1550376078}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1312507433}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &6296752699348021573
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6715,12 +6984,21 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e5b4effb35c0a744182eec350f7f61e5, type: 3}
---- !u!4 &6844166642842085094 stripped
+--- !u!4 &6844166642842085094
 Transform:
+  m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 691815444863047587, guid: e5b4effb35c0a744182eec350f7f61e5,
     type: 3}
   m_PrefabInstance: {fileID: 6296752699348021573}
   m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 336317614}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1166297351}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &7054959155766171214
 PrefabInstance:
   m_ObjectHideFlags: 0
