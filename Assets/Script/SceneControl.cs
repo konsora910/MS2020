@@ -15,7 +15,13 @@ public class SceneControl : MonoBehaviour
     private float f_fadeTime = 2.0f;   //フェードの時間（単位は秒
     public string NextSceneName;
     //フェード用のとテクスチャ生成
-    void Init()
+
+    // Start is called before the first frame update
+    void Start()
+    {
+        FadeIn();
+    }
+        void Init()
     {
         GameObject canvas = GameObject.FindGameObjectWithTag("Canvas");
         //フェード用のテクスチャ生成
