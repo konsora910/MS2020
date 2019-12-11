@@ -67,15 +67,23 @@ public class Pause : MonoBehaviour
 
     void NowPause()
     {
-        if (Input.GetKeyDown(KeyCode.S) && n_select == 0)
+        if(Input.GetKeyDown(KeyCode.S) && n_select == 0)
         {
             n_select = 1;
-            PauseUI2.gameObject.transform.localScale = new Vector3(1.5f, 1.5f, 1.5f);
-            PauseUI1.gameObject.transform.localScale = new Vector3(1.0f, 1.0f, 1.0f);
         }
         if(Input.GetKeyDown(KeyCode.W) && n_select == 1)
         {
             n_select = 0;
+        }
+
+
+        if (n_select == 0)
+        {
+            PauseUI2.gameObject.transform.localScale = new Vector3(1.5f, 1.5f, 1.5f);
+            PauseUI1.gameObject.transform.localScale = new Vector3(1.0f, 1.0f, 1.0f);
+        }
+        if(n_select == 1)
+        {
             PauseUI1.gameObject.transform.localScale = new Vector3(1.5f, 1.5f, 1.5f);
             PauseUI2.gameObject.transform.localScale = new Vector3(1.0f, 1.0f, 1.0f);
         }
