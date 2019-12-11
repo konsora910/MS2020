@@ -22,6 +22,8 @@ public class Timer : MonoBehaviour
     {
         if (Seconds <= 0 && b_TimeUp == false)
         {
+            GameObject player = GameObject.FindGameObjectWithTag("Player");
+            player.gameObject.GetComponent<Stop>().StopObject();
             GameObject obj = GameObject.FindGameObjectWithTag("scene");
             obj.gameObject.GetComponent<SceneControl>().FadeOut("ResultScene");
             b_TimeUp = true;

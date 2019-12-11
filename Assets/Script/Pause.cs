@@ -24,12 +24,6 @@ public class Pause : MonoBehaviour
         PauseUI1 = GameObject.Find("PauseUI1");
         PauseUI2 = GameObject.Find("PauseUI2");
 
-        PauseUI1.gameObject.SetActive(false);
-        PauseUI2.gameObject.SetActive(false);
-
-        PauseUI1.GetComponent<RectTransform>().SetAsLastSibling();
-        PauseUI2.GetComponent<RectTransform>().SetAsLastSibling();
-
         f_alpha = 0.0f;
         n_select = 0;
         b_Pause = false;
@@ -42,6 +36,13 @@ public class Pause : MonoBehaviour
 
         PauseImage.color = new Color(0.0f, 0.0f, 0.0f, f_alpha);
         PauseImage.rectTransform.sizeDelta = new Vector2(5000, 5000);
+
+
+        PauseUI1.GetComponent<RectTransform>().SetAsLastSibling();
+        PauseUI2.GetComponent<RectTransform>().SetAsLastSibling();
+
+        PauseUI1.gameObject.SetActive(false);
+        PauseUI2.gameObject.SetActive(false);
     }
 
     // Update is called once per frame
@@ -58,15 +59,6 @@ public class Pause : MonoBehaviour
             b_Pause = true;
         }
 
-        else if (Input.GetKeyDown(KeyCode.Y) && b_Pause == true)
-        {
-            PauseUI1.gameObject.SetActive(false);
-            PauseUI2.gameObject.SetActive(false);
-            Player.GetComponent<Stop>().RemoveObject();
-            Timer.GetComponent<Stop>().RemoveObject();
-            f_alpha = 0.0f;
-            b_Pause = false;
-        }
         if (b_Pause == true)
             NowPause();
 
@@ -78,14 +70,30 @@ public class Pause : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.S) && n_select == 0)
         {
             n_select = 1;
-            PauseUI1.gameObject.transform.localScale = new Vector3(1.5f, 1.5f, 1.5f);
-            PauseUI2.gameObject.transform.localScale = new Vector3(1.0f, 1.0f, 1.0f);
+            PauseUI2.gameObject.transform.localScale = new Vector3(1.5f, 1.5f, 1.5f);
+            PauseUI1.gameObject.transform.localScale = new Vector3(1.0f, 1.0f, 1.0f);
         }
         if(Input.GetKeyDown(KeyCode.W) && n_select == 1)
         {
             n_select = 0;
-            PauseUI2.gameObject.transform.localScale = new Vector3(1.5f, 1.5f, 1.5f);
-            PauseUI1.gameObject.transform.localScale = new Vector3(1.0f, 1.0f, 1.0f);
+            PauseUI1.gameObject.transform.localScale = new Vector3(1.5f, 1.5f, 1.5f);
+            PauseUI2.gameObject.transform.localScale = new Vector3(1.0f, 1.0f, 1.0f);
+        }
+
+
+        if(Input.GetKeyDown(KeyCode.Space) && n_select == 0)
+        {
+            PauseUI1.gameObject.SetActive(false);
+            PauseUI2.gameObject.SetActive(false);
+            Player.GetComponent<Stop>().RemoveObject();
+            Timer.GetComponent<Stop>().RemoveObject();
+            f_alpha = 0.0f;
+            b_Pause = false;
+        }
+        else if(Input.GetKeyDown(KeyCode.Space) && n_select == 1)
+        {
+            GameObject obj = GameObject.FindGameObjectWithTag("scene");
+            obj.gameObject.GetComponent<SceneControl>().FadeOut("TitleScene");
         }
 
     }
