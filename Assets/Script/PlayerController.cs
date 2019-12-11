@@ -21,11 +21,6 @@ public class PlayerController : MonoBehaviour
     /// <summary>現在の鍋の状態</summary>
     [SerializeField] public Mode CurrentMode;// { get; private set; }
 
-    [SerializeField] private GameObject[] _FryingPanObject;
-    [SerializeField] private GameObject[] _PotObject;
-
-    private FryingPan[] _FryingPanScript;          //フライパン
-    private Pot[] _PotScript;                      //鍋
 
     //触れている調理器具
     [SerializeField] private GameObject _TouchCookware;
@@ -58,9 +53,7 @@ public class PlayerController : MonoBehaviour
         PlayerForward = new Vector3(0.0f, 0.0f, 0.0f);
 
 
-        //フライパンと鍋のタグ付いているもの取得
-        _FryingPanObject = GameObject.FindGameObjectsWithTag("FP");
-        _PotObject = GameObject.FindGameObjectsWithTag("pot");
+        
 
 
         CBoard = GameObject.FindGameObjectWithTag("Cook");
@@ -246,20 +239,24 @@ public class PlayerController : MonoBehaviour
         //ポットに触れていたら
         if (Collider.gameObject.tag == ("pot"))
         {
+            ChangeTouchCookware(Collider.gameObject);
             b_TouchPot = true;
             _TouchCookware = Collider.gameObject;
         }
         else if (Collider.gameObject.tag == ("FP"))
         {
+            ChangeTouchCookware(Collider.gameObject);
             b_TouchFPan = true;
             _TouchCookware = Collider.gameObject;
         }
         else if (Collider.gameObject.tag == ("Cook"))
         {
+            ChangeTouchCookware(Collider.gameObject);
             b_TouchCB = true;
             _TouchCookware = Collider.gameObject;
 
         }
+        
 
         //食べ物に触れていたら
         if (Collider.gameObject.tag == "tmt" || Collider.gameObject.tag == "egg" || Collider.gameObject.tag == "rice" || Collider.gameObject.tag == "Soup" || Collider.gameObject.tag == "Omerice" || Collider.gameObject.tag == "RiceBall")
