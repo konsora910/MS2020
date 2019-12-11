@@ -27,6 +27,7 @@ TagManager:
   - CookGaugeUI
   - Player2
   - scene
+  - time
   layers:
   - Default
   - TransparentFX
