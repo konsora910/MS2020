@@ -24,9 +24,9 @@ public class PlayerController : MonoBehaviour
 
     //触れている調理器具
     [SerializeField] private GameObject _TouchCookware;
-    private FryingPan _TouchFryingPanScript;          //フライパン
-    private Pot _TouchPotScript;                      //鍋
-
+    [SerializeField] private FryingPan _TouchFryingPanScript;          //フライパン
+    [SerializeField] private Pot _TouchPotScript;                      //鍋
+    
 
 
 
@@ -135,7 +135,12 @@ public class PlayerController : MonoBehaviour
         b_TouchFPan = false;
         b_TouchPot = false;
         b_TouchCB = false;
-    }
+        /*
+        _TouchCookware = null;
+        _TouchFryingPanScript = null;
+        _TouchPotScript = null;
+        */
+}
     // キーボード操作
     void KeyBord()
     {
@@ -198,16 +203,21 @@ public class PlayerController : MonoBehaviour
             //ポットに触れていたら
             if (b_TouchPot == true)
             {
-                _TouchPotScript = _TouchCookware.GetComponent<Pot>();
+                //_TouchPotScript = _TouchCookware.GetComponent<Pot>();
                 _TouchPotScript.SetFood(food);
                 if (food.gameObject.tag == "tmt" || food.gameObject.tag == "egg" || food.gameObject.tag == "rice")
                 { food.gameObject.SetActive(false); }
             }
             //　フライパンに触れたら
             if (b_TouchFPan == true)
+            {
                 _TouchFryingPanScript.LeadFood(food);
+            }
             if (b_TouchCB == true)
+            {
                 CBScript.LeadFood(food);
+            }
+            
 
             //種類ごとに呼ぶスクリプト違う
             if (FoodType == Foodselect1.TOMATO)
@@ -239,21 +249,21 @@ public class PlayerController : MonoBehaviour
         //ポットに触れていたら
         if (Collider.gameObject.tag == ("pot"))
         {
-            ChangeTouchCookware(Collider.gameObject);
+            
             b_TouchPot = true;
-            _TouchCookware = Collider.gameObject;
+            ChangeTouchCookware(Collider.gameObject);
         }
         else if (Collider.gameObject.tag == ("FP"))
         {
-            ChangeTouchCookware(Collider.gameObject);
+            
             b_TouchFPan = true;
-            _TouchCookware = Collider.gameObject;
+            ChangeTouchCookware(Collider.gameObject);
         }
         else if (Collider.gameObject.tag == ("Cook"))
         {
-            ChangeTouchCookware(Collider.gameObject);
+            
             b_TouchCB = true;
-            _TouchCookware = Collider.gameObject;
+            ChangeTouchCookware(Collider.gameObject);
 
         }
         
@@ -300,7 +310,7 @@ public class PlayerController : MonoBehaviour
         {
             _TouchPotScript = _TouchCookware.GetComponent<Pot>();
         }
-        else if(b_TouchFPan)
+        if(b_TouchFPan)
         {
             _TouchFryingPanScript = _TouchCookware.GetComponent<FryingPan>();
         }
