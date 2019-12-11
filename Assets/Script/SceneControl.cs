@@ -6,17 +6,16 @@ using UnityEngine.SceneManagement;
 
 public class SceneControl : MonoBehaviour
 {
-    private static Image fadeImage;         //フェードのテクスチャ
-    private static float f_alpha = 0.0f;      //フェードのα値
+    private Image fadeImage;         //フェードのテクスチャ
+    private float f_alpha = 0.0f;      //フェードのα値
     //フェードインアウトのフラグ
-    public static bool b_FadeIn = false;
-    public static bool b_FadeOut = false;
-    public static bool b_FadeOutEnd = false;
-    private static float f_fadeTime = 2.0f;   //フェードの時間（単位は秒
-    public static string NextSceneName;
-
+    public bool b_FadeIn = false;
+    public bool b_FadeOut = false;
+    public bool b_FadeOutEnd = false;
+    private float f_fadeTime = 2.0f;   //フェードの時間（単位は秒
+    public string NextSceneName;
     //フェード用のとテクスチャ生成
-    static void Init()
+    void Init()
     {
         GameObject canvas = GameObject.FindGameObjectWithTag("Canvas");
         //フェード用のテクスチャ生成
@@ -29,18 +28,20 @@ public class SceneControl : MonoBehaviour
     }
 
     //フェードイン開始
-    public static void FadeIn()
+    public void FadeIn()
     {
         if (fadeImage == null) Init();
         b_FadeIn = true; 
     }
 
     //フェードアウト開始
-    public static void FadeOut(string name)
+    public void FadeOut(string name)
     {
         if (fadeImage == null) Init();
         b_FadeOut = true;
         NextSceneName = name;
+        GameObject obj = GameObject.FindGameObjectWithTag("Player");
+        obj.gameObject.GetComponent<Stop>().StopObject();
     }
 
     void Update()

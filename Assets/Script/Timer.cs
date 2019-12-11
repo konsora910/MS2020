@@ -13,7 +13,7 @@ public class Timer : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        Seconds = 201;
+        Seconds = 205;
         b_TimeUp = false;
     }
 
@@ -22,7 +22,8 @@ public class Timer : MonoBehaviour
     {
         if (Seconds <= 0 && b_TimeUp == false)
         {
-            SceneControl.FadeOut("ResultScene");
+            GameObject obj = GameObject.FindGameObjectWithTag("scene");
+            obj.gameObject.GetComponent<SceneControl>().FadeOut("ResultScene");
             b_TimeUp = true;
         }
         else if(Seconds > 0)
