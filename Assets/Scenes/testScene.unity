@@ -4943,7 +4943,7 @@ PrefabInstance:
         type: 3}
       propertyPath: FryingPanParentPrefab
       value: 
-      objectReference: {fileID: 6065478668159108360, guid: 1973394e55d9e1048882fda5f801a3af,
+      objectReference: {fileID: 6469317338677474583, guid: 0e89b571f4274e6449c0401a1f919405,
         type: 3}
     - target: {fileID: 6209972909570078168, guid: 7194848cc0f9db24d8ce4248d56b59b7,
         type: 3}

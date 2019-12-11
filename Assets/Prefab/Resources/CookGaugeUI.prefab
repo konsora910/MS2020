@@ -60,7 +60,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cede2c59983092345a5854c6355167e8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _FryingPanParentPrefabA: {fileID: 6065478668159108360, guid: 1973394e55d9e1048882fda5f801a3af,
+  _FryingPanPosition: []
+  _PotPosition: []
+  FryingPanParentPrefab: {fileID: 6469317338677474583, guid: 0e89b571f4274e6449c0401a1f919405,
     type: 3}
-  _PotParentPrefabA: {fileID: 6469317338677474583, guid: a2f41c95e03c8734a9d09f7fba007c61,
+  PotParentPrefab: {fileID: 6469317338677474583, guid: a2f41c95e03c8734a9d09f7fba007c61,
     type: 3}
+  _FryingPanPrefabArray: []
+  _PotPrefabArray: []
+  _FryingPanObject: []
+  _PotObject: []
+  StartUI: 0
