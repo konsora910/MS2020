@@ -40,7 +40,8 @@ public class OperatorController : MonoBehaviour
     public static readonly int RPot = 28;
     public static readonly int RCut = 29;
 
-    
+    public GameObject[] AILevelUI;
+
 
     int ClearCook = 0;
     int AiThink = Foodselect1.FOODNULL;
@@ -66,6 +67,45 @@ public class OperatorController : MonoBehaviour
             AILevel--;
         }
 
+        switch (AILevel)
+        {
+            case 0:
+                AILevelUI[0].SetActive(false);
+                AILevelUI[1].SetActive(false);
+                AILevelUI[2].SetActive(false);
+                AILevelUI[3].SetActive(false);
+                break;
+            case 1:
+                AILevelUI[0].SetActive(true);
+                AILevelUI[1].SetActive(false);
+                AILevelUI[2].SetActive(false);
+                AILevelUI[3].SetActive(false);
+                break;
+            case 2:
+                AILevelUI[0].SetActive(true);
+                AILevelUI[1].SetActive(true);
+                AILevelUI[2].SetActive(false);
+                AILevelUI[3].SetActive(false);
+                break;
+            case 3:
+                AILevelUI[0].SetActive(true);
+                AILevelUI[1].SetActive(true);
+                AILevelUI[2].SetActive(true);
+                AILevelUI[3].SetActive(false);
+                break;
+            case 4:
+                AILevelUI[0].SetActive(true);
+                AILevelUI[1].SetActive(true);
+                AILevelUI[2].SetActive(true);
+                AILevelUI[3].SetActive(true);
+                AILevelUI[3].SetActive(true);
+                break;
+
+        }
+
+
+
+
     }
 
     IEnumerator Neutral()
@@ -79,7 +119,29 @@ public class OperatorController : MonoBehaviour
                 yield break;
             }
             Debug.Log("待機中");
-           yield return null;
+            if(order == Foodselect1.RICEBALL)
+            {
+                if(FP1 == false)
+                {
+                    end = true;
+                }
+            }
+            if (order == Foodselect1.SOUP)
+            {
+                if (FP1 == false)
+                {
+                    end = true;
+                }
+            }
+            if (order == Foodselect1.OMERICE)
+            {
+                if (FP1 == false)
+                {
+                    end = true;
+                }
+            }
+
+            yield return null;
             
         }
     }
