@@ -4,10 +4,38 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
+
+    /// <summary> プレイヤーモード/// </summary>
+    public enum Mode
+    {
+        Stay,        //待機(空)
+        Walk,        //歩く
+        Hold,　　  　//持つ
+        Set,         //置く
+        Cut,         //まな板
+        Fry,         //フライパン
+        Boil,        //鍋
+
+    };
+
+    /// <summary>現在の鍋の状態</summary>
+    [SerializeField] public Mode CurrentMode;// { get; private set; }
+
+    [SerializeField] private GameObject[] _FryingPanObject;
+    [SerializeField] private GameObject[] _PotObject;
+
+    private FryingPan[] _FryingPanScript;          //フライパン
+    private Pot[] _PotScript;                      //鍋
+
+    //触れている調理器具
+    [SerializeField] private GameObject _TouchCookware;
+
+
     public GameObject Pot;
     public Pot PotScript;
     public GameObject FPan;
     public FryingPan FPScript;
+    
     public GameObject CBoard;
     public CuttingBoard CBScript;
     [SerializeField] public GameObject food;                                 //　持っている食材のgameobjectprivate GameObject _previousFood;
@@ -20,7 +48,8 @@ public class PlayerController : MonoBehaviour
     [SerializeField] public bool b_TouchFPan = false;                        //　フライパンに触れているかどうか
     public bool b_TouchCB = false;                          //　まな板に触れているかどうか
     [SerializeField] private Vector3 velocity;              //　移動方向
-                                                            //    public GameObject food;
+    
+                                             
     public float PushPower;
     //    Collider collider;
     // Start is called before the first frame update
@@ -28,12 +57,15 @@ public class PlayerController : MonoBehaviour
     {
         OldPosition = this.gameObject.transform.position;
         PlayerForward = new Vector3(0.0f, 0.0f, 0.0f);
-        Pot = GameObject.FindGameObjectWithTag("pot");
-        PotScript = Pot.GetComponent<Pot>();
-        FPan = GameObject.FindGameObjectWithTag("FP");
-        FPScript = FPan.GetComponent<FryingPan>();
+
+        //フライパンと鍋のタグ付いているもの取得
+        _FryingPanObject = GameObject.FindGameObjectsWithTag("FP");
+        _PotObject = GameObject.FindGameObjectsWithTag("pot");
+
+
         CBoard = GameObject.FindGameObjectWithTag("Cook");
         CBScript = CBoard.GetComponent<CuttingBoard>();
+        CurrentMode = Mode.Stay;
     }
 
     // Update is called once per frame
@@ -41,17 +73,46 @@ public class PlayerController : MonoBehaviour
     {
         ImputTimer++;
         OldPosition = this.gameObject.transform.position;
-        KeyBord();
+        
         
         float moveHorizontal = Input.GetAxis("Horizontal");
         float moveVertical = Input.GetAxis("Vertical");
 
         Vector3 movement = new Vector3(moveHorizontal, 0.0f, moveVertical);
 
+        if(CurrentMode == Mode.Stay)
+        {
+            KeyBord();
+        }
+        else if(CurrentMode == Mode.Walk)
+        {
+            KeyBord();
+        }
+        else if(CurrentMode == Mode.Hold)
+        {
+            KeyBord();
+        }
+        else if(CurrentMode == Mode.Set)
+        {
+            ChangeMode(Mode.Stay);
+        }
+        else if (CurrentMode == Mode.Cut)
+        {
+
+        }
+        else if (CurrentMode == Mode.Fry)
+        {
+
+        }
+        else if (CurrentMode == Mode.Boil)
+        {
+
+        }
 
         //食材の移動
-        if(bFood_Take == true)
+        if (bFood_Take == true) 
         {
+
 
             //種類ごとに呼ぶスクリプト違う
             if (FoodType == Foodselect1.TOMATO)
@@ -67,14 +128,84 @@ public class PlayerController : MonoBehaviour
             else if (FoodType == Foodselect1.RICEBALL)
                 food.GetComponent<RiceBallControl>().transform.position = new Vector3((transform.position.x + PlayerForward.x / 2), (transform.position.y), (transform.position.z + PlayerForward.z / 2));
         }
+        
+        
+
+        //プレイヤーが移動していたら向ている方向計算
+        if (OldPosition != this.gameObject.transform.position)
+        {
+            PlayerForward = this.gameObject.transform.position - OldPosition;
+            PlayerForward = PlayerForward.normalized;
+            this.gameObject.transform.forward = PlayerForward;
+         
+        }
+        b_TouchFPan = false;
+        b_TouchPot = false;
+        b_TouchCB = false;
+    }
+    // キーボード操作
+    void KeyBord()
+    {
+        // 移動
+        if (Input.GetKey(KeyCode.W))
+        { 
+            transform.position += new Vector3(0f, 0f, speed);
+        }
+        if (Input.GetKey(KeyCode.A))
+        {
+            transform.position -= new Vector3(speed, 0f, 0f);
+        }
+        if (Input.GetKey(KeyCode.S))
+        {
+            transform.position -= new Vector3(0f, 0f, speed);
+        }
+        if (Input.GetKey(KeyCode.D))
+        {
+            transform.position += new Vector3(speed, 0f, 0f);
+        }
+        if (b_TouchPot)
+        {
+            if (Input.GetKeyDown(KeyCode.K) && bFood_Take == false)
+            {
+                PotScript.IsCooking = true;
+            }
+            else if (Input.GetKeyDown(KeyCode.L) && bFood_Take == false)
+            {
+                PotScript.Reset();
+            }
+        }
+        else if (b_TouchFPan)
+        {
+            if (Input.GetKeyDown(KeyCode.K) && bFood_Take == false)
+            {
+                FPScript.IsCookFPan = true;
+            }
+            else if (Input.GetKeyDown(KeyCode.L) && bFood_Take == false)
+            {
+                FPScript.Reset();
+            }
+        }
+        else if (b_TouchCB)
+        {
+            if (Input.GetKeyDown(KeyCode.K) && bFood_Take == false)
+            {
+                CBScript.IsCBoard = true;
+            }
+            else if (Input.GetKeyDown(KeyCode.L) && bFood_Take == false)
+            {
+
+            }
+        }
+
         //持っている食材を置く
         if (Input.GetKeyDown(KeyCode.Space) && ImputTimer > 5 && bFood_Take == true)
         {
+            ChangeMode(Mode.Set);
             //ポットに触れていたら
             if (b_TouchPot == true)
             {
                 PotScript.SetFood(food);
-                if(food.gameObject.tag == "tmt" || food.gameObject.tag == "egg" || food.gameObject.tag == "rice")
+                if (food.gameObject.tag == "tmt" || food.gameObject.tag == "egg" || food.gameObject.tag == "rice")
                 { food.gameObject.SetActive(false); }
             }
             //　フライパンに触れたら
@@ -100,38 +231,6 @@ public class PlayerController : MonoBehaviour
             food = null;
         }
 
-        //プレイヤーが移動していたら向ている方向計算
-        if (OldPosition != this.gameObject.transform.position)
-        {
-            PlayerForward = this.gameObject.transform.position - OldPosition;
-            PlayerForward = PlayerForward.normalized;
-            this.gameObject.transform.forward = PlayerForward;
-         
-        }
-        b_TouchFPan = false;
-        b_TouchPot = false;
-        b_TouchCB = false;
-    }
-    // キーボード操作
-    void KeyBord()
-    {
-        // 移動
-        if (Input.GetKey(KeyCode.W))
-        {
-            transform.position += new Vector3(0f, 0f, speed);
-        }
-        if (Input.GetKey(KeyCode.A))
-        {
-            transform.position -= new Vector3(speed, 0f, 0f);
-        }
-        if (Input.GetKey(KeyCode.S))
-        {
-            transform.position -= new Vector3(0f, 0f, speed);
-        }
-        if (Input.GetKey(KeyCode.D))
-        {
-            transform.position += new Vector3(speed, 0f, 0f);
-        }
     }
 
     // コントローラー操作
@@ -146,39 +245,15 @@ public class PlayerController : MonoBehaviour
         if (Collider.gameObject.tag == ("pot"))
         {
             b_TouchPot = true;
-            if (Input.GetKeyDown(KeyCode.K) && bFood_Take == false)
-            {
-                PotScript.IsCooking = true;
-            }
-            else if (Input.GetKeyDown(KeyCode.L) && bFood_Take == false)
-            {
-                PotScript.Reset();
-            }
-
         }
         else if (Collider.gameObject.tag == ("FP"))
         {
             b_TouchFPan = true;
-            if (Input.GetKeyDown(KeyCode.K) && bFood_Take == false)
-            {
-                FPScript.IsCookFPan = true;
-            }
-            else if (Input.GetKeyDown(KeyCode.L) && bFood_Take == false)
-            {
-                FPScript.Reset();
-            }
         }
         else if (Collider.gameObject.tag == ("Cook"))
         {
             b_TouchCB = true;
-            if (Input.GetKeyDown(KeyCode.K) && bFood_Take == false)
-            {
-                CBScript.IsCBoard = true;
-            }
-            else if (Input.GetKeyDown(KeyCode.L) && bFood_Take == false)
-            {
-
-            }
+            
         }
 
         //食べ物に触れていたら
@@ -187,25 +262,42 @@ public class PlayerController : MonoBehaviour
             //持つ
             if (Input.GetKeyDown(KeyCode.Space) && bFood_Take == false)
             {
+                ChangeMode(Mode.Hold);
                 ImputTimer = 0;
                 bFood_Take = true;
                 food = Collider.gameObject;
                 if (Collider.gameObject.tag == "tmt")
                     FoodType = Foodselect1.TOMATO;
-                if (Collider.gameObject.tag == "egg")
+                else if (Collider.gameObject.tag == "egg")
                     FoodType = Foodselect1.EGG;
-                if (Collider.gameObject.tag == "rice")
+                else if (Collider.gameObject.tag == "rice")
                     FoodType = Foodselect1.RICE;
-                if (Collider.gameObject.tag == "Omerice")
+                else if (Collider.gameObject.tag == "Omerice")
                     FoodType = Foodselect1.OMERICE;
-                if (Collider.gameObject.tag == "Soup")
+                else if (Collider.gameObject.tag == "Soup")
                     FoodType = Foodselect1.SOUP;
-                if (Collider.gameObject.tag == "RiceBall")
+                else if (Collider.gameObject.tag == "RiceBall")
                     FoodType = Foodselect1.RICEBALL;
             }
-        
+
+
         }
 
     }
-    
+
+
+    /// <summary>
+    /// モードを変更
+    /// </summary>
+    /// <param name="mode"> 調理モード </param>
+    protected void ChangeMode(Mode mode)
+    {
+        if (mode == CurrentMode)
+        {
+            return;
+        }
+
+        CurrentMode = mode;
+    }
+
 }

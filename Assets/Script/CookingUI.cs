@@ -32,7 +32,7 @@ public class CookingUI : MonoBehaviour
     public GameObject FryingPanParentPrefab;
     public GameObject PotParentPrefab;
 
-    //プレハブ管理
+    //UIプレハブ管理
     [SerializeField] private GameObject[] _FryingPanPrefabArray;
     [SerializeField] private GameObject[] _PotPrefabArray;
 
