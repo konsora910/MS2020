@@ -21,7 +21,8 @@ public class SceneControl : MonoBehaviour
     {
         FadeIn();
     }
-        void Init()
+
+    void Init()
     {
         GameObject canvas = GameObject.FindGameObjectWithTag("Canvas");
         //フェード用のテクスチャ生成
@@ -77,11 +78,16 @@ public class SceneControl : MonoBehaviour
             {
                 b_FadeOut = false;
                 f_alpha = 1.0f;
-                SceneManager.LoadScene(NextSceneName);
             }
 
             //フェードのα設定
             fadeImage.color = new Color(0.0f, 0.0f, 0.0f, f_alpha);
+
+            if(!b_FadeOut)
+            {
+                fadeImage = null;
+                SceneManager.LoadScene(NextSceneName);
+            }
         }
     }
 }

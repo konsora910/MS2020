@@ -26,8 +26,8 @@ public class RiceBallControl : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Space))
         {
 
-            //ゴミ箱と接触していたら
-            if (Collider.gameObject.tag == "DustBox")
+            //作業台と接触していたら
+            if (Collider.gameObject.tag == "Workbench")
             {
                 bDestroy = true;
             }

@@ -67,11 +67,11 @@ public class Pause : MonoBehaviour
 
     void NowPause()
     {
-        if(Input.GetKeyDown(KeyCode.S) && n_select == 0)
+        if(Input.GetKeyDown(KeyCode.W) && n_select == 0)
         {
             n_select = 1;
         }
-        if(Input.GetKeyDown(KeyCode.W) && n_select == 1)
+        if(Input.GetKeyDown(KeyCode.S) && n_select == 1)
         {
             n_select = 0;
         }
