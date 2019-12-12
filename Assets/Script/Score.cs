@@ -12,7 +12,7 @@ public class Score : MonoBehaviour
 
 
     //仮置き
-    GameObject player;
+    GameObject scoreobj;
 
     // Start is called before the first frame update
     void Start()
@@ -22,7 +22,7 @@ public class Score : MonoBehaviour
         b_Score = false;
 
         //仮置き
-        player = GameObject.FindGameObjectWithTag("Player");
+        scoreobj = GameObject.Find("order");
 
         n_Order = 5;
     }
@@ -34,10 +34,11 @@ public class Score : MonoBehaviour
         {
             if (FoodType == Foodselect1.OMERICE)
             {
+                Debug.Log("sfaffeaw");
                 if (n_Order == Foodselect1.OMERICE)
                 {
                     score += 10000;
-                    n_Order = player.GetComponent<Order>().GetOrder(n_ListNum);
+                    n_Order = scoreobj.GetComponent<Order>().GetOrder(n_ListNum);
                     n_ListNum++;
                 }
                 else
@@ -48,7 +49,7 @@ public class Score : MonoBehaviour
                 if (n_Order == Foodselect1.RICEBALL)
                 {
                     score += 20000;
-                    n_Order = player.GetComponent<Order>().GetOrder(n_ListNum);
+                    n_Order = scoreobj.GetComponent<Order>().GetOrder(n_ListNum);
                     n_ListNum++;
                 }
                 else
@@ -59,7 +60,7 @@ public class Score : MonoBehaviour
                 if (n_Order == Foodselect1.SOUP)
                 { 
                     score += 30000;
-                    n_Order = player.GetComponent<Order>().GetOrder(n_ListNum);
+                    n_Order = scoreobj.GetComponent<Order>().GetOrder(n_ListNum);
                     n_ListNum++;
                 }
                 else
