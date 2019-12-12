@@ -4,16 +4,29 @@ using UnityEngine;
 
 public class CuttingBoard : MonoBehaviour
 {
-    public GameObject food;
+    [SerializeField] public GameObject food { get; private set; }
     //public float time;
     public GameObject Sashimi;
 
+    //ゲージUIオブジェクト
+    private GameObject _GaugeUI;
+
+    //ゲージUIスクリプト
+    private SetCookGaugeUI _GaugeUIScript;
+
+    //ゲージ使用
+    [SerializeField] public bool IsGauge = false;
+
     public bool IsCBoard = false;
     public OperatorController OpScript;
+
+
     // Start is called before the first frame update
     void Start()
     {
         food = null;
+        _GaugeUI = GameObject.FindGameObjectWithTag("CookGaugeUI");
+        _GaugeUIScript = _GaugeUI.GetComponent<SetCookGaugeUI>();
     }
 
     // Update is called once per frame
@@ -22,30 +35,39 @@ public class CuttingBoard : MonoBehaviour
         if (IsCBoard)
         {
             CutFood();
-            IsCBoard = false;
+           IsCBoard = false;
         }
     }
+    
 
     public void LeadFood(GameObject getFood)
     {
+        
+      
+        
         if (getFood.gameObject.tag == "rice")
         {
             Debug.Log("切っている食材: " + gameObject.name);
-            FoodNameRice(getFood);
+            food = getFood;
+            //FoodNameRice(getFood);
         }
         else if (getFood.gameObject.tag == "tmt")
         {
             Debug.Log("切っている食材: " + gameObject.name);
-            FoodNameTomato(getFood);
+            food = getFood;
+            //FoodNameTomato(getFood);
 
         }
         else if (getFood.gameObject.tag == "egg")
         {
             Debug.Log("切っている食材: " + gameObject.name);
-            FoodNameEgg(getFood);
+            food = getFood;
+            //FoodNameEgg(getFood);
         }
-        getFood.gameObject.SetActive(false);
+        
+        
     }
+    
     void CutFood()
     {
         if (food.gameObject.tag == "rice")
@@ -57,6 +79,7 @@ public class CuttingBoard : MonoBehaviour
         }
         else if (food.gameObject.tag == "tmt")
         {
+            _GaugeUIScript.SetGaugeUICuttingboard(this.transform.position);
             OpScript.FoodKind(Foodselect1.TOMATO);
             OpScript.CookKind(OperatorController.CuttingBoard);
             Debug.Log("サラダぁ...");
@@ -70,12 +93,14 @@ public class CuttingBoard : MonoBehaviour
             Reset();
         }
     }
+    
 
     /*===============================================
      * 各食材が呼ばれる関数群（処理は基本的に同じ）
      * 　関数が呼ばれて中に食材がある場合は
      * 中身を消して食材を書き換える
      ==============================================*/
+     /*
     private void FoodNameRice(GameObject inRice)
     {
         if (food != null)
@@ -102,7 +127,8 @@ public class CuttingBoard : MonoBehaviour
         }
         food = inEgg;
     }
-
+    */
+    
     IEnumerator CookSarada()
     {
         yield return new WaitForSeconds(2);
@@ -131,6 +157,8 @@ public class CuttingBoard : MonoBehaviour
         OpScript.CutReset();
         food = null;
     }
+   
+    
     //private IEnumerator OnTriggerStay(Collider Collider)
     //{// 接触している時間が一定時間たったら
 

@@ -48,6 +48,8 @@ MonoBehaviour:
     type: 3}
   CanvasGaugePot: {fileID: 7010089920763977858, guid: e75d9ac8462b2a4439e1df2ed6d05ff9,
     type: 3}
+  CanvasGaugeCut: {fileID: 7010089920763977858, guid: cfcfd0060991bd4489cfc757e263b9ea,
+    type: 3}
 --- !u!114 &6209972909570078168
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -62,12 +64,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _FryingPanPosition: []
   _PotPosition: []
+  _CutPosition: []
   FryingPanParentPrefab: {fileID: 6469317338677474583, guid: 0e89b571f4274e6449c0401a1f919405,
     type: 3}
   PotParentPrefab: {fileID: 6469317338677474583, guid: a2f41c95e03c8734a9d09f7fba007c61,
     type: 3}
+  CutParentPrefab: {fileID: 6065478668159108360, guid: 5b5f29c4ec5d2864880ab9c3be3873ca,
+    type: 3}
   _FryingPanPrefabArray: []
   _PotPrefabArray: []
+  _CutPrefabArray: []
   _FryingPanObject: []
   _PotObject: []
+  _CutObject: []
   StartUI: 0
