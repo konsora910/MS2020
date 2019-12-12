@@ -6,10 +6,10 @@ Font:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: time
+  m_Name: score
   serializedVersion: 5
   m_LineSpacing: 0.1
-  m_DefaultMaterial: {fileID: 2100000, guid: 5890cd70d4dfd0c4e966d7b176a5d138, type: 2}
+  m_DefaultMaterial: {fileID: 2100000, guid: adf66d0712fa59148b4a2960a48d1e1c, type: 2}
   m_FontSize: 0
   m_Texture: {fileID: 0}
   m_AsciiStartOffset: 48
@@ -19,10 +19,26 @@ Font:
   m_ConvertCase: 0
   m_CharacterRects:
   - serializedVersion: 2
-    index: 1
+    index: 0
     uv:
       serializedVersion: 2
       x: 0
+      y: 0.5
+      width: 0.2
+      height: 0.5
+    vert:
+      serializedVersion: 2
+      x: 0
+      y: 0
+      width: 1000
+      height: -1000
+    advance: 1000
+    flipped: 0
+  - serializedVersion: 2
+    index: 1
+    uv:
+      serializedVersion: 2
+      x: 0.2
       y: 0.5
       width: 0.2
       height: 0.5
@@ -38,7 +54,7 @@ Font:
     index: 2
     uv:
       serializedVersion: 2
-      x: 0.2
+      x: 0.4
       y: 0.5
       width: 0.2
       height: 0.5
@@ -54,7 +70,7 @@ Font:
     index: 3
     uv:
       serializedVersion: 2
-      x: 0.4
+      x: 0.6
       y: 0.5
       width: 0.2
       height: 0.5
@@ -70,7 +86,7 @@ Font:
     index: 4
     uv:
       serializedVersion: 2
-      x: 0.6
+      x: 0.8
       y: 0.5
       width: 0.2
       height: 0.5
@@ -86,8 +102,8 @@ Font:
     index: 5
     uv:
       serializedVersion: 2
-      x: 0.8
-      y: 0.5
+      x: 0
+      y: 0
       width: 0.2
       height: 0.5
     vert:
@@ -100,22 +116,6 @@ Font:
     flipped: 0
   - serializedVersion: 2
     index: 6
-    uv:
-      serializedVersion: 2
-      x: 0
-      y: 0
-      width: 0.2
-      height: 0.5
-    vert:
-      serializedVersion: 2
-      x: 0
-      y: 0
-      width: 1000
-      height: -1000
-    advance: 1000
-    flipped: 0
-  - serializedVersion: 2
-    index: 7
     uv:
       serializedVersion: 2
       x: 0.2
@@ -131,7 +131,7 @@ Font:
     advance: 1000
     flipped: 0
   - serializedVersion: 2
-    index: 8
+    index: 7
     uv:
       serializedVersion: 2
       x: 0.4
@@ -147,7 +147,7 @@ Font:
     advance: 1000
     flipped: 0
   - serializedVersion: 2
-    index: 9
+    index: 8
     uv:
       serializedVersion: 2
       x: 0.6
@@ -163,7 +163,7 @@ Font:
     advance: 1000
     flipped: 0
   - serializedVersion: 2
-    index: 0
+    index: 9
     uv:
       serializedVersion: 2
       x: 0.8

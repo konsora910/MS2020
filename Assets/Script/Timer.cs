@@ -9,11 +9,13 @@ public class Timer : MonoBehaviour
     [SerializeField] public float Seconds;
     public GameObject timer_object = null;
     public bool b_TimeUp = false;
+    float n_timer = 0;
 
     // Start is called before the first frame update
     void Start()
     {
         Seconds = 205;
+        n_timer = 0;
         b_TimeUp = false;
     }
 
@@ -34,7 +36,8 @@ public class Timer : MonoBehaviour
             timer_text = timer_object.GetComponent<Text>();
             timer_text.text = "" + (int)Seconds;
 
-            Seconds -= Time.deltaTime;
+            n_timer = Time.deltaTime;
+            Seconds -= n_timer;
         }
 
     }
