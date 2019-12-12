@@ -26,15 +26,15 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private GameObject _TouchCookware;
     [SerializeField] private FryingPan _TouchFryingPanScript;          //フライパン
     [SerializeField] private Pot _TouchPotScript;                      //鍋
+    [SerializeField] private CuttingBoard _TouchCutScript;             //まな板
     
 
 
 
-    public GameObject CBoard;
-    public CuttingBoard CBScript;
+    
     [SerializeField] public GameObject food;                                 //　持っている食材のgameobjectprivate GameObject _previousFood;
     public int FoodType = Foodselect1.FOODNULL;             //　どの食材をもっているか
-    public float speed = 0.05f;                             //　プレイヤーの移動速度
+    public float speed = 2.0f;                             //　プレイヤーの移動速度
     public Vector3 PlayerForward, OldPosition;              //　プレイヤーの向いている方向, 1フレーム前の位置
     private int ImputTimer = 5;                             //　食材を持ってから置くまでの入力遅延
     public bool bFood_Take = false;                         //　持ってるか持ってないか
@@ -52,12 +52,6 @@ public class PlayerController : MonoBehaviour
         OldPosition = this.gameObject.transform.position;
         PlayerForward = new Vector3(0.0f, 0.0f, 0.0f);
 
-
-        
-
-
-        CBoard = GameObject.FindGameObjectWithTag("Cook");
-        CBScript = CBoard.GetComponent<CuttingBoard>();
         CurrentMode = Mode.Stay;
     }
 
@@ -188,17 +182,18 @@ public class PlayerController : MonoBehaviour
         {
             if (Input.GetKeyDown(KeyCode.K) && bFood_Take == false)
             {
-                CBScript.IsCBoard = true;
+                _TouchCutScript.IsCBoard = true;
             }
             else if (Input.GetKeyDown(KeyCode.L) && bFood_Take == false)
             {
-
+                _TouchCutScript.Reset();
             }
         }
 
         //持っている食材を置く
         if (Input.GetKeyDown(KeyCode.Space) && ImputTimer > 5 && bFood_Take == true)
         {
+            
             ChangeMode(Mode.Set);
             //ポットに触れていたら
             if (b_TouchPot == true)
@@ -215,7 +210,11 @@ public class PlayerController : MonoBehaviour
             }
             if (b_TouchCB == true)
             {
-                CBScript.LeadFood(food);
+                
+                _TouchCutScript.LeadFood(food);
+                
+                if (food.gameObject.tag == "tmt" || food.gameObject.tag == "egg" || food.gameObject.tag == "rice")
+                { food.gameObject.SetActive(false); }
             }
             
 
@@ -249,9 +248,9 @@ public class PlayerController : MonoBehaviour
         //ポットに触れていたら
         if (Collider.gameObject.tag == ("pot"))
         {
-            
             b_TouchPot = true;
             ChangeTouchCookware(Collider.gameObject);
+            
         }
         else if (Collider.gameObject.tag == ("FP"))
         {
@@ -259,7 +258,7 @@ public class PlayerController : MonoBehaviour
             b_TouchFPan = true;
             ChangeTouchCookware(Collider.gameObject);
         }
-        else if (Collider.gameObject.tag == ("Cook"))
+        else if (Collider.gameObject.tag == ("CuttingBoard"))
         {
             
             b_TouchCB = true;
@@ -310,13 +309,13 @@ public class PlayerController : MonoBehaviour
         {
             _TouchPotScript = _TouchCookware.GetComponent<Pot>();
         }
-        if(b_TouchFPan)
+        if (b_TouchFPan)
         {
             _TouchFryingPanScript = _TouchCookware.GetComponent<FryingPan>();
         }
-       // else if((b_TouchCB)
+        if (b_TouchCB)
         {
-
+            _TouchCutScript = _TouchCookware.GetComponent<CuttingBoard>();
         }
     }
 

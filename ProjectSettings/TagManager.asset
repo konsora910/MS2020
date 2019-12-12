@@ -28,7 +28,7 @@ TagManager:
   - Player2
   - scene
   - time
-  - Workbench
+  - CuttingBoard
   layers:
   - Default
   - TransparentFX
