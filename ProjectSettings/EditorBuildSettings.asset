@@ -9,11 +9,11 @@ EditorBuildSettings:
     path: Assets/Scenes/TitleScene.unity
     guid: b0b8ddf2c6b0fae4199113f80f5d4a71
   - enabled: 1
-    path: Assets/Scenes/testScene.unity
-    guid: 96be1d5cd18fa81458617b7719ae3c1b
+    path: Assets/Scenes/SinglePlayScene.unity
+    guid: 68ff03b169c189a4494dab070e08e957
   - enabled: 1
-    path: Assets/Scenes/SelectScene.unity
-    guid: bf5aaef49334d984aade52be8a1ae695
+    path: Assets/Scenes/DoublePlayScene.unity
+    guid: a407156e3ad0bd547b4febc239417145
   - enabled: 1
     path: Assets/Scenes/ResultScene.unity
     guid: f054aa67d544a2145a9c583f2cd27d2e

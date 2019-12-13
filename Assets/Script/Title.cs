@@ -41,12 +41,12 @@ public class Title : MonoBehaviour
             if (n_Select == 0)
             {
                 GameObject obj = GameObject.FindGameObjectWithTag("scene");
-                obj.gameObject.GetComponent<SceneControl>().FadeOut("TestScene");
+                obj.gameObject.GetComponent<SceneControl>().FadeOut("SinglePlayScene");
             }
             if (n_Select == 1)
             {
                 GameObject obj = GameObject.FindGameObjectWithTag("scene");
-                obj.gameObject.GetComponent<SceneControl>().FadeOut("TestScene");
+                obj.gameObject.GetComponent<SceneControl>().FadeOut("DoublePlayScene");
             }
         }
     }
