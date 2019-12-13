@@ -1245,6 +1245,7 @@ MonoBehaviour:
     type: 3}
   CanvasGaugePot: {fileID: 7010089920763977858, guid: e75d9ac8462b2a4439e1df2ed6d05ff9,
     type: 3}
+  CanvasGaugeCut: {fileID: 0}
 --- !u!4 &191494607
 Transform:
   m_ObjectHideFlags: 0
@@ -1264,13 +1265,13 @@ Transform:
   - {fileID: 1436250122}
   - {fileID: 839391725}
   - {fileID: 1072975074}
-  - {fileID: 1233983850}
+  - {fileID: 1861659144}
   - {fileID: 1303148281}
   - {fileID: 1374996489}
   - {fileID: 44039253}
   - {fileID: 1544835002}
+  - {fileID: 1233983850}
   - {fileID: 516458743}
-  - {fileID: 1861659144}
   - {fileID: 394949938}
   - {fileID: 332606750}
   m_Father: {fileID: 0}
@@ -3745,6 +3746,7 @@ GameObject:
   m_Component:
   - component: {fileID: 967482111}
   - component: {fileID: 967482110}
+  - component: {fileID: 967482112}
   m_Layer: 0
   m_Name: scene
   m_TagString: scene
@@ -3782,6 +3784,18 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &967482112
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 967482109}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 075b0171a75ec5f48b7df5b1a5f3679a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &978576496
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5539,8 +5553,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 176f1f6e01dcf284c9fbd1ba08869a07, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  food: {fileID: 0}
   Sashimi: {fileID: 0}
+  IsGauge: 0
   IsCBoard: 0
   OpScript: {fileID: 0}
 --- !u!1001 &1383347679

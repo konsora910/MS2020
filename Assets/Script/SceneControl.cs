@@ -63,6 +63,11 @@ public class SceneControl : MonoBehaviour
             {
                 b_FadeIn = false;
                 f_alpha = 0.0f;
+                if(SceneManager.GetActiveScene().name == "DoublePlayScene" || SceneManager.GetActiveScene().name == "SinglePlayScene")
+                {
+                    GameObject obj = GameObject.Find("CountDown");
+                    obj.GetComponent<CountDown>().CountStart();
+                }
                 
             }
             //フェードのα設定
