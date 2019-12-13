@@ -181,7 +181,7 @@ public class FryingPan : MonoBehaviour
 
     public void Reset()
     {
-        for (int i = 0; i <= 2; i++)
+        for (int i = 0; i <=2; i++) 
         {
             if (FPanArray[i] != null)
             {

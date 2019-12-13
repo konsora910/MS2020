@@ -20,8 +20,11 @@ public class SetCookGaugeUI : MonoBehaviour
     /// 鍋調理ゲージのCanvasプレハブ
     /// </summary>
     public GameObject CanvasGaugePot;
-    
 
+    /// <summary>
+    /// まな板調理ゲージのCanvasプレハブ
+    /// </summary>
+    public GameObject CanvasGaugeCut;
 
 
     // Start is called before the first frame update
@@ -63,6 +66,14 @@ public class SetCookGaugeUI : MonoBehaviour
         Destroy(prefab, ConstGaugeUI.ConstUI.POT_COOKING_TIME);
     }
 
-    
+    /// <summary>
+    /// まな板のUI表示
+    /// </summary>
+    /// <param name="position">表示場所</param>
+    public void SetGaugeUICuttingboard(Vector3 position)
+    {
+        GameObject prefab = (GameObject)Instantiate(CanvasGaugeCut, position + new Vector3(ConstGaugeUI.ConstUI.CUTTINGBOARD_POSITION[0], ConstGaugeUI.ConstUI.CUTTINGBOARD_POSITION[1], ConstGaugeUI.ConstUI.CUTTINGBOARD_POSITION[2]), Quaternion.identity);
+        Destroy(prefab, ConstGaugeUI.ConstUI.CUTTINGBOARD_COOKING_TIME);
+    }
 
 }

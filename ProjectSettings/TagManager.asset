@@ -29,6 +29,7 @@ TagManager:
   - scene
   - time
   - Workbench
+  - CuttingBoard
   layers:
   - Default
   - TransparentFX

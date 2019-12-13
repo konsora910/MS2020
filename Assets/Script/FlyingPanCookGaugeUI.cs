@@ -2,7 +2,7 @@
 using System.Collections;
 using UnityEngine.UI;
 
-public class FlyingPanCookGaigeUI : MonoBehaviour
+public class FlyingPanCookGaugeUI : MonoBehaviour
 {
     public Image UIobj;
 

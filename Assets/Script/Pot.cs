@@ -27,10 +27,10 @@ public class Pot : MonoBehaviour
     [SerializeField] private int _FoodsNum = 0;
 
     //ゲージUIオブジェクト
-    private GameObject GaugeUI;
+    private GameObject _GaugeUI;
 
     //ゲージUIスクリプト
-    private SetCookGaugeUI GaugeUIScript;
+    private SetCookGaugeUI _GaugeUIScript;
 
     //ゲージ使用
     [SerializeField] public bool IsGauge = false;
@@ -56,8 +56,8 @@ public class Pot : MonoBehaviour
         ChangeMode(Mode.Stay);
         Soup = (GameObject)Resources.Load("Soup");
 
-        GaugeUI= GameObject.FindGameObjectWithTag("CookGaugeUI");
-        GaugeUIScript = GaugeUI.GetComponent<SetCookGaugeUI>();
+        _GaugeUI= GameObject.FindGameObjectWithTag("CookGaugeUI");
+        _GaugeUIScript = _GaugeUI.GetComponent<SetCookGaugeUI>();
 
         audioCookPot = GetComponent<AudioSource>();
         audioCookPot.clip = cooking;
@@ -192,7 +192,7 @@ public class Pot : MonoBehaviour
         {
             if (!IsGauge)
             {
-                GaugeUIScript.SetGaugeUIPot(this.transform.position);
+                _GaugeUIScript.SetGaugeUIPot(this.transform.position);
                 IsGauge = true;
                 audioCookPot.Play();
             }
@@ -220,8 +220,9 @@ public class Pot : MonoBehaviour
         {
             if (!IsGauge)
             {
-                GaugeUIScript.SetGaugeUIPot(this.transform.position);
+                _GaugeUIScript.SetGaugeUIPot(this.transform.position);
                 IsGauge = true;
+                audioCookPot.Play();
             }
             
             yield return new WaitForSeconds(ConstGaugeUI.ConstUI.POT_COOKING_TIME);
