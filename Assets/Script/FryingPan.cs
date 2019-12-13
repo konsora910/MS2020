@@ -175,6 +175,7 @@ public class FryingPan : MonoBehaviour
         GameObject instance = (GameObject)Instantiate(Omrice, new Vector3(this.transform.position.x, this.transform.position.y, this.transform.position.z), Quaternion.identity);
         instance.transform.parent = obj.transform;          //コピー食材をfoodの子に
         obj.GetComponent<Foodselect1>().AddFood(instance.transform);
+        OpScript.CookF();
         Reset();
         audioCookFP.Stop();
     }

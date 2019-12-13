@@ -24,7 +24,7 @@ public class OperatorController : MonoBehaviour
     private bool MissOpe = false;
 
     private bool end = true;
-
+    private bool cookF = false;
     public static readonly int FryingPan = 1;
     public static readonly int Pot = 2;
     public static readonly int CuttingBoard = 3;
@@ -1033,21 +1033,30 @@ public class OperatorController : MonoBehaviour
 
     public void PotReset()
     {
-        Pot1 = false;
-        Pot2 = false;
-        Pot3 = false;
+        if (cookF == false)
+        {
+            Pot1 = false;
+            Pot2 = false;
+            Pot3 = false;
+        }
     }
     public void FPReset()
     {
-        FP1 = false;
-        FP2 = false;
-        FP3 = false;
+        if (cookF == false)
+        {
+            FP1 = false;
+            FP2 = false;
+            FP3 = false;
+        }
     }
     public void CutReset()
     {
-        Cut1 = false;
-        Cut2 = false;
-        Cut3 = false;
+        if (cookF == false)
+        {
+            Cut1 = false;
+            Cut2 = false;
+            Cut3 = false;
+        }
     }
 
     public void CookEnd()
@@ -1063,12 +1072,17 @@ public class OperatorController : MonoBehaviour
         }
         if (Foodselect1.RICEBALL == order)
         {
-            FPReset();
+           FPReset();
         }
         ClearCook++;
         end = true;
+        cookF = false;
     }
 
+    public void CookF()
+    {
+        cookF = true;
+    }
 
 
 

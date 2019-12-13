@@ -227,6 +227,7 @@ public class Pot : MonoBehaviour
             
             yield return new WaitForSeconds(ConstGaugeUI.ConstUI.POT_COOKING_TIME);
             Debug.Log("料理2");
+            OpScript.CookF();
             Reset();
             ChangeMode(Mode.Stay);
         }
