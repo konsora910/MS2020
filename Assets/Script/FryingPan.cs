@@ -13,6 +13,7 @@ public class FryingPan : MonoBehaviour
     private int cntRice = 0;
     private int cntEgg = 0;
     public GameObject Omrice;// インスペクタにオムライスオブジェクトを入れておくこと
+    public GameObject RBall;//　インスペクタにおにぎりオブジェクトを入れておくこと
 
     private Vector3 thisPos;
     SetCookGaugeUI CallUI;
@@ -49,6 +50,7 @@ public class FryingPan : MonoBehaviour
                     IsCookFPan = false;
                     break;
                 case 1:
+                    LetsCooking();
                     IsCookFPan = false;
                     break;
                 case 2:
@@ -104,6 +106,10 @@ public class FryingPan : MonoBehaviour
         if (cntTomato == 1 && cntRice == 1 && cntEgg == 1)
         {
             StartCoroutine("CookRiceOmelet");
+        }
+        else if (cntRice == 1)
+        {
+            StartCoroutine("CookRiceBall");
         }
         else
         {
@@ -173,6 +179,25 @@ public class FryingPan : MonoBehaviour
         GameObject obj = GameObject.FindGameObjectWithTag("Food");
         // 料理の生成場所を設定できる(生成対象オブジェクト、生成座標、生成初期角度)
         GameObject instance = (GameObject)Instantiate(Omrice, new Vector3(this.transform.position.x, this.transform.position.y, this.transform.position.z), Quaternion.identity);
+        instance.transform.parent = obj.transform;          //コピー食材をfoodの子に
+        obj.GetComponent<Foodselect1>().AddFood(instance.transform);
+        OpScript.CookF();
+        Reset();
+        audioCookFP.Stop();
+    }
+
+    IEnumerator CookRiceBall()
+    {
+        if (!IsGauge)
+        {
+            CallUI.SetGaugeUIFlyingPan(this.transform.position);
+            IsGauge = true;
+            audioCookFP.Play();
+        }
+        yield return new WaitForSeconds(5);
+        GameObject obj = GameObject.FindGameObjectWithTag("Food");
+        // 料理の生成場所を設定できる(生成対象オブジェクト、生成座標、生成初期角度)
+        GameObject instance = (GameObject)Instantiate(RBall, new Vector3(this.transform.position.x, this.transform.position.y, this.transform.position.z), Quaternion.identity);
         instance.transform.parent = obj.transform;          //コピー食材をfoodの子に
         obj.GetComponent<Foodselect1>().AddFood(instance.transform);
         OpScript.CookF();
