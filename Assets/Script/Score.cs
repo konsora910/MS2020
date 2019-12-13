@@ -9,7 +9,7 @@ public class Score : MonoBehaviour
     public bool b_Score = false;
     public int FoodType = Foodselect1.FOODNULL;
     public int n_Order = 0;
-
+    public OperatorController OpScript;
 
     //仮置き
     GameObject scoreobj;
@@ -34,7 +34,6 @@ public class Score : MonoBehaviour
         {
             if (FoodType == Foodselect1.OMERICE)
             {
-                Debug.Log("sfaffeaw");
                 if (n_Order == Foodselect1.OMERICE)
                 {
                     score += 10000;
@@ -78,11 +77,20 @@ public class Score : MonoBehaviour
             if (Input.GetKeyDown(KeyCode.Space))
             {
                 if (Collider.gameObject.tag == "Omerice")
+                {
                     FoodType = Foodselect1.OMERICE;
+                    OpScript.CookEnd();
+                }
                 else if (Collider.gameObject.tag == "RiceBall")
+                {
                     FoodType = Foodselect1.RICEBALL;
+                    OpScript.CookEnd();
+                }
                 else if (Collider.gameObject.tag == "Soup")
+                {
                     FoodType = Foodselect1.SOUP;
+                    OpScript.CookEnd();
+                }
                 b_Score = true;
             }
         }
