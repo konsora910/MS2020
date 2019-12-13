@@ -220,7 +220,7 @@ MonoBehaviour:
   Sashimi: {fileID: 0}
   IsGauge: 0
   IsCBoard: 0
-  OpScript: {fileID: 0}
+  OpScript: {fileID: 1362112755}
 --- !u!1001 &59912110
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6254,7 +6254,7 @@ MonoBehaviour:
   IsGauge: 0
   IsCooking: 0
   Soup: {fileID: -927199367670048503, guid: 07262c738ea04b149b7ee7fd0ad33838, type: 3}
-  OpScript: {fileID: 360065676}
+  OpScript: {fileID: 1362112755}
   cooking: {fileID: 8300000, guid: 5fbb3991972ddbb48b7f1a7622652377, type: 3}
 --- !u!65 &1757736324
 BoxCollider:
@@ -6851,7 +6851,7 @@ MonoBehaviour:
   getUI: {fileID: 0}
   IsCookFPan: 0
   IsGauge: 0
-  OpScript: {fileID: 360065676}
+  OpScript: {fileID: 1362112755}
   cooking: {fileID: 8300000, guid: 98d8881101f942e4294542e2fb000a40, type: 3}
 --- !u!65 &1830199020
 BoxCollider:

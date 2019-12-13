@@ -10,15 +10,15 @@ public class OperatorController : MonoBehaviour
     public int AIEXP = 0;
     public Order OrderScript;
     private int order;
-    private bool FP1 = false;
-    private bool FP2 = false;
-    private bool FP3 = false;
-    private bool Pot1 = false;
-    private bool Pot2 = false;
-    private bool Pot3 = false;
-    private bool Cut1 = false;
-    private bool Cut2 = false;
-    private bool Cut3 = false;
+    public bool FP1 = false;
+    public bool FP2 = false;
+    public bool FP3 = false;
+    public bool Pot1 = false;
+    public bool Pot2 = false;
+    public bool Pot3 = false;
+    public bool Cut1 = false;
+    public bool Cut2 = false;
+    public bool Cut3 = false;
 
     private bool Cook1 = false;
     private bool MissOpe = false;
@@ -128,7 +128,7 @@ public class OperatorController : MonoBehaviour
             }
             if (order == Foodselect1.SOUP)
             {
-                if (FP1 == false)
+                if (Pot1 == false)
                 {
                     end = true;
                 }
@@ -152,19 +152,19 @@ public class OperatorController : MonoBehaviour
             order = OrderScript.GetOrder(ClearCook);
             if (order == Foodselect1.RICEBALL)
             {
-               // Debug.Log("焼きおにぎりを作ろう");
+                Debug.Log("焼きおにぎりを作ろう");
                 StartCoroutine("Thinking");
                 yield break;
             }
             if (order == Foodselect1.SOUP)
             {
-                //Debug.Log("スープを作ろう");
+                Debug.Log("スープを作ろう");
                 StartCoroutine("Thinking");
                 yield break;
             }
             if (order == Foodselect1.OMERICE)
             {
-                //Debug.Log("オムライスを作ろう");
+                Debug.Log("オムライスを作ろう");
                 StartCoroutine("Thinking");
                 yield break;
             }
@@ -179,6 +179,33 @@ public class OperatorController : MonoBehaviour
     {
         while (true)
         {
+            if (Foodselect1.OMERICE == order)
+            {
+                if (FP1 == true && FP2 == true && FP3 == true)
+                {
+                    StartCoroutine("Neutral");
+                    yield break;
+                }
+
+            }
+            if (order == Foodselect1.SOUP)
+            {
+                if (Pot1 == true && Pot2 == true)
+                {
+                    StartCoroutine("Neutral");
+                    yield break;
+                }
+            }
+            if (Foodselect1.RICEBALL == order)
+            {
+                if (FP1 == true)
+                {
+                    StartCoroutine("Neutral");
+                    yield break;
+                }
+
+            }
+
             //正しい処理
             if (Foodselect1.RICEBALL == AiThink)
             {
@@ -191,14 +218,9 @@ public class OperatorController : MonoBehaviour
                         yield break;
                     }
                 }
-                else if (FP1 == true)
-                {
-                    FPReset();
-                    StartCoroutine("Neutral");
-                    yield break;
-                }
 
             }
+         
             if (Foodselect1.SOUP == AiThink)
             {
                 if (Pot1 == false && Pot2 == false)
@@ -220,15 +242,9 @@ public class OperatorController : MonoBehaviour
                         yield break;
                     }
                 }
-                else if (Pot1 == true && Pot2 == true)
-                {
-                    PotReset();
-                    StartCoroutine("Neutral");
-                    yield break;
-                }
 
             }
-
+          
             if (Foodselect1.OMERICE == AiThink)
             {
                 if (FP1 == false && FP2 == false && FP3 == false)
@@ -257,12 +273,7 @@ public class OperatorController : MonoBehaviour
                         yield break;
                     }
                 }
-                else if (FP1 == true && FP2 == true && FP3 == true)
-                {
-                    FPReset();
-                    StartCoroutine("Neutral");
-                    yield break;
-                }
+
 
             }
             //ここまで正しい処理
@@ -327,7 +338,7 @@ public class OperatorController : MonoBehaviour
 
                     
                 MissOpe = false;
-                //Debug.Log("それは違う");
+                Debug.Log("それは違う");
                 StartCoroutine("Thinking");
                 yield break;
             }
@@ -469,7 +480,7 @@ public class OperatorController : MonoBehaviour
     }
     bool RiceFP()
     {
-           // Debug.Log("米をフライパンへ");
+            Debug.Log("米をフライパンへ");
             if (foodKind == Foodselect1.RICE)
             {
                 if (cookKind == OperatorController.FryingPan)
@@ -489,7 +500,7 @@ public class OperatorController : MonoBehaviour
                     {
                         FP3 = true;
                     }
-                    //Debug.Log("指示通りで正しい処理");
+                    Debug.Log("指示通りで正しい処理");
                     foodKind = Foodselect1.FOODNULL;
                     cookKind = OperatorController.CookNull;
                     AIEXP++;
@@ -497,7 +508,7 @@ public class OperatorController : MonoBehaviour
 
                 }else if(AiThink == RFP)
                 {
-                    //Debug.Log("指示通りだけど正しくない処理");
+                    Debug.Log("指示通りだけど正しくない処理");
                     Cook1 = true;
                     foodKind = Foodselect1.FOODNULL;
                     cookKind = OperatorController.CookNull;
@@ -510,7 +521,7 @@ public class OperatorController : MonoBehaviour
                 }
                 else if (cookKind != OperatorController.CookNull)
                 {
-                   // Debug.Log("指示通りじゃない処理");
+                    Debug.Log("指示通りじゃない処理");
                     Cook1 = true;
                     foodKind = Foodselect1.FOODNULL;
                     cookKind = OperatorController.CookNull;
@@ -521,7 +532,7 @@ public class OperatorController : MonoBehaviour
             }
             else if (foodKind != Foodselect1.FOODNULL)
             {
-               // Debug.Log("指示通りじゃない処理");
+                Debug.Log("指示通りじゃない処理");
                 Cook1 = true;
                 foodKind = Foodselect1.FOODNULL;
                 cookKind = OperatorController.CookNull;
@@ -535,7 +546,7 @@ public class OperatorController : MonoBehaviour
     {
   
        
-           // Debug.Log("トマトをフライパンへ");
+            Debug.Log("トマトをフライパンへ");
             if (foodKind == Foodselect1.TOMATO)
             {
                
@@ -555,14 +566,14 @@ public class OperatorController : MonoBehaviour
                         {
                             FP3 = true;
                         }
-                        //Debug.Log("指示通り正しい処理");
+                        Debug.Log("指示通り正しい処理");
                         foodKind = Foodselect1.FOODNULL;
                         cookKind = OperatorController.CookNull;
                         AIEXP++;
                         return true;
                     }else if (AiThink == TFP)
                     {
-                   // Debug.Log("指示通りだけど正しくない処理");
+                    Debug.Log("指示通りだけど正しくない処理");
                     Cook1 = true;
                     foodKind = Foodselect1.FOODNULL;
                     cookKind = OperatorController.CookNull;
@@ -572,7 +583,7 @@ public class OperatorController : MonoBehaviour
                   }
                 else if (cookKind != OperatorController.CookNull)
                 {
-                  //  Debug.Log("指示通りじゃない処理");
+                    Debug.Log("指示通りじゃない処理");
                     Cook1 = true;
                     foodKind = Foodselect1.FOODNULL;
                     cookKind = OperatorController.CookNull;
@@ -582,7 +593,7 @@ public class OperatorController : MonoBehaviour
             }
             else if (foodKind != Foodselect1.FOODNULL)
             {
-                ///Debug.Log("指示通りじゃない処理");
+                Debug.Log("指示通りじゃない処理");
                 Cook1 = true;
                 foodKind = Foodselect1.FOODNULL;
                 cookKind = OperatorController.CookNull;
@@ -596,7 +607,7 @@ public class OperatorController : MonoBehaviour
     {
 
 
-       // Debug.Log("卵をフライパンへ");
+        Debug.Log("卵をフライパンへ");
         if (foodKind == Foodselect1.EGG)
         {
             if (cookKind == OperatorController.FryingPan)
@@ -615,14 +626,14 @@ public class OperatorController : MonoBehaviour
                     {
                         FP3 = true;
                     }
-                   // Debug.Log("指示通り正しい処理");
+                    Debug.Log("指示通り正しい処理");
                     foodKind = Foodselect1.FOODNULL;
                     cookKind = OperatorController.CookNull;
                     AIEXP++;
                     return true;
                 }else if(AiThink == EFP)
                 {
-                    //Debug.Log("指示通りだけど正しくない処理");
+                    Debug.Log("指示通りだけど正しくない処理");
                     Cook1 = true;
                     foodKind = Foodselect1.FOODNULL;
                     cookKind = OperatorController.CookNull;
@@ -631,7 +642,7 @@ public class OperatorController : MonoBehaviour
             }
             else if (cookKind != OperatorController.CookNull)
             {
-                //Debug.Log("指示通りじゃない処理");
+                Debug.Log("指示通りじゃない処理");
                 Cook1 = true;
                 foodKind = Foodselect1.FOODNULL;
                 cookKind = OperatorController.CookNull;
@@ -641,7 +652,7 @@ public class OperatorController : MonoBehaviour
         }
         else if (foodKind != Foodselect1.FOODNULL)
         {
-           // Debug.Log("指示通りじゃない処理");
+            Debug.Log("指示通りじゃない処理");
             Cook1 = true;
             foodKind = Foodselect1.FOODNULL;
             cookKind = OperatorController.CookNull;
@@ -656,7 +667,7 @@ public class OperatorController : MonoBehaviour
     {
 
 
-       // Debug.Log("米をまな板へ");
+        Debug.Log("米をまな板へ");
         if (foodKind == Foodselect1.RICE)
         {
            
@@ -680,7 +691,7 @@ public class OperatorController : MonoBehaviour
                     //cookKind = OperatorController.CookNull;
                 if(AiThink == RCut)
                 {
-                   // Debug.Log("指示通りだけど正しくない処理");
+                    Debug.Log("指示通りだけど正しくない処理");
                     Cook1 = true;
                     foodKind = Foodselect1.FOODNULL;
                     cookKind = OperatorController.CookNull;
@@ -689,7 +700,7 @@ public class OperatorController : MonoBehaviour
             }
             else if (cookKind != OperatorController.CookNull)
             {
-              //  Debug.Log("指示通りじゃない処理");
+                Debug.Log("指示通りじゃない処理");
                 Cook1 = true;
                 foodKind = Foodselect1.FOODNULL;
                 cookKind = OperatorController.CookNull;
@@ -699,7 +710,7 @@ public class OperatorController : MonoBehaviour
         }
         else if (foodKind != Foodselect1.FOODNULL)
         {
-           // Debug.Log("指示通りじゃない処理");
+            Debug.Log("指示通りじゃない処理");
             Cook1 = true;
             foodKind = Foodselect1.FOODNULL;
             cookKind = OperatorController.CookNull;
@@ -712,7 +723,7 @@ public class OperatorController : MonoBehaviour
     {
 
 
-           // Debug.Log("トマトをまな板へ");
+            Debug.Log("トマトをまな板へ");
             if (foodKind == Foodselect1.TOMATO
 )
             {
@@ -735,7 +746,7 @@ public class OperatorController : MonoBehaviour
                     //cookKind = OperatorController.CookNull;
                     if(AiThink == TCut)
                     {
-                      //Debug.Log("指示通りだけど正しくない処理");
+                      Debug.Log("指示通りだけど正しくない処理");
                       Cook1 = true;
                       foodKind = Foodselect1.FOODNULL;
                       cookKind = OperatorController.CookNull;
@@ -744,7 +755,7 @@ public class OperatorController : MonoBehaviour
                 }
                 else if (cookKind != OperatorController.CookNull)
                 {
-                   // Debug.Log("指示通りじゃない処理");
+                    Debug.Log("指示通りじゃない処理");
                     Cook1 = true;
                     foodKind = Foodselect1.FOODNULL;
                     cookKind = OperatorController.CookNull;
@@ -754,7 +765,7 @@ public class OperatorController : MonoBehaviour
             }
             else if (foodKind != Foodselect1.FOODNULL)
             {
-               // Debug.Log("指示通りじゃない処理");
+                Debug.Log("指示通りじゃない処理");
                 Cook1 = true;
                 foodKind = Foodselect1.FOODNULL;
                 cookKind = OperatorController.CookNull;
@@ -768,7 +779,7 @@ public class OperatorController : MonoBehaviour
     {
 
 
-           // Debug.Log("卵をまな板へ");
+            Debug.Log("卵をまな板へ");
             if (foodKind == Foodselect1.EGG)
             {
                 if (cookKind == OperatorController.CuttingBoard)
@@ -790,7 +801,7 @@ public class OperatorController : MonoBehaviour
                     //cookKind = OperatorController.CookNull;
                     if(AiThink == ECut)
                     {
-                  //  Debug.Log("指示通りだけど正しくない処理");
+                    Debug.Log("指示通りだけど正しくない処理");
                     Cook1 = true;
                     foodKind = Foodselect1.FOODNULL;
                     cookKind = OperatorController.CookNull;
@@ -799,7 +810,7 @@ public class OperatorController : MonoBehaviour
                 }
                 else if (cookKind != OperatorController.CookNull)
                 {
-                  //  Debug.Log("指示通りじゃない処理");
+                    Debug.Log("指示通りじゃない処理");
                     Cook1 = true;
                     foodKind = Foodselect1.FOODNULL;
                     cookKind = OperatorController.CookNull;
@@ -809,7 +820,7 @@ public class OperatorController : MonoBehaviour
             }
             else if (foodKind != Foodselect1.FOODNULL)
             {
-               // Debug.Log("指示通りじゃない処理");
+                Debug.Log("指示通りじゃない処理");
                 Cook1 = true;
                 foodKind = Foodselect1.FOODNULL;
                 cookKind = OperatorController.CookNull;
@@ -822,7 +833,7 @@ public class OperatorController : MonoBehaviour
     {
 
 
-           // Debug.Log("米を鍋へ");
+            Debug.Log("米を鍋へ");
             if (foodKind == Foodselect1.RICE)
             {
                 if (cookKind == OperatorController.Pot)
@@ -844,7 +855,7 @@ public class OperatorController : MonoBehaviour
                     //cookKind = OperatorController.CookNull;
                     if(AiThink == RPot)
                     {
-                  //  Debug.Log("指示通りだけど正しくない処理");
+                    Debug.Log("指示通りだけど正しくない処理");
                     Cook1 = true;
                     foodKind = Foodselect1.FOODNULL;
                     cookKind = OperatorController.CookNull;
@@ -853,7 +864,7 @@ public class OperatorController : MonoBehaviour
                 }
                 else if (cookKind != OperatorController.CookNull)
                 {
-                    //Debug.Log("指示通りじゃない処理");
+                    Debug.Log("指示通りじゃない処理");
                     Cook1 = true;
                     foodKind = Foodselect1.FOODNULL;
                     cookKind = OperatorController.CookNull;
@@ -863,7 +874,7 @@ public class OperatorController : MonoBehaviour
             }
             else if (foodKind != Foodselect1.FOODNULL)
             {
-               // Debug.Log("指示通りじゃない処理");
+                Debug.Log("指示通りじゃない処理");
                 Cook1 = true;
                 foodKind = Foodselect1.FOODNULL;
                 cookKind = OperatorController.CookNull;
@@ -875,7 +886,7 @@ public class OperatorController : MonoBehaviour
 
     bool TomatoPot()
     {
-        //Debug.Log("トマトを鍋へ");
+        Debug.Log("トマトを鍋へ");
         if (foodKind == Foodselect1.TOMATO)
         {
             if (cookKind == OperatorController.Pot)
@@ -894,14 +905,14 @@ public class OperatorController : MonoBehaviour
                     {
                         Pot3 = true;
                     }
-                  //  Debug.Log("指示通り正しい処理");
+                    Debug.Log("指示通り正しい処理");
                     foodKind = Foodselect1.FOODNULL;
                     cookKind = OperatorController.CookNull;
                     AIEXP++;
                     return true;
                 }else if(AiThink == TPot)
                 {
-                  //  Debug.Log("指示通りだけど正しくない処理");
+                    Debug.Log("指示通りだけど正しくない処理");
                     Cook1 = true;
                     foodKind = Foodselect1.FOODNULL;
                     cookKind = OperatorController.CookNull;
@@ -910,7 +921,7 @@ public class OperatorController : MonoBehaviour
             }
             else if (cookKind != OperatorController.CookNull)
             {
-              //  Debug.Log("指示通りじゃない処理");
+                Debug.Log("指示通りじゃない処理");
                 Cook1 = true;
                 foodKind = Foodselect1.FOODNULL;
                 cookKind = OperatorController.CookNull;
@@ -920,7 +931,7 @@ public class OperatorController : MonoBehaviour
         }
         else if (foodKind != Foodselect1.FOODNULL)
         {
-          //  Debug.Log("指示通りじゃない処理");
+            Debug.Log("指示通りじゃない処理");
             Cook1 = true;
             foodKind = Foodselect1.FOODNULL;
             cookKind = OperatorController.CookNull;
@@ -932,7 +943,7 @@ public class OperatorController : MonoBehaviour
     bool EggPot()
     {
 
-           // Debug.Log("卵を鍋へ");
+            Debug.Log("卵を鍋へ");
             if (foodKind == Foodselect1.EGG)
             {
                 if (cookKind == OperatorController.Pot)
@@ -954,14 +965,14 @@ public class OperatorController : MonoBehaviour
                         Pot3 = true;
                     }
 
-                    //Debug.Log("指示通り正しい処理");
+                    Debug.Log("指示通り正しい処理");
                     foodKind = Foodselect1.FOODNULL;
                     cookKind = OperatorController.CookNull;
                     AIEXP++;
                     return true;
                 }else if (AiThink == EPot)
                 {
-                  //  Debug.Log("指示通りだけど正しくない処理");
+                    Debug.Log("指示通りだけど正しくない処理");
                     Cook1 = true;
                     foodKind = Foodselect1.FOODNULL;
                     cookKind = OperatorController.CookNull;
@@ -970,7 +981,7 @@ public class OperatorController : MonoBehaviour
                 }
                 else if (cookKind != OperatorController.CookNull)
                 {
-                   // Debug.Log("指示通りじゃない処理");
+                    Debug.Log("指示通りじゃない処理");
                     Cook1 = true;
                     foodKind = Foodselect1.FOODNULL;
                     cookKind = OperatorController.CookNull;
@@ -980,7 +991,7 @@ public class OperatorController : MonoBehaviour
             }
             else if (foodKind != Foodselect1.FOODNULL)
             {
-              //  Debug.Log("指示通りじゃない処理");
+                Debug.Log("指示通りじゃない処理");
                 Cook1 = true;
                 foodKind = Foodselect1.FOODNULL;
                 cookKind = OperatorController.CookNull;
@@ -1041,6 +1052,19 @@ public class OperatorController : MonoBehaviour
 
     public void CookEnd()
     {
+        if (Foodselect1.OMERICE == order)
+        {
+            FPReset();
+
+        }
+        if (order == Foodselect1.SOUP)
+        {
+            PotReset();
+        }
+        if (Foodselect1.RICEBALL == order)
+        {
+            FPReset();
+        }
         ClearCook++;
         end = true;
     }
