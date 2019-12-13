@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+//改造禁止
 public class Stop : MonoBehaviour
 {
     ScriptControl sc = new ScriptControl();

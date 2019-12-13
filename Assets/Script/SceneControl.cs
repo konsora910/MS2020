@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
+//改造禁止
 public class SceneControl : MonoBehaviour
 {
     private Image fadeImage;         //フェードのテクスチャ

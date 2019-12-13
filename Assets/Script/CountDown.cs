@@ -34,6 +34,7 @@ public class CountDown : MonoBehaviour
         PauseImage.color = new Color(0.0f, 0.0f, 0.0f, f_alpha);
         PauseImage.rectTransform.sizeDelta = new Vector2(5000, 5000);
 
+        //カウントダウンの画像の初期設定
         Count1 = GameObject.Find("count1");
         Count1.GetComponent<RectTransform>().SetAsLastSibling();
         Count1.gameObject.SetActive(false);
@@ -66,6 +67,7 @@ public class CountDown : MonoBehaviour
             if (n_FontSize < 0)
                 n_FontSize = 0.0f;
 
+            //いい感じにテクスチャ小さくする
             if(n_Count > 3.0f && n_Count <= 3.33f)
             {
                 Count3.gameObject.transform.localScale = new Vector3(UISize * (n_FontSize * 3), UISize * (n_FontSize * 3), 1.0f);
@@ -79,7 +81,7 @@ public class CountDown : MonoBehaviour
                 Count1.gameObject.transform.localScale = new Vector3(UISize * (n_FontSize * 3), UISize * (n_FontSize * 3), 1.0f);
             }
 
-
+            //1秒ごとにテクスチャ切り替え
             if (n_Count <= 3.0f && n_Count > 2.0f && n_FontSize == 0.0f)
             {
                 Count3.SetActive(false);
