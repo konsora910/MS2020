@@ -2,9 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-using UnityEngine.SceneManagement;
 
-public class Result : MonoBehaviour
+public class DPResult : MonoBehaviour
 {
     public GameObject score_object = null; // Textオブジェクト
     public GameObject score_object2 = null;
@@ -19,39 +18,6 @@ public class Result : MonoBehaviour
 
     // Start is called before the first frame update
     void Start()
-    {
-        Init();
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-
-    }
-
-    void Init()
-    {
-        //１人用のリザルトシーン
-        if(SceneManager.GetActiveScene().name == "SinglePlayScene")
-        {
-            SingleInit();
-        }
-
-        //２人用のリザルトシーン
-        if(SceneManager.GetActiveScene().name == "DoublePlayScene")
-        {
-            DoubleInit();
-        }
-    }
-
-    //１人用リザルトシーン
-    void SingleInit()
-    {
-
-    }
-
-    //２人用リザルトシーン
-    void DoubleInit()
     {
         Win = GameObject.Find("Win");
         Lose = GameObject.Find("Lose");
@@ -75,6 +41,17 @@ public class Result : MonoBehaviour
         n_score2 = Score2.GetScore();
         score_text[1].text = "" + n_score2;
 
+        Init();
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+
+    }
+
+    void Init()
+    {
         if (n_score < n_score2)
         {
             score_text[1].transform.parent = Win.transform;          //プレイヤー２をWinの子に

@@ -15,6 +15,9 @@ EditorBuildSettings:
     path: Assets/Scenes/DoublePlayScene.unity
     guid: a407156e3ad0bd547b4febc239417145
   - enabled: 1
-    path: Assets/Scenes/ResultScene.unity
+    path: Assets/Scenes/SPResultScene.unity
+    guid: 6a749bf8937b9d44e84375e347a31a13
+  - enabled: 1
+    path: Assets/Scenes/DPResultScene.unity
     guid: f054aa67d544a2145a9c583f2cd27d2e
   m_configObjects: {}
