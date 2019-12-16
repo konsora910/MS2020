@@ -16,7 +16,7 @@ public class Timer : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        Seconds = 10.9f;
+        Seconds = 180.9f;
         n_timer = 0;
         b_TimeUp = false;
     }
@@ -29,9 +29,9 @@ public class Timer : MonoBehaviour
             GameObject player = GameObject.FindGameObjectWithTag("Player");
             player.gameObject.GetComponent<Stop>().StopObject();
             GameObject obj = GameObject.FindGameObjectWithTag("scene");
-            if(SceneManager.GetActiveScene().name == "SinglePlayscene")
+            if(SceneManager.GetActiveScene().name == "SinglePlayScene")
                 obj.gameObject.GetComponent<SceneControl>().FadeOut("SPResultScene");
-            else if (SceneManager.GetActiveScene().name == "DoublePlayscene")
+            else if (SceneManager.GetActiveScene().name == "DoublePlayScene")
                 obj.gameObject.GetComponent<SceneControl>().FadeOut("DPResultScene");
             b_TimeUp = true;
         }
