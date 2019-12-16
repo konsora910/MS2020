@@ -7070,7 +7070,7 @@ MonoBehaviour:
   Riceball: {fileID: 21300000, guid: a9844463216c3294794c828f96917720, type: 3}
   orderScript: {fileID: 0}
   img: {fileID: 1795855909}
-  InputOrderObj: {fileID: 0}
+  InputOrderObj: {fileID: 1378219869}
 --- !u!114 &1795855908
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7078,7 +7078,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1795855905}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 0f852dd17b037684097376eebcf021d9, type: 3}
   m_Name: 
