@@ -3,10 +3,12 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+
+//改造禁止
 public class Timer : MonoBehaviour
 {
 
-    [SerializeField] public float Seconds;
+    [SerializeField] public float Seconds = 180.9f;
     public GameObject timer_object = null;
     public bool b_TimeUp = false;
     float n_timer = 0;
@@ -14,7 +16,7 @@ public class Timer : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        Seconds = 205;
+        Seconds = 180.9f;
         n_timer = 0;
         b_TimeUp = false;
     }

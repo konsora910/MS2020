@@ -23,13 +23,13 @@ public class Title : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (n_Select == 0 && Input.GetKeyDown(KeyCode.S))
+        if (n_Select == 0 && Input.GetKeyDown(KeyCode.D))
         {
             n_Select = 1;
             SinglePlay.gameObject.transform.localScale = new Vector3(1.0f, 1.0f, 1.0f);
             DoublePlay.gameObject.transform.localScale = new Vector3(1.5f, 1.5f, 1.5f);
         }
-        if (n_Select == 1 && Input.GetKeyDown(KeyCode.W))
+        if (n_Select == 1 && Input.GetKeyDown(KeyCode.A))
         {
             n_Select = 0;
             SinglePlay.gameObject.transform.localScale = new Vector3(1.5f, 1.5f, 1.5f);
