@@ -540,6 +540,28 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 220c75ba4d3195d45a917ece3d3aa94e, type: 3}
+--- !u!1 &99508270 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4079136633207419863, guid: b206cced7261d324c97c9061c3136621,
+    type: 3}
+  m_PrefabInstance: {fileID: 1502919970}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &99508276
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 99508270}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 176f1f6e01dcf284c9fbd1ba08869a07, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Sashimi: {fileID: 0}
+  IsGauge: 0
+  IsCBoard: 0
+  OpScript: {fileID: 360065676}
 --- !u!1001 &103420451
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1261,6 +1283,7 @@ MonoBehaviour:
   AILevel: 1
   AIEXP: 0
   OrderScript: {fileID: 952034741}
+  AILevelUI: []
 --- !u!1 &361283894
 GameObject:
   m_ObjectHideFlags: 0
@@ -3920,8 +3943,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 176f1f6e01dcf284c9fbd1ba08869a07, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  food: {fileID: 0}
   Sashimi: {fileID: 0}
+  IsGauge: 0
   IsCBoard: 0
   OpScript: {fileID: 0}
 --- !u!1001 &1217968079
@@ -4197,6 +4220,7 @@ MonoBehaviour:
     type: 3}
   CanvasGaugePot: {fileID: 7010089920763977858, guid: e75d9ac8462b2a4439e1df2ed6d05ff9,
     type: 3}
+  CanvasGaugeCut: {fileID: 0}
 --- !u!1 &1312507432
 GameObject:
   m_ObjectHideFlags: 0
@@ -4906,7 +4930,7 @@ PrefabInstance:
     - target: {fileID: 4079136633207419863, guid: b206cced7261d324c97c9061c3136621,
         type: 3}
       propertyPath: m_TagString
-      value: Cook
+      value: CuttingBoard
       objectReference: {fileID: 0}
     - target: {fileID: 1064917689992643012, guid: b206cced7261d324c97c9061c3136621,
         type: 3}
@@ -5276,6 +5300,28 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1594343766}
   m_CullTransparentMesh: 0
+--- !u!1 &1604953044 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4079136633207419863, guid: b206cced7261d324c97c9061c3136621,
+    type: 3}
+  m_PrefabInstance: {fileID: 1632758594}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1604953050
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1604953044}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 176f1f6e01dcf284c9fbd1ba08869a07, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Sashimi: {fileID: 0}
+  IsGauge: 0
+  IsCBoard: 0
+  OpScript: {fileID: 360065676}
 --- !u!1001 &1632758594
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5291,7 +5337,7 @@ PrefabInstance:
     - target: {fileID: 4079136633207419863, guid: b206cced7261d324c97c9061c3136621,
         type: 3}
       propertyPath: m_TagString
-      value: Cook
+      value: CuttingBoard
       objectReference: {fileID: 0}
     - target: {fileID: 1064917689992643012, guid: b206cced7261d324c97c9061c3136621,
         type: 3}
@@ -5641,6 +5687,7 @@ MonoBehaviour:
   FoodResetPosition: {x: 0, y: 0, z: 0}
   copyFood: {fileID: 0}
   Food: {fileID: 0}
+  IsHold: 0
 --- !u!4 &1802874325
 Transform:
   m_ObjectHideFlags: 0
@@ -7014,7 +7061,7 @@ PrefabInstance:
     - target: {fileID: 7054959156023430264, guid: 06adbe869b345cd4689a05a8dc63e34d,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -10
+      value: -9.71
       objectReference: {fileID: 0}
     - target: {fileID: 7054959156023430264, guid: 06adbe869b345cd4689a05a8dc63e34d,
         type: 3}
@@ -7070,6 +7117,16 @@ PrefabInstance:
         type: 3}
       propertyPath: AiSrt
       value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 7054959156023430260, guid: 06adbe869b345cd4689a05a8dc63e34d,
+        type: 3}
+      propertyPath: m_IsTrigger
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7054959156023430260, guid: 06adbe869b345cd4689a05a8dc63e34d,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 06adbe869b345cd4689a05a8dc63e34d, type: 3}

@@ -2,14 +2,14 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class OmericeControle : MonoBehaviour
+public class OmericeControl : MonoBehaviour
 {
     public bool takeout = false;     　  // 持っていない状態を表す
     public Vector3 FoodResetPosition;  　//食べ物の初期位置
     public GameObject Food;
     bool bDestroy = false;
+    public bool IsHold = false;
 
-    // Start is called before the first frame update
     void Start()
     {
 
@@ -23,7 +23,7 @@ public class OmericeControle : MonoBehaviour
     void OnTriggerStay(Collider Collider)
     {
 
-        if (Input.GetKeyDown(KeyCode.Space))
+        if (IsHold)
         {
 
             //作業台と接触していたら

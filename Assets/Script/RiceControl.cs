@@ -10,6 +10,9 @@ public class RiceControl : MonoBehaviour
     public GameObject Food;
     bool copy = false;
     bool bDestroy = false;
+
+    public bool IsHold = false;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -41,7 +44,7 @@ public class RiceControl : MonoBehaviour
     void OnTriggerStay(Collider Collider)
     {
 
-        if (Input.GetKeyDown(KeyCode.Space))
+        if (IsHold)
         {
 
             //ゴミ箱と接触していたら
