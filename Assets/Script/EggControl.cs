@@ -10,6 +10,7 @@ public class EggControl : MonoBehaviour
     public GameObject Food;
     bool copy = false;
     bool bDestroy = false;
+    public bool IsHold = false;
     // Start is called before the first frame update
     void Start()
     {
@@ -38,10 +39,9 @@ public class EggControl : MonoBehaviour
     }
     void OnTriggerStay(Collider Collider)
     {
-
-        if (Input.GetKeyDown(KeyCode.Space))
+        //持っていたら
+        if (IsHold)
         {
-
             //ゴミ箱と接触していたら
             if (Collider.gameObject.tag == "DustBox")
             {

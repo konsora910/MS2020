@@ -10,7 +10,7 @@ public class FishControl : MonoBehaviour
     public GameObject Food;
     bool copy = false;
     bool bDestroy = false;
-    // Start is called before the first frame update
+    public bool IsHold = false;
     void Start()
     {
         copy = false;
@@ -40,7 +40,7 @@ public class FishControl : MonoBehaviour
     void OnTriggerStay(Collider Collider)
     {
 
-        if (Input.GetKeyDown(KeyCode.Space))
+        if (IsHold)
         {
 
             //ゴミ箱と接触していたら
