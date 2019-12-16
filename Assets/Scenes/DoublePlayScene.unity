@@ -218,7 +218,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b6ffa3906afc4ee40bdc49e08f70296b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  score: 0
   n_ListNum: 0
   b_Score: 0
   FoodType: 10
@@ -1945,7 +1944,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: af2c09615987eac4e9c6b83c8b77ba93, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  score: 0
   n_ListNum: 0
   b_Score: 0
   FoodType: 10
@@ -5012,7 +5010,7 @@ MonoBehaviour:
   - {fileID: 0}
   InFood: 0
   Omrice: {fileID: -927199367670048503, guid: 90b49d1b59910e446ae63e45adb8640a, type: 3}
-  RBall: {fileID: 0}
+  RBall: {fileID: 4617652301842239276, guid: 99e5f6c353d35ed48955ecb841fccf94, type: 3}
   getUI: {fileID: 0}
   IsCookFPan: 0
   IsGauge: 0
@@ -5405,7 +5403,7 @@ MonoBehaviour:
   - {fileID: 0}
   InFood: 0
   Omrice: {fileID: -927199367670048503, guid: 90b49d1b59910e446ae63e45adb8640a, type: 3}
-  RBall: {fileID: 0}
+  RBall: {fileID: 4617652301842239276, guid: 99e5f6c353d35ed48955ecb841fccf94, type: 3}
   getUI: {fileID: 0}
   IsCookFPan: 0
   IsGauge: 0
@@ -5712,7 +5710,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: af2c09615987eac4e9c6b83c8b77ba93, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  score: 0
   n_ListNum: 0
   b_Score: 0
   FoodType: 10
@@ -7025,7 +7022,6 @@ GameObject:
   - component: {fileID: 1795855906}
   - component: {fileID: 1795855910}
   - component: {fileID: 1795855909}
-  - component: {fileID: 1795855908}
   - component: {fileID: 1795855907}
   m_Layer: 5
   m_Name: ordBoard2
@@ -7071,19 +7067,6 @@ MonoBehaviour:
   orderScript: {fileID: 0}
   img: {fileID: 1795855909}
   InputOrderObj: {fileID: 1378219869}
---- !u!114 &1795855908
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1795855905}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0f852dd17b037684097376eebcf021d9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  n_FoodList: 0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
 --- !u!114 &1795855909
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7396,7 +7379,6 @@ GameObject:
   - component: {fileID: 1842288598}
   - component: {fileID: 1842288602}
   - component: {fileID: 1842288601}
-  - component: {fileID: 1842288600}
   - component: {fileID: 1842288599}
   m_Layer: 5
   m_Name: ordBoard1
@@ -7442,19 +7424,6 @@ MonoBehaviour:
   orderScript: {fileID: 0}
   img: {fileID: 1842288601}
   InputOrderObj: {fileID: 1378219869}
---- !u!114 &1842288600
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1842288597}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0f852dd17b037684097376eebcf021d9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  n_FoodList: 0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
 --- !u!114 &1842288601
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7516,7 +7485,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: af2c09615987eac4e9c6b83c8b77ba93, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  score: 0
   n_ListNum: 0
   b_Score: 0
   FoodType: 10
@@ -7534,7 +7502,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b6ffa3906afc4ee40bdc49e08f70296b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  score: 0
   n_ListNum: 0
   b_Score: 0
   FoodType: 10
