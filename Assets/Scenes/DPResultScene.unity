@@ -540,11 +540,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 725056785}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cd0499ca872a71a428bfbb0c64216c26, type: 3}
+  m_Script: {fileID: 11500000, guid: 714f2f5f7535e394a89a2e571ef8ce21, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  score_object: {fileID: 0}
-  score_object2: {fileID: 0}
+  score_object: {fileID: 1717153501}
+  score_object2: {fileID: 27082832}
 --- !u!1 &770729265
 GameObject:
   m_ObjectHideFlags: 0

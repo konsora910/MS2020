@@ -20,33 +20,36 @@ public class Result : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        Init();
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-
-    }
-
-    void Init()
-    {
         //１人用のリザルトシーン
-        if(SceneManager.GetActiveScene().name == "SinglePlayScene")
+        if (SceneManager.GetActiveScene().name == "SPResultScene")
         {
             SingleInit();
         }
 
         //２人用のリザルトシーン
-        if(SceneManager.GetActiveScene().name == "DoublePlayScene")
+        if (SceneManager.GetActiveScene().name == "DPResultScene")
         {
             DoubleInit();
+        }
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+        if(Input.GetKeyDown(KeyCode.Space))
+        {
+            GameObject obj = GameObject.FindGameObjectWithTag("scene");
+            obj.gameObject.GetComponent<SceneControl>().FadeOut("TitleScene");
         }
     }
 
     //１人用リザルトシーン
     void SingleInit()
     {
+        score_text[0] = score_object.GetComponent<Text>();
+        // テキストの表示を入れ替える
+        n_score = Score.GetScore();
+        score_text[0].text = "" + n_score;
 
     }
 
@@ -60,10 +63,6 @@ public class Result : MonoBehaviour
         Win.SetActive(true);
         Lose.SetActive(true);
         Draw.SetActive(false);
-
-        n_score = Score.GetScore();
-        n_score2 = Score2.GetScore();
-        Debug.Log(n_score);
 
         // オブジェクトからTextコンポーネントを取得
         score_text[0] = score_object.GetComponent<Text>();
