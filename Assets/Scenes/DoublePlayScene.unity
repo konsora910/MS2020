@@ -4950,6 +4950,7 @@ MonoBehaviour:
   - {fileID: 0}
   InFood: 0
   Omrice: {fileID: -927199367670048503, guid: 90b49d1b59910e446ae63e45adb8640a, type: 3}
+  RBall: {fileID: 0}
   getUI: {fileID: 0}
   IsCookFPan: 0
   IsGauge: 0
@@ -5147,6 +5148,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2758465488203337569, guid: e30a50a43e8ef2d47bc459d71aebbd96,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 693.6
+      objectReference: {fileID: 0}
     - target: {fileID: 2385318522202631475, guid: e30a50a43e8ef2d47bc459d71aebbd96,
         type: 3}
       propertyPath: m_Enabled
@@ -5312,6 +5318,7 @@ MonoBehaviour:
   - {fileID: 0}
   InFood: 0
   Omrice: {fileID: -927199367670048503, guid: 90b49d1b59910e446ae63e45adb8640a, type: 3}
+  RBall: {fileID: 0}
   getUI: {fileID: 0}
   IsCookFPan: 0
   IsGauge: 0
@@ -5568,6 +5575,15 @@ MonoBehaviour:
   AILevel: 1
   AIEXP: 0
   OrderScript: {fileID: 1378219870}
+  FP1: 0
+  FP2: 0
+  FP3: 0
+  Pot1: 0
+  Pot2: 0
+  Pot3: 0
+  Cut1: 0
+  Cut2: 0
+  Cut3: 0
   AILevelUI: []
 --- !u!4 &1469266679
 Transform:
