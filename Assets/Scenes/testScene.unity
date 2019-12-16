@@ -220,7 +220,7 @@ MonoBehaviour:
   Sashimi: {fileID: 0}
   IsGauge: 0
   IsCBoard: 0
-  OpScript: {fileID: 0}
+  OpScript: {fileID: 1362112755}
 --- !u!1001 &59912110
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -334,6 +334,7 @@ MonoBehaviour:
   - {fileID: 0}
   InFood: 0
   Omrice: {fileID: -927199367670048503, guid: 90b49d1b59910e446ae63e45adb8640a, type: 3}
+  RBall: {fileID: 0}
   getUI: {fileID: 0}
   IsCookFPan: 0
   IsGauge: 0
@@ -1793,6 +1794,15 @@ MonoBehaviour:
   AILevel: 1
   AIEXP: 0
   OrderScript: {fileID: 952034741}
+  FP1: 0
+  FP2: 0
+  FP3: 0
+  Pot1: 0
+  Pot2: 0
+  Pot3: 0
+  Cut1: 0
+  Cut2: 0
+  Cut3: 0
   AILevelUI: []
 --- !u!1001 &398240434
 PrefabInstance:
@@ -6254,7 +6264,7 @@ MonoBehaviour:
   IsGauge: 0
   IsCooking: 0
   Soup: {fileID: -927199367670048503, guid: 07262c738ea04b149b7ee7fd0ad33838, type: 3}
-  OpScript: {fileID: 360065676}
+  OpScript: {fileID: 1362112755}
   cooking: {fileID: 8300000, guid: 5fbb3991972ddbb48b7f1a7622652377, type: 3}
 --- !u!65 &1757736324
 BoxCollider:
@@ -6848,10 +6858,11 @@ MonoBehaviour:
   - {fileID: 0}
   InFood: 0
   Omrice: {fileID: -927199367670048503, guid: 90b49d1b59910e446ae63e45adb8640a, type: 3}
+  RBall: {fileID: 4617652301842239276, guid: 99e5f6c353d35ed48955ecb841fccf94, type: 3}
   getUI: {fileID: 0}
   IsCookFPan: 0
   IsGauge: 0
-  OpScript: {fileID: 360065676}
+  OpScript: {fileID: 1362112755}
   cooking: {fileID: 8300000, guid: 98d8881101f942e4294542e2fb000a40, type: 3}
 --- !u!65 &1830199020
 BoxCollider:

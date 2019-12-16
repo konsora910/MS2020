@@ -132,6 +132,7 @@ public class CuttingBoard : MonoBehaviour
     IEnumerator CookSarada()
     {
         yield return new WaitForSeconds(2);
+        OpScript.CookF();
         Reset();
     }
     public void Reset()
