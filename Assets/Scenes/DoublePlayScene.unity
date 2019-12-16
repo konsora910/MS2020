@@ -1345,7 +1345,7 @@ MonoBehaviour:
   Sashimi: {fileID: 0}
   IsGauge: 0
   IsCBoard: 0
-  OpScript: {fileID: 0}
+  OpScript: {fileID: 1570550312}
 --- !u!1001 &334772102
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1477,7 +1477,7 @@ MonoBehaviour:
   IsGauge: 0
   IsCooking: 0
   Soup: {fileID: 0}
-  OpScript: {fileID: 0}
+  OpScript: {fileID: 579059258}
   cooking: {fileID: 0}
 --- !u!4 &473802755 stripped
 Transform:
@@ -1787,6 +1787,18 @@ PrefabInstance:
       objectReference: {fileID: 1215305594}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 907ffafe9dc3da6418086f2d88c8192a, type: 3}
+--- !u!114 &579059258 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4685167848686909075, guid: 907ffafe9dc3da6418086f2d88c8192a,
+    type: 3}
+  m_PrefabInstance: {fileID: 579059257}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 694b9c169d932d447ac96bc5750d2f6e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &585129219
 GameObject:
   m_ObjectHideFlags: 0
@@ -2077,7 +2089,7 @@ MonoBehaviour:
   IsGauge: 0
   IsCooking: 0
   Soup: {fileID: 0}
-  OpScript: {fileID: 0}
+  OpScript: {fileID: 1570550312}
   cooking: {fileID: 0}
 --- !u!1001 &668248050
 PrefabInstance:
@@ -2976,7 +2988,7 @@ MonoBehaviour:
   Sashimi: {fileID: 0}
   IsGauge: 0
   IsCBoard: 0
-  OpScript: {fileID: 0}
+  OpScript: {fileID: 579059258}
 --- !u!1001 &1021438168
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3364,7 +3376,7 @@ MonoBehaviour:
   IsGauge: 0
   IsCooking: 0
   Soup: {fileID: -927199367670048503, guid: 07262c738ea04b149b7ee7fd0ad33838, type: 3}
-  OpScript: {fileID: 1469266678}
+  OpScript: {fileID: 579059258}
   cooking: {fileID: 8300000, guid: 5fbb3991972ddbb48b7f1a7622652377, type: 3}
 --- !u!82 &1057116769
 AudioSource:
@@ -3932,7 +3944,7 @@ MonoBehaviour:
   IsGauge: 0
   IsCooking: 0
   Soup: {fileID: 0}
-  OpScript: {fileID: 0}
+  OpScript: {fileID: 579059258}
   cooking: {fileID: 0}
 --- !u!1001 &1214466459
 PrefabInstance:
@@ -4111,7 +4123,7 @@ MonoBehaviour:
   Sashimi: {fileID: 0}
   IsGauge: 0
   IsCBoard: 0
-  OpScript: {fileID: 0}
+  OpScript: {fileID: 579059258}
 --- !u!1001 &1240270150
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5014,7 +5026,7 @@ MonoBehaviour:
   getUI: {fileID: 0}
   IsCookFPan: 0
   IsGauge: 0
-  OpScript: {fileID: 1469266678}
+  OpScript: {fileID: 579059258}
   cooking: {fileID: 8300000, guid: 98d8881101f942e4294542e2fb000a40, type: 3}
 --- !u!82 &1397102823
 AudioSource:
@@ -5407,7 +5419,7 @@ MonoBehaviour:
   getUI: {fileID: 0}
   IsCookFPan: 0
   IsGauge: 0
-  OpScript: {fileID: 1469266678}
+  OpScript: {fileID: 1570550312}
   cooking: {fileID: 8300000, guid: 98d8881101f942e4294542e2fb000a40, type: 3}
 --- !u!82 &1462671848
 AudioSource:
@@ -6285,6 +6297,18 @@ PrefabInstance:
       objectReference: {fileID: 231535892}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: dbd6d32a6f240c34690daf9ed3244e18, type: 3}
+--- !u!114 &1570550312 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2309414049407448383, guid: dbd6d32a6f240c34690daf9ed3244e18,
+    type: 3}
+  m_PrefabInstance: {fileID: 1570550311}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 694b9c169d932d447ac96bc5750d2f6e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1579487020
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6668,7 +6692,7 @@ MonoBehaviour:
   IsGauge: 0
   IsCooking: 0
   Soup: {fileID: -927199367670048503, guid: 07262c738ea04b149b7ee7fd0ad33838, type: 3}
-  OpScript: {fileID: 1469266678}
+  OpScript: {fileID: 1570550312}
   cooking: {fileID: 8300000, guid: 5fbb3991972ddbb48b7f1a7622652377, type: 3}
 --- !u!82 &1645486404
 AudioSource:
@@ -8225,7 +8249,7 @@ MonoBehaviour:
   IsGauge: 0
   IsCooking: 0
   Soup: {fileID: 0}
-  OpScript: {fileID: 0}
+  OpScript: {fileID: 1570550312}
   cooking: {fileID: 0}
 --- !u!1 &2043136706
 GameObject:
