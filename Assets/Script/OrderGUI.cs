@@ -13,6 +13,7 @@ public class OrderGUI : MonoBehaviour
     [Space(20)]
     public Order orderScript;
     public Image img;
+    public GameObject InputOrderObj;
     private Sprite ord;
     private Sprite readSprite;
     private int num = 0;
@@ -21,7 +22,7 @@ public class OrderGUI : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        orderScript = GetComponent<Order>();
+        orderScript = InputOrderObj.GetComponent<Order>();
         img = GetComponent<Image>();
     }
 
