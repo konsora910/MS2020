@@ -2582,7 +2582,7 @@ MonoBehaviour:
   Pot2: 0
   Pot3: 0
   Cut1: 0
-  Cut2: 1
+  Cut2: 0
   Cut3: 0
   AILevelUI:
   - {fileID: 0}
