@@ -4,10 +4,10 @@ using UnityEngine;
 
 public class Score2 : MonoBehaviour
 {
-    public int score = 0;
+    public static int score = 0;
     public int n_ListNum = 0;
     public bool b_Score = false;
-    public int FoodType = Foodselect1.FOODNULL;
+    public int FoodType = Foodselect1.FOODNULL ;
     public int n_Order = 0;
 
 
@@ -87,7 +87,7 @@ public class Score2 : MonoBehaviour
         }
     }
 
-    public int GetScore()
+    public static int GetScore()
     {
         return score;
     }
