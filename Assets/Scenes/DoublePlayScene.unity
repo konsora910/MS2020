@@ -3274,17 +3274,17 @@ PrefabInstance:
     - target: {fileID: -4216859302048453862, guid: 99ecc991beb198445a0ca3e5b08e0e79,
         type: 3}
       propertyPath: m_LocalScale.x
-      value: 0.71531135
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: 99ecc991beb198445a0ca3e5b08e0e79,
         type: 3}
       propertyPath: m_LocalScale.y
-      value: 0.7153114
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: 99ecc991beb198445a0ca3e5b08e0e79,
         type: 3}
       propertyPath: m_LocalScale.z
-      value: 0.62880063
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 99ecc991beb198445a0ca3e5b08e0e79, type: 3}
@@ -3319,7 +3319,7 @@ MonoBehaviour:
   _FoodsNum: 0
   IsGauge: 0
   IsCooking: 0
-  Soup: {fileID: -927199367670048503, guid: 07262c738ea04b149b7ee7fd0ad33838, type: 3}
+  Soup: {fileID: 8239008882662084062, guid: 8d1224a85e9ea834ab2e733878b3bf5a, type: 3}
   OpScript: {fileID: 579059258}
   cooking: {fileID: 8300000, guid: 5fbb3991972ddbb48b7f1a7622652377, type: 3}
 --- !u!82 &1057116769
@@ -3429,7 +3429,7 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.021319363, y: 0.05, z: 0.05}
+  m_Size: {x: 0.021319363, y: 0.06, z: 0.05}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!4 &1065775742 stripped
 Transform:
@@ -6568,17 +6568,17 @@ PrefabInstance:
     - target: {fileID: -4216859302048453862, guid: 99ecc991beb198445a0ca3e5b08e0e79,
         type: 3}
       propertyPath: m_LocalScale.x
-      value: 0.71531135
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: 99ecc991beb198445a0ca3e5b08e0e79,
         type: 3}
       propertyPath: m_LocalScale.y
-      value: 0.7153114
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: 99ecc991beb198445a0ca3e5b08e0e79,
         type: 3}
       propertyPath: m_LocalScale.z
-      value: 0.62880063
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 99ecc991beb198445a0ca3e5b08e0e79, type: 3}
@@ -6607,7 +6607,7 @@ MonoBehaviour:
   _FoodsNum: 0
   IsGauge: 0
   IsCooking: 0
-  Soup: {fileID: -927199367670048503, guid: 07262c738ea04b149b7ee7fd0ad33838, type: 3}
+  Soup: {fileID: 532062959026045617, guid: 8d1224a85e9ea834ab2e733878b3bf5a, type: 3}
   OpScript: {fileID: 1570550312}
   cooking: {fileID: 8300000, guid: 5fbb3991972ddbb48b7f1a7622652377, type: 3}
 --- !u!82 &1645486404
@@ -6717,7 +6717,7 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.021319363, y: 0.05, z: 0.05}
+  m_Size: {x: 0.021319363, y: 0.06, z: 0.05}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!1001 &1714225718
 PrefabInstance:

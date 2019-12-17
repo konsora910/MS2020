@@ -199,7 +199,7 @@ public class Pot : MonoBehaviour
 
             yield return new WaitForSeconds(ConstGaugeUI.ConstUI.POT_COOKING_TIME);
             GameObject obj = GameObject.FindGameObjectWithTag("Food");
-            GameObject instance = (GameObject)Instantiate(Soup, new Vector3(this.transform.position.x, this.transform.position.y + 1, this.transform.position.z), Quaternion.identity);
+            GameObject instance = (GameObject)Instantiate(Soup, new Vector3(this.transform.position.x + 1.0f, this.transform.position.y, this.transform.position.z), Quaternion.identity);
             instance.transform.parent = obj.transform;          //食材をfoodの子に
             obj.GetComponent<Foodselect1>().AddFood(instance.transform);
             Debug.Log("料理1");
