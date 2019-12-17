@@ -1916,23 +1916,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 135247b7fd12b9b4895f82a36665659f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &646272043
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 646272040}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: af2c09615987eac4e9c6b83c8b77ba93, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  n_ListNum: 0
-  b_Score: 0
-  FoodType: 10
-  n_Order: 0
-  OpScript: {fileID: 0}
 --- !u!82 &646272044
 AudioSource:
   m_ObjectHideFlags: 0
@@ -3319,7 +3302,7 @@ MonoBehaviour:
   _FoodsNum: 0
   IsGauge: 0
   IsCooking: 0
-  Soup: {fileID: 8239008882662084062, guid: 8d1224a85e9ea834ab2e733878b3bf5a, type: 3}
+  Soup: {fileID: 6160756157097613655, guid: b2102f4139ac0a54b8f7450424d0095f, type: 3}
   OpScript: {fileID: 579059258}
   cooking: {fileID: 8300000, guid: 5fbb3991972ddbb48b7f1a7622652377, type: 3}
 --- !u!82 &1057116769
@@ -4937,8 +4920,8 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   InFood: 0
-  Omrice: {fileID: 4048151997103693298, guid: a93f0623574c2bd498fd219aebb0878a, type: 3}
-  RBall: {fileID: 4617652301842239276, guid: c59ce986ddad1e0499259e024584db65, type: 3}
+  Omrice: {fileID: 6296293159172655670, guid: c6d4a2a5e60eb1d44bb93d389a5034c5, type: 3}
+  RBall: {fileID: 489347997178617370, guid: 1905395b442b611459a32042ea1030e8, type: 3}
   getUI: {fileID: 0}
   IsCookFPan: 0
   IsGauge: 0
@@ -5330,8 +5313,8 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   InFood: 0
-  Omrice: {fileID: 4048151997103693298, guid: a93f0623574c2bd498fd219aebb0878a, type: 3}
-  RBall: {fileID: 4617652301842239276, guid: c59ce986ddad1e0499259e024584db65, type: 3}
+  Omrice: {fileID: 6296293159172655670, guid: c6d4a2a5e60eb1d44bb93d389a5034c5, type: 3}
+  RBall: {fileID: 489347997178617370, guid: 1905395b442b611459a32042ea1030e8, type: 3}
   getUI: {fileID: 0}
   IsCookFPan: 0
   IsGauge: 0
@@ -5642,7 +5625,7 @@ MonoBehaviour:
   b_Score: 0
   FoodType: 10
   n_Order: 0
-  OpScript: {fileID: 0}
+  OpScript: {fileID: 579059258}
 --- !u!1 &1477752568
 GameObject:
   m_ObjectHideFlags: 0
@@ -6607,7 +6590,7 @@ MonoBehaviour:
   _FoodsNum: 0
   IsGauge: 0
   IsCooking: 0
-  Soup: {fileID: 532062959026045617, guid: 8d1224a85e9ea834ab2e733878b3bf5a, type: 3}
+  Soup: {fileID: 6160756157097613655, guid: b2102f4139ac0a54b8f7450424d0095f, type: 3}
   OpScript: {fileID: 1570550312}
   cooking: {fileID: 8300000, guid: 5fbb3991972ddbb48b7f1a7622652377, type: 3}
 --- !u!82 &1645486404
