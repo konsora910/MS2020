@@ -11,9 +11,10 @@ GameObject:
   - component: {fileID: 8524869434299694399}
   - component: {fileID: 798664537741690633}
   - component: {fileID: 6352859717978586096}
+  - component: {fileID: -5445907056155621727}
   m_Layer: 0
   m_Name: grb
-  m_TagString: Untagged
+  m_TagString: RiceBall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -77,3 +78,16 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!135 &-5445907056155621727
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4617652301842239276}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.014251204
+  m_Center: {x: -0.00024550362, y: -0.0035496522, z: 0.0043652044}
