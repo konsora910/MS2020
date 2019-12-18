@@ -175,6 +175,7 @@ public class FryingPan : MonoBehaviour
             IsGauge = true;
             audioCookFP.Play();
         }
+        Reset();
         yield return new WaitForSeconds(5);
         GameObject obj = GameObject.FindGameObjectWithTag("Food");
         // 料理の生成場所を設定できる(生成対象オブジェクト、生成座標、生成初期角度)
@@ -182,7 +183,6 @@ public class FryingPan : MonoBehaviour
         instance.transform.parent = obj.transform;          //コピー食材をfoodの子に
         obj.GetComponent<Foodselect1>().AddFood(instance.transform);
         OpScript.CookF();
-        Reset();
         audioCookFP.Stop();
     }
 
@@ -194,6 +194,7 @@ public class FryingPan : MonoBehaviour
             IsGauge = true;
             audioCookFP.Play();
         }
+        Reset();
         yield return new WaitForSeconds(5);
         GameObject obj = GameObject.FindGameObjectWithTag("Food");
         // 料理の生成場所を設定できる(生成対象オブジェクト、生成座標、生成初期角度)
@@ -201,7 +202,6 @@ public class FryingPan : MonoBehaviour
         instance.transform.parent = obj.transform;          //コピー食材をfoodの子に
         obj.GetComponent<Foodselect1>().AddFood(instance.transform);
         OpScript.CookF();
-        Reset();
         audioCookFP.Stop();
     }
 
