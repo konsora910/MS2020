@@ -69,7 +69,8 @@ public class PlayerController : MonoBehaviour
 
     [SerializeField] private Vector3 velocity;              //　移動方向
 
-
+    //AIscript
+    [SerializeField] OperatorController OpScript;
     public float PushPower;
     //    Collider collider;
     // Start is called before the first frame update
@@ -335,7 +336,7 @@ public class PlayerController : MonoBehaviour
         //AIに対する
         if (Input.GetButtonDown("Operator"))
         {
-
+            OpScript.Miss();
         }
 
 
@@ -464,7 +465,7 @@ public class PlayerController : MonoBehaviour
         //AIに対する
         if(Input.GetButtonDown("Operator"))
         {
-
+            OpScript.Miss();
         }
 
         
