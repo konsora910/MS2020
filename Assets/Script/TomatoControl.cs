@@ -10,6 +10,8 @@ public class TomatoControl : MonoBehaviour
     public GameObject Food;
     bool copy = false;
     bool bDestroy = false;
+    public bool IsHold = false;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -22,6 +24,7 @@ public class TomatoControl : MonoBehaviour
     void Update()
     {
         
+
         if (takeout == true)
         {
             //食材を持たれたら元の位置にコピーする
@@ -39,23 +42,20 @@ public class TomatoControl : MonoBehaviour
     }
     void OnTriggerStay(Collider Collider)
     {
-
-        if (Input.GetKeyDown(KeyCode.Space))
+        //持っていたら
+        if (IsHold)
         {
-
             //ゴミ箱と接触していたら
-            if (Collider.gameObject.tag == "DustBox")
-            {
-                bDestroy = true;
-            }
+            if (Collider.gameObject.tag == "DustBox") 
+                {
+                    bDestroy = true; 
+                }
 
             //プレイヤーかAIが食べ物を持ったら
-            if (Collider.gameObject.tag == "Player" || Collider.gameObject.tag == "AI")
-            {
-                takeout = true; // true = 何かしら持っている
-            }
-
-            
+            if (Collider.gameObject.tag == "Player" || Collider.gameObject.tag == "AI") 
+                {
+                    takeout = true; // true = 何かしら持っている
+                }
         }
     }
 

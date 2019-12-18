@@ -8,14 +8,15 @@ public class SoupControl : MonoBehaviour
     public Vector3 FoodResetPosition;  　//食べ物の初期位置
     public GameObject Food;
     bool bDestroy = false;
+    public bool IsHold = false;
 
-    // Start is called before the first frame update
+    
     void Start()
     {
 
     }
 
-    // Update is called once per frame
+    
     void Update()
     {
         DestroyFood(bDestroy);      //食べ物消す
@@ -23,7 +24,7 @@ public class SoupControl : MonoBehaviour
     void OnTriggerStay(Collider Collider)
     {
 
-        if (Input.GetKeyDown(KeyCode.Space))
+        if (IsHold)
         {
 
             //作業台と接触していたら
