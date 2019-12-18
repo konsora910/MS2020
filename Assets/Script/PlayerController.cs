@@ -53,7 +53,7 @@ public class PlayerController : MonoBehaviour
     private RiceControl _TouchRiceScript;
     private TomatoControl _TouchTomatoScript;
     private FishControl _TouchFishScript;
-    private SoupControl _TouchSoupScript;
+    [SerializeField] private SoupControl _TouchSoupScript;
     private OmericeControl _TouchOmericeScript;
     private RiceBallControl _TouchRiceballScript;
     //食材
@@ -62,7 +62,7 @@ public class PlayerController : MonoBehaviour
     public bool b_TouchTomato = false;
     public bool b_TouchFish = false;
     //料理
-    public bool b_TouchSoup = false;
+    [SerializeField] public bool b_TouchSoup = false;
     public bool b_TouchOmerice = false;
     public bool b_TouchRiceball = false;
 
@@ -93,17 +93,17 @@ public class PlayerController : MonoBehaviour
         if (CurrentMode == Mode.Stay)
         {
             KeyBord();
-            Gamepad();
+           // Gamepad();
         }
         else if (CurrentMode == Mode.Walk)
         {
             KeyBord();
-            Gamepad(); 
+           // Gamepad(); 
         }
         else if (CurrentMode == Mode.Hold)
         {
             KeyBord();
-            Gamepad();
+           // Gamepad();
         }
         else if (CurrentMode == Mode.Set)
         {
@@ -158,7 +158,7 @@ public class PlayerController : MonoBehaviour
         b_TouchCB = false;
 
         _TouchCookware = null;
-        _TouchFood = null;
+       // _TouchFood = null;
 
         _IsTouchFood = false;
 
@@ -168,7 +168,7 @@ public class PlayerController : MonoBehaviour
         b_TouchFish = false;
 
         b_TouchOmerice = false;
-        b_TouchSoup = false;
+        //b_TouchSoup = false;
         b_TouchRiceball = false;
 
         
@@ -324,7 +324,9 @@ public class PlayerController : MonoBehaviour
                 else if (FoodType == Foodselect1.RICEBALL)
                     food.GetComponent<RiceBallControl>().takeout = false;
                 else if (FoodType == Foodselect1.SOUP)
+                {
                     food.GetComponent<SoupControl>().takeout = false;
+                }
                 bFood_Take = false;
                 food = null;
             }
@@ -515,19 +517,19 @@ public class PlayerController : MonoBehaviour
         }
         else if(Collider.gameObject.tag == "Soup")
         {
-            b_TouchSoup = false;
+            b_TouchSoup = true;
             _IsTouchFood = true;
             ChangeTouchFood(Collider.gameObject);
         }
         else if(Collider.gameObject.tag == "Omerice")
         {
-            b_TouchOmerice = false;
+            b_TouchOmerice = true
             _IsTouchFood = true;
             ChangeTouchFood(Collider.gameObject);
         }
         else if(Collider.gameObject.tag == "RiceBall")
         {
-            b_TouchRiceball = false;
+            b_TouchRiceball = true;
             _IsTouchFood = true;
             ChangeTouchFood(Collider.gameObject);
         }
