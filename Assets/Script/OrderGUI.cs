@@ -46,6 +46,8 @@ public class OrderGUI : MonoBehaviour
                 break;
         }
 
+        ord = readSprite;
+        img.sprite = ord;
         if (Input.GetKeyDown(KeyCode.H))
         {
             ord = readSprite;
