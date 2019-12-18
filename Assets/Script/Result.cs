@@ -14,12 +14,14 @@ public class Result : MonoBehaviour
     Text[] score_text = new Text[2];
     int n_score;
     int n_score2;
+    bool b_fade;
 
     public static float ResultUIMove = 360.0f;
 
     // Start is called before the first frame update
     void Start()
     {
+        b_fade = false;
         //１人用のリザルトシーン
         if (SceneManager.GetActiveScene().name == "SPResultScene")
         {
@@ -36,10 +38,14 @@ public class Result : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(Input.GetKeyDown(KeyCode.Space))
+        if (b_fade == false)
         {
-            GameObject obj = GameObject.FindGameObjectWithTag("scene");
-            obj.gameObject.GetComponent<SceneControl>().FadeOut("TitleScene");
+            if (Input.GetKeyDown(KeyCode.Space))
+            {
+                b_fade = true;
+                GameObject obj = GameObject.FindGameObjectWithTag("scene");
+                obj.gameObject.GetComponent<SceneControl>().FadeOut("TitleScene");
+            }
         }
     }
 

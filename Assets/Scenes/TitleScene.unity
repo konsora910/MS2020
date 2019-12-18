@@ -205,6 +205,7 @@ GameObject:
   - component: {fileID: 104213369}
   - component: {fileID: 104213368}
   - component: {fileID: 104213370}
+  - component: {fileID: 104213371}
   m_Layer: 0
   m_Name: scene
   m_TagString: scene
@@ -254,6 +255,18 @@ MonoBehaviour:
   b_FadeOut: 0
   b_FadeOutEnd: 0
   NextSceneName: 
+--- !u!114 &104213371
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 104213367}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 135247b7fd12b9b4895f82a36665659f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &174940122
 GameObject:
   m_ObjectHideFlags: 0

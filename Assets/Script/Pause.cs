@@ -14,6 +14,7 @@ public class Pause : MonoBehaviour
     private float f_alpha = 0.0f;      //フェードのα値
 
     private bool b_Pause = false;
+    private bool b_fade = false;
     private int n_select = 0;
    
     // Start is called before the first frame update
@@ -27,6 +28,7 @@ public class Pause : MonoBehaviour
         f_alpha = 0.0f;
         n_select = 0;
         b_Pause = false;
+        b_fade = false;
 
         GameObject canvas = GameObject.FindGameObjectWithTag("Canvas");
         //Pause用のテクスチャ生成
@@ -67,42 +69,44 @@ public class Pause : MonoBehaviour
 
     void NowPause()
     {
-        if(Input.GetKeyDown(KeyCode.W) && n_select == 0)
+        if (b_fade == false)
         {
-            n_select = 1;
-        }
-        if(Input.GetKeyDown(KeyCode.S) && n_select == 1)
-        {
-            n_select = 0;
-        }
+            if (Input.GetKeyDown(KeyCode.W) && n_select == 0)
+            {
+                n_select = 1;
+            }
+            if (Input.GetKeyDown(KeyCode.S) && n_select == 1)
+            {
+                n_select = 0;
+            }
 
 
-        if (n_select == 0)
-        {
-            PauseUI2.gameObject.transform.localScale = new Vector3(1.5f, 1.5f, 1.5f);
-            PauseUI1.gameObject.transform.localScale = new Vector3(1.0f, 1.0f, 1.0f);
-        }
-        if(n_select == 1)
-        {
-            PauseUI1.gameObject.transform.localScale = new Vector3(1.5f, 1.5f, 1.5f);
-            PauseUI2.gameObject.transform.localScale = new Vector3(1.0f, 1.0f, 1.0f);
-        }
+            if (n_select == 0)
+            {
+                PauseUI2.gameObject.transform.localScale = new Vector3(1.5f, 1.5f, 1.5f);
+                PauseUI1.gameObject.transform.localScale = new Vector3(1.0f, 1.0f, 1.0f);
+            }
+            if (n_select == 1)
+            {
+                PauseUI1.gameObject.transform.localScale = new Vector3(1.5f, 1.5f, 1.5f);
+                PauseUI2.gameObject.transform.localScale = new Vector3(1.0f, 1.0f, 1.0f);
+            }
 
-
-        if(Input.GetKeyDown(KeyCode.Space) && n_select == 0)
-        {
-            PauseUI1.gameObject.SetActive(false);
-            PauseUI2.gameObject.SetActive(false);
-            Player.GetComponent<Stop>().RemoveObject();
-            Timer.GetComponent<Stop>().RemoveObject();
-            f_alpha = 0.0f;
-            b_Pause = false;
+            if (Input.GetKeyDown(KeyCode.Space) && n_select == 0)
+            {
+                PauseUI1.gameObject.SetActive(false);
+                PauseUI2.gameObject.SetActive(false);
+                Player.GetComponent<Stop>().RemoveObject();
+                Timer.GetComponent<Stop>().RemoveObject();
+                f_alpha = 0.0f;
+                b_Pause = false;
+            }
+            else if (Input.GetKeyDown(KeyCode.Space) && n_select == 1)
+            {
+                b_fade = true;
+                GameObject obj = GameObject.FindGameObjectWithTag("scene");
+                obj.gameObject.GetComponent<SceneControl>().FadeOut("TitleScene");
+            }
         }
-        else if(Input.GetKeyDown(KeyCode.Space) && n_select == 1)
-        {
-            GameObject obj = GameObject.FindGameObjectWithTag("scene");
-            obj.gameObject.GetComponent<SceneControl>().FadeOut("TitleScene");
-        }
-
     }
 }
