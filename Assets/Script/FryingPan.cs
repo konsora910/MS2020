@@ -175,6 +175,7 @@ public class FryingPan : MonoBehaviour
             IsGauge = true;
             audioCookFP.Play();
         }
+        OpScript.CookF();
         Reset();
         yield return new WaitForSeconds(5);
         GameObject obj = GameObject.FindGameObjectWithTag("Food");
@@ -182,7 +183,6 @@ public class FryingPan : MonoBehaviour
         GameObject instance = (GameObject)Instantiate(Omrice, new Vector3(this.transform.position.x, this.transform.position.y, this.transform.position.z), Quaternion.identity);
         instance.transform.parent = obj.transform;          //コピー食材をfoodの子に
         obj.GetComponent<Foodselect1>().AddFood(instance.transform);
-        OpScript.CookF();
         audioCookFP.Stop();
     }
 
@@ -194,6 +194,7 @@ public class FryingPan : MonoBehaviour
             IsGauge = true;
             audioCookFP.Play();
         }
+        OpScript.CookF();
         Reset();
         yield return new WaitForSeconds(5);
         GameObject obj = GameObject.FindGameObjectWithTag("Food");
@@ -201,7 +202,6 @@ public class FryingPan : MonoBehaviour
         GameObject instance = (GameObject)Instantiate(RBall, new Vector3(this.transform.position.x, this.transform.position.y, this.transform.position.z), Quaternion.identity);
         instance.transform.parent = obj.transform;          //コピー食材をfoodの子に
         obj.GetComponent<Foodselect1>().AddFood(instance.transform);
-        OpScript.CookF();
         audioCookFP.Stop();
     }
 

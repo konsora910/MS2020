@@ -203,6 +203,7 @@ public class Pot : MonoBehaviour
             instance.transform.parent = obj.transform;          //食材をfoodの子に
             obj.GetComponent<Foodselect1>().AddFood(instance.transform);
             Debug.Log("料理1");
+            OpScript.CookF();
             Reset();
             audioCookPot.Stop();
             ChangeMode(Mode.Stay);
