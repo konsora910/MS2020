@@ -523,7 +523,7 @@ public class PlayerController : MonoBehaviour
         }
         else if(Collider.gameObject.tag == "Omerice")
         {
-            b_TouchOmerice = true
+            b_TouchOmerice = true;
             _IsTouchFood = true;
             ChangeTouchFood(Collider.gameObject);
         }
