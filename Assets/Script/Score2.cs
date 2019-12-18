@@ -9,7 +9,8 @@ public class Score2 : MonoBehaviour
     public bool b_Score = false;
     public int FoodType = Foodselect1.FOODNULL ;
     public int n_Order = 0;
-
+    public OperatorController OpScript;
+    public OrderGUI OrGUIScript;
 
     //仮置き
     GameObject player;
@@ -36,6 +37,8 @@ public class Score2 : MonoBehaviour
             {
                 if (n_Order == Foodselect1.OMERICE)
                 {
+                    OpScript.CookEnd();
+                    OrGUIScript.OrderNext();
                     score += 10000;
                     n_Order = player.GetComponent<Order>().GetOrder(n_ListNum);
                     n_ListNum++;
@@ -47,6 +50,8 @@ public class Score2 : MonoBehaviour
             {
                 if (n_Order == Foodselect1.RICEBALL)
                 {
+                    OpScript.CookEnd();
+                    OrGUIScript.OrderNext();
                     score += 20000;
                     n_Order = player.GetComponent<Order>().GetOrder(n_ListNum);
                     n_ListNum++;
@@ -58,6 +63,8 @@ public class Score2 : MonoBehaviour
             {
                 if (n_Order == Foodselect1.SOUP)
                 {
+                    OpScript.CookEnd();
+                    OrGUIScript.OrderNext();
                     score += 30000;
                     n_Order = player.GetComponent<Order>().GetOrder(n_ListNum);
                     n_ListNum++;

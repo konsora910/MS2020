@@ -45,11 +45,21 @@ public class OrderGUI : MonoBehaviour
             default:
                 break;
         }
+
+        ord = readSprite;
+        img.sprite = ord;
         if (Input.GetKeyDown(KeyCode.H))
         {
             ord = readSprite;
             img.sprite = ord;
             ArNum++;
         }
+    }
+
+    public void OrderNext()
+    {
+        ord = readSprite;
+        img.sprite = ord;
+        ArNum++;
     }
 }
