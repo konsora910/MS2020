@@ -17,7 +17,7 @@ public class Score : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        score = 9000;
+        score = 0;
         n_ListNum = 1;
         b_Score = false;
 
