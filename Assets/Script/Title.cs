@@ -82,9 +82,9 @@ public class Title : MonoBehaviour
                 else if (b_inout == true)
                     f_alpha += Time.deltaTime;
 
-                if(f_alpha > 1.0f)
+                if(f_alpha > 0.8f)
                 {
-                    f_alpha = 1.0f;
+                    f_alpha = 0.8f;
                     b_inout = false;
                 }
                 else if(f_alpha <0.0f)
@@ -101,7 +101,7 @@ public class Title : MonoBehaviour
                 if (n_Select == 0)
                 { 
                     SinglePlay.gameObject.transform.localScale = new Vector3(25.0f, 18.0f, 1.0f);
-                    SinglePlay.GetComponent<Image>().color = new Color(1.0f, 1.0f, 1.0f, f_alpha);
+                    SinglePlay.GetComponent<Image>().color = new Color(1.0f, 1.0f, 1.0f, f_alpha+0.2f);
                     DoublePlay.gameObject.transform.localScale = new Vector3(25.0f, 18.0f, 1.5f);
                     DoublePlay.GetComponent<Image>().color = new Color(1.0f, 1.0f, 1.0f, 0.3f);
                 }
@@ -110,18 +110,19 @@ public class Title : MonoBehaviour
                     SinglePlay.gameObject.transform.localScale = new Vector3(25.0f, 18.0f, 1.0f);
                     SinglePlay.GetComponent<Image>().color = new Color(1.0f, 1.0f, 1.0f, 0.3f);
                     DoublePlay.gameObject.transform.localScale = new Vector3(25.0f, 18.0f, 1.0f);
-                    DoublePlay.GetComponent<Image>().color = new Color(1.0f, 1.0f, 1.0f, f_alpha);
+                    DoublePlay.GetComponent<Image>().color = new Color(1.0f, 1.0f, 1.0f, f_alpha+0.2f);
                 }
                 if (Input.GetKeyDown(KeyCode.Space))
                 {
-                    b_fade = true;
-                    if (n_Select == 0)
+/*                    if (n_Select == 0)
                     {
+                        b_fade = true;
                         GameObject obj = GameObject.FindGameObjectWithTag("scene");
                         obj.gameObject.GetComponent<SceneControl>().FadeOut("SinglePlayScene");
-                    }
+                    }*/
                     if (n_Select == 1)
                     {
+                        b_fade = true;
                         GameObject obj = GameObject.FindGameObjectWithTag("scene");
                         obj.gameObject.GetComponent<SceneControl>().FadeOut("DoublePlayScene");
                     }

@@ -7,6 +7,7 @@ public class Pause : MonoBehaviour
 {
     GameObject Player;
     GameObject Timer;
+    GameObject PauseUI;
     GameObject PauseUI1;
     GameObject PauseUI2;
 
@@ -15,18 +16,23 @@ public class Pause : MonoBehaviour
 
     private bool b_Pause = false;
     private bool b_fade = false;
+    private bool b_inout = false;
     private int n_select = 0;
+    private float f_count = 0.0f;
    
     // Start is called before the first frame update
     void Start()
     {
         Player = GameObject.FindGameObjectWithTag("Player");
         Timer = GameObject.FindGameObjectWithTag("time");
+        PauseUI = GameObject.Find("PauseUI");
         PauseUI1 = GameObject.Find("PauseUI1");
         PauseUI2 = GameObject.Find("PauseUI2");
 
         f_alpha = 0.0f;
+        f_count = 0.0f;
         n_select = 0;
+        b_inout = false;
         b_Pause = false;
         b_fade = false;
 
@@ -36,15 +42,17 @@ public class Pause : MonoBehaviour
         PauseImage.transform.SetParent(canvas.transform, false);
         PauseImage.rectTransform.anchoredPosition = Vector3.zero;
 
-        PauseImage.color = new Color(0.0f, 0.0f, 0.0f, f_alpha);
+        PauseImage.color = new Color(0.0f, 0.0f, 0.0f, 0.0f);
         PauseImage.rectTransform.sizeDelta = new Vector2(5000, 5000);
 
 
+        PauseUI.GetComponent<RectTransform>().SetAsLastSibling();
         PauseUI1.GetComponent<RectTransform>().SetAsLastSibling();
         PauseUI2.GetComponent<RectTransform>().SetAsLastSibling();
 
-        PauseUI1.gameObject.SetActive(false);
-        PauseUI2.gameObject.SetActive(false);
+        PauseUI.SetActive(false);
+        PauseUI1.SetActive(false);
+        PauseUI2.SetActive(false);
     }
 
     // Update is called once per frame
@@ -53,29 +61,44 @@ public class Pause : MonoBehaviour
         
         if(Input.GetKeyDown(KeyCode.Y) && b_Pause == false)
         {
-            PauseUI1.gameObject.SetActive(true);
-            PauseUI2.gameObject.SetActive(true);
+            PauseUI.SetActive(true);
+            PauseUI1.SetActive(true);
+            PauseUI2.SetActive(true);
             Player.GetComponent<Stop>().StopObject();
             Timer.GetComponent<Stop>().StopObject();
-            f_alpha = 0.75f;
             b_Pause = true;
+            PauseImage.color = new Color(0.0f, 0.0f, 0.0f, 0.75f);
         }
 
         if (b_Pause == true)
             NowPause();
-
-        PauseImage.color = new Color(0.0f, 0.0f, 0.0f, f_alpha);
     }
 
     void NowPause()
     {
+        if (b_inout == false)
+            f_count += Time.deltaTime;
+        else if (b_inout == true)
+            f_count -= Time.deltaTime;
+
+        if(f_count > 0.8f)
+        {
+            f_count = 0.8f;
+            b_inout = true;
+        }
+        if(f_count < 0.0f)
+        {
+            f_count = 0.0f;
+            b_inout = false;
+        }
+
         if (b_fade == false)
         {
-            if (Input.GetKeyDown(KeyCode.W) && n_select == 0)
+            if (Input.GetKeyDown(KeyCode.S) && n_select == 0)
             {
                 n_select = 1;
             }
-            if (Input.GetKeyDown(KeyCode.S) && n_select == 1)
+            if (Input.GetKeyDown(KeyCode.W) && n_select == 1)
             {
                 n_select = 0;
             }
@@ -83,21 +106,23 @@ public class Pause : MonoBehaviour
 
             if (n_select == 0)
             {
-                PauseUI2.gameObject.transform.localScale = new Vector3(1.5f, 1.5f, 1.5f);
-                PauseUI1.gameObject.transform.localScale = new Vector3(1.0f, 1.0f, 1.0f);
+                PauseUI1.GetComponent<Image>().color = new Color(1.0f, 1.0f, 1.0f, f_count+0.2f);
+                PauseUI2.GetComponent<Image>().color = new Color(1.0f, 1.0f, 1.0f, 0.3f);
             }
             if (n_select == 1)
             {
-                PauseUI1.gameObject.transform.localScale = new Vector3(1.5f, 1.5f, 1.5f);
-                PauseUI2.gameObject.transform.localScale = new Vector3(1.0f, 1.0f, 1.0f);
+                PauseUI2.GetComponent<Image>().color = new Color(1.0f, 1.0f, 1.0f, f_count+0.2f);
+                PauseUI1.GetComponent<Image>().color = new Color(1.0f, 1.0f, 1.0f, 0.3f);
             }
 
             if (Input.GetKeyDown(KeyCode.Space) && n_select == 0)
             {
-                PauseUI1.gameObject.SetActive(false);
-                PauseUI2.gameObject.SetActive(false);
+                PauseUI.SetActive(false);
+                PauseUI1.SetActive(false);
+                PauseUI2.SetActive(false);
                 Player.GetComponent<Stop>().RemoveObject();
                 Timer.GetComponent<Stop>().RemoveObject();
+                PauseImage.color = new Color(0.0f, 0.0f, 0.0f, 0.0f);
                 f_alpha = 0.0f;
                 b_Pause = false;
             }

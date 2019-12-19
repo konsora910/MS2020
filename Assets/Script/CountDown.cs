@@ -7,6 +7,7 @@ public class CountDown : MonoBehaviour
 {
     GameObject player;
     GameObject Timer;
+    GameObject Pause;
 
     GameObject Count1;
     GameObject Count2;
@@ -104,6 +105,7 @@ public class CountDown : MonoBehaviour
                 Countstart.SetActive(false);
                 player.gameObject.GetComponent<Stop>().RemoveObject();
                 Timer.gameObject.GetComponent<Stop>().RemoveObject();
+                Pause.gameObject.GetComponent<Stop>().RemoveObject();
                 PauseImage.color = new Color(0.0f, 0.0f, 0.0f, 0.0f);
                 this.gameObject.SetActive(false);
             }
@@ -118,10 +120,11 @@ public class CountDown : MonoBehaviour
     {
         player = GameObject.FindGameObjectWithTag("Player");
         Timer = GameObject.FindGameObjectWithTag("time");
+        Pause = GameObject.Find("Pause");
 
         player.gameObject.GetComponent<Stop>().StopObject();
         Timer.gameObject.GetComponent<Stop>().StopObject();
-
+        Pause.gameObject.GetComponent<Stop>().StopObject();
     }
     public void CountStart()
     {

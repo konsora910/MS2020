@@ -47,6 +47,7 @@ public class SceneControl : MonoBehaviour
     public void FadeOut(string name)
     {
         if (fadeImage == null) Init();
+        fadeImage.GetComponent<RectTransform>().SetAsLastSibling();
         b_FadeOut = true;
         f_alpha = 0.0f;
         NextSceneName = name;
