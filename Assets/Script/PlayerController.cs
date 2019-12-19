@@ -5,7 +5,9 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour
 {
 
-    /// <summary> プレイヤーモード/// </summary>
+    /// <summary>
+    /// プレイヤーモード
+    /// </summary>
     public enum Mode
     {
         Stay,        //待機(空)
@@ -37,14 +39,14 @@ public class PlayerController : MonoBehaviour
 
 
 
-    [SerializeField] public GameObject food;                                 //　持っている食材のgameobjectprivate GameObject _previousFood;
+    [SerializeField] public GameObject food;                //　持っている食材のgameobjectprivate GameObject _previousFood;
     public int FoodType = Foodselect1.FOODNULL;             //　どの食材をもっているか
-    [SerializeField] private float _Speed = 0.1f;                             //　プレイヤーの移動速度
+    [SerializeField] private float _Speed = 0.1f;           //　プレイヤーの移動速度
     public Vector3 PlayerForward, OldPosition;              //　プレイヤーの向いている方向, 1フレーム前の位置
     private int ImputTimer = 5;                             //　食材を持ってから置くまでの入力遅延
     public bool bFood_Take = false;                         //　持ってるか持ってないか
-    [SerializeField] public bool b_TouchPot = false;                         //　ポットにふれているかどうか
-    [SerializeField] public bool b_TouchFPan = false;                        //　フライパンに触れているかどうか
+    [SerializeField] public bool b_TouchPot = false;        //　ポットにふれているかどうか
+    [SerializeField] public bool b_TouchFPan = false;       //　フライパンに触れているかどうか
     public bool b_TouchCB = false;                          //　まな板に触れているかどうか
 
     [SerializeField] private bool _IsTouchFood = false;     //食べ物に触れていたら
@@ -72,11 +74,23 @@ public class PlayerController : MonoBehaviour
     //AIscript
     [SerializeField] OperatorController OpScript;
     public float PushPower;
+
+    /// 追加部分
+    ////PlayerAnimation
+    //private Animator animator;                              //  プレイヤーがキー入力によってモーションが変化する
+    ////PlayerWalkingEffect
+    //private ParticleSystem particle;
+
     //    Collider collider;
     // Start is called before the first frame update
     void Start()
     {
-      //  _rb= transform.GetComponent<Rigidbody>();
+        //  _rb= transform.GetComponent<Rigidbody>();
+
+        /// 追加部分
+        //animator = GetComponent<Animator>();
+        //particle = this.GetComponent<ParticleSystem>();
+        //particle.Stop();
 
         OldPosition = this.gameObject.transform.position;
         PlayerForward = new Vector3(0.0f, 0.0f, 0.0f);
@@ -90,16 +104,19 @@ public class PlayerController : MonoBehaviour
         ImputTimer++;
         OldPosition = this.gameObject.transform.position;
 
-
+       
         if (CurrentMode == Mode.Stay)
         {
             KeyBord();
-           // Gamepad();
+            /// 追加部分
+            ///    MotionChange();
+            // Gamepad();
         }
         else if (CurrentMode == Mode.Walk)
         {
+            ChangeMode(Mode.Walk);
             KeyBord();
-           // Gamepad(); 
+            // Gamepad(); 
         }
         else if (CurrentMode == Mode.Hold)
         {
@@ -186,7 +203,7 @@ public class PlayerController : MonoBehaviour
         if (Input.GetKey(KeyCode.W) )
         {
             transform.position += Vector3.forward* _Speed;
-            
+       ///     animator.SetBool("is_running", true); // Animatorタブ上の遷移条件
         }
         if (Input.GetKey(KeyCode.A))
         {
@@ -339,7 +356,7 @@ public class PlayerController : MonoBehaviour
             OpScript.Miss();
         }
 
-
+      
     }
     
 
@@ -617,4 +634,32 @@ public class PlayerController : MonoBehaviour
         CurrentMode = mode;
     }
 
+    /// 追加部分
+    /// <summary>
+    /// モーションを変更
+    /// </summary>
+    // モーションをモードによって切り替える
+    //void MotionChange()
+    //{
+    //    switch (CurrentMode)
+    //    {
+    //        case Mode.Boil:
+    //            break;
+    //        case Mode.Cut:
+    //            break;
+    //        case Mode.Fry:
+    //            break;
+    //        case Mode.Hold:
+    //            break;
+    //        case Mode.Set:
+    //            break;
+    //        case Mode.Stay:
+    //         //   animator.SetBool("is_running", false); // Animatorタブ上の遷移条件
+    //            particle.Stop();
+    //            break;
+    //        case Mode.Walk:
+    //            particle.Play();
+    //            break;
+    //    }
+    //}
 }
