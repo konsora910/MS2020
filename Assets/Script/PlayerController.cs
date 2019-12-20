@@ -24,8 +24,11 @@ public class PlayerController : MonoBehaviour
     //[SerializeField]
     public Mode CurrentMode{ get; private set; }
 
-    //private Rigidbody _rb;
-    //private Vector3 _force;
+    [SerializeField] private string _Gamepad_x;
+    [SerializeField] private string _Gamepad_z;
+    [SerializeField] private string _Gamepad_HoldSet;
+    [SerializeField] private string _Gamepad_Operator;
+
 
 
     //触れている調理器具
@@ -351,7 +354,7 @@ public class PlayerController : MonoBehaviour
         }
 
         //AIに対する
-        if (Input.GetButtonDown("Operator"))
+        if (Input.GetKeyDown(KeyCode.F))
         {
             OpScript.Miss();
         }
@@ -364,21 +367,15 @@ public class PlayerController : MonoBehaviour
     private void Gamepad()
     {
 
-        float moveHorizontal = Input.GetAxis("Horizontal");
-        float moveVertical = Input.GetAxis("Vertical");
-
-
-        //Vector3 movement = new Vector3(moveHorizontal, 0.0f, moveVertical);
-
         //プレイヤー移動
-        if ( Input.GetAxis("Vertical") == 0&& Input.GetAxis("Horizontal")==0)
+        if ( Input.GetAxis(_Gamepad_x) == 0&& Input.GetAxis(_Gamepad_z) ==0)
         {
             ChangeMode(Mode.Stay);
         }
         else
         {
             ChangeMode(Mode.Walk);
-            transform.position += (Vector3.forward * Input.GetAxis("Vertical")+ Vector3.right  * Input.GetAxis("Horizontal") )*_Speed;
+            transform.position += (Vector3.forward * Input.GetAxis(_Gamepad_z) + Vector3.right  * Input.GetAxis(_Gamepad_x) )*_Speed;
 
         }
 
@@ -386,7 +383,7 @@ public class PlayerController : MonoBehaviour
         if (_IsTouchFood)
         {
             //持つ
-            if (Input.GetButtonDown("HoldSet") && bFood_Take == false)
+            if (Input.GetButtonDown(_Gamepad_HoldSet) && bFood_Take == false)
             {
 
                 ChangeMode(Mode.Hold);
@@ -435,7 +432,7 @@ public class PlayerController : MonoBehaviour
                 bFood_Take = true;
             }
             //持っている食材を置く
-            else if (Input.GetButtonDown("HoldSet") && bFood_Take == true)
+            else if (Input.GetButtonDown(_Gamepad_HoldSet) && bFood_Take == true)
             {
                 ChangeMode(Mode.Set);
                 //ポットに触れていたら
@@ -480,7 +477,7 @@ public class PlayerController : MonoBehaviour
         }
 
         //AIに対する
-        if(Input.GetButtonDown("Operator"))
+        if(Input.GetButtonDown(_Gamepad_Operator))
         {
             OpScript.Miss();
         }
