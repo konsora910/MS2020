@@ -10,7 +10,7 @@ public class Score : MonoBehaviour
     public int FoodType = Foodselect1.FOODNULL;
     public int n_Order = 0;
     public OperatorController OpScript;
-
+    public OrderGUI OrGUIScript;
     //仮置き
     GameObject scoreobj;
 
@@ -36,6 +36,9 @@ public class Score : MonoBehaviour
             {
                 if (n_Order == Foodselect1.OMERICE)
                 {
+                    OpScript.CookEnd();
+                    OrGUIScript.OrderNext();
+                    OpScript.CookEnd();
                     score += 10000;
                     n_Order = scoreobj.GetComponent<Order>().GetOrder(n_ListNum);
                     n_ListNum++;
@@ -47,6 +50,9 @@ public class Score : MonoBehaviour
             {
                 if (n_Order == Foodselect1.RICEBALL)
                 {
+                    OpScript.CookEnd();
+                    OrGUIScript.OrderNext();
+                    OpScript.CookEnd();
                     score += 20000;
                     n_Order = scoreobj.GetComponent<Order>().GetOrder(n_ListNum);
                     n_ListNum++;
@@ -57,7 +63,10 @@ public class Score : MonoBehaviour
             else if (FoodType == Foodselect1.SOUP)
             {
                 if (n_Order == Foodselect1.SOUP)
-                { 
+                {
+                    OpScript.CookEnd();
+                    OrGUIScript.OrderNext();
+                    OpScript.CookEnd();
                     score += 30000;
                     n_Order = scoreobj.GetComponent<Order>().GetOrder(n_ListNum);
                     n_ListNum++;
@@ -79,17 +88,16 @@ public class Score : MonoBehaviour
                 if (Collider.gameObject.tag == "Omerice")
                 {
                     FoodType = Foodselect1.OMERICE;
-                    OpScript.CookEnd();
                 }
                 else if (Collider.gameObject.tag == "RiceBall")
                 {
                     FoodType = Foodselect1.RICEBALL;
-                    OpScript.CookEnd();
+                    //OpScript.CookEnd();
                 }
                 else if (Collider.gameObject.tag == "Soup")
                 {
                     FoodType = Foodselect1.SOUP;
-                    OpScript.CookEnd();
+                    //OpScript.CookEnd();
                 }
                 b_Score = true;
             }

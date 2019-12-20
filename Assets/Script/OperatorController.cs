@@ -23,7 +23,7 @@ public class OperatorController : MonoBehaviour
     private bool Cook1 = false;
     private bool MissOpe = false;
 
-    private bool end = true;
+    public bool end = true;
     private bool cookF = false;
     public static readonly int FryingPan = 1;
     public static readonly int Pot = 2;
