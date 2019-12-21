@@ -38,13 +38,13 @@ public class Score : MonoBehaviour
                 {
                     OpScript.CookEnd();
                     OrGUIScript.OrderNext();
-                    OpScript.CookEnd();
-                    score += 10000;
+                    //OpScript.CookEnd();
+                    score += 300;
                     n_Order = scoreobj.GetComponent<Order>().GetOrder(n_ListNum);
                     n_ListNum++;
                 }
                 else
-                    score += 100;
+                    score += 30;
             }
             else if (FoodType == Foodselect1.RICEBALL)
             {
@@ -52,13 +52,13 @@ public class Score : MonoBehaviour
                 {
                     OpScript.CookEnd();
                     OrGUIScript.OrderNext();
-                    OpScript.CookEnd();
-                    score += 20000;
+                    //OpScript.CookEnd();
+                    score += 100;
                     n_Order = scoreobj.GetComponent<Order>().GetOrder(n_ListNum);
                     n_ListNum++;
                 }
                 else
-                    score += 150;
+                    score += 10;
             }
             else if (FoodType == Foodselect1.SOUP)
             {
@@ -66,13 +66,13 @@ public class Score : MonoBehaviour
                 {
                     OpScript.CookEnd();
                     OrGUIScript.OrderNext();
-                    OpScript.CookEnd();
-                    score += 30000;
+                    //OpScript.CookEnd();
+                    score += 200;
                     n_Order = scoreobj.GetComponent<Order>().GetOrder(n_ListNum);
                     n_ListNum++;
                 }
                 else
-                    score += 200;
+                    score += 20;
             }
             b_Score = false;
             FoodType = Foodselect1.FOODNULL;
