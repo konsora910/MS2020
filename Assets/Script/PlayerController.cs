@@ -28,6 +28,8 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private string _Gamepad_z;
     [SerializeField] private string _Gamepad_HoldSet;
     [SerializeField] private string _Gamepad_Operator;
+    [SerializeField] private string _Gamepad_Cancel;
+   [SerializeField] private string[] _GamepadNames;
 
 
 
@@ -107,7 +109,9 @@ public class PlayerController : MonoBehaviour
         ImputTimer++;
         OldPosition = this.gameObject.transform.position;
 
-       
+        _GamepadNames = Input.GetJoystickNames();
+
+
         if (CurrentMode == Mode.Stay)
         {
             KeyBord();
@@ -377,6 +381,41 @@ public class PlayerController : MonoBehaviour
             animator.SetBool("is_running", true); // Animatorタブ上の遷移条件
         }
 
+        if(b_TouchPot)
+        {
+            if (Input.GetButtonDown(_Gamepad_HoldSet) && bFood_Take == false)
+            {
+                _TouchPotScript.IsCooking = true;
+            }
+            else if (Input.GetButtonDown(_Gamepad_Cancel) && bFood_Take == false)
+            {
+                _TouchPotScript.Reset();
+            }
+        }
+        else if (b_TouchFPan)
+        {
+            if (Input.GetButtonDown(_Gamepad_HoldSet) && bFood_Take == false)
+            {
+
+                _TouchFryingPanScript.IsCookFPan = true;
+            }
+            else if (Input.GetButtonDown(_Gamepad_Cancel) && bFood_Take == false)
+            {
+                _TouchFryingPanScript.Reset();
+            }
+        }
+        else if (b_TouchCB)
+        {
+            if (Input.GetButtonDown(_Gamepad_HoldSet) && bFood_Take == false)
+            {
+                _TouchCutScript.IsCBoard = true;
+            }
+            else if (Input.GetButtonDown(_Gamepad_Cancel) && bFood_Take == false)
+            {
+                _TouchCutScript.Reset();
+            }
+        }
+
         //食べ物に触れているとき
         if (_IsTouchFood)
         {
@@ -429,6 +468,7 @@ public class PlayerController : MonoBehaviour
 
                 bFood_Take = true;
             }
+
             //持っている食材を置く
             else if (Input.GetButtonDown(_Gamepad_HoldSet) && bFood_Take == true)
             {
