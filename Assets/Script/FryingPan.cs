@@ -42,12 +42,16 @@ public class FryingPan : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (IsCookFPan)
+        //if (IsCookFPan)
         {
             switch (InFood)
             {
                 case 0:
+                    
+                    StopCoroutine("CookRiceOmelet");
+                    StopCoroutine("CookRiceBall");
                     IsCookFPan = false;
+                    IsGauge = false;
                     break;
                 case 1:
                     LetsCooking();
@@ -169,40 +173,47 @@ public class FryingPan : MonoBehaviour
      ==================================================*/
     IEnumerator CookRiceOmelet()
     {
-        if (!IsGauge)
+        if (IsCookFPan)
         {
-            CallUI.SetGaugeUIFlyingPan(this.transform.position);
-            IsGauge = true;
-            audioCookFP.Play();
+            if (!IsGauge)
+            {
+                CallUI.SetGaugeUIFlyingPan(this.transform.position);
+                IsGauge = true;
+                audioCookFP.Play();
+            }
+            OpScript.CookF();
+            
+            yield return new WaitForSeconds(5);
+            GameObject obj = GameObject.FindGameObjectWithTag("Food");
+            // 料理の生成場所を設定できる(生成対象オブジェクト、生成座標、生成初期角度)
+            GameObject instance = (GameObject)Instantiate(Omrice, new Vector3(this.transform.position.x, this.transform.position.y, this.transform.position.z), Quaternion.identity);
+            instance.transform.parent = obj.transform;          //コピー食材をfoodの子に
+            obj.GetComponent<Foodselect1>().AddFood(instance.transform);
+            Reset();
+            audioCookFP.Stop();
         }
-        OpScript.CookF();
-        Reset();
-        yield return new WaitForSeconds(5);
-        GameObject obj = GameObject.FindGameObjectWithTag("Food");
-        // 料理の生成場所を設定できる(生成対象オブジェクト、生成座標、生成初期角度)
-        GameObject instance = (GameObject)Instantiate(Omrice, new Vector3(this.transform.position.x, this.transform.position.y, this.transform.position.z), Quaternion.identity);
-        instance.transform.parent = obj.transform;          //コピー食材をfoodの子に
-        obj.GetComponent<Foodselect1>().AddFood(instance.transform);
-        audioCookFP.Stop();
     }
 
     IEnumerator CookRiceBall()
     {
-        if (!IsGauge)
+        if (IsCookFPan)
         {
-            CallUI.SetGaugeUIFlyingPan(this.transform.position);
-            IsGauge = true;
-            audioCookFP.Play();
+            if (!IsGauge)
+            {
+                CallUI.SetGaugeUIFlyingPan(this.transform.position);
+                IsGauge = true;
+                audioCookFP.Play();
+            }
+            OpScript.CookF();
+            yield return new WaitForSeconds(ConstGaugeUI.ConstUI.FLYINGPAN_COOKING_TIME);
+            GameObject obj = GameObject.FindGameObjectWithTag("Food");
+            // 料理の生成場所を設定できる(生成対象オブジェクト、生成座標、生成初期角度)
+            GameObject instance = (GameObject)Instantiate(RBall, new Vector3(this.transform.position.x, this.transform.position.y, this.transform.position.z), Quaternion.identity);
+            instance.transform.parent = obj.transform;          //コピー食材をfoodの子に
+            obj.GetComponent<Foodselect1>().AddFood(instance.transform);
+            Reset();
+            audioCookFP.Stop();
         }
-        OpScript.CookF();
-        Reset();
-        yield return new WaitForSeconds(5);
-        GameObject obj = GameObject.FindGameObjectWithTag("Food");
-        // 料理の生成場所を設定できる(生成対象オブジェクト、生成座標、生成初期角度)
-        GameObject instance = (GameObject)Instantiate(RBall, new Vector3(this.transform.position.x, this.transform.position.y, this.transform.position.z), Quaternion.identity);
-        instance.transform.parent = obj.transform;          //コピー食材をfoodの子に
-        obj.GetComponent<Foodselect1>().AddFood(instance.transform);
-        audioCookFP.Stop();
     }
 
     public void Reset()
