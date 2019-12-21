@@ -80,9 +80,9 @@ public class PlayerController : MonoBehaviour
 
     /// 追加部分
     ////PlayerAnimation
-    //private Animator animator;                              //  プレイヤーがキー入力によってモーションが変化する
-    ////PlayerWalkingEffect
-    //private ParticleSystem particle;
+    private Animator animator;                              //  プレイヤーがキー入力によってモーションが変化する
+    //PlayerWalkingEffect
+    private ParticleSystem particle;
 
     //    Collider collider;
     // Start is called before the first frame update
@@ -91,9 +91,9 @@ public class PlayerController : MonoBehaviour
         //  _rb= transform.GetComponent<Rigidbody>();
 
         /// 追加部分
-        //animator = GetComponent<Animator>();
-        //particle = this.GetComponent<ParticleSystem>();
-        //particle.Stop();
+        animator = GetComponent<Animator>();
+        particle = this.GetComponent<ParticleSystem>();
+       // particle.Stop();
 
         OldPosition = this.gameObject.transform.position;
         PlayerForward = new Vector3(0.0f, 0.0f, 0.0f);
@@ -112,19 +112,19 @@ public class PlayerController : MonoBehaviour
         {
             KeyBord();
             /// 追加部分
-            ///    MotionChange();
-            // Gamepad();
+                MotionChange();
+             Gamepad();
         }
         else if (CurrentMode == Mode.Walk)
         {
             ChangeMode(Mode.Walk);
             KeyBord();
-            // Gamepad(); 
+             Gamepad(); 
         }
         else if (CurrentMode == Mode.Hold)
         {
             KeyBord();
-           // Gamepad();
+            Gamepad();
         }
         else if (CurrentMode == Mode.Set)
         {
@@ -376,7 +376,7 @@ public class PlayerController : MonoBehaviour
         {
             ChangeMode(Mode.Walk);
             transform.position += (Vector3.forward * Input.GetAxis(_Gamepad_z) + Vector3.right  * Input.GetAxis(_Gamepad_x) )*_Speed;
-
+            animator.SetBool("is_running", true); // Animatorタブ上の遷移条件
         }
 
         //食べ物に触れているとき
@@ -636,27 +636,27 @@ public class PlayerController : MonoBehaviour
     /// モーションを変更
     /// </summary>
     // モーションをモードによって切り替える
-    //void MotionChange()
-    //{
-    //    switch (CurrentMode)
-    //    {
-    //        case Mode.Boil:
-    //            break;
-    //        case Mode.Cut:
-    //            break;
-    //        case Mode.Fry:
-    //            break;
-    //        case Mode.Hold:
-    //            break;
-    //        case Mode.Set:
-    //            break;
-    //        case Mode.Stay:
-    //         //   animator.SetBool("is_running", false); // Animatorタブ上の遷移条件
-    //            particle.Stop();
-    //            break;
-    //        case Mode.Walk:
-    //            particle.Play();
-    //            break;
-    //    }
-    //}
+    void MotionChange()
+    {
+        switch (CurrentMode)
+        {
+            case Mode.Boil:
+                break;
+            case Mode.Cut:
+                break;
+            case Mode.Fry:
+                break;
+            case Mode.Hold:
+                break;
+            case Mode.Set:
+                break;
+            case Mode.Stay:
+             //   animator.SetBool("is_running", false); // Animatorタブ上の遷移条件
+              // particle.Stop();
+                break;
+            case Mode.Walk:
+                particle.Play();
+                break;
+        }
+    }
 }

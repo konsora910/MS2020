@@ -9,13 +9,13 @@ InputManager:
     m_Name: Gamepad1_x
     descriptiveName: 
     descriptiveNegativeName: 
-    negativeButton: left
-    positiveButton: right
-    altNegativeButton: a
-    altPositiveButton: d
-    gravity: 3
-    dead: 0.001
-    sensitivity: 3
+    negativeButton: 
+    positiveButton: 
+    altNegativeButton: 
+    altPositiveButton: 
+    gravity: 0
+    dead: 0
+    sensitivity: 0
     snap: 1
     invert: 0
     type: 2
@@ -25,13 +25,13 @@ InputManager:
     m_Name: Gamepad2_x
     descriptiveName: 
     descriptiveNegativeName: 
-    negativeButton: left
-    positiveButton: right
-    altNegativeButton: a
-    altPositiveButton: d
-    gravity: 3
-    dead: 0.001
-    sensitivity: 3
+    negativeButton: 
+    positiveButton: 
+    altNegativeButton: 
+    altPositiveButton: 
+    gravity: 0
+    dead: 0
+    sensitivity: 0
     snap: 1
     invert: 0
     type: 2
@@ -41,12 +41,12 @@ InputManager:
     m_Name: Gamepad1_z
     descriptiveName: 
     descriptiveNegativeName: 
-    negativeButton: down
-    positiveButton: up
-    altNegativeButton: s
-    altPositiveButton: w
-    gravity: 3
-    dead: 0.001
+    negativeButton: 
+    positiveButton: 
+    altNegativeButton: 
+    altPositiveButton: 
+    gravity: 0
+    dead: 0
     sensitivity: 3
     snap: 1
     invert: 1
@@ -57,13 +57,13 @@ InputManager:
     m_Name: Gamepad2_z
     descriptiveName: 
     descriptiveNegativeName: 
-    negativeButton: down
-    positiveButton: up
-    altNegativeButton: s
-    altPositiveButton: w
-    gravity: 3
-    dead: 0.001
-    sensitivity: 3
+    negativeButton: 
+    positiveButton: 
+    altNegativeButton: 
+    altPositiveButton: 
+    gravity: 0
+    dead: 0
+    sensitivity: 0
     snap: 1
     invert: 1
     type: 2
