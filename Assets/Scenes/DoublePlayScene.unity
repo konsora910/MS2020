@@ -3421,7 +3421,8 @@ MonoBehaviour:
   IsCBoard: 0
   OpScript: {fileID: 579059258}
   missSound: {fileID: 8300000, guid: eff7d0acbe46b9c44b913ba55462cdd3, type: 3}
-  SliceTomato: {fileID: 0}
+  SliceTomato: {fileID: 5176500694778745753, guid: edb5b030e63be4446a46ed3c60e534f9,
+    type: 3}
 --- !u!82 &966561119
 AudioSource:
   m_ObjectHideFlags: 0
