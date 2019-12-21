@@ -308,7 +308,6 @@ public class PlayerController : MonoBehaviour
             //持っている食材を置く
             else if (Input.GetKeyDown(KeyCode.Space) && ImputTimer > 5 && bFood_Take == true)
             {
-
                 ChangeMode(Mode.Set);
                 //ポットに触れていたら
                 if (b_TouchPot == true)

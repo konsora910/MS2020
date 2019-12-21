@@ -6,6 +6,7 @@ using UnityEngine.UI;
 public class CountDown : MonoBehaviour
 {
     GameObject player;
+    GameObject player2;
     GameObject Timer;
     GameObject Pause;
 
@@ -104,6 +105,7 @@ public class CountDown : MonoBehaviour
             {
                 Countstart.SetActive(false);
                 player.gameObject.GetComponent<Stop>().RemoveObject();
+                player2.GetComponent<Stop>().RemoveObject();
                 Timer.gameObject.GetComponent<Stop>().RemoveObject();
                 Pause.gameObject.GetComponent<Stop>().RemoveObject();
                 PauseImage.color = new Color(0.0f, 0.0f, 0.0f, 0.0f);
@@ -119,10 +121,12 @@ public class CountDown : MonoBehaviour
     void Init()
     {
         player = GameObject.FindGameObjectWithTag("Player");
+        player2 = GameObject.FindGameObjectWithTag("Player2");
         Timer = GameObject.FindGameObjectWithTag("time");
         Pause = GameObject.Find("Pause");
 
         player.gameObject.GetComponent<Stop>().StopObject();
+        player2.gameObject.GetComponent<Stop>().StopObject();
         Timer.gameObject.GetComponent<Stop>().StopObject();
         Pause.gameObject.GetComponent<Stop>().StopObject();
     }

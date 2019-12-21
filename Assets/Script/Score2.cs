@@ -13,7 +13,7 @@ public class Score2 : MonoBehaviour
     public OrderGUI OrGUIScript;
 
     //仮置き
-    GameObject player;
+    GameObject scoreobj;
 
     // Start is called before the first frame update
     void Start()
@@ -23,9 +23,9 @@ public class Score2 : MonoBehaviour
         b_Score = false;
 
         //仮置き
-        player = GameObject.FindGameObjectWithTag("Player");
+        scoreobj = GameObject.Find("order");
 
-        n_Order = 5;
+        n_Order = scoreobj.GetComponent<Order>().GetOrder(0);
     }
 
     // Update is called once per frame
@@ -40,7 +40,7 @@ public class Score2 : MonoBehaviour
                     OpScript.CookEnd();
                     OrGUIScript.OrderNext();
                     score += 10000;
-                    n_Order = player.GetComponent<Order>().GetOrder(n_ListNum);
+                    n_Order = scoreobj.GetComponent<Order>().GetOrder(n_ListNum);
                     n_ListNum++;
                 }
                 else
@@ -53,7 +53,7 @@ public class Score2 : MonoBehaviour
                     OpScript.CookEnd();
                     OrGUIScript.OrderNext();
                     score += 20000;
-                    n_Order = player.GetComponent<Order>().GetOrder(n_ListNum);
+                    n_Order = scoreobj.GetComponent<Order>().GetOrder(n_ListNum);
                     n_ListNum++;
                 }
                 else
@@ -66,7 +66,7 @@ public class Score2 : MonoBehaviour
                     OpScript.CookEnd();
                     OrGUIScript.OrderNext();
                     score += 30000;
-                    n_Order = player.GetComponent<Order>().GetOrder(n_ListNum);
+                    n_Order = scoreobj.GetComponent<Order>().GetOrder(n_ListNum);
                     n_ListNum++;
                 }
                 else

@@ -2912,7 +2912,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 0}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -4400,7 +4400,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 0}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -7955,6 +7955,7 @@ MonoBehaviour:
   orderScript: {fileID: 1378219870}
   img: {fileID: 1795855909}
   InputOrderObj: {fileID: 1378219869}
+  num: 0
 --- !u!114 &1795855909
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8312,6 +8313,7 @@ MonoBehaviour:
   orderScript: {fileID: 1378219870}
   img: {fileID: 1842288601}
   InputOrderObj: {fileID: 1378219869}
+  num: 0
 --- !u!114 &1842288601
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9368,7 +9370,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 0}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:

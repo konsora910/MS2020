@@ -24,7 +24,7 @@ public class Score : MonoBehaviour
         //仮置き
         scoreobj = GameObject.Find("order");
 
-        n_Order = 5;
+        n_Order = scoreobj.GetComponent<Order>().GetOrder(0);
     }
 
     // Update is called once per frame
