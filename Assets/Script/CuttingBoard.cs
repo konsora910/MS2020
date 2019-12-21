@@ -39,7 +39,7 @@ public class CuttingBoard : MonoBehaviour
         if (IsCBoard)
         {
            CutFood();
-           IsCBoard = false;
+           
         }
     }
     
@@ -88,7 +88,6 @@ public class CuttingBoard : MonoBehaviour
         }
         else if (food.gameObject.tag == "tmt")
         {
-            _GaugeUIScript.SetGaugeUICuttingboard(this.transform.position);
             OpScript.FoodKind(Foodselect1.TOMATO);
             OpScript.CookKind(OperatorController.CuttingBoard);
             Debug.Log("サラダぁ...");
@@ -112,9 +111,15 @@ public class CuttingBoard : MonoBehaviour
     
     IEnumerator CookSarada()
     {
+        if (!IsGauge)
+        {
+            _GaugeUIScript.SetGaugeUICuttingboard(this.transform.position);
+            IsGauge = true;
+        }
+            yield return new WaitForSeconds(ConstGaugeUI.ConstUI.CUTTINGBOARD_COOKING_TIME);
         Reset();
-        yield return new WaitForSeconds(2);
         OpScript.CookF();
+
     }
     public void Reset()
     {
@@ -138,5 +143,7 @@ public class CuttingBoard : MonoBehaviour
         }
         OpScript.CutReset();
         food = null;
+        IsCBoard = false;
+        IsGauge = false;
     }
 }

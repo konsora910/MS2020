@@ -8,19 +8,19 @@ namespace ConstGaugeUI
     public static class ConstUI
     {
         /// <summary>
-        /// フライパン調理時間
+        /// フライパン調理時間:5.0f
         /// </summary>
         public static float FLYINGPAN_COOKING_TIME = 5.0f;
 
         /// <summary>
-        /// 鍋調理時間
+        /// 鍋調理時間:7.0f
         /// </summary>
         public static float POT_COOKING_TIME = 7.0f;
 
         /// <summary>
-        /// まな板調理時間
+        /// まな板調理時間:3.0f
         /// </summary>
-        public static float CUTTINGBOARD_COOKING_TIME = 5.0f;
+        public static float CUTTINGBOARD_COOKING_TIME = 3.0f;
 
         /// <summary>
         /// フライパンのゲージ位置 x,y,z

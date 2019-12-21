@@ -18,8 +18,8 @@ public class FryingPan : MonoBehaviour
     private Vector3 thisPos;
     SetCookGaugeUI CallUI;
     public GameObject getUI;
-    public bool IsCookFPan = false;
-    public bool IsGauge = false;
+    public bool IsCookFPan = false;   //調理中trueになる
+    public bool IsGauge = false;      
     public OperatorController OpScript;
 
     public AudioClip cooking;
@@ -55,15 +55,15 @@ public class FryingPan : MonoBehaviour
                     break;
                 case 1:
                     LetsCooking();
-                    IsCookFPan = false;
+                    
                     break;
                 case 2:
                     LetsCooking();
-                    IsCookFPan = false;
+                    
                     break;
                 case 3:
                     LetsCooking();
-                    IsCookFPan = false;
+                    
                     break;
                 default:
                     break;

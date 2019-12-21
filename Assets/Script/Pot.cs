@@ -32,10 +32,10 @@ public class Pot : MonoBehaviour
     //ゲージUIスクリプト
     private SetCookGaugeUI _GaugeUIScript;
 
-    //ゲージ使用
+    //ゲージ使用中true
     [SerializeField] public bool IsGauge = false;
 
-    //調理開始用
+    ////調理中trueになる
     [SerializeField] public bool IsCooking = false;
 
 

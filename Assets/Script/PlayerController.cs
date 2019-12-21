@@ -310,19 +310,18 @@ public class PlayerController : MonoBehaviour
             {
                 ChangeMode(Mode.Set);
                 //ポットに触れていたら
-                if (b_TouchPot == true)
+                if (b_TouchPot == true && !_TouchPotScript.IsCooking)
                 {
-                    //_TouchPotScript = _TouchCookware.GetComponent<Pot>();
                     _TouchPotScript.SetFood(food);
                     if (food.gameObject.tag == "tmt" || food.gameObject.tag == "egg" || food.gameObject.tag == "rice")
                     { food.gameObject.SetActive(false); }
                 }
                 //　フライパンに触れたら
-                if (b_TouchFPan == true)
+                if (b_TouchFPan == true && !_TouchFryingPanScript.IsCookFPan)
                 {
                     _TouchFryingPanScript.LeadFood(food);
                 }
-                if (b_TouchCB == true)
+                if (b_TouchCB == true && !_TouchCutScript.IsCBoard)
                 {
 
                     _TouchCutScript.LeadFood(food);
@@ -435,7 +434,7 @@ public class PlayerController : MonoBehaviour
             {
                 ChangeMode(Mode.Set);
                 //ポットに触れていたら
-                if (b_TouchPot == true)
+                if (b_TouchPot == true && !_TouchPotScript.IsCooking)
                 {
                     //_TouchPotScript = _TouchCookware.GetComponent<Pot>();
                     _TouchPotScript.SetFood(food);
@@ -443,13 +442,12 @@ public class PlayerController : MonoBehaviour
                     { food.gameObject.SetActive(false); }
                 }
                 //　フライパンに触れたら
-                if (b_TouchFPan == true)
+                if (b_TouchFPan == true&&!_TouchFryingPanScript.IsCookFPan)
                 {
                     _TouchFryingPanScript.LeadFood(food);
                 }
-                if (b_TouchCB == true)
+                if (b_TouchCB == true&&!_TouchCutScript.IsCBoard)
                 {
-
                     _TouchCutScript.LeadFood(food);
 
                     if (food.gameObject.tag == "tmt" || food.gameObject.tag == "egg" || food.gameObject.tag == "rice")
