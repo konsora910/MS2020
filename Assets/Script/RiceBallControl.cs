@@ -20,6 +20,7 @@ public class RiceBallControl : MonoBehaviour
     void Update()
     {
         DestroyFood(bDestroy);      //食べ物消す
+        bDestroy = false;
     }
     void OnTriggerStay(Collider Collider)
     {
