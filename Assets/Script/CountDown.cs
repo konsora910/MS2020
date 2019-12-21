@@ -105,7 +105,7 @@ public class CountDown : MonoBehaviour
             {
                 Countstart.SetActive(false);
                 player.gameObject.GetComponent<Stop>().RemoveObject();
-                player2.GetComponent<Stop>().RemoveObject();
+                player2.gameObject.GetComponent<Stop>().RemoveObject();
                 Timer.gameObject.GetComponent<Stop>().RemoveObject();
                 Pause.gameObject.GetComponent<Stop>().RemoveObject();
                 PauseImage.color = new Color(0.0f, 0.0f, 0.0f, 0.0f);
