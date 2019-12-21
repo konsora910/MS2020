@@ -7,7 +7,7 @@ public class OmericeControl : MonoBehaviour
     public bool takeout = false;     　  // 持っていない状態を表す
     public Vector3 FoodResetPosition;  　//食べ物の初期位置
     public GameObject Food;
-    bool bDestroy = false;
+    public bool bDestroy = false;
     public bool IsHold = false;
 
     void Start()
@@ -20,26 +20,44 @@ public class OmericeControl : MonoBehaviour
     {
         DestroyFood(bDestroy);      //食べ物消す
     }
-    void OnTriggerStay(Collider Collider)
+    //void OnTriggerStay(Collider Collider)
+    //{
+    //    test = true;
+    //    if (IsHold)
+    //    {
+
+    //        //作業台と接触していたら
+    //        if (Collider.gameObject.tag == "Workbench")
+    //        {
+    //            bDestroy = true;
+    //        }
+
+    //        //プレイヤーかAIが食べ物を持ったら
+    //        if (Collider.gameObject.tag == "Player")
+    //        {
+    //            takeout = true; // true = 何かしら持っている
+    //        }
+    //    }
+    //}
+    private void OnTriggerEnter(Collider Collider)
     {
-
-        if (IsHold)
+        //作業台と接触していたら
+        if (Collider.gameObject.tag == "Workbench")
         {
-
-            //作業台と接触していたら
-            if (Collider.gameObject.tag == "Workbench")
-            {
-                bDestroy = true;
-            }
-
-            //プレイヤーかAIが食べ物を持ったら
-            if (Collider.gameObject.tag == "Player")
-            {
-                takeout = true; // true = 何かしら持っている
-            }
+            bDestroy = true;
         }
-    }
+        else
+        {
+            bDestroy = false;
+        }
 
+        //プレイヤーかAIが食べ物を持ったら
+        if (Collider.gameObject.tag == "Player")
+        {
+            takeout = true; // true = 何かしら持っている
+        }
+        
+    }
     public void DestroyFood(bool delate)
     {
         if (takeout == false && delate == true)
