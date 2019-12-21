@@ -20,44 +20,25 @@ public class OmericeControl : MonoBehaviour
     {
         DestroyFood(bDestroy);      //食べ物消す
     }
-    //void OnTriggerStay(Collider Collider)
-    //{
-    //    test = true;
-    //    if (IsHold)
-    //    {
-
-    //        //作業台と接触していたら
-    //        if (Collider.gameObject.tag == "Workbench")
-    //        {
-    //            bDestroy = true;
-    //        }
-
-    //        //プレイヤーかAIが食べ物を持ったら
-    //        if (Collider.gameObject.tag == "Player")
-    //        {
-    //            takeout = true; // true = 何かしら持っている
-    //        }
-    //    }
-    //}
-    private void OnTriggerEnter(Collider Collider)
+    void OnTriggerStay(Collider Collider)
     {
-        //作業台と接触していたら
-        if (Collider.gameObject.tag == "Workbench")
+        if (IsHold)
         {
-            bDestroy = true;
-        }
-        else
-        {
-            bDestroy = false;
-        }
 
-        //プレイヤーかAIが食べ物を持ったら
-        if (Collider.gameObject.tag == "Player")
-        {
-            takeout = true; // true = 何かしら持っている
+            //作業台と接触していたら
+            if (Collider.gameObject.tag == "Workbench")
+            {
+                bDestroy = true;
+            }
+
+            //プレイヤーかAIが食べ物を持ったら
+            if (Collider.gameObject.tag == "Player")
+            {
+                takeout = true; // true = 何かしら持っている
+            }
         }
-        
     }
+
     public void DestroyFood(bool delate)
     {
         if (takeout == false && delate == true)
