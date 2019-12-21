@@ -230,6 +230,7 @@ public class Pot : MonoBehaviour
             Debug.Log("料理2");
             OpScript.CookF();
             Reset();
+            audioCookPot.Stop();
             ChangeMode(Mode.Stay);
         }
 
