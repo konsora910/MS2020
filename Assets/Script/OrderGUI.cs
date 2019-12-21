@@ -16,7 +16,7 @@ public class OrderGUI : MonoBehaviour
     public GameObject InputOrderObj;
     private Sprite ord;
     private Sprite readSprite;
-    private int num = 0;
+    public int num = 0;
     private int ArNum = 0;
 
     // Start is called before the first frame update
@@ -24,6 +24,7 @@ public class OrderGUI : MonoBehaviour
     {
         orderScript = InputOrderObj.GetComponent<Order>();
         img = GetComponent<Image>();
+      
     }
 
     // Update is called once per frame

@@ -23,8 +23,8 @@ public class OperatorController : MonoBehaviour
     private bool Cook1 = false;
     private bool MissOpe = false;
 
-    private bool end = true;
-    private bool cookF = false;
+    public bool end = true;
+    public bool cookF = false;
     public static readonly int FryingPan = 1;
     public static readonly int Pot = 2;
     public static readonly int CuttingBoard = 3;
@@ -1190,6 +1190,7 @@ public class OperatorController : MonoBehaviour
 
     public void CookEnd()
     {
+        cookF = false;
         if (Foodselect1.OMERICE == order)
         {
             FPReset();
@@ -1205,7 +1206,6 @@ public class OperatorController : MonoBehaviour
         }
         ClearCook++;
         end = true;
-        cookF = false;
     }
 
     public void CookF()

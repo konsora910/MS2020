@@ -7,7 +7,7 @@ public class OmericeControl : MonoBehaviour
     public bool takeout = false;     　  // 持っていない状態を表す
     public Vector3 FoodResetPosition;  　//食べ物の初期位置
     public GameObject Food;
-    bool bDestroy = false;
+    public bool bDestroy = false;
     public bool IsHold = false;
 
     void Start()
@@ -19,10 +19,10 @@ public class OmericeControl : MonoBehaviour
     void Update()
     {
         DestroyFood(bDestroy);      //食べ物消す
+        bDestroy = false;
     }
     void OnTriggerStay(Collider Collider)
     {
-
         if (IsHold)
         {
 

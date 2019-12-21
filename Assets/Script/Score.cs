@@ -10,7 +10,7 @@ public class Score : MonoBehaviour
     public int FoodType = Foodselect1.FOODNULL;
     public int n_Order = 0;
     public OperatorController OpScript;
-
+    public OrderGUI OrGUIScript;
     //仮置き
     GameObject scoreobj;
 
@@ -24,7 +24,7 @@ public class Score : MonoBehaviour
         //仮置き
         scoreobj = GameObject.Find("order");
 
-        n_Order = 5;
+        n_Order = scoreobj.GetComponent<Order>().GetOrder(0);
     }
 
     // Update is called once per frame
@@ -36,34 +36,43 @@ public class Score : MonoBehaviour
             {
                 if (n_Order == Foodselect1.OMERICE)
                 {
-                    score += 10000;
+                    OpScript.CookEnd();
+                    OrGUIScript.OrderNext();
+                    //OpScript.CookEnd();
+                    score += 300;
                     n_Order = scoreobj.GetComponent<Order>().GetOrder(n_ListNum);
                     n_ListNum++;
                 }
                 else
-                    score += 100;
+                    score += 30;
             }
             else if (FoodType == Foodselect1.RICEBALL)
             {
                 if (n_Order == Foodselect1.RICEBALL)
                 {
-                    score += 20000;
+                    OpScript.CookEnd();
+                    OrGUIScript.OrderNext();
+                    //OpScript.CookEnd();
+                    score += 100;
                     n_Order = scoreobj.GetComponent<Order>().GetOrder(n_ListNum);
                     n_ListNum++;
                 }
                 else
-                    score += 150;
+                    score += 10;
             }
             else if (FoodType == Foodselect1.SOUP)
             {
                 if (n_Order == Foodselect1.SOUP)
-                { 
-                    score += 30000;
+                {
+                    OpScript.CookEnd();
+                    OrGUIScript.OrderNext();
+                    //OpScript.CookEnd();
+                    score += 200;
                     n_Order = scoreobj.GetComponent<Order>().GetOrder(n_ListNum);
                     n_ListNum++;
                 }
                 else
-                    score += 200;
+                    score += 20;
             }
             b_Score = false;
             FoodType = Foodselect1.FOODNULL;
@@ -79,17 +88,16 @@ public class Score : MonoBehaviour
                 if (Collider.gameObject.tag == "Omerice")
                 {
                     FoodType = Foodselect1.OMERICE;
-                    OpScript.CookEnd();
                 }
                 else if (Collider.gameObject.tag == "RiceBall")
                 {
                     FoodType = Foodselect1.RICEBALL;
-                    OpScript.CookEnd();
+                    //OpScript.CookEnd();
                 }
                 else if (Collider.gameObject.tag == "Soup")
                 {
                     FoodType = Foodselect1.SOUP;
-                    OpScript.CookEnd();
+                    //OpScript.CookEnd();
                 }
                 b_Score = true;
             }

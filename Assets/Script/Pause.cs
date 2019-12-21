@@ -6,6 +6,7 @@ using UnityEngine.UI;
 public class Pause : MonoBehaviour
 {
     GameObject Player;
+    GameObject Player2;
     GameObject Timer;
     GameObject PauseUI;
     GameObject PauseUI1;
@@ -24,10 +25,15 @@ public class Pause : MonoBehaviour
     void Start()
     {
         Player = GameObject.FindGameObjectWithTag("Player");
+        Player2 = GameObject.FindGameObjectWithTag("Player2");
         Timer = GameObject.FindGameObjectWithTag("time");
         PauseUI = GameObject.Find("PauseUI");
         PauseUI1 = GameObject.Find("PauseUI1");
         PauseUI2 = GameObject.Find("PauseUI2");
+
+        PauseUI.GetComponent<Image>().color = new Color(1.0f, 1.0f, 1.0f, 1.0f);
+        PauseUI1.GetComponent<Image>().color = new Color(1.0f, 1.0f, 1.0f, 1.0f);
+        PauseUI2.GetComponent<Image>().color = new Color(1.0f, 1.0f, 1.0f, 1.0f);
 
         f_alpha = 0.0f;
         f_count = 0.0f;
@@ -44,7 +50,6 @@ public class Pause : MonoBehaviour
 
         PauseImage.color = new Color(0.0f, 0.0f, 0.0f, 0.0f);
         PauseImage.rectTransform.sizeDelta = new Vector2(5000, 5000);
-
 
         PauseUI.GetComponent<RectTransform>().SetAsLastSibling();
         PauseUI1.GetComponent<RectTransform>().SetAsLastSibling();
@@ -65,6 +70,7 @@ public class Pause : MonoBehaviour
             PauseUI1.SetActive(true);
             PauseUI2.SetActive(true);
             Player.GetComponent<Stop>().StopObject();
+            Player2.GetComponent<Stop>().StopObject();
             Timer.GetComponent<Stop>().StopObject();
             b_Pause = true;
             PauseImage.color = new Color(0.0f, 0.0f, 0.0f, 0.75f);
@@ -121,6 +127,7 @@ public class Pause : MonoBehaviour
                 PauseUI1.SetActive(false);
                 PauseUI2.SetActive(false);
                 Player.GetComponent<Stop>().RemoveObject();
+                Player2.GetComponent<Stop>().RemoveObject();
                 Timer.GetComponent<Stop>().RemoveObject();
                 PauseImage.color = new Color(0.0f, 0.0f, 0.0f, 0.0f);
                 f_alpha = 0.0f;
