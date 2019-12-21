@@ -17,8 +17,10 @@ public class CuttingBoard : MonoBehaviour
     //ゲージ使用
     [SerializeField] public bool IsGauge = false;
 
-    public bool IsCBoard = false;
+    public bool IsCBoard = false;   //  プレイヤーが近づくと切り替わる
     public OperatorController OpScript;
+    private AudioSource CBMiss;
+    public AudioClip missSound;
 
 
     // Start is called before the first frame update
@@ -27,6 +29,8 @@ public class CuttingBoard : MonoBehaviour
         food = null;
         _GaugeUI = GameObject.FindGameObjectWithTag("CookGaugeUI");
         _GaugeUIScript = _GaugeUI.GetComponent<SetCookGaugeUI>();
+        CBMiss = GetComponent<AudioSource>();
+        CBMiss.clip = missSound;
     }
 
     // Update is called once per frame
@@ -34,7 +38,7 @@ public class CuttingBoard : MonoBehaviour
     {
         if (IsCBoard)
         {
-            CutFood();
+           CutFood();
            IsCBoard = false;
         }
     }
@@ -70,7 +74,12 @@ public class CuttingBoard : MonoBehaviour
     
     void CutFood()
     {
-        if (food.gameObject.tag == "rice")
+        if (!food)
+        {
+            Debug.Log("No FoodMaterial");
+            CBMiss.Play();
+        }
+        else if (food.gameObject.tag == "rice")
         {
             OpScript.FoodKind(Foodselect1.RICE);
             OpScript.CookKind(OperatorController.CuttingBoard);
@@ -100,40 +109,12 @@ public class CuttingBoard : MonoBehaviour
      * 　関数が呼ばれて中に食材がある場合は
      * 中身を消して食材を書き換える
      ==============================================*/
-     /*
-    private void FoodNameRice(GameObject inRice)
-    {
-        if (food != null)
-        {
-            food = null;
-        }
-        food = inRice;
-    }
-
-    private void FoodNameTomato(GameObject inTomato)
-    {
-        if (food != null)
-        {
-            food = null;
-        }
-        food = inTomato;
-    }
-
-    private void FoodNameEgg(GameObject inEgg)
-    {
-        if (food != null)
-        {
-            food = null;
-        }
-        food = inEgg;
-    }
-    */
     
     IEnumerator CookSarada()
     {
+        Reset();
         yield return new WaitForSeconds(2);
         OpScript.CookF();
-        Reset();
     }
     public void Reset()
     {
@@ -158,47 +139,4 @@ public class CuttingBoard : MonoBehaviour
         OpScript.CutReset();
         food = null;
     }
-   
-    
-    //private IEnumerator OnTriggerStay(Collider Collider)
-    //{// 接触している時間が一定時間たったら
-
-    //    name = gameObject.name; // 接触したゲームオブジェクトの名前を格納する
-
-    //    Debug.Log("接触している食材: " + gameObject.name);
-
-    //    yield return time;
-    //}
-    //void OnCollisionExit(Collision collision)
-    //{// 作成されたもの
-    // //===============================================================================
-    // /* 単体用 */
-    // //
-    // //===============================================================================
-    //    if (food = GameObject.FindGameObjectWithTag("egg"))
-    //    {// フードタグが付いているゲームオブジェクトに当たった時
-    //        Debug.Log("失敗!");
-    //        //fctr.begg = true;
-    //        food.GetComponent<EggControl>().takeout = false;
-
-    //    }
-    //    else if (food = GameObject.FindGameObjectWithTag("rice"))
-    //    {// フードタグが付いているゲームオブジェクトに当たった時
-    //        Debug.Log("失敗!");
-    //        //fctr.brice = true;
-    //        food.GetComponent<RiceControl>().takeout = false;
-    //    }
-    //    else if (food = GameObject.FindGameObjectWithTag("tmt"))
-    //    {// フードタグが付いているゲームオブジェクトに当たった時
-    //        Debug.Log("サラダ");
-    //        //fctr.btmt = true;
-    //        food.GetComponent<TomatoControl>().takeout = false;
-    //    }
-    //    //===============================================================================
-    //    if (collision.gameObject.tag == "cook")
-    //    {
-    //        Debug.Log("作成されたもの:" + gameObject.name);
-
-    //    }
-    //}
 }
