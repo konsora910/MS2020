@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 2849168351568138590}
   - component: {fileID: 4686874905114107720}
   m_Layer: 0
-  m_Name: RiceBall
+  m_Name: riceball
   m_TagString: RiceBall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -60,7 +60,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 8748892135801146194, guid: b3c413e11eda2164484927a6136e5ee0, type: 3}
+  - {fileID: 2100000, guid: ee18c0a2f51b5e24f9268357312bb469, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -108,6 +108,7 @@ MonoBehaviour:
   takeout: 0
   FoodResetPosition: {x: 0, y: 0, z: 0}
   Food: {fileID: 0}
+  IsHold: 0
 --- !u!135 &4686874905114107720
 SphereCollider:
   m_ObjectHideFlags: 0

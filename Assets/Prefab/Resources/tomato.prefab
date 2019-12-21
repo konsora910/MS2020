@@ -139,7 +139,7 @@ MonoBehaviour:
   FoodResetPosition: {x: 0, y: 0, z: 0}
   copyFood: {fileID: 0}
   Food: {fileID: 0}
-  AiSrt: {fileID: 7958607267196890019, guid: ae98fb7259c0a894b8baa3e03abf82a9, type: 3}
+  IsHold: 0
 --- !u!1 &7054959156134822048
 GameObject:
   m_ObjectHideFlags: 0
@@ -197,7 +197,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 8748892135801146194, guid: 6ce235d41296a65499d40e2df7cabc38, type: 3}
+  - {fileID: 2100000, guid: ee18c0a2f51b5e24f9268357312bb469, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0

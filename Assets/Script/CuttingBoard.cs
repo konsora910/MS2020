@@ -22,6 +22,7 @@ public class CuttingBoard : MonoBehaviour
     private AudioSource CBMiss;
     public AudioClip missSound;
 
+    public GameObject SliceTomato;
 
     // Start is called before the first frame update
     void Start()
@@ -117,6 +118,11 @@ public class CuttingBoard : MonoBehaviour
             IsGauge = true;
         }
             yield return new WaitForSeconds(ConstGaugeUI.ConstUI.CUTTINGBOARD_COOKING_TIME);
+        GameObject obj = GameObject.FindGameObjectWithTag("Food");
+        // 料理の生成場所を設定できる(生成対象オブジェクト、生成座標、生成初期角度)
+        GameObject instance = (GameObject)Instantiate(SliceTomato, new Vector3(this.transform.position.x, this.transform.position.y, this.transform.position.z), Quaternion.identity);
+        instance.transform.parent = obj.transform;          //コピー食材をfoodの子に
+        obj.GetComponent<Foodselect1>().AddFood(instance.transform);
         Reset();
         OpScript.CookF();
 
@@ -147,3 +153,4 @@ public class CuttingBoard : MonoBehaviour
         IsGauge = false;
     }
 }
+

@@ -12,7 +12,6 @@ GameObject:
   - component: {fileID: 3282326082966686986}
   - component: {fileID: 9129257440044478963}
   - component: {fileID: 3384127168364383366}
-  - component: {fileID: 5859770015978134825}
   - component: {fileID: 1021597886096238136}
   m_Layer: 0
   m_Name: rice
@@ -60,7 +59,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 8748892135801146194, guid: 1bac2b4d36288ea4e9c232a99ad26e63, type: 3}
+  - {fileID: 2100000, guid: ee18c0a2f51b5e24f9268357312bb469, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -93,27 +92,6 @@ SphereCollider:
   serializedVersion: 2
   m_Radius: 0.017343868
   m_Center: {x: 0.0000000027939677, y: 0.0067384974, z: 0}
---- !u!114 &5859770015978134825
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7389691521813136687}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d788195e1b76b1c4998d453e9ef5e58a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Player: {fileID: 1698701876089122309, guid: 5451ec37c887443468db8d74b7c9f8a7, type: 3}
-  takeout: 0
-  FoodResetPosition: {x: 0, y: 0, z: 0}
-  TakePosition: {x: 0, y: 0, z: 0.405}
-  btmt: 0
-  brice: 0
-  begg: 0
-  AI: {fileID: 0}
-  AiTaleOut: 0
 --- !u!114 &1021597886096238136
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -130,4 +108,4 @@ MonoBehaviour:
   FoodResetPosition: {x: 0, y: 0, z: 0}
   copyFood: {fileID: 0}
   Food: {fileID: 0}
-  AiSrt: {fileID: 7958607267196890019, guid: ae98fb7259c0a894b8baa3e03abf82a9, type: 3}
+  IsHold: 0

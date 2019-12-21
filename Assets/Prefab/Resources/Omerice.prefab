@@ -929,6 +929,8 @@ MonoBehaviour:
   takeout: 0
   FoodResetPosition: {x: 0, y: 0, z: 0}
   Food: {fileID: 0}
+  bDestroy: 0
+  IsHold: 0
 --- !u!135 &6296293159172655666
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -1403,7 +1405,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 8748892135801146194, guid: 90b49d1b59910e446ae63e45adb8640a, type: 3}
+  - {fileID: 2100000, guid: ee18c0a2f51b5e24f9268357312bb469, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
