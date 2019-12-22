@@ -106,6 +106,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   takeout: 0
   FoodResetPosition: {x: 0, y: 0, z: 0}
-  copyFood: {fileID: 0}
+  copyFood: {fileID: 2894040683849736737}
   Food: {fileID: 0}
   IsHold: 0

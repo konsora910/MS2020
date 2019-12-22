@@ -323,6 +323,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 35333755bb9688c4fafa8c73c654bec1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  b_FadeIn: 0
+  b_FadeOut: 0
+  b_FadeOutEnd: 0
+  NextSceneName: 
 --- !u!4 &1842512441
 Transform:
   m_ObjectHideFlags: 0
