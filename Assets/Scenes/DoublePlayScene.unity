@@ -7785,7 +7785,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 21300000, guid: 8ac7b0177cd9ff94e8343873230b9ec8, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 63989a157b027c4429ee8535f001926e, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -8361,8 +8361,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 450, y: 450}
-  m_SizeDelta: {x: 100, y: 100}
+  m_AnchoredPosition: {x: 450, y: 428.6}
+  m_SizeDelta: {x: 146.9, y: 146.9}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1795855907
 MonoBehaviour:
@@ -8376,9 +8376,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9c05bfe4a17f4b04aa088266865bbbb2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Omerice: {fileID: 21300000, guid: 8ac7b0177cd9ff94e8343873230b9ec8, type: 3}
-  Soup: {fileID: 21300000, guid: 1862dfa72c7797b41a0b6dbbe9376168, type: 3}
-  Riceball: {fileID: 21300000, guid: a9844463216c3294794c828f96917720, type: 3}
+  Omerice: {fileID: 21300000, guid: 0ec1a7adaf00b044a9cf6e9d31d95b5e, type: 3}
+  Soup: {fileID: 21300000, guid: 14ee2618d3c80534e88cee97ec54a7d3, type: 3}
+  Riceball: {fileID: 21300000, guid: 497ac2378559d164ca379b1d2f87610d, type: 3}
   orderScript: {fileID: 1378219870}
   img: {fileID: 1795855909}
   InputOrderObj: {fileID: 1378219869}
@@ -8719,8 +8719,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -450, y: 450}
-  m_SizeDelta: {x: 100, y: 100}
+  m_AnchoredPosition: {x: -418.9, y: 428.6}
+  m_SizeDelta: {x: 146.9, y: 146.9}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1842288599
 MonoBehaviour:
@@ -8734,9 +8734,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9c05bfe4a17f4b04aa088266865bbbb2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Omerice: {fileID: 21300000, guid: 8ac7b0177cd9ff94e8343873230b9ec8, type: 3}
-  Soup: {fileID: 21300000, guid: 1862dfa72c7797b41a0b6dbbe9376168, type: 3}
-  Riceball: {fileID: 21300000, guid: a9844463216c3294794c828f96917720, type: 3}
+  Omerice: {fileID: 21300000, guid: 0ec1a7adaf00b044a9cf6e9d31d95b5e, type: 3}
+  Soup: {fileID: 21300000, guid: 14ee2618d3c80534e88cee97ec54a7d3, type: 3}
+  Riceball: {fileID: 21300000, guid: 497ac2378559d164ca379b1d2f87610d, type: 3}
   orderScript: {fileID: 1378219870}
   img: {fileID: 1842288601}
   InputOrderObj: {fileID: 1378219869}
@@ -9693,7 +9693,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 21300000, guid: 8ac7b0177cd9ff94e8343873230b9ec8, type: 3}
+  m_Sprite: {fileID: 21300000, guid: e322ca446203c18469b03d2b21c7ecf1, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
