@@ -61,7 +61,7 @@ public class Title : MonoBehaviour
                 StartObject[0].SetActive(true);
             }
             //人数選択画面に遷移
-            if (Input.GetKeyDown(KeyCode.Space))
+            if (Input.GetKeyDown(KeyCode.Space)|| Input.GetButtonDown("Button_b"))
             {
                 b_start = true;
                 n_count = 0;
@@ -93,7 +93,7 @@ public class Title : MonoBehaviour
                     b_inout = true;
                 }
 
-                if (n_Select == 0 && Input.GetKeyDown(KeyCode.D))
+                if (n_Select == 0 && Input.GetKeyDown(KeyCode.D) || Input.GetButtonDown("Button_b"))
                     n_Select = 1;
                 if (n_Select == 1 && Input.GetKeyDown(KeyCode.A))
                     n_Select = 0;
@@ -112,7 +112,7 @@ public class Title : MonoBehaviour
                     DoublePlay.gameObject.transform.localScale = new Vector3(25.0f, 18.0f, 1.0f);
                     DoublePlay.GetComponent<Image>().color = new Color(1.0f, 1.0f, 1.0f, f_alpha+0.2f);
                 }
-                if (Input.GetKeyDown(KeyCode.Space))
+                if (Input.GetKeyDown(KeyCode.Space) || Input.GetButtonDown("Button_b"))
                 {
 /*                    if (n_Select == 0)
                     {
