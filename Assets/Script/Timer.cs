@@ -24,6 +24,9 @@ public class Timer : MonoBehaviour
         f_count = 0.0f;
         b_end = false;
         b_TimeUp = false;
+        Finish = GameObject.Find("Finish");
+        Finish.GetComponent<Image>().color = new Color(1.0f, 1.0f, 1.0f, 1.0f);
+        Finish.SetActive(false);
         Init();
     }
 
@@ -65,7 +68,6 @@ public class Timer : MonoBehaviour
     }
     void Init()
     {
-        Finish = GameObject.Find("Finish");
-        Finish.SetActive(false);
+        
     }
 }
