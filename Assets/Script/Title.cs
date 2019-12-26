@@ -114,12 +114,12 @@ public class Title : MonoBehaviour
                 }
                 if (Input.GetKeyDown(KeyCode.Space) || Input.GetButtonDown("Button_b"))
                 {
-/*                    if (n_Select == 0)
+                    if (n_Select == 0)
                     {
                         b_fade = true;
                         GameObject obj = GameObject.FindGameObjectWithTag("scene");
                         obj.gameObject.GetComponent<SceneControl>().FadeOut("SinglePlayScene");
-                    }*/
+                    }
                     if (n_Select == 1)
                     {
                         b_fade = true;
