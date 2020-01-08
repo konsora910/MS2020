@@ -218,10 +218,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b6ffa3906afc4ee40bdc49e08f70296b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  n_ListNum: 0
-  b_Score: 0
-  FoodType: 10
-  n_Order: 0
   OpScript: {fileID: 1570550312}
   OrGUIScript: {fileID: 1795855907}
 --- !u!54 &20121919
@@ -672,7 +668,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
 --- !u!1001 &131025551
 PrefabInstance:
@@ -6303,7 +6299,7 @@ PrefabInstance:
     - target: {fileID: 2758465488203337569, guid: e30a50a43e8ef2d47bc459d71aebbd96,
         type: 3}
       propertyPath: m_RootOrder
-      value: 4
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 2758465488203337569, guid: e30a50a43e8ef2d47bc459d71aebbd96,
         type: 3}
@@ -6849,10 +6845,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: af2c09615987eac4e9c6b83c8b77ba93, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  n_ListNum: 0
-  b_Score: 0
-  FoodType: 10
-  n_Order: 0
   OpScript: {fileID: 579059258}
   OrGUIScript: {fileID: 1842288599}
 --- !u!54 &1475815469
@@ -8950,10 +8942,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: af2c09615987eac4e9c6b83c8b77ba93, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  n_ListNum: 0
-  b_Score: 0
-  FoodType: 10
-  n_Order: 0
   OpScript: {fileID: 0}
   OrGUIScript: {fileID: 0}
 --- !u!114 &1881247303
@@ -8968,10 +8956,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b6ffa3906afc4ee40bdc49e08f70296b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  n_ListNum: 0
-  b_Score: 0
-  FoodType: 10
-  n_Order: 0
   OpScript: {fileID: 0}
   OrGUIScript: {fileID: 0}
 --- !u!114 &1881247304

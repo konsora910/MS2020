@@ -5,18 +5,17 @@ using UnityEngine;
 public class Score2 : MonoBehaviour
 {
     public static int score = 0;
-    public int n_ListNum = 0;
-    public bool b_Score = false;
-    public int FoodType = Foodselect1.FOODNULL ;
-    public int n_Order = 0;
+    public static int n_ListNum = 0;
+    public static bool b_Score = false;
+    public static int FoodType = Foodselect1.FOODNULL ;
+    public static int n_Order = 0;
     public OperatorController OpScript;
     public OrderGUI OrGUIScript;
-
     //仮置き
-    GameObject scoreobj;
+    public static GameObject scoreobj;
 
     // Start is called before the first frame update
-    void Start()
+    public static void Start()
     {
         score = 0;
         n_ListNum = 1;

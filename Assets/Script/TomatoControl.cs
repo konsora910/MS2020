@@ -52,7 +52,7 @@ public class TomatoControl : MonoBehaviour
                 }
 
             //プレイヤーかAIが食べ物を持ったら
-            if (Collider.gameObject.tag == "Player" || Collider.gameObject.tag == "AI") 
+            if (Collider.gameObject.tag == "Player" || Collider.gameObject.tag == "Player2") 
                 {
                     takeout = true; // true = 何かしら持っている
                 }

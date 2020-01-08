@@ -33,7 +33,7 @@ public class OmericeControl : MonoBehaviour
             }
 
             //プレイヤーかAIが食べ物を持ったら
-            if (Collider.gameObject.tag == "Player")
+            if (Collider.gameObject.tag == "Player" || Collider.gameObject.tag == "Player2")
             {
                 takeout = true; // true = 何かしら持っている
             }
