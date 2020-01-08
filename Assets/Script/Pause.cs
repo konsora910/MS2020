@@ -64,7 +64,7 @@ public class Pause : MonoBehaviour
     void Update()
     {
         
-        if(Input.GetKeyDown(KeyCode.Y) && b_Pause == false)
+        if((Input.GetKeyDown(KeyCode.Y)|| Input.GetButtonDown("Button_START")) && b_Pause == false)
         {
             PauseUI.SetActive(true);
             PauseUI1.SetActive(true);
@@ -100,11 +100,11 @@ public class Pause : MonoBehaviour
 
         if (b_fade == false)
         {
-            if (Input.GetKeyDown(KeyCode.S) && n_select == 0)
+            if ((Input.GetKeyDown(KeyCode.S) || Input.GetButtonDown("Button_b")) && n_select == 0)
             {
                 n_select = 1;
             }
-            if (Input.GetKeyDown(KeyCode.W) && n_select == 1)
+            if ((Input.GetKeyDown(KeyCode.W) || Input.GetButtonDown("Button_a")) && n_select == 1)
             {
                 n_select = 0;
             }
@@ -121,7 +121,7 @@ public class Pause : MonoBehaviour
                 PauseUI1.GetComponent<Image>().color = new Color(1.0f, 1.0f, 1.0f, 0.3f);
             }
 
-            if (Input.GetKeyDown(KeyCode.Space) && n_select == 0)
+            if ((Input.GetKeyDown(KeyCode.Space) || Input.GetButtonDown("Button_START") )&& n_select == 0)
             {
                 PauseUI.SetActive(false);
                 PauseUI1.SetActive(false);
@@ -133,7 +133,7 @@ public class Pause : MonoBehaviour
                 f_alpha = 0.0f;
                 b_Pause = false;
             }
-            else if (Input.GetKeyDown(KeyCode.Space) && n_select == 1)
+            else if ((Input.GetKeyDown(KeyCode.Space) || Input.GetButtonDown("Button_START")) && n_select == 1)
             {
                 b_fade = true;
                 GameObject obj = GameObject.FindGameObjectWithTag("scene");
