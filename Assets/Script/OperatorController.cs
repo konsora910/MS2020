@@ -47,11 +47,14 @@ public class OperatorController : MonoBehaviour
     int ClearCook = 0;
     int AiThink = Foodselect1.FOODNULL;
     public int ScoreIn = 0;
+    public AudioClip missSE_clip;
+    AudioSource MISS_SE;
     // Start is called before the first frame update
     void Start()
     {
         StartCoroutine("Neutral");
-       
+        MISS_SE = GetComponent<AudioSource>();
+        MISS_SE.clip = missSE_clip;
     }
 
     // Update is called once per frame
@@ -465,8 +468,8 @@ public class OperatorController : MonoBehaviour
                 {
                     AIEXP++;
                 }
-                
 
+                MISS_SE.Play();
                     
                 MissOpe = false;
                 //Debug.Log("それは違う");
