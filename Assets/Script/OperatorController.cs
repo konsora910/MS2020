@@ -48,13 +48,13 @@ public class OperatorController : MonoBehaviour
     int AiThink = Foodselect1.FOODNULL;
     public int ScoreIn = 0;
     public AudioClip missSE_clip;
-    AudioSource MISS_SE;
+    AudioSource AI_SE;
+    public AudioClip trueSE_clip;
     // Start is called before the first frame update
     void Start()
     {
         StartCoroutine("Neutral");
-        MISS_SE = GetComponent<AudioSource>();
-        MISS_SE.clip = missSE_clip;
+        AI_SE = GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -288,7 +288,6 @@ public class OperatorController : MonoBehaviour
                 yield break;
             }
             yield return null;
-
         }
 
         yield return null;
@@ -469,7 +468,7 @@ public class OperatorController : MonoBehaviour
                     AIEXP++;
                 }
 
-                MISS_SE.Play();
+                AI_SE.PlayOneShot(missSE_clip);
                     
                 MissOpe = false;
                 //Debug.Log("それは違う");
@@ -586,6 +585,7 @@ public class OperatorController : MonoBehaviour
 
             }
 
+            AI_SE.PlayOneShot(trueSE_clip);
             yield return null;
         }
     }
