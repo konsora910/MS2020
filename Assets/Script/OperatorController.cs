@@ -39,12 +39,14 @@ public class OperatorController : MonoBehaviour
     public static readonly int RFP = 27;
     public static readonly int RPot = 28;
     public static readonly int RCut = 29;
-
+    [SerializeField] public Score score1;
+    [SerializeField] public Score2 score2;
     public GameObject[] AILevelUI;
     public GameObject[] OpUI;
-   public int Cooknow = 0;
+    public int Cooknow = 0;
     int ClearCook = 0;
     int AiThink = Foodselect1.FOODNULL;
+    public int ScoreIn = 0;
     // Start is called before the first frame update
     void Start()
     {
@@ -485,6 +487,14 @@ public class OperatorController : MonoBehaviour
         MissOpe = true;
     }
 
+    public void Score1In()
+    {
+        ScoreIn = 1;
+    }
+    public void Score2In()
+    {
+        ScoreIn = 2;
+    }
     IEnumerator Thinking()
     {
         while (true)
@@ -630,6 +640,15 @@ public class OperatorController : MonoBehaviour
                         FP3 = true;
                     }
                     //Debug.Log("指示通りで正しい処理");
+                    if(ScoreIn == 1)
+                    {
+                        score1.CookTrue();
+                    }
+                    if (ScoreIn == 2)
+                    {
+                        score2.CookTrue();
+                    }
+
                     foodKind = Foodselect1.FOODNULL;
                     cookKind = OperatorController.CookNull;
                     AIEXP++;
@@ -695,8 +714,17 @@ public class OperatorController : MonoBehaviour
                         {
                             FP3 = true;
                         }
-                        //Debug.Log("指示通り正しい処理");
-                        foodKind = Foodselect1.FOODNULL;
+                    //Debug.Log("指示通り正しい処理");
+                    if (ScoreIn == 1)
+                    {
+                        score1.CookTrue();
+                    }
+                    if (ScoreIn == 2)
+                    {
+                        score2.CookTrue();
+                    }
+
+                    foodKind = Foodselect1.FOODNULL;
                         cookKind = OperatorController.CookNull;
                         AIEXP++;
                         return true;
@@ -756,6 +784,15 @@ public class OperatorController : MonoBehaviour
                         FP3 = true;
                     }
                     //Debug.Log("指示通り正しい処理");
+                    if (ScoreIn == 1)
+                    {
+                        score1.CookTrue();
+                    }
+                    if (ScoreIn == 2)
+                    {
+                        score2.CookTrue();
+                    }
+
                     foodKind = Foodselect1.FOODNULL;
                     cookKind = OperatorController.CookNull;
                     AIEXP++;
@@ -1034,7 +1071,16 @@ public class OperatorController : MonoBehaviour
                     {
                         Pot3 = true;
                     }
-                   // Debug.Log("指示通り正しい処理");
+                    // Debug.Log("指示通り正しい処理");
+                    if (ScoreIn == 1)
+                    {
+                        score1.CookTrue();
+                    }
+                    if (ScoreIn == 2)
+                    {
+                        score2.CookTrue();
+                    }
+
                     foodKind = Foodselect1.FOODNULL;
                     cookKind = OperatorController.CookNull;
                     AIEXP++;
@@ -1094,7 +1140,16 @@ public class OperatorController : MonoBehaviour
                         Pot3 = true;
                     }
 
-                   // Debug.Log("指示通り正しい処理");
+                    // Debug.Log("指示通り正しい処理");
+                    if (ScoreIn == 1)
+                    {
+                        score1.CookTrue();
+                    }
+                    if (ScoreIn == 2)
+                    {
+                        score2.CookTrue();
+                    }
+
                     foodKind = Foodselect1.FOODNULL;
                     cookKind = OperatorController.CookNull;
                     AIEXP++;

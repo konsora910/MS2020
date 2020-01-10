@@ -92,12 +92,10 @@ public class Score : MonoBehaviour
                 else if (Collider.gameObject.tag == "RiceBall")
                 {
                     FoodType = Foodselect1.RICEBALL;
-                    //OpScript.CookEnd();
                 }
                 else if (Collider.gameObject.tag == "Soup")
                 {
                     FoodType = Foodselect1.SOUP;
-                    //OpScript.CookEnd();
                 }
                 b_Score = true;
             }
@@ -107,5 +105,10 @@ public class Score : MonoBehaviour
     public static int GetScore()
     {
         return score;
+    }
+
+    public void CookTrue()
+    {
+        score += 20;
     }
 }

@@ -97,4 +97,9 @@ public class Score2 : MonoBehaviour
     {
         return score;
     }
+
+    public void CookTrue()
+    {
+        score += 20;
+    }
 }
