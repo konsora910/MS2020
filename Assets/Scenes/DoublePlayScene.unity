@@ -2357,6 +2357,11 @@ PrefabInstance:
       propertyPath: missSE_clip
       value: 
       objectReference: {fileID: 8300000, guid: eff7d0acbe46b9c44b913ba55462cdd3, type: 3}
+    - target: {fileID: 4685167848686909075, guid: 907ffafe9dc3da6418086f2d88c8192a,
+        type: 3}
+      propertyPath: trueSE_clip
+      value: 
+      objectReference: {fileID: 8300000, guid: 6856944a7e4d3de4292c254ae217ab38, type: 3}
     - target: {fileID: 4685167847474060969, guid: 907ffafe9dc3da6418086f2d88c8192a,
         type: 3}
       propertyPath: m_IsActive
@@ -7035,6 +7040,7 @@ MonoBehaviour:
   Cooknow: 0
   ScoreIn: 0
   missSE_clip: {fileID: 0}
+  trueSE_clip: {fileID: 0}
 --- !u!4 &1469266679
 Transform:
   m_ObjectHideFlags: 0
@@ -7686,6 +7692,11 @@ PrefabInstance:
       propertyPath: missSE_clip
       value: 
       objectReference: {fileID: 8300000, guid: eff7d0acbe46b9c44b913ba55462cdd3, type: 3}
+    - target: {fileID: 2309414049407448383, guid: dbd6d32a6f240c34690daf9ed3244e18,
+        type: 3}
+      propertyPath: trueSE_clip
+      value: 
+      objectReference: {fileID: 8300000, guid: 6856944a7e4d3de4292c254ae217ab38, type: 3}
     - target: {fileID: 2309414049085970906, guid: dbd6d32a6f240c34690daf9ed3244e18,
         type: 3}
       propertyPath: m_LocalScale.x
