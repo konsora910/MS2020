@@ -59,7 +59,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Sprite:
-  - {fileID: 21300000, guid: 520d34ce4412dcf4482ecf3fcb2354f3, type: 3}
+  - {fileID: 21300000, guid: 834298054fee42d499d761b61ba6fc05, type: 3}
   - {fileID: 21300000, guid: de7e628a55ef4634fbaae0cde4a26638, type: 3}
   - {fileID: 21300000, guid: 6ea0f19ff8705df4f96dbbc866749aba, type: 3}
   - {fileID: 21300000, guid: d9cc0dbe138ed15418712892cb799132, type: 3}
@@ -151,7 +151,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Sprite:
-  - {fileID: 21300000, guid: 520d34ce4412dcf4482ecf3fcb2354f3, type: 3}
+  - {fileID: 21300000, guid: 834298054fee42d499d761b61ba6fc05, type: 3}
   - {fileID: 21300000, guid: de7e628a55ef4634fbaae0cde4a26638, type: 3}
   - {fileID: 21300000, guid: 6ea0f19ff8705df4f96dbbc866749aba, type: 3}
   - {fileID: 21300000, guid: d9cc0dbe138ed15418712892cb799132, type: 3}
@@ -223,7 +223,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: -1.1500244, y: 1.0099945}
+  m_AnchoredPosition: {x: -1.1500244, y: 1.0100098}
   m_SizeDelta: {x: 1, y: 1}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!223 &6469317338677474570
@@ -357,7 +357,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Sprite:
-  - {fileID: 21300000, guid: 520d34ce4412dcf4482ecf3fcb2354f3, type: 3}
+  - {fileID: 21300000, guid: 834298054fee42d499d761b61ba6fc05, type: 3}
   - {fileID: 21300000, guid: de7e628a55ef4634fbaae0cde4a26638, type: 3}
   - {fileID: 21300000, guid: 6ea0f19ff8705df4f96dbbc866749aba, type: 3}
   - {fileID: 21300000, guid: d9cc0dbe138ed15418712892cb799132, type: 3}

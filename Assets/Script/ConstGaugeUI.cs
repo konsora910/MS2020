@@ -26,20 +26,20 @@ namespace ConstGaugeUI
         /// フライパンのゲージ位置 x,y,z
         /// </summary>
         public static readonly float[] FLYINGPAN_POSITION = {
-            0.0f, 1.0f, 0.0f
+            0.0f, -1.0f, 0.0f
         };
 
         /// <summary>
         /// 鍋のゲージ表示位置 x,y,z
         /// </summary>
         public static readonly float[] POT_POSITION = {
-            0.0f, 1.0f, 0.0f
+            0.0f, -1.0f, 0.0f
         };
         /// <summary>
         /// まな板のゲージ表示位置 x,y,z
         /// </summary>
         public static readonly float[] CUTTINGBOARD_POSITION = {
-            0.0f, 1.0f, 0.0f
+            0.0f, -1.0f, 0.0f
         };
 
     }
