@@ -13,18 +13,19 @@ public class Score2 : MonoBehaviour
     public OrderGUI OrGUIScript;
     //仮置き
     public static GameObject scoreobj;
-
+    public Order OrderScript;
     // Start is called before the first frame update
-    public static void Start()
+    public void Start()
     {
         score = 0;
         n_ListNum = 1;
         b_Score = false;
 
         //仮置き
-        scoreobj = GameObject.Find("order");
+        //scoreobj = GameObject.Find("order");
 
-        n_Order = scoreobj.GetComponent<Order>().GetOrder(0);
+        //n_Order = scoreobj.GetComponent<Order>().GetOrder(0);
+        n_Order = OrderScript.GetOrder(0);
     }
 
     // Update is called once per frame
@@ -39,7 +40,8 @@ public class Score2 : MonoBehaviour
                     OpScript.CookEnd();
                     OrGUIScript.OrderNext();
                     score += 300;
-                    n_Order = scoreobj.GetComponent<Order>().GetOrder(n_ListNum);
+                    //n_Order = scoreobj.GetComponent<Order>().GetOrder(n_ListNum);
+                    n_Order = OrderScript.GetOrder(n_ListNum);
                     n_ListNum++;
                 }
                 else
@@ -52,7 +54,8 @@ public class Score2 : MonoBehaviour
                     OpScript.CookEnd();
                     OrGUIScript.OrderNext();
                     score += 100;
-                    n_Order = scoreobj.GetComponent<Order>().GetOrder(n_ListNum);
+                    //n_Order = scoreobj.GetComponent<Order>().GetOrder(n_ListNum);
+                    n_Order = OrderScript.GetOrder(n_ListNum);
                     n_ListNum++;
                 }
                 else
@@ -65,7 +68,8 @@ public class Score2 : MonoBehaviour
                     OpScript.CookEnd();
                     OrGUIScript.OrderNext();
                     score += 200;
-                    n_Order = scoreobj.GetComponent<Order>().GetOrder(n_ListNum);
+                    //n_Order = scoreobj.GetComponent<Order>().GetOrder(n_ListNum);
+                    n_Order = OrderScript.GetOrder(n_ListNum);
                     n_ListNum++;
                 }
                 else
