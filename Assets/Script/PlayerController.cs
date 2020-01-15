@@ -111,12 +111,13 @@ public class PlayerController : MonoBehaviour
 
         _GamepadNames = Input.GetJoystickNames();
 
+        /// 追加部分
+        MotionChange();
 
         if (CurrentMode == Mode.Stay)
         {
             KeyBord();
-            /// 追加部分
-                MotionChange();
+            
              Gamepad();
         }
         else if (CurrentMode == Mode.Walk)
@@ -684,14 +685,18 @@ public class PlayerController : MonoBehaviour
             case Mode.Fry:
                 break;
             case Mode.Hold:
+                //animator.SetBool("is_running", false); // Animatorタブ上の遷移条件
                 break;
             case Mode.Set:
                 break;
             case Mode.Stay:
-             //   animator.SetBool("is_running", false); // Animatorタブ上の遷移条件
-              // particle.Stop();
+                //animator.SetBool("is_running", true); // Animatorタブ上の遷移条件
+                animator.SetBool("is_stay", true); // Animatorタブ上の遷移条件
+                                                   // particle.Stop();
                 break;
             case Mode.Walk:
+                //animator.SetBool("is_stay", false);
+                animator.SetBool("is_hold", true); // Animatorタブ上の遷移条件
                 particle.Play();
                 break;
         }
