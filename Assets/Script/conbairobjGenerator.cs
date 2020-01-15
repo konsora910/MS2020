@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class conbairobjGenerator : MonoBehaviour
 {
+    /// <summary>
+    /// コンベア上でオブジェクトを生成するときのみ使う
+    /// </summary>
     [SerializeField]
     private GameObject m_object = null;
     [SerializeField]
