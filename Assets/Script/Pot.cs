@@ -42,6 +42,7 @@ public class Pot : MonoBehaviour
     public GameObject Soup;
 
     public OperatorController OpScript;
+    public bool b_ReadyCook = false;
 
     // SE専用変数...coffee
     public AudioClip cooking;
@@ -49,6 +50,7 @@ public class Pot : MonoBehaviour
 
     void Start()
     {
+        b_ReadyCook = false;
         for (int i=0;i<3 ;i++)
         {
             PotArray[i] = null;
@@ -91,6 +93,10 @@ public class Pot : MonoBehaviour
             StartCoroutine("CookingTriple");
         }
         */
+        b_ReadyCook = false;
+        if (_FoodsNum >= 2)
+            b_ReadyCook = true;
+        
         switch (_FoodsNum)
         {
             case 0:

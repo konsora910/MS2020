@@ -8,6 +8,7 @@ public class FryingPan : MonoBehaviour
     [SerializeField]
     public GameObject[] FPanArray = new GameObject[3];
     [SerializeField]
+    public bool b_ReadyCook = false;
     public int InFood = 0;
     private int cntTomato = 0;
     private int cntRice = 0;
@@ -28,6 +29,7 @@ public class FryingPan : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        b_ReadyCook = false;
         for (int i = 0; i < 3; i++)
         {
             FPanArray[i] = null;
@@ -44,6 +46,10 @@ public class FryingPan : MonoBehaviour
     {
         //if (IsCookFPan)
         {
+            b_ReadyCook = false;
+            if (InFood >= 1)
+                b_ReadyCook = true;
+            
             switch (InFood)
             {
                 case 0:
