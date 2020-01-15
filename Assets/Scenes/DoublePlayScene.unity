@@ -4487,8 +4487,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 820, y: 445}
-  m_SizeDelta: {x: 250, y: 90}
+  m_AnchoredPosition: {x: 790.7, y: 449.3}
+  m_SizeDelta: {x: 300.51, y: 113.01}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &801085620
 MonoBehaviour:
@@ -4503,14 +4503,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.122774996, g: 0.14912638, b: 0.8396226, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 0}
+  m_Sprite: {fileID: 21300000, guid: 7ec97a079ea12474884a674ae6dba7b2, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -4704,8 +4704,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -820, y: 445}
-  m_SizeDelta: {x: 250, y: 90}
+  m_AnchoredPosition: {x: -863, y: 449.3}
+  m_SizeDelta: {x: 300.51, y: 113.01}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &888971890
 MonoBehaviour:
@@ -4720,14 +4720,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.122774996, g: 0.14912638, b: 0.8396226, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 0}
+  m_Sprite: {fileID: 21300000, guid: 6175da6663c15ab47b4c994c2d0ea93c, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -11317,7 +11317,7 @@ PrefabInstance:
     - target: {fileID: 6921547576070256002, guid: 392afe15d82d00e4bae844a86c961516,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 321
+      value: 318
       objectReference: {fileID: 0}
     - target: {fileID: 6921547576070256002, guid: 392afe15d82d00e4bae844a86c961516,
         type: 3}
