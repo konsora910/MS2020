@@ -90,14 +90,14 @@ public class FryingPan : MonoBehaviour
             Debug.Log("米！！");
             FoodNameRice(getFood);
         }
-        if (getFood.gameObject.tag == "egg")
+        else if (getFood.gameObject.tag == "egg")
         {
             OpScript.FoodKind(Foodselect1.EGG);
             OpScript.CookKind(OperatorController.FryingPan);
             Debug.Log("タメェイゴォ");
             FoodNameEgg(getFood);
         }
-        if (getFood.gameObject.tag == "tmt")
+        else if (getFood.gameObject.tag == "tmt")
         {
             OpScript.FoodKind(Foodselect1.TOMATO);
             OpScript.CookKind(OperatorController.FryingPan);
@@ -123,7 +123,7 @@ public class FryingPan : MonoBehaviour
         }
         else
         {
-            Reset();
+            //Reset();
             Debug.Log("クソ料理");
         }
     }
@@ -233,12 +233,12 @@ public class FryingPan : MonoBehaviour
                     FPanArray[i].gameObject.GetComponent<TomatoControl>().takeout = false;
                     FPanArray[i].gameObject.GetComponent<TomatoControl>().DestroyFood(true);
                 }
-                if (FPanArray[i].gameObject.tag == "rice")
+                else if (FPanArray[i].gameObject.tag == "rice")
                 {
                     FPanArray[i].gameObject.GetComponent<RiceControl>().takeout = false;
                     FPanArray[i].gameObject.GetComponent<RiceControl>().DestroyFood(true);
                 }
-                if (FPanArray[i].gameObject.tag == "egg")
+                else if (FPanArray[i].gameObject.tag == "egg")
                 {
                     FPanArray[i].gameObject.GetComponent<EggControl>().takeout = false;
                     FPanArray[i].gameObject.GetComponent<EggControl>().DestroyFood(true);
