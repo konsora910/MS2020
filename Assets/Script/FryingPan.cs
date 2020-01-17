@@ -89,6 +89,7 @@ public class FryingPan : MonoBehaviour
             OpScript.CookKind(OperatorController.FryingPan);
             Debug.Log("米！！");
             FoodNameRice(getFood);
+            getFood.gameObject.SetActive(false);
         }
         else if (getFood.gameObject.tag == "egg")
         {
@@ -96,6 +97,7 @@ public class FryingPan : MonoBehaviour
             OpScript.CookKind(OperatorController.FryingPan);
             Debug.Log("タメェイゴォ");
             FoodNameEgg(getFood);
+            getFood.gameObject.SetActive(false);
         }
         else if (getFood.gameObject.tag == "tmt")
         {
@@ -103,9 +105,10 @@ public class FryingPan : MonoBehaviour
             OpScript.CookKind(OperatorController.FryingPan);
             Debug.Log("トメェイトォウ");
             FoodNameTomato(getFood);
-            
+            getFood.gameObject.SetActive(false);
         }
-        getFood.gameObject.SetActive(false);
+
+        
     }
 
     /*===================================================
@@ -117,7 +120,7 @@ public class FryingPan : MonoBehaviour
         {
             StartCoroutine("CookRiceOmelet");
         }
-        else if (cntRice == 1)
+        else if (cntRice == 1 && cntRice == 0 && cntEgg == 0)
         {
             StartCoroutine("CookRiceBall");
         }

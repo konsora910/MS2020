@@ -7,8 +7,8 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: eye 1
-  m_Shader: {fileID: 4800000, guid: 345def18d0906d544b7d12b050937392, type: 3}
+  m_Name: chara2
+  m_Shader: {fileID: 4800000, guid: 9baf30ce95c751649b14d96da3a4b4d5, type: 3}
   m_ShaderKeywords: _ _EMISSIVE_SIMPLE _OUTLINE_NML
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
@@ -20,11 +20,11 @@ Material:
     serializedVersion: 3
     m_TexEnvs:
     - _1st_ShadeMap:
-        m_Texture: {fileID: 0}
+        m_Texture: {fileID: 2800000, guid: 7144e8e418880764189773c9247f0905, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _2nd_ShadeMap:
-        m_Texture: {fileID: 0}
+        m_Texture: {fileID: 2800000, guid: 77d408daad1fa9f43b1f49517b96837e, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _BakedNormal:
@@ -37,10 +37,6 @@ Material:
         m_Offset: {x: 0, y: 0}
     - _BumpMap:
         m_Texture: {fileID: 0}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    - _ClippingMask:
-        m_Texture: {fileID: 2800000, guid: f5972fa60555c2a43bec109eb5b174ff, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _DetailAlbedoMap:
@@ -68,7 +64,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MainTex:
-        m_Texture: {fileID: 2800000, guid: 7965af0d6b11ee5468b5dad61513119b, type: 3}
+        m_Texture: {fileID: 2800000, guid: 7fa2c378d01e0c742964d277787b39a5, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MatCap_Sampler:
@@ -139,9 +135,8 @@ Material:
     - _BumpScale: 1
     - _BumpScaleMatcap: 1
     - _CameraRolling_Stabilizer: 0
-    - _Clipping_Level: 0
     - _ColorShift_Speed: 0
-    - _CullMode: 0
+    - _CullMode: 2
     - _Cutoff: 0.5
     - _DetailNormalMapScale: 1
     - _DstBlend: 0
@@ -152,10 +147,8 @@ Material:
     - _Glossiness: 0.5
     - _GlossyReflections: 1
     - _HighColor_Power: 0
-    - _Inverse_Clipping: 0
     - _Inverse_MatcapMask: 0
     - _Inverse_Z_Axis_BLD: 1
-    - _IsBaseMapAlphaAsClippingMask: 0
     - _Is_BLD: 0
     - _Is_BakedNormal: 0
     - _Is_BlendAddToHiColor: 0
