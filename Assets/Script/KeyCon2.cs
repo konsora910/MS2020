@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class KeyCon : MonoBehaviour
+public class KeyCon2 : MonoBehaviour
 {
     GameObject Action0;
     GameObject Action1;
@@ -33,21 +33,21 @@ public class KeyCon : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        Action0 = GameObject.Find("Action0");
+        Action0 = GameObject.Find("Action02");
         Action0.SetActive(false);
-        Action1 = GameObject.Find("Action1");
+        Action1 = GameObject.Find("Action12");
         Action1.SetActive(false);
-        Action2 = GameObject.Find("Action2");
+        Action2 = GameObject.Find("Action22");
         Action2.SetActive(false);
-        Action3 = GameObject.Find("Action3");
+        Action3 = GameObject.Find("Action32");
         Action3.SetActive(false);
-        Action4 = GameObject.Find("Action4");
+        Action4 = GameObject.Find("Action42");
         Action4.SetActive(false);
-        Action5 = GameObject.Find("Action5");
+        Action5 = GameObject.Find("Action52");
         Action5.SetActive(false);
-        Action6 = GameObject.Find("Action6");
+        Action6 = GameObject.Find("Action62");
         Action6.SetActive(false);
-        Action7 = GameObject.Find("Action7");
+        Action7 = GameObject.Find("Action72");
         Action7.SetActive(false);
 
         for (int i = 0; i < LIST_NUM; i++)
@@ -69,9 +69,9 @@ public class KeyCon : MonoBehaviour
                 OperationList[i] = null;
             }
         }
-        
+
         b_Ai = true;
-        
+
         b_foodtake = player.bFood_Take;
 
         //リストに追加していく
@@ -155,13 +155,13 @@ public class KeyCon : MonoBehaviour
             }
         }
 
-        for(int i = 0; i < LIST_NUM; i++)
+        for (int i = 0; i < LIST_NUM; i++)
         {
-            if(OperationList[i] != null)
+            if (OperationList[i] != null)
             {
                 OperationList[i].SetActive(true);
 
-                OperationList[i].transform.position = new Vector3(150.0f, 820.0f - (i * 60.0f), 0.0f);
+                OperationList[i].transform.position = new Vector3(1770.0f, 820.0f - (i * 60.0f), 0.0f);
             }
         }
 
@@ -187,12 +187,12 @@ public class KeyCon : MonoBehaviour
                 b_food = true;
             }
             //ポットに触れている
-            if(Collider.gameObject.tag == "pot")
+            if (Collider.gameObject.tag == "pot")
             {
                 if (Collider.gameObject.GetComponent<Pot>().PotArray[0] != null)
                 {
                     b_delatefood = true;
-                    if(pot.b_ReadyCook == true)
+                    if (pot.b_ReadyCook == true)
                         b_cooking = true;
                 }
             }
