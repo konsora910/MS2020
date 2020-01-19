@@ -268,6 +268,7 @@ public class OperatorController : MonoBehaviour
     {
         while (true)
         {
+           
             order = OrderScript.GetOrder(ClearCook);
             if (order == Foodselect1.RICEBALL)
             {
@@ -297,6 +298,12 @@ public class OperatorController : MonoBehaviour
     {
         while (true)
         {
+            if (end == true)
+            {
+                end = false;
+                StartCoroutine("CookStart");
+                yield break;
+            }
             if (Foodselect1.OMERICE == order)
             {
                 if (FP1 == true && FP2 == true && FP3 == true)
@@ -324,6 +331,10 @@ public class OperatorController : MonoBehaviour
 
             }
 
+            if(end == true) {
+                StartCoroutine("CookStart");
+                yield break;
+            }
             //正しい処理
             if (Foodselect1.RICEBALL == AiThink)
             {
