@@ -13,6 +13,7 @@ public class PlayerController : MonoBehaviour
         Stay,        //待機(空)
         Walk,        //歩く
         Hold,　　  　//持つ
+        HoldWalk,    //持って歩く
         Set,         //置く
         Cut,         //まな板
         Fry,         //フライパン
@@ -22,7 +23,7 @@ public class PlayerController : MonoBehaviour
 
     /// <summary>現在の鍋の状態</summary>
     //[SerializeField]
-    public Mode CurrentMode{ get; private set; }
+    public Mode CurrentMode;//{ get; private set; }
 
     [SerializeField] private string _Gamepad_x;
     [SerializeField] private string _Gamepad_z;
@@ -122,18 +123,22 @@ public class PlayerController : MonoBehaviour
         }
         else if (CurrentMode == Mode.Walk)
         {
-            ChangeMode(Mode.Walk);
+            
             KeyBord();
              Gamepad(); 
         }
         else if (CurrentMode == Mode.Hold)
+        {
+            
+        }
+        else if (CurrentMode == Mode.HoldWalk)
         {
             KeyBord();
             Gamepad();
         }
         else if (CurrentMode == Mode.Set)
         {
-            ChangeMode(Mode.Stay);
+            
         }
         else if (CurrentMode == Mode.Cut)
         {
@@ -173,6 +178,7 @@ public class PlayerController : MonoBehaviour
         //プレイヤーが移動していたら向ている方向計算
         if (OldPosition != this.gameObject.transform.position)
         {
+           // ChangeMode(Mode.Walk);
             PlayerForward = this.gameObject.transform.position - OldPosition;
             PlayerForward = PlayerForward.normalized;
             this.gameObject.transform.forward = PlayerForward;
@@ -308,7 +314,7 @@ public class PlayerController : MonoBehaviour
                     FoodType = Foodselect1.RICEBALL;
                 }
 
-                bFood_Take = true;
+                //bFood_Take = true;
             }
             //持っている食材を置く
             else if (Input.GetKeyDown(KeyCode.Space) && ImputTimer > 5 && bFood_Take == true)
@@ -364,25 +370,38 @@ public class PlayerController : MonoBehaviour
 
       
     }
-    
+
 
     // コントローラー操作
     private void Gamepad()
     {
 
+
         //プレイヤー移動
-        if ( Input.GetAxis(_Gamepad_x) == 0&& Input.GetAxis(_Gamepad_z) ==0)
+        if ((Input.GetAxis(_Gamepad_x) > -1 && Input.GetAxis(_Gamepad_x) < 1 && Input.GetAxis(_Gamepad_z) > -1 && Input.GetAxis(_Gamepad_z) < 1)&& (CurrentMode == Mode.Stay || CurrentMode == Mode.Walk))
         {
             ChangeMode(Mode.Stay);
         }
-        else
+        /*
+        else if ((Input.GetAxis(_Gamepad_x) == 1 || Input.GetAxis(_Gamepad_x) == -1||Input.GetAxis(_Gamepad_z) == 1|| Input.GetAxis(_Gamepad_z) == -1) &&bFood_Take)
+        {
+            ChangeMode(Mode.HoldWalk);
+            transform.position += (Vector3.forward * Input.GetAxis(_Gamepad_z) + Vector3.right * Input.GetAxis(_Gamepad_x)) * _Speed;
+        }*/
+        else if((Input.GetAxis(_Gamepad_x) == 1 || Input.GetAxis(_Gamepad_x) == -1 || Input.GetAxis(_Gamepad_z) == 1 || Input.GetAxis(_Gamepad_z) == -1)&&CurrentMode == Mode.HoldWalk)
+        {
+            transform.position += (Vector3.forward * Input.GetAxis(_Gamepad_z) + Vector3.right * Input.GetAxis(_Gamepad_x)) * _Speed;
+        }
+        else  if((Input.GetAxis(_Gamepad_x) == 1 || Input.GetAxis(_Gamepad_x) == -1 || Input.GetAxis(_Gamepad_z) == 1 || Input.GetAxis(_Gamepad_z) == -1) && (CurrentMode == Mode.Stay|| CurrentMode == Mode.Walk))
         {
             ChangeMode(Mode.Walk);
-            transform.position += (Vector3.forward * Input.GetAxis(_Gamepad_z) + Vector3.right  * Input.GetAxis(_Gamepad_x) )*_Speed;
-            animator.SetBool("is_running", true); // Animatorタブ上の遷移条件
+            transform.position += (Vector3.forward * Input.GetAxis(_Gamepad_z) + Vector3.right * Input.GetAxis(_Gamepad_x) )*_Speed;
+           // animator.SetBool("is_running", true); // Animatorタブ上の遷移条件
         }
+        
 
-        if(b_TouchPot)
+
+        if (b_TouchPot)
         {
             if (Input.GetButtonDown(_Gamepad_HoldSet) && bFood_Take == false)
             {
@@ -421,7 +440,7 @@ public class PlayerController : MonoBehaviour
         if (_IsTouchFood)
         {
             //持つ
-            if (Input.GetButtonDown(_Gamepad_HoldSet) && bFood_Take == false)
+            if (Input.GetButtonDown(_Gamepad_HoldSet) && bFood_Take == false && (CurrentMode == Mode.Stay || CurrentMode == Mode.Walk))
             {
 
                 ChangeMode(Mode.Hold);
@@ -467,11 +486,11 @@ public class PlayerController : MonoBehaviour
                     FoodType = Foodselect1.RICEBALL;
                 }
 
-                bFood_Take = true;
+                //bFood_Take = true;
             }
 
             //持っている食材を置く
-            else if (Input.GetButtonDown(_Gamepad_HoldSet) && bFood_Take == true)
+            else if (Input.GetButtonDown(_Gamepad_HoldSet) && bFood_Take == true && (CurrentMode == Mode.HoldWalk) )
             {
                 ChangeMode(Mode.Set);
                 //ポットに触れていたら
@@ -521,6 +540,8 @@ public class PlayerController : MonoBehaviour
         }
 
         
+
+
     }
 
     /// <summary>
@@ -654,7 +675,7 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-
+    public bool is_parametor;
     /// <summary>
     /// モードを変更
     /// </summary>
@@ -685,20 +706,46 @@ public class PlayerController : MonoBehaviour
             case Mode.Fry:
                 break;
             case Mode.Hold:
-                //animator.SetBool("is_running", false); // Animatorタブ上の遷移条件
+                animator.SetBool("is_stay", false);
+                animator.SetBool("is_running", false);
+                animator.SetBool("is_hold", true);
+                //animator.GetCurrentAnimatorStateInfo(0).IsName("hold");
+                //if (!animator.GetCurrentAnimatorStateInfo(0).IsName("hold"))
+                {
+                    bFood_Take = true;
+                    ChangeMode(Mode.HoldWalk);
+
+                }
+                
+                break;
+            case Mode.HoldWalk:
+                animator.SetBool("is_stay", false);
+                animator.SetBool("is_running", false);
+                animator.SetBool("is_hold", false);
+                animator.SetBool("is_holdwalk", true);
                 break;
             case Mode.Set:
+                animator.SetBool("is_hold", false);
+                animator.SetBool("is_holdwalk", false);
+                animator.SetBool("is_set", true);
+                ChangeMode(Mode.Stay);
                 break;
             case Mode.Stay:
                 //animator.SetBool("is_running", true); // Animatorタブ上の遷移条件
+                animator.SetBool("is_running", false);
+                //animator.SetBool("is_hold", false);
                 animator.SetBool("is_stay", true); // Animatorタブ上の遷移条件
-                                                   // particle.Stop();
+                animator.SetBool("is_set", false);
+                // particle.Stop();
                 break;
             case Mode.Walk:
-                //animator.SetBool("is_stay", false);
-                animator.SetBool("is_hold", true); // Animatorタブ上の遷移条件
-                particle.Play();
+                animator.SetBool("is_stay", false);
+                animator.SetBool("is_running", true); // Animatorタブ上の遷移条件
+                animator.SetBool("is_set", false);
+                //particle.Play();
                 break;
         }
     }
-}
+
+  
+    }
