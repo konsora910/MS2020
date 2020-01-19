@@ -13022,9 +13022,9 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1756538737}
+  - {fileID: 1974492900}
   - {fileID: 473802755}
   - {fileID: 274818273}
-  - {fileID: 1974492900}
   - {fileID: 798928959}
   - {fileID: 2049210817}
   m_Father: {fileID: 1950952042}
@@ -14326,6 +14326,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: chara_allnew_2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4477330557899661881, guid: e5ec7b8ec1c83994f824754a2e09e104,
+        type: 3}
+      propertyPath: m_TagString
+      value: Player2
       objectReference: {fileID: 0}
     - target: {fileID: 610789374875570218, guid: e5ec7b8ec1c83994f824754a2e09e104,
         type: 3}
