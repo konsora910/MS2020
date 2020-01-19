@@ -231,7 +231,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &3026112187732440840
 Transform:
   m_ObjectHideFlags: 0
@@ -1259,7 +1259,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &5540385564716421024
 Transform:
   m_ObjectHideFlags: 0
@@ -1323,7 +1323,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &7720659016129235664
 Transform:
   m_ObjectHideFlags: 0
@@ -1640,6 +1640,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 424a6c64a04d8974e8bd010e3b18a321, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  CurrentMode: 0
   _Gamepad_x: Gamepad1_x
   _Gamepad_z: Gamepad1_z
   _Gamepad_HoldSet: Gamepad1_HoldSet
@@ -1673,6 +1674,7 @@ MonoBehaviour:
   velocity: {x: 0, y: 0, z: 0}
   OpScript: {fileID: 0}
   PushPower: 0.45
+  is_parametor: 0
 --- !u!1 &4636403973662750729
 GameObject:
   m_ObjectHideFlags: 0
@@ -1984,7 +1986,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &5607526776929878145
 Transform:
   m_ObjectHideFlags: 0
@@ -2097,7 +2099,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1210392416906804560
 Transform:
   m_ObjectHideFlags: 0
@@ -2367,7 +2369,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &8893074027658940775
 Transform:
   m_ObjectHideFlags: 0
@@ -2830,7 +2832,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &4182550063308255636
 Transform:
   m_ObjectHideFlags: 0
@@ -3209,7 +3211,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &2954982111696951997
 Transform:
   m_ObjectHideFlags: 0
