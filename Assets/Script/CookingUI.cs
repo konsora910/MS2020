@@ -115,12 +115,12 @@ public class CookingUI : MonoBehaviour
             }
             for (int i = 0; i < _PotObject.Length; i++)
             {
-                _PotPrefabArray[i] = (GameObject)Instantiate(PotParentPrefab, _PotPosition[i] + PositionShift, Quaternion.identity);
+                _PotPrefabArray[i] = (GameObject)Instantiate(PotParentPrefab, new Vector3(_PotPosition[i].x * 0.9f, _PotPosition[i].y, _PotPosition[i].z * 0.9f) + PositionShift, Quaternion.identity);
                 _PotParentScript[i] = _PotPrefabArray[i].GetComponent<CookingUIPotParent>();
             }
             for (int i = 0; i < _CutObject.Length; i++)
             {
-                _CutPrefabArray[i] = (GameObject)Instantiate(CutParentPrefab, _CutPosition[i] + new Vector3(0.0f, 1.0f, 0.0f), Quaternion.identity);
+                _CutPrefabArray[i] = (GameObject)Instantiate(CutParentPrefab, new Vector3(_CutPosition[i].x*0.8f, _CutPosition[i].y, _CutPosition[i].z*0.6f) + new Vector3(0.0f, 2.0f, -1.0f), Quaternion.identity);
                 _CutParentScript[i] = _CutPrefabArray[i].GetComponent<CookingUICutParent>();
             }
 
