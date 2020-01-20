@@ -120,7 +120,7 @@ public class FryingPan : MonoBehaviour
         {
             StartCoroutine("CookRiceOmelet");
         }
-        else if (cntRice == 1 && cntRice == 0 && cntEgg == 0)
+        else if (cntRice == 1 && cntTomato == 0 && cntEgg == 0)
         {
             StartCoroutine("CookRiceBall");
         }
