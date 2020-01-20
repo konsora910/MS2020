@@ -40,7 +40,7 @@ public class Result : MonoBehaviour
     {
         if (b_fade == false)
         {
-            if (Input.GetKeyDown(KeyCode.Space))
+            if (Input.GetKeyDown(KeyCode.Space) || Input.GetButtonDown("Button_b"))
             {
                 b_fade = true;
                 GameObject obj = GameObject.FindGameObjectWithTag("scene");
