@@ -202,6 +202,7 @@ public class Pot : MonoBehaviour
                 IsGauge = true;
                 audioCookPot.Play();
             }
+            
 
             if (PotArray[0].gameObject.tag== "egg"&& PotArray[1].gameObject.tag == "tmt"|| PotArray[1].gameObject.tag == "egg" && PotArray[0].gameObject.tag == "tmt")
             {
@@ -210,9 +211,14 @@ public class Pot : MonoBehaviour
                 GameObject instance = (GameObject)Instantiate(Soup, new Vector3(this.transform.position.x + 1.0f, this.transform.position.y, this.transform.position.z), Quaternion.identity);
                 instance.transform.parent = obj.transform;          //食材をfoodの子に
                 obj.GetComponent<Foodselect1>().AddFood(instance.transform);
-                Debug.Log("料理1");
+                //Debug.Log("soup");
                 OpScript.CookF();
             }
+            else
+            {
+                yield return new WaitForSeconds(ConstGaugeUI.ConstUI.POT_COOKING_TIME);
+            }
+            
             Reset();
             audioCookPot.Stop();
             ChangeMode(Mode.Stay);

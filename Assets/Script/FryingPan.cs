@@ -9,9 +9,13 @@ public class FryingPan : MonoBehaviour
     public GameObject[] FPanArray = new GameObject[3];
     [SerializeField]
     public bool b_ReadyCook = false;
+    [SerializeField]
     public int InFood = 0;
+    [SerializeField]
     private int cntTomato = 0;
+    [SerializeField]
     private int cntRice = 0;
+    [SerializeField]
     private int cntEgg = 0;
     public GameObject Omrice;// インスペクタにオムライスオブジェクトを入れておくこと
     public GameObject RBall;//　インスペクタにおにぎりオブジェクトを入れておくこと
@@ -116,15 +120,19 @@ public class FryingPan : MonoBehaviour
      ===================================================*/
     private void LetsCooking()
     {
-        if (cntRice == 1)
+        if (cntRice == 1 && cntTomato == 1 && cntEgg == 1)
         {
-            if (cntTomato == 1)
-            {
-                if (cntEgg == 1)
-                {
-                    StartCoroutine("CookRiceOmelet");
-                }
-            }
+            StartCoroutine("CookRiceOmelet");
+        }
+        else if(cntRice == 1 && cntTomato == 0 && cntEgg == 0)
+        {
+            StartCoroutine("CookRiceBall");
+        }
+        else
+        {
+            StartCoroutine("Cookingfailure");
+        }
+            /*
             else if (cntEgg == 1)
             {
                 //Reset();
@@ -174,16 +182,16 @@ public class FryingPan : MonoBehaviour
                     StartCoroutine("CookRiceOmelet");
                 }
             }
+        }*/
+            //if (cntTomato == 1 && cntRice == 1 && cntEgg == 1)
+            //{
+            //    StartCoroutine("CookRiceOmelet");
+            //}
+            //else if (cntRice == 1 && cntRice == 0 && cntEgg == 0)
+            //{
+            //    StartCoroutine("CookRiceBall");
+            //}
         }
-        //if (cntTomato == 1 && cntRice == 1 && cntEgg == 1)
-        //{
-        //    StartCoroutine("CookRiceOmelet");
-        //}
-        //else if (cntRice == 1 && cntRice == 0 && cntEgg == 0)
-        //{
-        //    StartCoroutine("CookRiceBall");
-        //}
-    }
     /*==================================================
      * 各食材の呼ばれる関数群（処理は基本的には同じ）
      * FoodNameRice()
@@ -274,6 +282,27 @@ public class FryingPan : MonoBehaviour
             GameObject instance = (GameObject)Instantiate(RBall, new Vector3(this.transform.position.x, this.transform.position.y, this.transform.position.z), Quaternion.identity);
             instance.transform.parent = obj.transform;          //コピー食材をfoodの子に
             obj.GetComponent<Foodselect1>().AddFood(instance.transform);
+            Reset();
+            audioCookFP.Stop();
+        }
+    }
+    /*==================================================
+     * 調理失敗メソッド関数
+     *                          withコルーチン
+     ==================================================*/
+    IEnumerator Cookingfailure()
+    {
+        if (IsCookFPan)
+        {
+            if (!IsGauge)
+            {
+                CallUI.SetGaugeUIFlyingPan(this.transform.position);
+                IsGauge = true;
+                audioCookFP.Play();
+            }
+
+
+            yield return new WaitForSeconds(ConstGaugeUI.ConstUI.FLYINGPAN_COOKING_TIME);
             Reset();
             audioCookFP.Stop();
         }
