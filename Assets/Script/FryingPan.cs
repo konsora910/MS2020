@@ -308,6 +308,7 @@ public class FryingPan : MonoBehaviour
         cntTomato = 0;
         cntEgg = 0;
         cntRice = 0;
+        CallUI.deleteGaugeFryinpan();
     }
 
 }

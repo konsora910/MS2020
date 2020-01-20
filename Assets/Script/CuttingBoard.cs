@@ -150,6 +150,7 @@ public class CuttingBoard : MonoBehaviour
             }
         }
         OpScript.CutReset();
+        _GaugeUIScript.deleteGaugeCut();
         food = null;
         IsCBoard = false;
         IsGauge = false;
