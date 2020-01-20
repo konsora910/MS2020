@@ -89,7 +89,7 @@ public class Score : MonoBehaviour
     {
         if (Collider.gameObject.tag == "Omerice" || Collider.gameObject.tag == "RiceBall" || Collider.gameObject.tag == "Soup")
         {
-            if (Input.GetKeyDown(KeyCode.Space)|| Input.GetButtonDown("Gamepad1_HoldSet"))
+ //           if (Input.GetKeyDown(KeyCode.Space)|| Input.GetButtonDown("Gamepad1_HoldSet"))
             {
                 if (Collider.gameObject.tag == "Omerice")
                 {

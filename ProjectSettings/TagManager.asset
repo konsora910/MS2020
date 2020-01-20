@@ -30,6 +30,7 @@ TagManager:
   - time
   - Workbench
   - CuttingBoard
+  - conbair
   layers:
   - Default
   - TransparentFX

@@ -55,7 +55,7 @@ public class OmericeControl : MonoBehaviour
 
     public void DestroyFood(bool delate)
     {
-        if (takeout == false && delate == true)
+        if (b_player == false && delate == true)
         {
             GameObject obj = GameObject.FindGameObjectWithTag("Food");
             obj.GetComponent<Foodselect1>().DelateFood(this.transform);

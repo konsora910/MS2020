@@ -84,7 +84,7 @@ public class Score2 : MonoBehaviour
     {
         if (Collider.gameObject.tag == "Omerice" || Collider.gameObject.tag == "RiceBall" || Collider.gameObject.tag == "Soup")
         {
-            if (Input.GetKeyDown(KeyCode.Space))
+ //           if (Input.GetKeyDown(KeyCode.Space))
             {
                 if (Collider.gameObject.tag == "Omerice")
                     FoodType = Foodselect1.OMERICE;
