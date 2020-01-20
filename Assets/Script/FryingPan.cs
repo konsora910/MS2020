@@ -116,19 +116,73 @@ public class FryingPan : MonoBehaviour
      ===================================================*/
     private void LetsCooking()
     {
-        if (cntTomato == 1 && cntRice == 1 && cntEgg == 1)
+        if (cntRice == 1)
         {
-            StartCoroutine("CookRiceOmelet");
+            if (cntTomato == 1)
+            {
+                if (cntEgg == 1)
+                {
+                    StartCoroutine("CookRiceOmelet");
+                }
+            }
+            else if (cntEgg == 1)
+            {
+                //Reset();
+                if (cntTomato == 1)
+                {
+                    StartCoroutine("CookRiceOmelet");
+                }
+                else
+                {
+                }
+            }
+            else
+            {
+                StartCoroutine("CookRiceBall");
+            }
         }
-        else if (cntRice == 1 && cntRice == 0 && cntEgg == 0)
+        else if (cntTomato == 1)
         {
-            StartCoroutine("CookRiceBall");
+            if (cntRice == 1)
+            {
+                if (cntEgg == 1)
+                {
+                    StartCoroutine("CookRiceOmelet");
+                }
+            }
+            else if (cntEgg == 1)
+            {
+                if (cntRice == 1)
+                {
+                    StartCoroutine("CookRiceOmelet");
+                }
+            }
         }
-        else
+        else if (cntEgg == 1)
         {
-            //Reset();
-            Debug.Log("クソ料理");
+            if (cntRice == 1)
+            {
+                if (cntTomato == 1)
+                {
+                    StartCoroutine("CookRiceOmelet");
+                }
+            }
+            else if (cntTomato == 1)
+            {
+                if (cntRice == 1)
+                {
+                    StartCoroutine("CookRiceOmelet");
+                }
+            }
         }
+        //if (cntTomato == 1 && cntRice == 1 && cntEgg == 1)
+        //{
+        //    StartCoroutine("CookRiceOmelet");
+        //}
+        //else if (cntRice == 1 && cntRice == 0 && cntEgg == 0)
+        //{
+        //    StartCoroutine("CookRiceBall");
+        //}
     }
     /*==================================================
      * 各食材の呼ばれる関数群（処理は基本的には同じ）
