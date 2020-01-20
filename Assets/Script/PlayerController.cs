@@ -354,9 +354,8 @@ public class PlayerController : MonoBehaviour
                 else if (FoodType == Foodselect1.RICEBALL)
                     food.GetComponent<RiceBallControl>().takeout = false;
                 else if (FoodType == Foodselect1.SOUP)
-                {
                     food.GetComponent<SoupControl>().takeout = false;
-                }
+                
                 bFood_Take = false;
                 food = null;
             }

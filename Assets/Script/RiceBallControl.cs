@@ -9,7 +9,8 @@ public class RiceBallControl : MonoBehaviour
     public GameObject Food;
     bool bDestroy = false;
     public bool IsHold = false;
-
+    bool b_teisyutu = false;
+    bool b_player = false;
     
     void Start()
     {
@@ -21,12 +22,22 @@ public class RiceBallControl : MonoBehaviour
     {
         DestroyFood(bDestroy);      //食べ物消す
         bDestroy = false;
+        if(b_player == false && b_teisyutu == true)
+        {
+            this.transform.position -= new Vector3(0.0f, 0.0f, 0.1f);
+        }
+        b_teisyutu = false;
+        b_player = false;
     }
     void OnTriggerStay(Collider Collider)
     {
 
         if (IsHold)
         {
+            if(Collider.tag == "conbair")
+            {
+                b_teisyutu = true;
+            }
 
             //作業台と接触していたら
             if (Collider.gameObject.tag == "Workbench")
@@ -38,6 +49,7 @@ public class RiceBallControl : MonoBehaviour
             if (Collider.gameObject.tag == "Player" || Collider.gameObject.tag == "Player2")
             {
                 takeout = true; // true = 何かしら持っている
+                b_player = true;
             }
         }
     }
