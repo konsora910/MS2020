@@ -291,6 +291,7 @@ public class Pot : MonoBehaviour
             
         }
         OpScript.PotReset();
+        _GaugeUIScript.deleteGaugePot();
         _FoodsNum = 0;
         ChangeMode(Mode.Stay);
     }

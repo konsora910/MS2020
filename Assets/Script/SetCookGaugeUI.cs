@@ -15,6 +15,7 @@ public class SetCookGaugeUI : MonoBehaviour
     /// フライパンの調理ゲージ調理ゲージのCanvasプレハブ
     /// </summary>
     public GameObject CanvasGaugeFlyingPan;
+    
 
     /// <summary>
     /// 鍋調理ゲージのCanvasプレハブ
@@ -25,6 +26,10 @@ public class SetCookGaugeUI : MonoBehaviour
     /// まな板調理ゲージのCanvasプレハブ
     /// </summary>
     public GameObject CanvasGaugeCut;
+
+    public GameObject prehubFryinpan;
+    public GameObject prehubPot;
+    public GameObject prehubCut;
 
 
     // Start is called before the first frame update
@@ -52,9 +57,9 @@ public class SetCookGaugeUI : MonoBehaviour
     /// </summary>
     public void SetGaugeUIFlyingPan(Vector3 position)
     {
-        GameObject prefab = (GameObject)Instantiate(CanvasGaugeFlyingPan, position + new Vector3(ConstGaugeUI.ConstUI.FLYINGPAN_POSITION[0], ConstGaugeUI.ConstUI.FLYINGPAN_POSITION[1], ConstGaugeUI.ConstUI.FLYINGPAN_POSITION[2]), Quaternion.identity);
-        prefab.transform.rotation = Quaternion.Euler(60.0f, 0.0f, 0.0f);
-        Destroy(prefab, ConstGaugeUI.ConstUI.FLYINGPAN_COOKING_TIME);
+        prehubFryinpan = (GameObject)Instantiate(CanvasGaugeFlyingPan, position + new Vector3(ConstGaugeUI.ConstUI.FLYINGPAN_POSITION[0], ConstGaugeUI.ConstUI.FLYINGPAN_POSITION[1], ConstGaugeUI.ConstUI.FLYINGPAN_POSITION[2]), Quaternion.identity);
+        prehubFryinpan.transform.rotation = Quaternion.Euler(60.0f, 0.0f, 0.0f);
+        Destroy(prehubFryinpan, ConstGaugeUI.ConstUI.FLYINGPAN_COOKING_TIME);
     }
 
     /// <summary>
@@ -63,9 +68,9 @@ public class SetCookGaugeUI : MonoBehaviour
     /// <param name="position">表示場所</param>
     public void SetGaugeUIPot(Vector3 position)
     {
-        GameObject prefab = (GameObject)Instantiate(CanvasGaugePot, position+new Vector3(ConstGaugeUI.ConstUI.POT_POSITION[0], ConstGaugeUI.ConstUI.POT_POSITION[1], ConstGaugeUI.ConstUI.POT_POSITION[2]), Quaternion.identity);
-        prefab.transform.rotation = Quaternion.Euler(60.0f, 0.0f, 0.0f);
-        Destroy(prefab, ConstGaugeUI.ConstUI.POT_COOKING_TIME);
+        prehubPot = (GameObject)Instantiate(CanvasGaugePot, position+new Vector3(ConstGaugeUI.ConstUI.POT_POSITION[0], ConstGaugeUI.ConstUI.POT_POSITION[1], ConstGaugeUI.ConstUI.POT_POSITION[2]), Quaternion.identity);
+        prehubPot.transform.rotation = Quaternion.Euler(60.0f, 0.0f, 0.0f);
+        Destroy(prehubPot, ConstGaugeUI.ConstUI.POT_COOKING_TIME);
     }
 
     /// <summary>
@@ -74,9 +79,22 @@ public class SetCookGaugeUI : MonoBehaviour
     /// <param name="position">表示場所</param>
     public void SetGaugeUICuttingboard(Vector3 position)
     {
-        GameObject prefab = (GameObject)Instantiate(CanvasGaugeCut, position + new Vector3(ConstGaugeUI.ConstUI.CUTTINGBOARD_POSITION[0], ConstGaugeUI.ConstUI.CUTTINGBOARD_POSITION[1], ConstGaugeUI.ConstUI.CUTTINGBOARD_POSITION[2]), Quaternion.identity);
-        prefab.transform.rotation = Quaternion.Euler(60.0f, 0.0f, 0.0f);
-        Destroy(prefab, ConstGaugeUI.ConstUI.CUTTINGBOARD_COOKING_TIME);
+        prehubCut = (GameObject)Instantiate(CanvasGaugeCut, position + new Vector3(ConstGaugeUI.ConstUI.CUTTINGBOARD_POSITION[0], ConstGaugeUI.ConstUI.CUTTINGBOARD_POSITION[1], ConstGaugeUI.ConstUI.CUTTINGBOARD_POSITION[2]), Quaternion.identity);
+        prehubCut.transform.rotation = Quaternion.Euler(60.0f, 0.0f, 0.0f);
+        Destroy(prehubCut, ConstGaugeUI.ConstUI.CUTTINGBOARD_COOKING_TIME);
+    }
+
+    public void deleteGaugeFryinpan()
+    {
+        Destroy(prehubFryinpan) ;
+    }
+    public void deleteGaugePot()
+    {
+        Destroy(prehubPot);
+    }
+    public void deleteGaugeCut()
+    {
+        Destroy(prehubCut);
     }
 
 }
