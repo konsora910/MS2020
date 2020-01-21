@@ -350,12 +350,20 @@ public class PlayerController : MonoBehaviour
                 else if (FoodType == Foodselect1.RICE)
                     food.GetComponent<RiceControl>().takeout = false;
                 else if (FoodType == Foodselect1.OMERICE)
+                {
+                    _TouchOmericeScript.IsHold = false;
                     food.GetComponent<OmericeControl>().takeout = false;
+                }
                 else if (FoodType == Foodselect1.RICEBALL)
+                {
+                    _TouchRiceballScript.IsHold = false;
                     food.GetComponent<RiceBallControl>().takeout = false;
+                }
                 else if (FoodType == Foodselect1.SOUP)
+                {
+                    _TouchSoupScript.IsHold = false;
                     food.GetComponent<SoupControl>().takeout = false;
-                
+                }
                 bFood_Take = false;
                 food = null;
             }
@@ -529,11 +537,20 @@ public class PlayerController : MonoBehaviour
                 else if (FoodType == Foodselect1.RICE)
                     food.GetComponent<RiceControl>().takeout = false;
                 else if (FoodType == Foodselect1.OMERICE)
+                {
+                    _TouchOmericeScript.IsHold = false;
                     food.GetComponent<OmericeControl>().takeout = false;
+                }
                 else if (FoodType == Foodselect1.RICEBALL)
+                {
+                    _TouchRiceballScript.IsHold = false;
                     food.GetComponent<RiceBallControl>().takeout = false;
+                }
                 else if (FoodType == Foodselect1.SOUP)
+                {
+                    _TouchSoupScript.IsHold = false;
                     food.GetComponent<SoupControl>().takeout = false;
+                }
                 bFood_Take = false;
                 food = null;
             }

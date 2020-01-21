@@ -62,16 +62,31 @@ public class OperatorController : MonoBehaviour
     {
         if(AIEXP >= 10)
         {
-            AIEXP = 0;
-            AILevel++;
+            if(AILevel >= 4)
+            {
+
+            }
+            else
+            {
+                AIEXP = 0;
+                AILevel++;
+            }
+            
         }
        if(AIEXP < 0)
         {
             if(AILevel > 0)
-            AIEXP = 5;
-            AILevel--;
-        }
+            {
+                AIEXP = 5;
+                AILevel--;
+            }
+            else
+            {
 
+            }
+            
+        }
+     
         switch (AILevel)
         {
             case 0:
@@ -225,7 +240,20 @@ public class OperatorController : MonoBehaviour
 
 
     }
-
+    void expmai()
+    {
+        if(AILevel > 0)
+        {
+            AIEXP--;
+        }
+        else
+        {
+            if(AIEXP > 0)
+            {
+                AIEXP--;
+            }
+        }
+    }
     IEnumerator Neutral()
     {
         while (true)
@@ -472,7 +500,8 @@ public class OperatorController : MonoBehaviour
             {
                 if (order == AiThink)
                 {
-                    AIEXP--;
+                    expmai();
+                    
                 }
                 else
                 {
@@ -674,7 +703,7 @@ public class OperatorController : MonoBehaviour
                     Cook1 = true;
                     foodKind = Foodselect1.FOODNULL;
                     cookKind = OperatorController.CookNull;
-                    AIEXP--;
+                    expmai();
                     return false;
                 }
 
@@ -687,7 +716,7 @@ public class OperatorController : MonoBehaviour
                     Cook1 = true;
                     foodKind = Foodselect1.FOODNULL;
                     cookKind = OperatorController.CookNull;
-                    AIEXP--;
+                    expmai();
                 return false;
             }
 
@@ -698,8 +727,8 @@ public class OperatorController : MonoBehaviour
                 Cook1 = true;
                 foodKind = Foodselect1.FOODNULL;
                 cookKind = OperatorController.CookNull;
-                AIEXP--;
-                return false;
+                expmai();
+            return false;
            }
         return false;
     }
@@ -748,7 +777,7 @@ public class OperatorController : MonoBehaviour
                     Cook1 = true;
                     foodKind = Foodselect1.FOODNULL;
                     cookKind = OperatorController.CookNull;
-                    AIEXP--;
+                    expmai();
                 }
 
                   }
@@ -758,7 +787,7 @@ public class OperatorController : MonoBehaviour
                     Cook1 = true;
                     foodKind = Foodselect1.FOODNULL;
                     cookKind = OperatorController.CookNull;
-                AIEXP--;
+                    expmai();
             }
     
             }
@@ -768,7 +797,7 @@ public class OperatorController : MonoBehaviour
                 Cook1 = true;
                 foodKind = Foodselect1.FOODNULL;
                 cookKind = OperatorController.CookNull;
-            AIEXP--;
+                expmai();
         }
         return false;
     
@@ -817,7 +846,7 @@ public class OperatorController : MonoBehaviour
                     Cook1 = true;
                     foodKind = Foodselect1.FOODNULL;
                     cookKind = OperatorController.CookNull;
-                    AIEXP--;
+                    expmai();
                 }
             }
             else if (cookKind != OperatorController.CookNull)
@@ -826,7 +855,7 @@ public class OperatorController : MonoBehaviour
                 Cook1 = true;
                 foodKind = Foodselect1.FOODNULL;
                 cookKind = OperatorController.CookNull;
-                AIEXP--;
+                expmai();
             }
 
         }
@@ -836,7 +865,7 @@ public class OperatorController : MonoBehaviour
             Cook1 = true;
             foodKind = Foodselect1.FOODNULL;
             cookKind = OperatorController.CookNull;
-            AIEXP--;
+            expmai();
         }
 
 
@@ -875,7 +904,7 @@ public class OperatorController : MonoBehaviour
                     Cook1 = true;
                     foodKind = Foodselect1.FOODNULL;
                     cookKind = OperatorController.CookNull;
-                    AIEXP--;
+                    expmai();
                 }
             }
             else if (cookKind != OperatorController.CookNull)
@@ -884,7 +913,7 @@ public class OperatorController : MonoBehaviour
                 Cook1 = true;
                 foodKind = Foodselect1.FOODNULL;
                 cookKind = OperatorController.CookNull;
-                AIEXP--;
+                expmai();
             }
 
         }
@@ -894,7 +923,7 @@ public class OperatorController : MonoBehaviour
             Cook1 = true;
             foodKind = Foodselect1.FOODNULL;
             cookKind = OperatorController.CookNull;
-            AIEXP--;
+            expmai();
         }
 
     }
@@ -930,8 +959,8 @@ public class OperatorController : MonoBehaviour
                       Cook1 = true;
                       foodKind = Foodselect1.FOODNULL;
                       cookKind = OperatorController.CookNull;
-                    AIEXP--;
-                    }
+                      expmai();
+                }
                 }
                 else if (cookKind != OperatorController.CookNull)
                 {
@@ -939,7 +968,7 @@ public class OperatorController : MonoBehaviour
                     Cook1 = true;
                     foodKind = Foodselect1.FOODNULL;
                     cookKind = OperatorController.CookNull;
-                AIEXP--;
+                    expmai();
             }
 
             }
@@ -949,7 +978,7 @@ public class OperatorController : MonoBehaviour
                 Cook1 = true;
                 foodKind = Foodselect1.FOODNULL;
                 cookKind = OperatorController.CookNull;
-            AIEXP--;
+                expmai();
         }
 
 
@@ -985,8 +1014,8 @@ public class OperatorController : MonoBehaviour
                     Cook1 = true;
                     foodKind = Foodselect1.FOODNULL;
                     cookKind = OperatorController.CookNull;
-                    AIEXP--;
-                    }
+                    expmai();
+                }
                 }
                 else if (cookKind != OperatorController.CookNull)
                 {
@@ -994,7 +1023,7 @@ public class OperatorController : MonoBehaviour
                     Cook1 = true;
                     foodKind = Foodselect1.FOODNULL;
                     cookKind = OperatorController.CookNull;
-                AIEXP--;
+                    expmai();
             }
 
             }
@@ -1004,7 +1033,7 @@ public class OperatorController : MonoBehaviour
                 Cook1 = true;
                 foodKind = Foodselect1.FOODNULL;
                 cookKind = OperatorController.CookNull;
-            AIEXP--;
+                expmai();
         }
 
     }
@@ -1039,7 +1068,7 @@ public class OperatorController : MonoBehaviour
                     Cook1 = true;
                     foodKind = Foodselect1.FOODNULL;
                     cookKind = OperatorController.CookNull;
-                    AIEXP--;
+                    expmai();
                 }
                 }
                 else if (cookKind != OperatorController.CookNull)
@@ -1048,7 +1077,7 @@ public class OperatorController : MonoBehaviour
                     Cook1 = true;
                     foodKind = Foodselect1.FOODNULL;
                     cookKind = OperatorController.CookNull;
-                AIEXP--;
+                    expmai();
             }
 
             }
@@ -1058,7 +1087,7 @@ public class OperatorController : MonoBehaviour
                 Cook1 = true;
                 foodKind = Foodselect1.FOODNULL;
                 cookKind = OperatorController.CookNull;
-            AIEXP--;
+                expmai();
         }
 
 
@@ -1105,7 +1134,7 @@ public class OperatorController : MonoBehaviour
                     Cook1 = true;
                     foodKind = Foodselect1.FOODNULL;
                     cookKind = OperatorController.CookNull;
-                    AIEXP--;
+                    expmai();
                 }
             }
             else if (cookKind != OperatorController.CookNull)
@@ -1114,7 +1143,7 @@ public class OperatorController : MonoBehaviour
                 Cook1 = true;
                 foodKind = Foodselect1.FOODNULL;
                 cookKind = OperatorController.CookNull;
-                AIEXP--;
+                expmai();
             }
 
         }
@@ -1124,7 +1153,7 @@ public class OperatorController : MonoBehaviour
             Cook1 = true;
             foodKind = Foodselect1.FOODNULL;
             cookKind = OperatorController.CookNull;
-            AIEXP--;
+            expmai();
         }
         return false;
     }
@@ -1174,7 +1203,7 @@ public class OperatorController : MonoBehaviour
                     Cook1 = true;
                     foodKind = Foodselect1.FOODNULL;
                     cookKind = OperatorController.CookNull;
-                    AIEXP--;
+                    expmai();
                 }
                 }
                 else if (cookKind != OperatorController.CookNull)
@@ -1183,7 +1212,7 @@ public class OperatorController : MonoBehaviour
                     Cook1 = true;
                     foodKind = Foodselect1.FOODNULL;
                     cookKind = OperatorController.CookNull;
-                AIEXP--;
+                    expmai();
             }
 
             }
@@ -1193,7 +1222,7 @@ public class OperatorController : MonoBehaviour
                 Cook1 = true;
                 foodKind = Foodselect1.FOODNULL;
                 cookKind = OperatorController.CookNull;
-            AIEXP--;
+                expmai();
         }
         return false;
     }
