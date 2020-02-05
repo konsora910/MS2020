@@ -3459,6 +3459,11 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 4685167847474060969, guid: 907ffafe9dc3da6418086f2d88c8192a,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4685167848686909074, guid: 907ffafe9dc3da6418086f2d88c8192a,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -3569,11 +3574,6 @@ PrefabInstance:
       propertyPath: trueSE_clip
       value: 
       objectReference: {fileID: 8300000, guid: 6856944a7e4d3de4292c254ae217ab38, type: 3}
-    - target: {fileID: 4685167847474060969, guid: 907ffafe9dc3da6418086f2d88c8192a,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 4685167847474060968, guid: 907ffafe9dc3da6418086f2d88c8192a,
         type: 3}
       propertyPath: m_LocalScale.x
@@ -7454,11 +7454,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: chara_allnew
       objectReference: {fileID: 0}
-    - target: {fileID: 5010936852596780206, guid: ff8b4650d27430949ae5deebba1b7e88,
-        type: 3}
-      propertyPath: OpScript
-      value: 
-      objectReference: {fileID: 579059258}
     - target: {fileID: 8345510255314542265, guid: ff8b4650d27430949ae5deebba1b7e88,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -7529,6 +7524,11 @@ PrefabInstance:
       propertyPath: m_LocalScale.z
       value: 20
       objectReference: {fileID: 0}
+    - target: {fileID: 5010936852596780206, guid: ff8b4650d27430949ae5deebba1b7e88,
+        type: 3}
+      propertyPath: OpScript
+      value: 
+      objectReference: {fileID: 579059258}
     - target: {fileID: 5010936852596780201, guid: ff8b4650d27430949ae5deebba1b7e88,
         type: 3}
       propertyPath: m_Constraints
@@ -11673,7 +11673,7 @@ PrefabInstance:
         type: 3}
       propertyPath: score2
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 1066402884}
     - target: {fileID: 2309414049407448383, guid: dbd6d32a6f240c34690daf9ed3244e18,
         type: 3}
       propertyPath: ScoreIn

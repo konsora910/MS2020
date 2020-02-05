@@ -59,16 +59,17 @@ public class Title : MonoBehaviour
             {
                 StartObject[1].SetActive(false);
                 StartObject[0].SetActive(true);
+
             }
-            //人数選択画面に遷移
-            if (Input.GetKeyDown(KeyCode.Space)|| Input.GetButtonDown("Button_b"))
+            if (b_fade == false)
             {
-                b_start = true;
-                n_count = 0;
-                StartObject[0].SetActive(false);
-                StartObject[1].SetActive(false);
-                SinglePlay.SetActive(true);
-                DoublePlay.SetActive(true);
+                //人数選択画面に遷移
+                if (Input.GetKeyDown(KeyCode.Space) || Input.GetButtonDown("Button_b"))
+                {
+                    b_fade = true;
+                    GameObject obj = GameObject.FindGameObjectWithTag("scene");
+                    obj.gameObject.GetComponent<SceneControl>().FadeOut("DoublePlayScene");
+                }
             }
         }
 
